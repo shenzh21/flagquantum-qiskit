@@ -1,0 +1,35 @@
+{
+  "script_sha256": "90530dd69fba5ecc5e838c7b0d18859bcc76bb32a3b69787ebf28cb221f259cc",
+  "versions": {
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "flagquantum": "0.3.1",
+    "torch": "2.14.1+cpu"
+  },
+  "cases": {
+    "qft_single": {
+      "code": "from run_pilot import *;c=circuit_for('qft',4,7,4);print('circuit_ready',flush=True);ir=import_qiskit(c,allow_lossy=False).ir;s=fq.Circuit.from_ir(ir,device='cpu',dtype=torch.complex64).state(refresh=True);print('fq_state_ready',tuple(s.shape),flush=True);c.save_statevector();a=AerSimulator(method='statevector',precision='single',fusion_enable=True,max_parallel_threads=1,enable_truncation=False);print('before_aer_run_result',flush=True);r=a.run(c).result();print('aer_success',r.success,flush=True)",
+      "returncode": 3221226356,
+      "stdout": "circuit_ready\nfq_state_ready (1, 16)\nbefore_aer_run_result\n",
+      "stderr": ""
+    },
+    "qft_single_no_fusion": {
+      "code": "from run_pilot import *;c=circuit_for('qft',4,7,4);print('circuit_ready',flush=True);ir=import_qiskit(c,allow_lossy=False).ir;s=fq.Circuit.from_ir(ir,device='cpu',dtype=torch.complex64).state(refresh=True);print('fq_state_ready',tuple(s.shape),flush=True);c.save_statevector();a=AerSimulator(method='statevector',precision='single',fusion_enable=False,max_parallel_threads=1,enable_truncation=False);print('before_aer_run_result',flush=True);r=a.run(c).result();print('aer_success',r.success,flush=True)",
+      "returncode": 3221226356,
+      "stdout": "circuit_ready\nfq_state_ready (1, 16)\nbefore_aer_run_result\n",
+      "stderr": ""
+    },
+    "qft_double": {
+      "code": "from run_pilot import *;c=circuit_for('qft',4,7,4);print('circuit_ready',flush=True);ir=import_qiskit(c,allow_lossy=False).ir;s=fq.Circuit.from_ir(ir,device='cpu',dtype=torch.complex128).state(refresh=True);print('fq_state_ready',tuple(s.shape),flush=True);c.save_statevector();a=AerSimulator(method='statevector',precision='double',fusion_enable=True,max_parallel_threads=1,enable_truncation=False);print('before_aer_run_result',flush=True);r=a.run(c).result();print('aer_success',r.success,flush=True)",
+      "returncode": 0,
+      "stdout": "circuit_ready\nfq_state_ready (1, 16)\nbefore_aer_run_result\naer_success True\n",
+      "stderr": ""
+    },
+    "qft_single_decomposed": {
+      "code": "from run_pilot import *;c=circuit_for('qft',4,7,4);print('circuit_ready',flush=True);c=transpile(c,basis_gates=['h','x','rx','ry','rz','p','cx'],optimization_level=0);ir=import_qiskit(c,allow_lossy=False).ir;s=fq.Circuit.from_ir(ir,device='cpu',dtype=torch.complex64).state(refresh=True);print('fq_state_ready',tuple(s.shape),flush=True);c.save_statevector();a=AerSimulator(method='statevector',precision='single',fusion_enable=True,max_parallel_threads=1,enable_truncation=False);print('before_aer_run_result',flush=True);r=a.run(c).result();print('aer_success',r.success,flush=True)",
+      "returncode": 3221226356,
+      "stdout": "circuit_ready\nfq_state_ready (1, 16)\nbefore_aer_run_result\n",
+      "stderr": ""
+    }
+  }
+}

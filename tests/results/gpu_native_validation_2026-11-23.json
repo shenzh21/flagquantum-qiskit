@@ -1,0 +1,395 @@
+{
+  "started_utc": "2026-11-23T06:19:17.247417+00:00",
+  "command": [
+    "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+    "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\native_probe.py"
+  ],
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "numpy": "2.4.6"
+  },
+  "torch_cuda_runtime": "12.8",
+  "python_executable": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+  "import_paths": {
+    "torch": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Lib\\site-packages\\torch\\__init__.py",
+    "flagquantum": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Lib\\site-packages\\flagquantum\\__init__.py"
+  },
+  "device": {
+    "name": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "total_memory_bytes": 8546484224,
+    "torch_arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ],
+    "nvidia_smi": "NVIDIA GeForce RTX 5070 Laptop GPU, 573.24, 8151 MiB, 7616 MiB"
+  },
+  "official_sources": [
+    "https://pytorch.org/get-started/previous-versions/",
+    "https://docs.nvidia.com/cuda/archive/12.8.1/pdf/CUDA_Toolkit_Release_Notes.pdf"
+  ],
+  "environment_notes": [
+    "Separate venv under .cache/gpu-research; original CPU venv unchanged.",
+    "torch 2.11.0+cu128 selected from official Windows cp311 index; 2.14.1 cu128 was unavailable.",
+    "Driver 573.24 exceeds CUDA12.8 Update1 Windows corresponding driver 572.61; no driver or Toolkit installation.",
+    "Base FlagQuantum 0.3.1 uses PyTorch CUDA operations here; optional Triton acceleration is not installed.",
+    "Timings are small correctness probes, not throughput claims; CPU and GPU samples need not match for the same seed."
+  ],
+  "tolerances_fixed_before_run": {
+    "complex128_amplitude": 2e-11,
+    "complex64_amplitude": 2e-05,
+    "bell_sampling_fraction_absolute": 0.05
+  },
+  "cases": [
+    {
+      "qubits": 3,
+      "instructions": 96,
+      "dtype": "torch.complex128",
+      "gpu_device": "cuda:0",
+      "state_shape": [
+        1,
+        8
+      ],
+      "cpu_seconds": 0.00783620000584051,
+      "gpu_first_seconds": 0.08902390001458116,
+      "gpu_refresh_seconds": 0.008194499998353422,
+      "allocated_before_bytes": 8717312,
+      "peak_allocated_bytes": 8783360,
+      "peak_reserved_bytes": 23068672,
+      "gpu_vs_qiskit": {
+        "max_raw_amplitude_error": 5.928593550334434e-16,
+        "max_phase_aligned_error": 5.405215745588178e-16,
+        "max_probability_error": 3.608224830031759e-16,
+        "norm_squared": 0.9999999999999991
+      },
+      "gpu_vs_fq_cpu": {
+        "max_raw_amplitude_error": 4.17488514772616e-16,
+        "max_phase_aligned_error": 4.17488514772616e-16,
+        "max_probability_error": 2.7755575615628914e-16,
+        "norm_squared": 0.9999999999999991
+      },
+      "passed": true
+    },
+    {
+      "qubits": 3,
+      "instructions": 96,
+      "dtype": "torch.complex64",
+      "gpu_device": "cuda:0",
+      "passed": false,
+      "exception_type": "ModuleNotFoundError",
+      "exception": "No module named 'triton'"
+    },
+    {
+      "qubits": 8,
+      "instructions": 256,
+      "dtype": "torch.complex128",
+      "gpu_device": "cuda:0",
+      "state_shape": [
+        1,
+        256
+      ],
+      "cpu_seconds": 0.012052200007019565,
+      "gpu_first_seconds": 0.11121750000165775,
+      "gpu_refresh_seconds": 0.016282099997624755,
+      "allocated_before_bytes": 8717312,
+      "peak_allocated_bytes": 8897536,
+      "peak_reserved_bytes": 23068672,
+      "gpu_vs_qiskit": {
+        "max_raw_amplitude_error": 1.8309346819176897e-16,
+        "max_phase_aligned_error": 1.927027159648156e-16,
+        "max_probability_error": 2.6020852139652106e-17,
+        "norm_squared": 1.0000000000000002
+      },
+      "gpu_vs_fq_cpu": {
+        "max_raw_amplitude_error": 1.5797417227985475e-16,
+        "max_phase_aligned_error": 1.5778848325935013e-16,
+        "max_probability_error": 2.7755575615628914e-17,
+        "norm_squared": 1.0000000000000002
+      },
+      "passed": true
+    },
+    {
+      "qubits": 8,
+      "instructions": 256,
+      "dtype": "torch.complex64",
+      "gpu_device": "cuda:0",
+      "passed": false,
+      "exception_type": "ModuleNotFoundError",
+      "exception": "No module named 'triton'"
+    },
+    {
+      "qubits": 12,
+      "instructions": 384,
+      "dtype": "torch.complex128",
+      "gpu_device": "cuda:0",
+      "state_shape": [
+        1,
+        4096
+      ],
+      "cpu_seconds": 0.017140199983259663,
+      "gpu_first_seconds": 0.14738199999555945,
+      "gpu_refresh_seconds": 0.038427799998316914,
+      "allocated_before_bytes": 8718336,
+      "peak_allocated_bytes": 9271296,
+      "peak_reserved_bytes": 23068672,
+      "gpu_vs_qiskit": {
+        "max_raw_amplitude_error": 7.996680103938912e-17,
+        "max_phase_aligned_error": 7.966636115048618e-17,
+        "max_probability_error": 5.204170427930421e-18,
+        "norm_squared": 0.9999999999999992
+      },
+      "gpu_vs_fq_cpu": {
+        "max_raw_amplitude_error": 7.161383101968181e-17,
+        "max_phase_aligned_error": 6.99127996168594e-17,
+        "max_probability_error": 3.903127820947816e-18,
+        "norm_squared": 0.9999999999999992
+      },
+      "passed": true
+    },
+    {
+      "qubits": 12,
+      "instructions": 384,
+      "dtype": "torch.complex64",
+      "gpu_device": "cuda:0",
+      "passed": false,
+      "exception_type": "ModuleNotFoundError",
+      "exception": "No module named 'triton'"
+    }
+  ],
+  "optional_kernel_flags": {
+    "FQ_TRITON_PARAMETERIZED_SINGLE_QUBIT_MATRIX": "0",
+    "FQ_TRITON_RY_RZ_PAIR": "0",
+    "FQ_TRITON_SINGLE_QUBIT_LOOP": "0",
+    "FQ_TRITON_SINGLE_QUBIT_MATRIX": "0"
+  },
+  "initial_default_configuration_failure_log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\native-probe.log",
+  "torch_kernel_probe": {
+    "device": "cuda:0",
+    "seconds": 0.08832619999884628,
+    "max_absolute_error": 4.2945146560668945e-05,
+    "passed": true
+  },
+  "bell": {
+    "sample_device": "cuda:0",
+    "shape": [
+      1,
+      2048,
+      2
+    ],
+    "counts": {
+      "11": 1041,
+      "00": 1007
+    },
+    "seed": 7,
+    "shots": 2048,
+    "seconds": 0.5662562999932561,
+    "local_seed_replay_equal": true,
+    "global_cuda_rng_unchanged": true,
+    "passed": true
+  },
+  "finished_utc": "2026-11-23T06:19:18.779092+00:00",
+  "torch_download": {
+    "official_index": "https://download.pytorch.org/whl/cu128/torch/",
+    "official_wheel_link": "https://download-r2.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-win_amd64.whl#sha256=90ef0c2454e5296a9fb021ddd42252e4ce1abe2c0a4988a173ef90a6cded0bf5",
+    "download_url": "https://download.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp311-cp311-win_amd64.whl",
+    "bytes": 2753148611,
+    "sha256": "90ef0c2454e5296a9fb021ddd42252e4ce1abe2c0a4988a173ef90a6cded0bf5",
+    "seconds": 393.64100000000326,
+    "parallel_ranges": 16,
+    "verified": true
+  },
+  "shared_dependency_copy": {
+    "source": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Lib\\site-packages",
+    "target": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Lib\\site-packages",
+    "method": "shutil.copy2; no hardlinks",
+    "packages": [
+      {
+        "distribution": "build",
+        "version": "1.6.1",
+        "files_copied": 21
+      },
+      {
+        "distribution": "colorama",
+        "version": "0.4.6",
+        "files_copied": 18
+      },
+      {
+        "distribution": "dill",
+        "version": "0.4.1",
+        "files_copied": 52
+      },
+      {
+        "distribution": "filelock",
+        "version": "4.2.12",
+        "files_copied": 30
+      },
+      {
+        "distribution": "flagquantum",
+        "version": "0.3.1",
+        "files_copied": 723
+      },
+      {
+        "distribution": "fsspec",
+        "version": "2026.9.0",
+        "files_copied": 63
+      },
+      {
+        "distribution": "iniconfig",
+        "version": "2.3.1",
+        "files_copied": 11
+      },
+      {
+        "distribution": "jinja2",
+        "version": "3.1.6",
+        "files_copied": 32
+      },
+      {
+        "distribution": "markupsafe",
+        "version": "3.0.4",
+        "files_copied": 12
+      },
+      {
+        "distribution": "mpmath",
+        "version": "1.3.0",
+        "files_copied": 93
+      },
+      {
+        "distribution": "networkx",
+        "version": "3.6.1",
+        "files_copied": 602
+      },
+      {
+        "distribution": "numpy",
+        "version": "2.4.6",
+        "files_copied": 1062
+      },
+      {
+        "distribution": "packaging",
+        "version": "26.3",
+        "files_copied": 30
+      },
+      {
+        "distribution": "pluggy",
+        "version": "1.7.0",
+        "files_copied": 20
+      },
+      {
+        "distribution": "psutil",
+        "version": "7.2.2",
+        "files_copied": 17
+      },
+      {
+        "distribution": "pygments",
+        "version": "2.21.0",
+        "files_copied": 350
+      },
+      {
+        "distribution": "pyproject-hooks",
+        "version": "1.3.3",
+        "files_copied": 10
+      },
+      {
+        "distribution": "pytest",
+        "version": "9.2.0",
+        "files_copied": 92
+      },
+      {
+        "distribution": "python-dateutil",
+        "version": "4.0.0",
+        "files_copied": 27
+      },
+      {
+        "distribution": "qiskit",
+        "version": "2.6.2",
+        "files_copied": 729
+      },
+      {
+        "distribution": "qiskit-aer",
+        "version": "0.18.4",
+        "files_copied": 88
+      },
+      {
+        "distribution": "rustworkx",
+        "version": "0.18.1",
+        "files_copied": 20
+      },
+      {
+        "distribution": "scipy",
+        "version": "1.17.1",
+        "files_copied": 1533
+      },
+      {
+        "distribution": "stevedore",
+        "version": "5.10.0",
+        "files_copied": 48
+      },
+      {
+        "distribution": "sympy",
+        "version": "1.14.0",
+        "files_copied": 1570
+      },
+      {
+        "distribution": "typing-extensions",
+        "version": "4.16.0",
+        "files_copied": 6
+      },
+      {
+        "distribution": "tzdata",
+        "version": "2026.6",
+        "files_copied": 634
+      }
+    ]
+  },
+  "all_passed": false,
+  "complex128_cases_all_passed": true,
+  "upstream_source_unchanged": {
+    "verified": true,
+    "python_files_compared": 701,
+    "comparison": "Independent GPU environment FQ Python files equal original installed FQ 0.3.1 files"
+  },
+  "known_limitations": [
+    "Public FQ Circuit.state complex64 CUDA random circuits fail without Triton on this Windows environment.",
+    "Disabling official optional single-qubit Triton flags does not remove the hard-coded complex64 CUDA CX-sequence Triton branch in FQ local.py:514.",
+    "Successful scope is Torch CUDA kernels, FQ double Bell sampling, and 3/8/12-qubit double RX/RY/RZ/CX states; not unrestricted GPU functionality or a throughput benchmark."
+  ],
+  "initial_default_failure": {
+    "command": [
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\native_probe.py"
+    ],
+    "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\native-probe.log",
+    "sha256": "d9bc48dca594d6bf701b978c977d7c48a2663124c52c5a108b7fffd3c0f33f9b",
+    "exception": "ModuleNotFoundError: No module named 'triton'",
+    "path": "local._apply_fused_gate_step -> single_qubit_matrix_dispatch -> kernels.triton.statevector_gates"
+  },
+  "setup": {
+    "venv_creation_command": [
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+      "-m",
+      "venv",
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv"
+    ],
+    "torch_install_command": [
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-deps",
+      "--no-cache-dir",
+      "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\torch-2.11.0+cu128-cp311-cp311-win_amd64.whl"
+    ],
+    "setuptools": "81.0.0",
+    "setuptools_note": "Torch2.11 requires setuptools<82; selected81.0.0 also meets project>=77; official PyPI wheel SHA verified.",
+    "pip_check": "No broken requirements found.",
+    "original_cpu_torch_version": "2.14.1+cpu"
+  }
+}

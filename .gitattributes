@@ -6,7 +6,7 @@
 # Preserve evidence and input bytes exactly: existing reports contain SHA256.
 tests/fixtures/** -text
 tests/drafts/** -text
-tests/results/** -text
+tests/results/** -text -whitespace
 site/report-assets/bell_trace.json -text
 site/report-assets/trace-data.js -text
 site/report-assets/trace_bell.py -text

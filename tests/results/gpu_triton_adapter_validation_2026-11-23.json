@@ -1,0 +1,287 @@
+{
+  "schema": "flagquantum_qiskit_gpu_acceptance_v1",
+  "started_utc": "2026-11-23T06:36:09.336662+00:00",
+  "scope": "Uncommitted local source candidate; CPU full suite and CUDA-environment full suite (default CPU cases plus explicit GPU cases), then installed-wheel CUDA smoke.",
+  "commands": [
+    {
+      "name": "wheel_build",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--wheel",
+        "--no-isolation",
+        "--outdir",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source\\src",
+      "returncode": 0,
+      "log_sha256": "64c83fc0f91c5f7c20ce301b63d7018771ae0bff4764f067c3821405d466d94e"
+    },
+    {
+      "name": "wheel_install",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-compile",
+        "--target",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel\\flagquantum_qiskit-0.2.0-py3-none-any.whl"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source\\src",
+      "returncode": 0,
+      "log_sha256": "8e642543ba2c5406c6a31f5ae233ad6ee509716aa48395cda7f7e874b720436c"
+    },
+    {
+      "name": "cuda_import",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "-c",
+        "import json,torch,triton,flagquantum_qiskit,importlib.metadata as m; print(json.dumps({'torch':torch.__version__,'triton':triton.__version__,'triton_windows':m.version('triton-windows'),'cuda':torch.version.cuda,'cuda_available':torch.cuda.is_available(),'flagquantum':m.version('flagquantum'),'qiskit':m.version('qiskit'),'aer':m.version('qiskit-aer'),'module':flagquantum_qiskit.__file__}))"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source\\src;D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target",
+      "returncode": 0,
+      "log_sha256": "6476e28d825033c7d0c95652634944b0e7e042c7f310b204253fa69a46e9eb25"
+    },
+    {
+      "name": "cuda_pytest",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--import-mode=importlib",
+        "-q",
+        "--junitxml=D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\cuda_pytest.xml"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source\\src;D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target",
+      "returncode": 0,
+      "log_sha256": "8f0834a54b41490b038d0aafed80afef8fd5fe22e252a2c24a2be23e27bb82f6"
+    },
+    {
+      "name": "wheel_dependency_check",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target",
+      "returncode": 0,
+      "log_sha256": "f2cab2d1ce6103adc33fbbb9449235314f6b320fd9318174895e5958ac2aab18"
+    },
+    {
+      "name": "wheel_cuda_smoke",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "-c",
+        "import json,pathlib,torch,flagquantum_qiskit\nfrom flagquantum_qiskit import FlagQuantumBackend\nfrom qiskit import QuantumCircuit,transpile\nbackend=FlagQuantumBackend(device='cuda:0',precision='single')\nqc=QuantumCircuit(2);qc.h(0);qc.cx(0,1);qc.measure_all()\nr=backend.run(transpile(qc,backend),shots=256,seed_simulator=7,memory=True).result()\nassert set(r.get_counts())=={'00','11'} and sum(r.get_counts().values())==256\nassert len(r.get_memory())==256\ndynamic=QuantumCircuit(2,2);dynamic.x(0);dynamic.measure(0,0)\nwith dynamic.if_test((dynamic.clbits[0],1)):dynamic.x(1)\ndynamic.reset(0);dynamic.measure([0,1],[0,1])\nd=backend.run(dynamic,shots=17,seed_simulator=9).result()\nassert d.get_counts()=={'10':17}\nmeta=r.results[0].metadata['flagquantum_qiskit'];assert meta['device']=='cuda:0'\nprint(json.dumps({'module':flagquantum_qiskit.__file__,'torch':torch.__version__,'bell':r.get_counts(),'dynamic':d.get_counts(),'device':meta['device']}))\n"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target",
+      "returncode": 0,
+      "log_sha256": "ccf26d724627a3a0101f45c790859f8577a9e08ec07547c084690d69b033524e"
+    }
+  ],
+  "all_passed": true,
+  "source_sha256": {
+    "pyproject.toml": "92890cea4d925d26398186d3686bd2f7b9db7a9fa497bbae6c1cc90f9585b798",
+    "src/flagquantum_qiskit/__init__.py": "5e0f8b343ec8c6dbeeb0b3e9541336fab6974fff6a9ef90794af9b9c327db334",
+    "src/flagquantum_qiskit/backend.py": "382d711c782a0ea4faf3b60858708590183602fc73f631742e3cdc067f1b0bae",
+    "src/flagquantum_qiskit/contracts.py": "97edea25687917e0f9fb2aa73155df34d65002e3ada3c9e8114f5946297ca280",
+    "src/flagquantum_qiskit/conversion.py": "8d7fedfbdf611c5508c1cebd2d1898425edc0550f2a4f98023bc1278358d5936",
+    "src/flagquantum_qiskit/engine.py": "6deea9522be64b788a226fed5d7e297423eac5608ed816809264384f1db8810c",
+    "src/flagquantum_qiskit/fq_ops.py": "f6df7c213dee49b899b1589569120cb59d07129218a30e5d6284abadd8af8f03",
+    "src/flagquantum_qiskit/job.py": "d9fbb5e1d34464af4381ca4b1230c8a0eaa5791e8433fbc5b26af18b960a9e51",
+    "src/flagquantum_qiskit/noise.py": "8571093c936d10d5cc83c56a5d655a7057f7d8b0ca0e100160fb9f43a85fb206",
+    "src/flagquantum_qiskit/program.py": "fd8b5cc34a00143c4920d54b263d98abf6624ffb664eb744de94e5011d6c769e",
+    "src/flagquantum_qiskit/results.py": "bb641cdb1dcb94042cc9b77fb1aa79ba25ff5fb63d0b3486c3da7763d4ae42d4",
+    "src/flagquantum_qiskit/target.py": "671baacae781728b74e6f6e2c4d51f3e713fdcfbaab8e1b3905b4fd748623f33",
+    "src/flagquantum_qiskit/trajectory.py": "7e873ebaff03ef2f60d653317bef521b3420451cc61dc62f81871d752626af01",
+    "src/flagquantum_qiskit/validation.py": "159aab3ed9047324dfca6f6888f152875ecb31630b0ceca5348254b0fc91657c",
+    "tests/results/diagnostics/statevector-differences/check.py": "720310d222285b9871ff288a7d192751e625c5f9285fcfa3fd3a20d082ca06b9",
+    "tests/results/diagnostics/statevector-differences/phase_probe.py": "8b69308bf9e3704a2e84580d854a414253be3004bd3ffe209406b773472f0bab",
+    "tests/results/diagnostics/statevector-differences/while_calling.py": "9a9c7114f45d524667b03f631d3911a6ce588681afbbeb7eaf67fc1b5cf003f4",
+    "tests/test_aer_compatibility.py": "6b8746b5a6bfe0c7149a6ada73e5f7b5eead4733d2a0ff6aec8cef1dbb1c13b4",
+    "tests/test_backend.py": "dac913e89362f9c50d836d8f1301fb0b0fc7b373e5d544ec31460a02ffa50636",
+    "tests/test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+    "tests/test_dynamic.py": "34965145c572567a0998d645f146868dd52fdd479d6ab4d4c2bef48076e25c0a",
+    "tests/test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+    "tests/test_gpu.py": "d6735d1ce5ebd83c9948ee435bbe17f404a5a45a42b32d22f8579fc8b6031f25",
+    "tests/test_noise.py": "7f96a5a7a8d3e925c5cad3cc46c55602892980a61df0a0bb00ce1d80ae378f97",
+    "tests/test_primitives.py": "1a9a19e8dae0a908aacfe610d81d0118ae088e70d971d0cb66e64df1c2f7a463",
+    "tests/test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+  },
+  "runtime_environment": {
+    "TRITON_CACHE_DIR": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\triton-cache"
+  },
+  "cpu_regression": {
+    "report_sha256": "24c03e0b6113fc004c16184f5ac5186dc83d6515e42f7d7d5ac991795d2c4006",
+    "evidence": {
+      "schema": "flagquantum_qiskit_gpu_change_cpu_regression_v1",
+      "started_at_utc": "2026-11-23T06:35:21.078457+00:00",
+      "scope": "All existing CPU tests plus GPU integration tests; real CUDA cases skip on CPU-only Torch",
+      "snapshot": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\clean",
+      "source_sha256": {
+        "src/flagquantum_qiskit/__init__.py": "5e0f8b343ec8c6dbeeb0b3e9541336fab6974fff6a9ef90794af9b9c327db334",
+        "src/flagquantum_qiskit/backend.py": "382d711c782a0ea4faf3b60858708590183602fc73f631742e3cdc067f1b0bae",
+        "src/flagquantum_qiskit/contracts.py": "97edea25687917e0f9fb2aa73155df34d65002e3ada3c9e8114f5946297ca280",
+        "src/flagquantum_qiskit/conversion.py": "8d7fedfbdf611c5508c1cebd2d1898425edc0550f2a4f98023bc1278358d5936",
+        "src/flagquantum_qiskit/engine.py": "6deea9522be64b788a226fed5d7e297423eac5608ed816809264384f1db8810c",
+        "src/flagquantum_qiskit/fq_ops.py": "f6df7c213dee49b899b1589569120cb59d07129218a30e5d6284abadd8af8f03",
+        "src/flagquantum_qiskit/job.py": "d9fbb5e1d34464af4381ca4b1230c8a0eaa5791e8433fbc5b26af18b960a9e51",
+        "src/flagquantum_qiskit/noise.py": "8571093c936d10d5cc83c56a5d655a7057f7d8b0ca0e100160fb9f43a85fb206",
+        "src/flagquantum_qiskit/program.py": "fd8b5cc34a00143c4920d54b263d98abf6624ffb664eb744de94e5011d6c769e",
+        "src/flagquantum_qiskit/results.py": "bb641cdb1dcb94042cc9b77fb1aa79ba25ff5fb63d0b3486c3da7763d4ae42d4",
+        "src/flagquantum_qiskit/target.py": "671baacae781728b74e6f6e2c4d51f3e713fdcfbaab8e1b3905b4fd748623f33",
+        "src/flagquantum_qiskit/trajectory.py": "7e873ebaff03ef2f60d653317bef521b3420451cc61dc62f81871d752626af01",
+        "src/flagquantum_qiskit/validation.py": "159aab3ed9047324dfca6f6888f152875ecb31630b0ceca5348254b0fc91657c"
+      },
+      "tests_sha256": {
+        "tests/results/diagnostics/statevector-differences/check.py": "720310d222285b9871ff288a7d192751e625c5f9285fcfa3fd3a20d082ca06b9",
+        "tests/results/diagnostics/statevector-differences/phase_probe.py": "8b69308bf9e3704a2e84580d854a414253be3004bd3ffe209406b773472f0bab",
+        "tests/results/diagnostics/statevector-differences/while_calling.py": "9a9c7114f45d524667b03f631d3911a6ce588681afbbeb7eaf67fc1b5cf003f4",
+        "tests/test_aer_compatibility.py": "6b8746b5a6bfe0c7149a6ada73e5f7b5eead4733d2a0ff6aec8cef1dbb1c13b4",
+        "tests/test_backend.py": "dac913e89362f9c50d836d8f1301fb0b0fc7b373e5d544ec31460a02ffa50636",
+        "tests/test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+        "tests/test_dynamic.py": "34965145c572567a0998d645f146868dd52fdd479d6ab4d4c2bef48076e25c0a",
+        "tests/test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+        "tests/test_gpu.py": "d6735d1ce5ebd83c9948ee435bbe17f404a5a45a42b32d22f8579fc8b6031f25",
+        "tests/test_noise.py": "7f96a5a7a8d3e925c5cad3cc46c55602892980a61df0a0bb00ce1d80ae378f97",
+        "tests/test_primitives.py": "1a9a19e8dae0a908aacfe610d81d0118ae088e70d971d0cb66e64df1c2f7a463",
+        "tests/test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+      },
+      "pyproject_sha256": "92890cea4d925d26398186d3686bd2f7b9db7a9fa497bbae6c1cc90f9585b798",
+      "environment": {
+        "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+        "python_executable": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "torch": "2.14.1+cpu",
+        "flagquantum": "0.3.1",
+        "qiskit": "2.6.2",
+        "aer": "0.18.4",
+        "adapter_module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\clean\\src\\flagquantum_qiskit\\__init__.py",
+        "cuda_available": false
+      },
+      "commands": [
+        {
+          "argv": [
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "--junitxml=D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\junit.xml"
+          ],
+          "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\clean",
+          "environment_overrides": {
+            "PYTHONPATH": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\clean\\src",
+            "PYTHONDONTWRITEBYTECODE": "1"
+          }
+        }
+      ],
+      "historical_reports": "Original tests/results were not modified; generated user-circuit report is inside snapshot",
+      "junit_path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\junit.xml",
+      "output_path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\pytest.txt",
+      "elapsed_seconds": 34.958623099984834,
+      "finished_at_utc": "2026-11-23T06:35:56.041260+00:00",
+      "returncode": 0,
+      "pytest": {
+        "tests": 226,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 11,
+        "passed": 215,
+        "summary": "215 passed, 11 skipped in 33.94s"
+      },
+      "snapshot_source_unchanged": true,
+      "snapshot_tests_unchanged": true
+    },
+    "reuse_reason": "Exact source and test hashes match; only documentation and dependency metadata changed after CPU regression."
+  },
+  "environments": {
+    "cpu": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "python_executable": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+      "torch": "2.14.1+cpu",
+      "flagquantum": "0.3.1",
+      "qiskit": "2.6.2",
+      "aer": "0.18.4",
+      "adapter_module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-cpu-regression\\triton-default\\clean\\src\\flagquantum_qiskit\\__init__.py",
+      "cuda_available": false
+    },
+    "cuda": {
+      "torch": "2.11.0+cu128",
+      "triton": "3.6.0",
+      "triton_windows": "3.6.0.post26",
+      "cuda": "12.8",
+      "cuda_available": true,
+      "flagquantum": "0.3.1",
+      "qiskit": "2.6.2",
+      "aer": "0.18.4",
+      "module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\source\\src\\flagquantum_qiskit\\__init__.py"
+    }
+  },
+  "pytest": {
+    "cpu": {
+      "tests": 226,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 11,
+      "passed": 215,
+      "summary": "215 passed, 11 skipped in 33.94s"
+    },
+    "cuda": {
+      "tests": 226,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 226,
+      "summary": "226 passed in 41.47s"
+    }
+  },
+  "wheel": {
+    "name": "flagquantum_qiskit-0.2.0-py3-none-any.whl",
+    "sha256": "d4af017575407fc3dcd8257663b19b4c1d1cce2d660e83619046e42a5e4ef254",
+    "members": [
+      "flagquantum_qiskit/__init__.py",
+      "flagquantum_qiskit/backend.py",
+      "flagquantum_qiskit/contracts.py",
+      "flagquantum_qiskit/conversion.py",
+      "flagquantum_qiskit/engine.py",
+      "flagquantum_qiskit/fq_ops.py",
+      "flagquantum_qiskit/job.py",
+      "flagquantum_qiskit/noise.py",
+      "flagquantum_qiskit/program.py",
+      "flagquantum_qiskit/results.py",
+      "flagquantum_qiskit/target.py",
+      "flagquantum_qiskit/trajectory.py",
+      "flagquantum_qiskit/validation.py",
+      "flagquantum_qiskit-0.2.0.dist-info/METADATA",
+      "flagquantum_qiskit-0.2.0.dist-info/WHEEL",
+      "flagquantum_qiskit-0.2.0.dist-info/top_level.txt",
+      "flagquantum_qiskit-0.2.0.dist-info/RECORD"
+    ]
+  },
+  "wheel_smoke": {
+    "module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-acceptance\\run-20261123-143609\\wheel-target\\flagquantum_qiskit\\__init__.py",
+    "torch": "2.11.0+cu128",
+    "bell": {
+      "11": 124,
+      "00": 132
+    },
+    "dynamic": {
+      "10": 17
+    },
+    "device": "cuda:0"
+  },
+  "historical_results_unchanged": 21,
+  "finished_utc": "2026-11-23T06:37:03.654077+00:00"
+}

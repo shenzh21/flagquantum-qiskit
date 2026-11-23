@@ -9,6 +9,11 @@
 import math
 # operator.index 只接受支持整数索引协议的对象，不像 int() 那样截断浮点数。
 import operator
+import os
+import re
+from importlib.util import find_spec
+
+import torch
 
 from qiskit import QuantumCircuit
 from qiskit.circuit import Barrier, Measure
@@ -38,6 +43,31 @@ def integer(value: object, name: str, minimum: int, maximum: int) -> int:
     return result
 
 
+def normalize_device(value: object) -> str:
+    """检查设备名称和本机可用性，返回 cpu 或显式 cuda:N；绝不降级设备。
+
+    cuda 表示校验时 Torch 的当前 CUDA 设备。CPU 请求不初始化 CUDA；
+    CUDA 请求先检查运行库、驱动及设备编号，不因用户拼写错误默默使用 CPU。
+    """
+    if value == "cpu":
+        return "cpu"
+    if not isinstance(value, str) or re.fullmatch(r"cuda(?::[0-9]+)?", value) is None:
+        raise QiskitError("device must be 'cpu', 'cuda', or 'cuda:N' with a nonnegative index")
+    # FQ 0.3.1 的这个可选 CPU 优化分支用 CPU torch.rand；CUDA Generator
+    # 与之不兼容。沿用上游布尔开关解释，明确拒绝，不偷偷重写进程环境。
+    if os.getenv("FQ_CPU_VECTORIZED_ROW_SAMPLING", "0").strip().lower() in {"1", "true", "on", "yes"}:
+        raise QiskitError("CUDA is incompatible with FQ_CPU_VECTORIZED_ROW_SAMPLING; disable this CPU-only option explicitly")
+    try:
+        if not torch.cuda.is_available():
+            raise QiskitError("CUDA is unavailable; install a compatible CUDA-enabled PyTorch and NVIDIA driver")
+        index = torch.cuda.current_device() if value == "cuda" else int(value.split(":")[1])
+        if index >= torch.cuda.device_count():
+            raise QiskitError(f"CUDA device index {index} is unavailable")
+        return f"cuda:{index}"
+    except (RuntimeError, AssertionError) as exc:
+        raise QiskitError(f"CUDA device initialization failed: {exc}") from exc
+
+
 def make_request(options: dict, max_memory_mb: int) -> RunRequest:
     """把已合并默认值的 options 转成内部字段不可重赋值的 RunRequest。
 
@@ -50,10 +80,14 @@ def make_request(options: dict, max_memory_mb: int) -> RunRequest:
     known = {"shots", "seed_simulator", "precision", "device", "memory", "noise_model", "max_loop_iterations"}
     if unknown := set(options) - known:
         raise QiskitError(f"Unknown run option(s): {sorted(unknown)}")
-    if options["device"] != "cpu":
-        raise QiskitError("Only device='cpu' is supported")
+    device = normalize_device(options["device"])
     if options["precision"] not in ("single", "double"):
         raise QiskitError("precision must be 'single' or 'double'")
+    # FQ 0.3.1 的默认 CUDA complex64 融合使用 Triton；按原生路线执行，
+    # 不禁用内核、不偷偷升精度。这里只预检模块可发现性，实际 JIT/驱动
+    # 兼容性仍由真实执行验证；Windows 可由 triton-windows 提供同名模块。
+    if device != "cpu" and options["precision"] == "single" and find_spec("triton") is None:
+        raise QiskitError("CUDA precision='single' requires a compatible Triton installation for FlagQuantum 0.3.1 default kernels (triton-windows on Windows)")
     if not isinstance(options["memory"], bool):
         raise QiskitError("memory must be bool")
     # shots 是每个展开后实验的重复次数，允许 1 到 1,000,000 次。
@@ -67,7 +101,7 @@ def make_request(options: dict, max_memory_mb: int) -> RunRequest:
     loops = integer(options.get("max_loop_iterations",10000), "max_loop_iterations", 1, 1_000_000)
     # 参数名称虽写 mb，实际换算按 1 MiB = 1024**2 字节，而非十进制 MB。
     return RunRequest(shots, seed, options["precision"], max_memory_mb * 1024**2,
-                      options["memory"], options.get("noise_model"), loops)
+                      options["memory"], options.get("noise_model"), loops, device)
 
 
 def validate_circuit(circuit: QuantumCircuit, num_qubits: int, request: RunRequest) -> None:
@@ -110,6 +144,15 @@ def validate_circuit(circuit: QuantumCircuit, num_qubits: int, request: RunReque
     estimated += request.shots * (32 * circuit.num_qubits + circuit.num_clbits + 128)
     if estimated > request.max_memory_bytes:
         raise QiskitError(f"Estimated memory budget {estimated} bytes exceeds max_memory_mb")
+    if request.device != "cpu":
+        # 复用保守总量估计作为显存接收门槛（部分输出实际在主存）。此刻的
+        # 空闲显存不是预留，其他进程及后续编译/保存仍可能导致运行期 OOM。
+        try:
+            free, _ = torch.cuda.mem_get_info(torch.device(request.device))
+        except (RuntimeError, AssertionError) as exc:
+            raise QiskitError(f"Cannot query CUDA device memory: {exc}") from exc
+        if estimated > free:
+            raise QiskitError(f"Estimated memory {estimated} bytes exceeds available CUDA memory {free}")
 
 
 def expand_inputs(run_input, parameter_binds):

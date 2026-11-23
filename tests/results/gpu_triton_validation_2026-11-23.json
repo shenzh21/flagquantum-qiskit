@@ -1,0 +1,306 @@
+{
+  "started_utc": "2026-11-23T06:32:02.408766+00:00",
+  "command": [
+    "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+    "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\triton_probe.py"
+  ],
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "triton-windows": "3.6.0.post26",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "numpy": "2.4.6"
+  },
+  "triton_module_version": "3.6.0",
+  "source_identity": "triton-windows Windows port distribution; no claim that the mainline Linux wheel supports Windows",
+  "sources": [
+    "https://github.com/triton-lang/triton-windows",
+    "https://pypi.org/project/triton-windows/3.6.0.post26/"
+  ],
+  "install": {
+    "metadata_url": "https://pypi.org/pypi/triton-windows/3.6.0.post26/json",
+    "wheel_url": "https://files.pythonhosted.org/packages/5e/20/acab7b4f50abe68d93f632b2e29cfb9e76284eaf9b4041a6eabbbd4afdc7/triton_windows-3.6.0.post26-cp311-cp311-win_amd64.whl",
+    "download_url": "https://mirrors.aliyun.com/pypi/packages/5e/20/acab7b4f50abe68d93f632b2e29cfb9e76284eaf9b4041a6eabbbd4afdc7/triton_windows-3.6.0.post26-cp311-cp311-win_amd64.whl",
+    "sha256": "369a47ed3ca25f6d405387a058b8fbc62e6ff4592bbf87b0c5f6de372ab68931",
+    "bytes": 47401354,
+    "seconds": 16.828000000008615,
+    "distribution": "triton-windows",
+    "version": "3.6.0.post26",
+    "identity": "Windows port distribution; not the mainline Linux wheel"
+  },
+  "FQ_environment": {},
+  "before_install_freeze": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\before-triton-freeze.txt",
+  "fixed_tolerances": {
+    "max_single_amplitude_error": 2e-05,
+    "bell_frequency_absolute": 0.05
+  },
+  "cases": [
+    {
+      "qubits": 3,
+      "instructions": 96,
+      "dtype": "torch.complex64",
+      "device": "cuda:0",
+      "max_amplitude_error": 3.177237325618039e-07,
+      "max_probability_error": 3.4356952988146006e-07,
+      "first_execution_seconds": 1.2226202999881934,
+      "refresh_seconds": 0.020045700017362833,
+      "peak_allocated_bytes": 9439232,
+      "runtime": {
+        "triton_single_qubit_loop_enabled": true,
+        "triton_single_qubit_loop_regions": 0,
+        "triton_single_qubit_loop_gates": 0,
+        "triton_ry_rz_pair_candidates": 0,
+        "triton_ry_rz_pair_executed": 0,
+        "triton_single_qubit_matrix_regions": 24,
+        "diagonal_elementwise_gates": 0,
+        "diagonal_fused_regions": 0,
+        "permutation_gates": 24,
+        "triton_cx_sequence_regions": 8,
+        "fixed_single_qubit_specialized_gates": 0,
+        "native_cpu_one_qubit_layer_regions": 0,
+        "native_cpu_parameterized_one_qubit_layer_regions": 0,
+        "native_cpu_product_state_initialization": 0,
+        "native_cpu_clifford_matching_regions": 0,
+        "fused_gate_regions": 24,
+        "fused_gate_count": 72,
+        "dependency_reordered_single_qubit_regions": 0,
+        "statevector_apply_count": 32,
+        "statevector_batch_chunk_size": 1,
+        "statevector_batch_chunk_count": 1,
+        "statevector_batch_chunk_budget_bytes": 33554432,
+        "statevector_batch_assembly": "single_window",
+        "batched_rx_ry_rz_regions": 24,
+        "batched_rotation_sequence_regions": 24
+      },
+      "passed": true
+    },
+    {
+      "qubits": 8,
+      "instructions": 256,
+      "dtype": "torch.complex64",
+      "device": "cuda:0",
+      "max_amplitude_error": 2.300277232302523e-07,
+      "max_probability_error": 6.942072776350283e-08,
+      "first_execution_seconds": 2.2887559000228066,
+      "refresh_seconds": 0.03753239999059588,
+      "peak_allocated_bytes": 9546752,
+      "runtime": {
+        "triton_single_qubit_loop_enabled": true,
+        "triton_single_qubit_loop_regions": 0,
+        "triton_single_qubit_loop_gates": 0,
+        "triton_ry_rz_pair_candidates": 0,
+        "triton_ry_rz_pair_executed": 0,
+        "triton_single_qubit_matrix_regions": 64,
+        "diagonal_elementwise_gates": 0,
+        "diagonal_fused_regions": 0,
+        "permutation_gates": 64,
+        "triton_cx_sequence_regions": 8,
+        "fixed_single_qubit_specialized_gates": 0,
+        "native_cpu_one_qubit_layer_regions": 0,
+        "native_cpu_parameterized_one_qubit_layer_regions": 0,
+        "native_cpu_product_state_initialization": 0,
+        "native_cpu_clifford_matching_regions": 0,
+        "fused_gate_regions": 64,
+        "fused_gate_count": 192,
+        "dependency_reordered_single_qubit_regions": 0,
+        "statevector_apply_count": 72,
+        "statevector_batch_chunk_size": 1,
+        "statevector_batch_chunk_count": 1,
+        "statevector_batch_chunk_budget_bytes": 33554432,
+        "statevector_batch_assembly": "single_window",
+        "batched_rx_ry_rz_regions": 64,
+        "batched_rotation_sequence_regions": 64
+      },
+      "passed": true
+    },
+    {
+      "qubits": 12,
+      "instructions": 384,
+      "dtype": "torch.complex64",
+      "device": "cuda:0",
+      "max_amplitude_error": 1.477562039769474e-07,
+      "max_probability_error": 1.5229646135785785e-08,
+      "first_execution_seconds": 3.416368699981831,
+      "refresh_seconds": 0.06257290000212379,
+      "peak_allocated_bytes": 9708544,
+      "runtime": {
+        "triton_single_qubit_loop_enabled": true,
+        "triton_single_qubit_loop_regions": 0,
+        "triton_single_qubit_loop_gates": 0,
+        "triton_ry_rz_pair_candidates": 0,
+        "triton_ry_rz_pair_executed": 0,
+        "triton_single_qubit_matrix_regions": 96,
+        "diagonal_elementwise_gates": 0,
+        "diagonal_fused_regions": 0,
+        "permutation_gates": 96,
+        "triton_cx_sequence_regions": 8,
+        "fixed_single_qubit_specialized_gates": 0,
+        "native_cpu_one_qubit_layer_regions": 0,
+        "native_cpu_parameterized_one_qubit_layer_regions": 0,
+        "native_cpu_product_state_initialization": 0,
+        "native_cpu_clifford_matching_regions": 0,
+        "fused_gate_regions": 96,
+        "fused_gate_count": 288,
+        "dependency_reordered_single_qubit_regions": 0,
+        "statevector_apply_count": 104,
+        "statevector_batch_chunk_size": 1,
+        "statevector_batch_chunk_count": 1,
+        "statevector_batch_chunk_budget_bytes": 33554432,
+        "statevector_batch_assembly": "single_window",
+        "batched_rx_ry_rz_regions": 96,
+        "batched_rotation_sequence_regions": 96
+      },
+      "passed": true
+    },
+    {
+      "kind": "default_ry_rz_20q_window",
+      "qubits": 20,
+      "instructions": 42,
+      "dtype": "torch.complex64",
+      "device": "cuda:0",
+      "state_shape": [
+        1,
+        1048576
+      ],
+      "max_amplitude_error": 9.846878583757984e-08,
+      "execution_seconds": 8.629182099975878,
+      "peak_allocated_bytes": 38819840,
+      "runtime": {
+        "triton_single_qubit_loop_enabled": true,
+        "triton_single_qubit_loop_regions": 0,
+        "triton_single_qubit_loop_gates": 0,
+        "triton_ry_rz_pair_candidates": 20,
+        "triton_ry_rz_pair_executed": 20,
+        "triton_single_qubit_matrix_regions": 0,
+        "diagonal_elementwise_gates": 0,
+        "diagonal_fused_regions": 0,
+        "permutation_gates": 1,
+        "triton_cx_sequence_regions": 0,
+        "fixed_single_qubit_specialized_gates": 0,
+        "native_cpu_one_qubit_layer_regions": 0,
+        "native_cpu_parameterized_one_qubit_layer_regions": 0,
+        "native_cpu_product_state_initialization": 0,
+        "native_cpu_clifford_matching_regions": 0,
+        "fused_gate_regions": 20,
+        "fused_gate_count": 40,
+        "dependency_reordered_single_qubit_regions": 0,
+        "statevector_apply_count": 22,
+        "statevector_batch_chunk_size": 1,
+        "statevector_batch_chunk_count": 1,
+        "statevector_batch_chunk_budget_bytes": 67108864,
+        "statevector_batch_assembly": "single_window",
+        "batched_rx_ry_rz_regions": 0,
+        "batched_rotation_sequence_regions": 20
+      },
+      "passed": true
+    },
+    {
+      "kind": "default_rx_rz_loop",
+      "qubits": 4,
+      "instructions": 26,
+      "dtype": "torch.complex64",
+      "device": "cuda:0",
+      "state_shape": [
+        1,
+        16
+      ],
+      "max_amplitude_error": 1.351583079811095e-07,
+      "execution_seconds": 0.49008020001929253,
+      "peak_allocated_bytes": 17809408,
+      "runtime": {
+        "triton_single_qubit_loop_enabled": true,
+        "triton_single_qubit_loop_regions": 1,
+        "triton_single_qubit_loop_gates": 24,
+        "triton_ry_rz_pair_candidates": 0,
+        "triton_ry_rz_pair_executed": 0,
+        "triton_single_qubit_matrix_regions": 0,
+        "diagonal_elementwise_gates": 0,
+        "diagonal_fused_regions": 0,
+        "permutation_gates": 1,
+        "triton_cx_sequence_regions": 0,
+        "fixed_single_qubit_specialized_gates": 0,
+        "native_cpu_one_qubit_layer_regions": 0,
+        "native_cpu_parameterized_one_qubit_layer_regions": 0,
+        "native_cpu_product_state_initialization": 0,
+        "native_cpu_clifford_matching_regions": 0,
+        "fused_gate_regions": 0,
+        "fused_gate_count": 0,
+        "dependency_reordered_single_qubit_regions": 0,
+        "statevector_apply_count": 3,
+        "statevector_batch_chunk_size": 1,
+        "statevector_batch_chunk_count": 1,
+        "statevector_batch_chunk_budget_bytes": 67108864,
+        "statevector_batch_assembly": "single_window",
+        "batched_rx_ry_rz_regions": 0,
+        "batched_rotation_sequence_regions": 0
+      },
+      "passed": true
+    }
+  ],
+  "device": {
+    "name": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "cuda_runtime": "12.8",
+    "torch_arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ],
+    "total_memory_bytes": 8546484224,
+    "driver": "573.24"
+  },
+  "unmodified_FQ_defaults": {
+    "device": "cpu",
+    "dtype": "torch.complex64",
+    "runtime_config": "RuntimeConfig(backend='pytorch', device='cpu', complex_dtype='complex64', real_dtype='float32', jax_enable_x64=False, jax_matmul_precision='highest', drawing_style='black_white', version='1.0')"
+  },
+  "triton_kernel": {
+    "name": "vector_add",
+    "device": "cuda:0",
+    "seconds": 0.8724284000054467,
+    "max_absolute_error": 0.0,
+    "ptx_target": [
+      "sm_120a"
+    ],
+    "ptx_sha256": "7cdf78fbc48bb269d3f3a4507eb5493e2061307f0f593caaa9f2fbf243795614",
+    "passed": true
+  },
+  "bell": {
+    "dtype": "torch.complex64",
+    "device": "cuda:0",
+    "shots": 4096,
+    "counts": {
+      "11": 2059,
+      "00": 2037
+    },
+    "seconds": 0.5915019000240136,
+    "passed": true
+  },
+  "pip_check": "No broken requirements found.",
+  "all_passed": true,
+  "finished_utc": "2026-11-23T06:32:23.033702+00:00",
+  "FQ_source_unchanged": {
+    "verified": true,
+    "python_files_compared": 701
+  },
+  "old_native_failure_evidence": {
+    "path": "tests/results/gpu_native_validation_2026-11-23.json",
+    "sha256": "ab32a576706cfca94dbad67fc0d7369d6e15357ddfaf2991253c5f499ca81ffb",
+    "note": "Preserved separate evidence for the earlier environment without Triton; not overwritten by this success."
+  },
+  "after_install_freeze": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\after-triton-freeze.txt",
+  "configuration_notes": [
+    "No FQ_* environment overrides. Only the requested device is CUDA; FQ's default complex64 is preserved.",
+    "TRITON_CACHE_DIR is task-local; no global environment, driver, or system CUDA Toolkit modification.",
+    "Windows port carries a bundled compiler toolchain; installation changed only the independent GPU venv.",
+    "WSL inventory shows Ubuntu WSL2 stopped; this successful test runs native Windows, not WSL.",
+    "Timing includes small first-run JIT overhead where applicable and is not a general speedup claim."
+  ],
+  "bundled_ptxas": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:40:24_Pacific_Standard_Time_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0"
+}

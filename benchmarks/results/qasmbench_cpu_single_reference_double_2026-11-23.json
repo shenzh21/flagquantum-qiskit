@@ -1,0 +1,879 @@
+{
+  "schema": "qasmbench_isolated_crosscheck_v3",
+  "started_utc": "2026-11-23T06:34:26.511912+00:00",
+  "source_commit": "357b942396d5c2b7cbc1c229c585a6ef5ccaebac",
+  "source_hashes_verified": true,
+  "script_sha256": "9dd49a5fd2ddedeeaeffda2bbb943f7b3256d2083fd2e863b08ddec35950b299",
+  "worker_sha256": "c6fcf891089d31e30b4739673d138773813cdb1aaddf8d189dce2c00bc1f0346",
+  "orchestrator": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "qiskit": "2.6.2",
+    "numpy": "2.4.6"
+  },
+  "configuration": {
+    "fq_device": "cpu",
+    "aer_device": "CPU",
+    "precision": "single",
+    "fq_precision": "single",
+    "aer_precision": "double",
+    "comparison_purpose": "accuracy_reference_with_different_precision",
+    "cross_framework_same_precision_timing": false,
+    "timing_caveat": "Do not form a same-precision speedup ratio between engines with different precision; FQ CPU/GPU comparisons require matched FQ precision/environment",
+    "threads": 1,
+    "warmups": 2,
+    "repeats": 5,
+    "common_basis": [
+      "h",
+      "x",
+      "rx",
+      "ry",
+      "rz",
+      "p",
+      "cx"
+    ],
+    "optimization_level": 0,
+    "seed_transpiler": 7,
+    "threshold": 5e-05,
+    "same_output": "full statevector, Qiskit order, materialized CPU NumPy memory",
+    "timing": "prepared representation to host statevector; construction/job overhead included, not kernel-only",
+    "first_call": "after imports/QPY load/engine preparation in fresh numerical process",
+    "fq_cache": "new Circuit every invocation, state(refresh=True)",
+    "phase": "strip known phase before FQ strict import, restore explicitly after execution",
+    "limitations": "three small unitary circuits; no shots, noise, dynamic, adapter timing, or same-hardware GPU comparison"
+  },
+  "cases": [
+    {
+      "file": "qft_n4.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/qft_n4/qft_n4.qasm",
+      "source_sha256": "62c6c8c7ddd95ac2b5367420b9925dbf82d6fb45725f089f01619a639621ad60",
+      "compiled_qpy_sha256": "00109536ac4f9b50a4bce5d6f62853a34c6066fb746783ddd740bc44b2bdde10",
+      "n_qubits": 4,
+      "original_ops": {
+        "cu1": 6,
+        "h": 4,
+        "measure": 4,
+        "x": 2,
+        "barrier": 1
+      },
+      "compiled_ops": {
+        "p": 18,
+        "cx": 12,
+        "h": 4,
+        "x": 2
+      },
+      "compiled_depth": 22,
+      "compiled_global_phase": 0.0,
+      "preprocessing": {
+        "parse_and_copy_ms": 0.9837000106927007,
+        "removed_operations": [
+          {
+            "index": 2,
+            "kind": "barrier",
+            "qubits": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "index": 13,
+            "kind": "terminal_measure",
+            "qubits": [
+              0
+            ],
+            "clbits": [
+              0
+            ]
+          },
+          {
+            "index": 14,
+            "kind": "terminal_measure",
+            "qubits": [
+              1
+            ],
+            "clbits": [
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "kind": "terminal_measure",
+            "qubits": [
+              2
+            ],
+            "clbits": [
+              2
+            ]
+          },
+          {
+            "index": 16,
+            "kind": "terminal_measure",
+            "qubits": [
+              3
+            ],
+            "clbits": [
+              3
+            ]
+          }
+        ],
+        "source_bytes_modified": false,
+        "original_clbits": 4
+      },
+      "common_transpile_ms": 22.541500016814098,
+      "engines": {
+        "flagquantum": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "flagquantum",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4-flagquantum.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4-flagquantum.npy",
+            "--precision",
+            "single",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready flagquantum\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 3198.2139999745414,
+          "report": {
+            "engine": "flagquantum",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "single",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "flagquantum": "0.3.1",
+              "torch": "2.11.0+cu128"
+            },
+            "input_sha256": "00109536ac4f9b50a4bce5d6f62853a34c6066fb746783ddd740bc44b2bdde10",
+            "optional_distribution_versions": {
+              "triton-windows": "3.6.0.post26"
+            },
+            "device": "cpu",
+            "strict_import_ms": 0.658300006762147,
+            "strict_import_report": {
+              "schema": "flagquantum_qiskit_conversion_report_v1",
+              "direction": "from_qiskit",
+              "framework_version": "2.6.2",
+              "lossless": true,
+              "issues": []
+            },
+            "first_call_ms": 62.45560001116246,
+            "warm_timing": {
+              "samples_ms": [
+                3.2165000156965107,
+                3.1626000127289444,
+                3.15730000147596,
+                3.1213000183925033,
+                3.198899998096749
+              ],
+              "median_ms": 3.1626000127289444,
+              "min_ms": 3.1213000183925033,
+              "max_ms": 3.2165000156965107
+            },
+            "state_norm_error": 5.18950577177435e-07,
+            "completed": true
+          },
+          "vector_sha256": "6e09fdcad76325a81b1c51e3def6b7733845a6c9ea59b16ca9d70df3dbc4fa16"
+        },
+        "aer": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "aer",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4-aer.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qft_n4-aer.npy",
+            "--precision",
+            "double",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready aer\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 928.9241000078619,
+          "report": {
+            "engine": "aer",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "double",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "qiskit-aer": "0.18.4"
+            },
+            "input_sha256": "00109536ac4f9b50a4bce5d6f62853a34c6066fb746783ddd740bc44b2bdde10",
+            "device": "CPU",
+            "options": {
+              "method": "statevector",
+              "enable_truncation": false,
+              "fusion_enable": true,
+              "max_parallel_threads": 1,
+              "shots": 1
+            },
+            "first_call_ms": 2.4575999996159226,
+            "warm_timing": {
+              "samples_ms": [
+                1.1069999891333282,
+                0.9598000033292919,
+                0.9470999939367175,
+                0.9123999916482717,
+                1.0215000074822456
+              ],
+              "median_ms": 0.9598000033292919,
+              "min_ms": 0.9123999916482717,
+              "max_ms": 1.1069999891333282
+            },
+            "state_norm_error": 8.881784197001252e-16,
+            "completed": true
+          },
+          "vector_sha256": "b6ae26ccd592bec2f86d4d66a726df4c954f3dfcaa83f5a860e37fed717309e1"
+        }
+      },
+      "checks": {
+        "compiled_vs_original_qiskit": {
+          "max_abs_error": 8.326672684688674e-17,
+          "phase_aligned_max_abs_error": 9.08267048670289e-17,
+          "infidelity": 0.0,
+          "probability_total_variation": 9.71445146547012e-17,
+          "norm_error": 3.3306690738754696e-16
+        },
+        "flagquantum_vs_original_qiskit": {
+          "max_abs_error": 8.940696707981921e-08,
+          "phase_aligned_max_abs_error": 8.960320265344886e-08,
+          "infidelity": 8.548717289613705e-15,
+          "probability_total_variation": 2.594752882625895e-07,
+          "norm_error": 5.18950577177435e-07
+        },
+        "aer_vs_original_qiskit": {
+          "max_abs_error": 2.633125101432526e-16,
+          "phase_aligned_max_abs_error": 2.482534153247273e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.216449660063518e-16,
+          "norm_error": 8.881784197001252e-16
+        },
+        "fq_vs_aer": {
+          "max_abs_error": 8.940696721859709e-08,
+          "phase_aligned_max_abs_error": 8.960320279702683e-08,
+          "infidelity": 8.215650382226158e-15,
+          "probability_total_variation": 2.5947528898423444e-07,
+          "norm_error": 5.18950577177435e-07
+        }
+      },
+      "check_thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 5e-05,
+        "aer_vs_original_qiskit": 1e-10,
+        "fq_vs_aer": 5e-05
+      },
+      "passed": true
+    },
+    {
+      "file": "qaoa_n6.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/qaoa_n6/qaoa_n6.qasm",
+      "source_sha256": "fde5eff21c334ef02430bbfa8ea38f9287625cab3ffbd45d92d79590ee27dcc9",
+      "compiled_qpy_sha256": "1780d4bf2d4bee1e1b6ecc49e8972a9a2264bffdcbbb575205113f7cf9a1605f",
+      "n_qubits": 6,
+      "original_ops": {
+        "u3": 72,
+        "rx": 66,
+        "rz": 54,
+        "cx": 54,
+        "ry": 18,
+        "h": 6,
+        "measure": 6
+      },
+      "compiled_ops": {
+        "rz": 270,
+        "rx": 210,
+        "cx": 54,
+        "ry": 18,
+        "h": 6
+      },
+      "compiled_depth": 197,
+      "compiled_global_phase": 5.968803068538654,
+      "preprocessing": {
+        "parse_and_copy_ms": 4.095199983566999,
+        "removed_operations": [
+          {
+            "index": 270,
+            "kind": "terminal_measure",
+            "qubits": [
+              0
+            ],
+            "clbits": [
+              0
+            ]
+          },
+          {
+            "index": 271,
+            "kind": "terminal_measure",
+            "qubits": [
+              1
+            ],
+            "clbits": [
+              1
+            ]
+          },
+          {
+            "index": 272,
+            "kind": "terminal_measure",
+            "qubits": [
+              2
+            ],
+            "clbits": [
+              2
+            ]
+          },
+          {
+            "index": 273,
+            "kind": "terminal_measure",
+            "qubits": [
+              3
+            ],
+            "clbits": [
+              3
+            ]
+          },
+          {
+            "index": 274,
+            "kind": "terminal_measure",
+            "qubits": [
+              4
+            ],
+            "clbits": [
+              4
+            ]
+          },
+          {
+            "index": 275,
+            "kind": "terminal_measure",
+            "qubits": [
+              5
+            ],
+            "clbits": [
+              5
+            ]
+          }
+        ],
+        "source_bytes_modified": false,
+        "original_clbits": 6
+      },
+      "common_transpile_ms": 3.043800010345876,
+      "engines": {
+        "flagquantum": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "flagquantum",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6-flagquantum.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6-flagquantum.npy",
+            "--precision",
+            "single",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready flagquantum\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 3536.9676999980584,
+          "report": {
+            "engine": "flagquantum",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "single",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "flagquantum": "0.3.1",
+              "torch": "2.11.0+cu128"
+            },
+            "input_sha256": "1780d4bf2d4bee1e1b6ecc49e8972a9a2264bffdcbbb575205113f7cf9a1605f",
+            "optional_distribution_versions": {
+              "triton-windows": "3.6.0.post26"
+            },
+            "device": "cpu",
+            "strict_import_ms": 7.182200002716854,
+            "strict_import_report": {
+              "schema": "flagquantum_qiskit_conversion_report_v1",
+              "direction": "from_qiskit",
+              "framework_version": "2.6.2",
+              "lossless": true,
+              "issues": []
+            },
+            "first_call_ms": 100.80590000143275,
+            "warm_timing": {
+              "samples_ms": [
+                39.39250000985339,
+                39.98560001491569,
+                41.07910001766868,
+                39.16660000686534,
+                37.846700026420876
+              ],
+              "median_ms": 39.39250000985339,
+              "min_ms": 37.846700026420876,
+              "max_ms": 41.07910001766868
+            },
+            "state_norm_error": 1.5172649298400565e-05,
+            "completed": true
+          },
+          "vector_sha256": "2145624d2aceb93aa1c1f27b3a549457de6d04ca97691633bcd23b799c4518ad"
+        },
+        "aer": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "aer",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6-aer.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\qaoa_n6-aer.npy",
+            "--precision",
+            "double",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready aer\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 1013.2112000137568,
+          "report": {
+            "engine": "aer",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "double",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "qiskit-aer": "0.18.4"
+            },
+            "input_sha256": "1780d4bf2d4bee1e1b6ecc49e8972a9a2264bffdcbbb575205113f7cf9a1605f",
+            "device": "CPU",
+            "options": {
+              "method": "statevector",
+              "enable_truncation": false,
+              "fusion_enable": true,
+              "max_parallel_threads": 1,
+              "shots": 1
+            },
+            "first_call_ms": 11.861200007842854,
+            "warm_timing": {
+              "samples_ms": [
+                10.279599984642118,
+                10.077199985971674,
+                9.947000013198704,
+                9.810999996261671,
+                10.184199985815212
+              ],
+              "median_ms": 10.077199985971674,
+              "min_ms": 9.810999996261671,
+              "max_ms": 10.279599984642118
+            },
+            "state_norm_error": 3.3306690738754696e-14,
+            "completed": true
+          },
+          "vector_sha256": "11818ee23d1df2676eebad769d7134550285d73ff6d1bd8526cf4a8577e8e6af"
+        }
+      },
+      "checks": {
+        "compiled_vs_original_qiskit": {
+          "max_abs_error": 2.3995333216565424e-15,
+          "phase_aligned_max_abs_error": 1.2867158636445887e-15,
+          "infidelity": 4.440892098500626e-16,
+          "probability_total_variation": 4.2374957709423455e-15,
+          "norm_error": 3.1530333899354446e-14
+        },
+        "flagquantum_vs_original_qiskit": {
+          "max_abs_error": 1.7108080605551808e-06,
+          "phase_aligned_max_abs_error": 1.6109053284907156e-06,
+          "infidelity": 1.6056045382129014e-12,
+          "probability_total_variation": 7.586324660760046e-06,
+          "norm_error": 1.5172649298400565e-05
+        },
+        "aer_vs_original_qiskit": {
+          "max_abs_error": 2.3420180361420893e-15,
+          "phase_aligned_max_abs_error": 1.3668035872266425e-15,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.162970745375972e-15,
+          "norm_error": 3.3306690738754696e-14
+        },
+        "fq_vs_aer": {
+          "max_abs_error": 1.7108080621458561e-06,
+          "phase_aligned_max_abs_error": 1.6109053290918654e-06,
+          "infidelity": 1.6056045382129014e-12,
+          "probability_total_variation": 7.5863246659230166e-06,
+          "norm_error": 1.5172649298400565e-05
+        }
+      },
+      "check_thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 5e-05,
+        "aer_vs_original_qiskit": 1e-10,
+        "fq_vs_aer": 5e-05
+      },
+      "passed": true
+    },
+    {
+      "file": "ising_n10.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/ising_n10/ising_n10.qasm",
+      "source_sha256": "c10edc4a40eadf4d610aa012524e9eed4bdd1a02fc9d939cccae8ad4ed942f67",
+      "compiled_qpy_sha256": "3526c280bcfdb288d684f56f524e6fc538d8eb71bddb792d4cd0dd388282f32b",
+      "n_qubits": 10,
+      "original_ops": {
+        "rz": 280,
+        "h": 110,
+        "cx": 90,
+        "measure": 10
+      },
+      "compiled_ops": {
+        "rz": 280,
+        "h": 110,
+        "cx": 90
+      },
+      "compiled_depth": 70,
+      "compiled_global_phase": 0.0,
+      "preprocessing": {
+        "parse_and_copy_ms": 5.810700007714331,
+        "removed_operations": [
+          {
+            "index": 480,
+            "kind": "terminal_measure",
+            "qubits": [
+              0
+            ],
+            "clbits": [
+              0
+            ]
+          },
+          {
+            "index": 481,
+            "kind": "terminal_measure",
+            "qubits": [
+              1
+            ],
+            "clbits": [
+              1
+            ]
+          },
+          {
+            "index": 482,
+            "kind": "terminal_measure",
+            "qubits": [
+              2
+            ],
+            "clbits": [
+              2
+            ]
+          },
+          {
+            "index": 483,
+            "kind": "terminal_measure",
+            "qubits": [
+              3
+            ],
+            "clbits": [
+              3
+            ]
+          },
+          {
+            "index": 484,
+            "kind": "terminal_measure",
+            "qubits": [
+              4
+            ],
+            "clbits": [
+              4
+            ]
+          },
+          {
+            "index": 485,
+            "kind": "terminal_measure",
+            "qubits": [
+              5
+            ],
+            "clbits": [
+              5
+            ]
+          },
+          {
+            "index": 486,
+            "kind": "terminal_measure",
+            "qubits": [
+              6
+            ],
+            "clbits": [
+              6
+            ]
+          },
+          {
+            "index": 487,
+            "kind": "terminal_measure",
+            "qubits": [
+              7
+            ],
+            "clbits": [
+              7
+            ]
+          },
+          {
+            "index": 488,
+            "kind": "terminal_measure",
+            "qubits": [
+              8
+            ],
+            "clbits": [
+              8
+            ]
+          },
+          {
+            "index": 489,
+            "kind": "terminal_measure",
+            "qubits": [
+              9
+            ],
+            "clbits": [
+              9
+            ]
+          }
+        ],
+        "source_bytes_modified": false,
+        "original_clbits": 10
+      },
+      "common_transpile_ms": 2.171900006942451,
+      "engines": {
+        "flagquantum": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "flagquantum",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10-flagquantum.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10-flagquantum.npy",
+            "--precision",
+            "single",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready flagquantum\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 3593.098099983763,
+          "report": {
+            "engine": "flagquantum",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "single",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "flagquantum": "0.3.1",
+              "torch": "2.11.0+cu128"
+            },
+            "input_sha256": "3526c280bcfdb288d684f56f524e6fc538d8eb71bddb792d4cd0dd388282f32b",
+            "optional_distribution_versions": {
+              "triton-windows": "3.6.0.post26"
+            },
+            "device": "cpu",
+            "strict_import_ms": 5.628000013530254,
+            "strict_import_report": {
+              "schema": "flagquantum_qiskit_conversion_report_v1",
+              "direction": "from_qiskit",
+              "framework_version": "2.6.2",
+              "lossless": true,
+              "issues": []
+            },
+            "first_call_ms": 106.18190001696348,
+            "warm_timing": {
+              "samples_ms": [
+                45.79020000528544,
+                47.47210000641644,
+                44.829800026491284,
+                47.23670001840219,
+                44.8272000066936
+              ],
+              "median_ms": 45.79020000528544,
+              "min_ms": 44.8272000066936,
+              "max_ms": 47.47210000641644
+            },
+            "state_norm_error": 8.825511813581599e-06,
+            "completed": true
+          },
+          "vector_sha256": "045dea217118bac5fa66084761952ecd6e424db59a8d72f4fc8189f16626577b"
+        },
+        "aer": {
+          "command": [
+            "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.cache/gpu-research/venv/Scripts/python.exe",
+            "-u",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\qasmbench_worker.py",
+            "--engine",
+            "aer",
+            "--input",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10.qpy",
+            "--output",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10-aer.json",
+            "--vector",
+            "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\.cache\\qasmbench-0u31plcq\\ising_n10-aer.npy",
+            "--precision",
+            "double",
+            "--device",
+            "cpu",
+            "--warmups",
+            "2",
+            "--repeats",
+            "5",
+            "--threads",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "engine_ready aer\nfirst_state_ready\nworker_complete\n",
+          "stderr": "",
+          "process_wall_ms": 1026.0121999890544,
+          "report": {
+            "engine": "aer",
+            "python": "3.11.9",
+            "platform": "Windows-10-10.0.26300-SP0",
+            "precision": "double",
+            "threads": 1,
+            "versions": {
+              "qiskit": "2.6.2",
+              "numpy": "2.4.6",
+              "qiskit-aer": "0.18.4"
+            },
+            "input_sha256": "3526c280bcfdb288d684f56f524e6fc538d8eb71bddb792d4cd0dd388282f32b",
+            "device": "CPU",
+            "options": {
+              "method": "statevector",
+              "enable_truncation": false,
+              "fusion_enable": true,
+              "max_parallel_threads": 1,
+              "shots": 1
+            },
+            "first_call_ms": 12.305699987336993,
+            "warm_timing": {
+              "samples_ms": [
+                9.855300013441592,
+                10.172500013140962,
+                10.097499995026737,
+                9.938800008967519,
+                9.977300011087209
+              ],
+              "median_ms": 9.977300011087209,
+              "min_ms": 9.855300013441592,
+              "max_ms": 10.172500013140962
+            },
+            "state_norm_error": 1.2212453270876722e-14,
+            "completed": true
+          },
+          "vector_sha256": "cc1431f39b6ebf9bfa6f728775226efe633b9f4645abec40b15c747bd88b5384"
+        }
+      },
+      "checks": {
+        "compiled_vs_original_qiskit": {
+          "max_abs_error": 1.9869968258640557e-16,
+          "phase_aligned_max_abs_error": 1.9736244101964248e-16,
+          "infidelity": 1.1102230246251565e-16,
+          "probability_total_variation": 8.061370697340733e-16,
+          "norm_error": 2.19824158875781e-14
+        },
+        "flagquantum_vs_original_qiskit": {
+          "max_abs_error": 9.140329062400749e-07,
+          "phase_aligned_max_abs_error": 9.142800051702883e-07,
+          "infidelity": 2.8843594179761567e-13,
+          "probability_total_variation": 4.413296318035555e-06,
+          "norm_error": 8.825511813581599e-06
+        },
+        "aer_vs_original_qiskit": {
+          "max_abs_error": 3.5319447101823384e-15,
+          "phase_aligned_max_abs_error": 3.3778946039688946e-15,
+          "infidelity": 1.1102230246251565e-16,
+          "probability_total_variation": 1.7058466843171433e-14,
+          "norm_error": 1.2212453270876722e-14
+        },
+        "fq_vs_aer": {
+          "max_abs_error": 9.140329096191433e-07,
+          "phase_aligned_max_abs_error": 9.142800085124204e-07,
+          "infidelity": 2.8832491949515315e-13,
+          "probability_total_variation": 4.41329633508611e-06,
+          "norm_error": 8.825511813581599e-06
+        }
+      },
+      "check_thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 5e-05,
+        "aer_vs_original_qiskit": 1e-10,
+        "fq_vs_aer": 5e-05
+      },
+      "passed": true
+    }
+  ],
+  "completed": true,
+  "all_passed": true,
+  "finished_utc": "2026-11-23T06:34:39.998977+00:00"
+}

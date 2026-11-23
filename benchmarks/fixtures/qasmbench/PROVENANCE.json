@@ -1,0 +1,44 @@
+{
+  "source": "pnnl/QASMBench",
+  "commit": "357b942396d5c2b7cbc1c229c585a6ef5ccaebac",
+  "downloaded_on": "2026-11-23",
+  "original_bytes_unchanged": true,
+  "execution_status": "Not completed: first case rejected by strict importer due to barrier_dropped; exploration paused for benchmark selection",
+  "files": [
+    {
+      "file": "qft_n4.qasm",
+      "upstream_path": "small/qft_n4/qft_n4.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/qft_n4/qft_n4.qasm",
+      "sha256": "62c6c8c7ddd95ac2b5367420b9925dbf82d6fb45725f089f01619a639621ad60",
+      "bytes": 308
+    },
+    {
+      "file": "qaoa_n6.qasm",
+      "upstream_path": "small/qaoa_n6/qaoa_n6.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/qaoa_n6/qaoa_n6.qasm",
+      "sha256": "fde5eff21c334ef02430bbfa8ea38f9287625cab3ffbd45d92d79590ee27dcc9",
+      "bytes": 7120
+    },
+    {
+      "file": "ising_n10.qasm",
+      "upstream_path": "small/ising_n10/ising_n10.qasm",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/small/ising_n10/ising_n10.qasm",
+      "sha256": "c10edc4a40eadf4d610aa012524e9eed4bdd1a02fc9d939cccae8ad4ed942f67",
+      "bytes": 10171
+    },
+    {
+      "file": "LICENSE",
+      "upstream_path": "LICENSE",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/LICENSE",
+      "sha256": "3ba843379e9d16d4cc80e971f530c20053afbbb8da94de3c5e945d3212d91cd3",
+      "bytes": 2066
+    },
+    {
+      "file": "NOTICE",
+      "upstream_path": "NOTICE",
+      "source_url": "https://github.com/pnnl/QASMBench/blob/357b942396d5c2b7cbc1c229c585a6ef5ccaebac/NOTICE",
+      "sha256": "ea24d219a4d59c01a8b3a27a4d92ed3ffcdcccbc8aae7096e54bd4721cd1be7b",
+      "bytes": 1285
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Cases: 36
+D:\vscodeprojs\zhiyuan\flagquantum-qiskit\.cache\state-directive-research\probes.json
+save {} [('x', [0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+set {} [('x', [0]), ('set_statevector', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+initialize {} [('x', [0]), ('initialize', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+save {'routing_method': 'none'} [('x', [0]), ('swap', [0, 1]), ('save_statevector', [0, 1]), ('barrier', [0, 1]), ('measure', [0]), ('measure', [1])] False
+set {'routing_method': 'none'} [('x', [0]), ('swap', [0, 1]), ('set_statevector', [0, 1]), ('save_statevector', [0, 1]), ('barrier', [0, 1]), ('measure', [0]), ('measure', [1])] False
+initialize {'routing_method': 'none'} [('x', [0]), ('swap', [0, 1]), ('initialize', [0, 1]), ('save_statevector', [0, 1]), ('barrier', [0, 1]), ('measure', [0]), ('measure', [1])] False
+save {'qubits_initially_zero': False} [('x', [0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+set {'qubits_initially_zero': False} [('x', [0]), ('set_statevector', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+initialize {'qubits_initially_zero': False} [('x', [0]), ('initialize', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+save {'initial_layout': [0, 1]} [('x', [0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+set {'initial_layout': [0, 1]} [('x', [0]), ('set_statevector', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True
+initialize {'initial_layout': [0, 1]} [('x', [0]), ('initialize', [1, 0]), ('save_statevector', [1, 0]), ('barrier', [1, 0]), ('measure', [1]), ('measure', [0])] True

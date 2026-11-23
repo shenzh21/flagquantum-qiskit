@@ -1,0 +1,3 @@
+*.qasm -text -whitespace
+LICENSE -text -whitespace
+NOTICE -text -whitespace

@@ -23,7 +23,7 @@ class RunRequest:
     shots: int
     # None 表示使用局部生成器自行初始化，否则使用显式种子。
     seed_simulator: int | None
-    # 校验后为 double 或 single，对应复数张量的两种精度。
+    # CPU/CUDA 均允许 double/single；CUDA single 需兼容的 Triton 运行依赖。
     precision: str
     # 字节单位的资源预算，供预检和运行保护使用，不是操作系统内存硬上限。
     max_memory_bytes: int
@@ -32,6 +32,8 @@ class RunRequest:
     noise_model: Any = None
     # 通用程序路径的循环/展开保护参数。
     max_loop_iterations: int = 10000
+    # 校验后为 cpu 或带明确编号的 cuda:N；不依赖后续全局当前设备变化。
+    device: str = "cpu"
 
 
 @dataclass(frozen=True)

@@ -225,7 +225,7 @@ def test_invalid_seed_is_rejected(backend, seed):
         backend.run(circuit, seed_simulator=seed)
 
 
-@pytest.mark.parametrize("option", [{"device": "cuda"}, {"precision": "half"}])
+@pytest.mark.parametrize("option", [{"device": "mps"}, {"precision": "half"}])
 def test_unsupported_device_or_precision_is_rejected(backend, option):
     circuit = QuantumCircuit(1, 1)
     circuit.measure(0, 0)

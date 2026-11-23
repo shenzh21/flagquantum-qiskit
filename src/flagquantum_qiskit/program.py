@@ -169,7 +169,7 @@ def compile_program(circuit, request, *, total_qubits=None, qmap=None, cmap=None
             if vector.ndim!=1 or vector.numel()!=2**n or not bool(torch.isfinite(vector).all()) or abs(float(vector.abs().square().sum())-1)>tolerance:
                 raise QiskitError("set_statevector requires a finite normalized full state vector")
             # 仅做输入的 LSB→MSB 索引转换及复制，不在适配器中演化量子态。
-            node.payload=vector.reshape([2]*n).permute(tuple(reversed(range(n)))).reshape(1,-1).clone()
+            node.payload=vector.reshape([2]*n).permute(tuple(reversed(range(n)))).reshape(1,-1).clone().to(request.device)
         elif _is_class(op, Initialize):
             # 从 Initialize 的定义取 StatePreparation，保留字符串、整数与向量
             # 三种输入已被 Qiskit 解析后的语义；不能把 params 统一当向量重建。
@@ -187,8 +187,8 @@ def compile_program(circuit, request, *, total_qubits=None, qmap=None, cmap=None
             # 在矩阵转换前估计局部存储，并检查幺正性；矩阵乘态仍由 FQ 执行。
             if 16 * 4**len(wires) * 4 > request.max_memory_bytes:
                 raise QiskitError("Unitary matrix exceeds memory budget")
-            matrix = matrix_from_qiskit(op.to_matrix(), len(wires), dtype)
-            identity = torch.eye(matrix.shape[0], dtype=dtype)
+            matrix = matrix_from_qiskit(op.to_matrix(), len(wires), dtype, request.device)
+            identity = torch.eye(matrix.shape[0], dtype=dtype, device=request.device)
             if not bool(torch.allclose(matrix.conj().T @ matrix, identity, atol=1e-6 if dtype==torch.complex64 else 1e-10, rtol=0)):
                 raise QiskitError("Unitary matrix is not unitary")
             node.kind = "gate"; node.payload = Instruction("unitary", wires, matrix=matrix)
@@ -196,7 +196,8 @@ def compile_program(circuit, request, *, total_qubits=None, qmap=None, cmap=None
             # noise 模块负责验证指令来源、维度和通道表示，payload 是局部算符。
             from .noise import channel_operators
             node.kind = "channel"
-            node.payload = channel_operators(op, dtype=dtype, max_memory_bytes=request.max_memory_bytes)
+            node.payload = tuple(value.to(request.device) for value in channel_operators(
+                op, dtype=dtype, max_memory_bytes=request.max_memory_bytes))
         elif is_standard_gate(op):
             # 类型必须属于已支持门集，开放控制态需用户先转译为受支持门。
             if getattr(op, "ctrl_state", None) != getattr(GATES[op.name], "ctrl_state", None):

@@ -1,0 +1,316 @@
+{
+  "started_utc": "20261123T070703.055812Z",
+  "versions": {
+    "flagquantum-qiskit": "0.2.0",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4"
+  },
+  "adapter_import": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\src\\flagquantum_qiskit\\__init__.py",
+  "purpose": "Diagnostic observations, not an all-passed validation claim",
+  "cases": [
+    {
+      "kind": "save",
+      "transpile_options": {},
+      "compiled_operations": [
+        {
+          "name": "x",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "qubits": [
+            1,
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])",
+      "original_aer": {
+        "success": true,
+        "statevector": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "compiled_aer": {
+        "success": true,
+        "statevector": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "compiled_adapter": {
+        "success": false,
+        "error": "QiskitError: 'save_statevector requires all qubits in circuit order'"
+      }
+    },
+    {
+      "kind": "save",
+      "transpile_options": {
+        "routing_method": "none"
+      },
+      "compiled_operations": [
+        {
+          "name": "x",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "swap",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        }
+      ],
+      "layout": "None",
+      "original_aer": {
+        "success": true,
+        "statevector": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "compiled_aer": {
+        "success": true,
+        "statevector": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "compiled_adapter": {
+        "success": true,
+        "statevector": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "set",
+      "transpile_options": {},
+      "compiled_operations": [
+        {
+          "name": "x",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "set_statevector",
+          "qubits": [
+            1,
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "qubits": [
+            1,
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            1
+          ]
+        }
+      ],
+      "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])",
+      "original_aer": {
+        "success": true,
+        "counts": {
+          "01": 8
+        }
+      },
+      "compiled_aer": {
+        "success": true,
+        "counts": {
+          "10": 8
+        }
+      },
+      "compiled_adapter": {
+        "success": false,
+        "error": "QiskitError: 'set_statevector requires all qubits in circuit order'"
+      }
+    },
+    {
+      "kind": "set",
+      "transpile_options": {
+        "routing_method": "none"
+      },
+      "compiled_operations": [
+        {
+          "name": "x",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "swap",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        },
+        {
+          "name": "set_statevector",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ]
+        }
+      ],
+      "layout": "None",
+      "original_aer": {
+        "success": true,
+        "counts": {
+          "01": 8
+        }
+      },
+      "compiled_aer": {
+        "success": true,
+        "counts": {
+          "01": 8
+        }
+      },
+      "compiled_adapter": {
+        "success": true,
+        "counts": {
+          "01": 8
+        }
+      }
+    }
+  ]
+}

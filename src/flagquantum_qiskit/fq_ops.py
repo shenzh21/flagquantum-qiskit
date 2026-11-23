@@ -24,12 +24,12 @@ from flagquantum.runtime.dynamic.execution import (
 from flagquantum.simulation.statevector.noisy import apply_kraus_batched
 
 
-def zero(n, dtype):
-    """创建 n 位全零初态；dtype 决定复数精度，设备固定为 CPU。
+def zero(n, dtype, device="cpu"):
+    """由 FQ 在指定 device 上创建 n 位全零初态，dtype 决定复数精度。
 
     初态由 FQ 创建，再复制为独立张量，避免不同 shot 共用可修改状态。
     """
-    return fq.Circuit(n, dtype=dtype, device="cpu").initial_state().clone()
+    return fq.Circuit(n, dtype=dtype, device=device).initial_state().clone()
 
 
 def gate(state, instruction, n):
@@ -77,14 +77,14 @@ def vector_to_qiskit(state, n):
     return state.reshape([2] * n).permute(tuple(reversed(range(n)))).reshape(-1)
 
 
-def matrix_from_qiskit(matrix, width, dtype):
+def matrix_from_qiskit(matrix, width, dtype, device="cpu"):
     """将 width 位局部门矩阵从 Qiskit 基顺序转换为 FQ 基顺序。
 
     前 width 个二值轴代表矩阵行，后 width 个代表列，两个轴组分别反转。
     这相当于同时重排输入与输出基索引，不是矩阵转置或交换控制/目标。
     本函数只做表示转换，合法性由上游指令构造与程序编译层检查。
     """
-    value = torch.as_tensor(matrix, dtype=dtype, device="cpu")
+    value = torch.as_tensor(matrix, dtype=dtype, device=device)
     axes = tuple(reversed(range(width))) + tuple(reversed(range(width, 2 * width)))
     return value.reshape([2] * (2 * width)).permute(axes).reshape(2**width, 2**width)
 
@@ -111,7 +111,7 @@ def expectation(state, terms, wires, n):
     Pauli 位置映射到整条已提交线路的量子位编号。
     """
     # 用现有状态构造 FQ 的期望值读取对象，不重新执行输入 Qiskit 线路。
-    circuit = fq.Circuit(n, inputs=state, dtype=state.dtype, device="cpu")
+    circuit = fq.Circuit(n, inputs=state, dtype=state.dtype, device=state.device)
     value = 0.0
     for pauli, coefficients in terms:
         # Qiskit 标签最右字符对应局部位 0，因此先反向读取标签。

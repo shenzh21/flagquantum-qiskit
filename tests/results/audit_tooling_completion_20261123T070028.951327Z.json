@@ -1,0 +1,37 @@
+{
+  "schema": "audit_tooling_fix_completion_v1",
+  "completed_utc": "2026-11-23T07:00:28.950327+00:00",
+  "scope": [
+    "F2 precision-dependent benchmark tolerances",
+    "F3 timestamped regression reports and rerun commands"
+  ],
+  "runtime_validation": "tests/results/audit_tooling_fixes_20261123T065835.304251Z.json",
+  "formal_benchmark_regression": {
+    "xml": "tests/results/benchmark_precision_regression_20261123T065959.8890972Z.xml",
+    "tests": 5,
+    "passed": 5,
+    "seconds": "0.945",
+    "covers": "4 precision combinations plus double/double rejection at 1e-7; deterministic worker outputs, not additional numerical simulation"
+  },
+  "existing_evidence_and_production_files_unchanged": 88,
+  "archived_v3_sha256": "9dd49a5fd2ddedeeaeffda2bbb943f7b3256d2083fd2e863b08ddec35950b299",
+  "existing_reports_matching_v3": [
+    "qasmbench_cpu_single_reference_double_2026-11-23.json",
+    "qasmbench_cuda_single_reference_double_2026-11-23.json"
+  ],
+  "all_passed": true,
+  "source_sha256": {
+    "benchmarks/run_qasmbench.py": "d09ea1aff0ca8ff28112208dafc2d0804f59f6988843d324cf37906a2ebec8fe",
+    "benchmarks/README.md": "990869f77260e7a40cbc5c43d47ae94e235a4998e6f3503d92406c61ef4577f2",
+    "tests/test_user_circuits.py": "a15f5835845c5fee0676e726d6b502cd2aeeca9fd56473fd0b5678ce6f04a96e",
+    "tests/test_benchmarks.py": "c33d3ad9e70f85d68ad20e7dfb6976a4509bfc8d1dda4b87b8fe143c21c81460",
+    "tests/README.md": "6ac16cbbd72bed54035d18659a54dc681ce0ec8486b5c2613fdbfded0542b2a8",
+    "VALIDATION.md": "e461e5ce1e7f679770e4f569c5c018d4a5d0277817061ddecd1d02329c17df9c"
+  },
+  "limitations": [
+    "No full-suite or GPU rerun: only report generation and benchmark validation changed",
+    "No production source changes",
+    "No fix for F1 in this task",
+    "No commit or push"
+  ]
+}

@@ -178,6 +178,21 @@ class NoisePlan:
     # 有序量子位元组 → 联合读出矩阵；不同局部组在准备阶段要求互不重叠。
     local_readout: dict[tuple[int, ...], torch.Tensor] = field(default_factory=dict)
 
+    def to(self, device: str) -> "NoisePlan":
+        """返回设备一致的计划；量子算子和读出概率与执行 RNG 使用同一设备。
+
+        局部通道合法性仍在 CPU 双精度校验；这一步只搬运已验证的表示，
+        不调用量子演化，也不修改当前计划的字典或用户原噪声对象。
+        """
+        move = lambda values: tuple(value.to(device=device) for value in values)
+        return NoisePlan(
+            {key: move(values) for key, values in self.default_quantum.items()},
+            {key: {wires: move(values) for wires, values in entries.items()}
+             for key, entries in self.local_quantum.items()},
+            None if self.default_readout is None else self.default_readout.to(device=device),
+            {wires: values.to(device=device) for wires, values in self.local_readout.items()},
+        )
+
     @property
     def active(self) -> bool:
         """是否存有任何噪声规则；供后端决定能否走无噪声末端采样路径。

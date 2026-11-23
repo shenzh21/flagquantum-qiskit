@@ -1,4 +1,4 @@
-"""把 Qiskit 后端接口连接到真实 FlagQuantum CPU 执行的调度层。
+"""把 Qiskit 后端接口连接到真实 FlagQuantum CPU/CUDA 执行的调度层。
 
 本模块负责接收线路、校验选项、安排执行路径，以及返回 Qiskit Job/Result。
 量子门演化、测量坍缩等数值工作由其他模块调用 FlagQuantum 完成，
@@ -45,7 +45,10 @@ from .trajectory import Execution
 
 
 class FlagQuantumBackend(BackendV2):
-    """实现 Qiskit BackendV2 的 FlagQuantum CPU 后端。
+    """实现 Qiskit BackendV2 的 FlagQuantum 后端，默认使用 CPU。
+
+    CPU/CUDA 都支持 single/double。上游 0.3.1 的 CUDA single 默认融合
+    依赖兼容的 Triton；缺少依赖时明确报错，不禁用内核或隐式改变精度。
 
     继承 BackendV2 后，需要提供 target、max_circuits、默认选项和 run。
     Qiskit 可以据此识别后端能力，用户也能继续使用标准转译与结果接口。
@@ -75,7 +78,7 @@ class FlagQuantumBackend(BackendV2):
         super().__init__(
             name="flagquantum_cpu",
             backend_version="0.2.0",
-            description="FlagQuantum CPU statevector Qiskit adapter",
+            description="FlagQuantum CPU/CUDA statevector Qiskit adapter",
         )
 
         # 每个实例构造一次 Target，之后属性访问返回同一对象。
@@ -114,9 +117,9 @@ class FlagQuantumBackend(BackendV2):
             shots=1024,
             # None 表示不固定种子；执行器使用局部 RNG，不重置全局 RNG。
             seed_simulator=None,
-            # double 对应 complex128；single 对应 complex64。
+            # double 对应 complex128；single 对应 complex64，CUDA single 需 Triton。
             precision="double",
-            # 当前只允许 CPU；传入其他设备会在请求校验时明确报错。
+            # CPU 为默认；CUDA 可在构造、set_options 或单次 run 时选择。
             device="cpu",
             # True 时额外保留每个 shot 的经典输出，不是返回量子态历史。
             memory=False,
@@ -163,7 +166,7 @@ class FlagQuantumBackend(BackendV2):
             request.noise_model,
             dtype=dtype,
             max_memory_bytes=request.max_memory_bytes,
-        )
+        ).to(request.device)
 
         # 4. 先为全部实验做基础检查和转换，再开始任何实验的量子执行。
         # 这能提前发现后续线路的结构/导入错误，但运行时仍可能发生循环

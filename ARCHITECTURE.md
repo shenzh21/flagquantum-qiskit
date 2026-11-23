@@ -73,4 +73,16 @@ num_qubits是容量上限，不是固定分配。max_memory_mb是预检和单实
 
 验收包括标准用户流程、端序/经典写位、相位敏感理想保存、初始化/矩阵、批次绑定/memory/seed/状态隔离、动态分支/循环、噪声通道/读出反馈、V2多PUB与metadata、17用户线路、负例、资源预算、实际FQ来源和wheel目录外安装。精确概率/振幅用数值容差，随机分布用事先固定统计阈值，不能把两者混为一谈。
 
-Definition of Done：相关接口均有真实FQ阳性验收；未支持细节明确拒绝并记录；既有回归不破坏；不改upstream；wheel不含研究源码/缓存/venv；安装wheel后在仓库外运行标准流程；README/兼容矩阵/验证记录与最终版本一致。GPU、多算法选择与性能调优不在本轮，不以性能承诺作为完成条件。
+Definition of Done：相关接口均有真实FQ阳性验收；未支持细节明确拒绝并记录；既有回归不破坏；不改upstream；wheel不含研究源码/缓存/venv；安装wheel后在仓库外运行标准流程；README/兼容矩阵/验证记录与最终版本一致。本地单卡 CUDA 两精度接入已另行授权，原生默认路线与最新两精度适配器回归均已通过本机验收，多算法选择与系统性性能调优仍不在本轮，不以性能承诺作为完成条件。
+
+## 设备边界：本地 CUDA 两精度接入
+
+`validation.normalize_device` 接受 `cpu`、`cuda`、`cuda:N`；CPU 请求不初始化 CUDA，`cuda` 规范化为校验时当前设备编号。CUDA 初始化失败、不可用设备和越界编号明确报错，不使用 CPU fallback。默认仍为 CPU。CPU/CUDA 都接受 `precision="single"` / `"double"`；适配器默认 CPU/double 不变。固定 FQ 0.3.1 的单精度 CUDA 默认优化可能调用 Triton；CUDA single 缺少可导入模块时提前报告依赖问题，不降级精度、设备或改写优化配置。Windows 使用已验证的 triton-windows 3.6.0.post26；模块存在仅是预检，实际版本兼容仍依赖真实数值验收。
+
+快路径将设备传给 FQ `Circuit.from_ir` 与同设备局部 `torch.Generator`；FQ 采样后先验证张量设备/形状/值，再把样本传回 CPU 做经典位映射。一般路径的 FQ 初态、门/初始化矩阵、Kraus 算子和局部生成器使用请求设备，经典控制与结果组装留在主机；保存向量/概率显式回传 CPU 后包装为 Qiskit 结果。端序和量子位身份规则保持不变，数值执行仍来自真实 FQ。
+
+CUDA 会检查当前空闲显存与保守估算；`max_memory_mb` 同时保留为输入接收与保存预算，不是显存预留或硬上限，其他进程与临时分配仍可能造成 OOM。FQ 0.3.1 的 `FQ_CPU_VECTORIZED_ROW_SAMPLING` 开关若启用，则明确拒绝 CUDA，而非改写进程环境。跨 CPU/GPU 不保证相同 seed 的逐 shot 样本相同；动态逐 shot 控制、状态回传与同步可能主导耗时。
+
+本节描述本次纳入仓库的 CUDA 实现：未装 Triton 时的原生 single 失败与 double-only 适配器验收均保留为阶段历史。补齐 Windows Triton 后，所有 FQ 环境覆盖为空，真实默认 single 优化路径已验证；恢复两精度的适配器完整回归与隔离安装 wheel 已通过独立新验收，不使用旧阶段结果替代；本轮环境、安装、验证进展与限制见 [GPU.md](GPU.md)。
+
+最新 [默认 Triton 适配器验收报告](tests/results/gpu_triton_adapter_validation_2026-11-23.json)：CPU 215 passed、11 CUDA skipped；CUDA 环境 226 passed、0 skipped，其中实际 CUDA 用例 11 项，其余多数默认 CPU。最终结果说明晚于验证 wheel 快照，本次只补文档、不改实现或重建。

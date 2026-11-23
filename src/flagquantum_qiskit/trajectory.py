@@ -48,9 +48,9 @@ class Saves:
         op=node.operation
         # 状态向量转换回 Qiskit 位序并复制，避免后续状态变化影响已保存值。
         # 概率/期望由 fq_ops 读取或调用 FQ 计算，不能用 Qiskit 重新演化线路。
-        if op.name=="save_statevector": value=fq_ops.vector_to_qiskit(state,n).detach().numpy().copy()
+        if op.name=="save_statevector": value=fq_ops.vector_to_qiskit(state,n).detach().cpu().numpy().copy()
         elif op.name.startswith("save_probabilities"):
-            value=fq_ops.probabilities(state,node.wires,n).detach().numpy().copy()
+            value=fq_ops.probabilities(state,node.wires,n).detach().cpu().numpy().copy()
         else: value=fq_ops.expectation(state,op.params,node.wires,n)
         key=hex(sum(bit<<i for i,bit in enumerate(classical))) if op._subtype.startswith("c_") else None
         kind=op._subtype.removeprefix("c_")
@@ -108,7 +108,7 @@ class Execution:
         self.program=program; self.sidecar=sidecar; self.request=request; self.noise=noise
         self.n=sidecar.num_qubits
         self.dtype=torch.complex128 if request.precision=="double" else torch.complex64
-        self.generator=torch.Generator(device="cpu")
+        self.generator=torch.Generator(device=request.device)
         self.generator.seed() if request.seed_simulator is None else self.generator.manual_seed(request.seed_simulator)
         self.saves=Saves(request.max_memory_bytes)
         # 初始化的内部准备态门不应逐门套用用户 NoiseModel；计数器支持嵌套屏蔽。
@@ -202,7 +202,7 @@ class Execution:
                     # 按标准顺序覆盖全寄存器时，遵循 Aer 的替态相位契约：清除
                     # 此前状态和累计相位，再乘顶层 self.program.phase；此处不是
                     # 当前局部块的 phase。准备态块自身的相位随后由 run_block 计入。
-                    self.state=fq_ops.zero(self.n,self.dtype)*cmath.exp(1j*self.program.phase)
+                    self.state=fq_ops.zero(self.n,self.dtype,self.request.device)*cmath.exp(1j*self.program.phase)
                 else:
                     # 子集或逆序全幅初始化先真实 reset，再准备局部态，不能直接
                     # 替换纠缠子系统振幅。该路径不复制 Aer 特定版本额外重复顶层
@@ -252,7 +252,7 @@ class Execution:
         # 随机源不逐 shot 重播 seed，避免每次得到同一个随机轨迹。
         with torch.no_grad():
             for _ in range(self.request.shots):
-                self.state=fq_ops.zero(self.n,self.dtype)
+                self.state=fq_ops.zero(self.n,self.dtype,self.request.device)
                 self.classical=[0]*self.sidecar.memory_slots
                 self.measured=False; self.iterations=0
                 self.run_block(self.program)
@@ -278,4 +278,4 @@ class Execution:
         return data, {"engine":"flagquantum", "method":"FQ statevector trajectories",
             "flagquantum_version":version("flagquantum"), "torch_version":torch.__version__,
             "qiskit_version":version("qiskit"), "adapter_version":"0.2.0",
-            "device":"cpu", "precision":str(self.dtype), "seed_simulator":self.request.seed_simulator}
+            "device":str(self.state.device), "precision":str(self.dtype), "seed_simulator":self.request.seed_simulator}

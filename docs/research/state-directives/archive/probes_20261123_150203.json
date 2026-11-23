@@ -1,0 +1,3471 @@
+[
+  {
+    "case": "manual_directives",
+    "wires": [
+      0,
+      1
+    ],
+    "result": {
+      "statevector": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    }
+  },
+  {
+    "case": "manual_directives",
+    "wires": [
+      1,
+      0
+    ],
+    "result": {
+      "statevector": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    }
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {},
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {},
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x0": 1,
+        "0x3": 4,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x1": 2,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {},
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 6,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 5,
+        "0x3": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 2,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "initialize",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x2": 3,
+        "0x1": 1,
+        "0x3": 3,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 6,
+        "0x0": 1,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 2,
+        "0x3": 5,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x1": 4,
+        "0x2": 2,
+        "0x3": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x2": 4,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 3,
+        "0x3": 5
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x1": 1,
+        "0x0": 1,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 4,
+        "0x1": 2,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "adapter_generic",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 2,
+        "0x3": 5,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {},
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {},
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 2,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 6,
+        "0x1": 1,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {},
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x2": 5
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 2,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x3": 2,
+        "0x2": 3,
+        "0x1": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x0": 1,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "initialize",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x1": 2,
+        "0x3": 4,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 1,
+        "0x0": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x1": 2,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x1": 1,
+        "0x3": 5,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x1": 2,
+        "0x0": 1,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x1": 4,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_specific_class",
+    "options": {
+      "initial_layout": [
+        0,
+        1
+      ]
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 2,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x2": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n1: <Qubit register=(2, \"q\"), index=0>,\n0: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {},
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {},
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x2": 3,
+        "0x1": 1,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 1,
+        "0x1": 2,
+        "0x3": 5
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {},
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 5,
+        "0x1": 3
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 3,
+        "0x3": 3,
+        "0x1": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x3": 7,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x0": 1,
+        "0x3": 5,
+        "0x2": 1,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "routing_method": "none"
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "swap",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "initialize",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "barrier",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ]
+    ],
+    "elide_pass_present": false,
+    "original_aer": {
+      "counts": {
+        "0x2": 2,
+        "0x1": 2,
+        "0x3": 3,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x1": 2,
+        "0x3": 4,
+        "0x2": 2
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "None"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "save",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 8
+      },
+      "state": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "set",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 3,
+        "0x2": 5
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x2": 2,
+        "0x1": 2,
+        "0x3": 3,
+        "0x0": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "transpile",
+    "target": "aer_backend",
+    "options": {
+      "qubits_initially_zero": false
+    },
+    "kind": "initialize",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "initialize",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "elide_pass_present": true,
+    "original_aer": {
+      "counts": {
+        "0x3": 6,
+        "0x1": 1,
+        "0x2": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": -0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "compiled_aer": {
+      "counts": {
+        "0x3": 6,
+        "0x2": 1,
+        "0x1": 1
+      },
+      "state": [
+        {
+          "real": 0.18257418583505536,
+          "imag": 0.0
+        },
+        {
+          "real": 0.5477225575051661,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.3651483716701107
+        },
+        {
+          "real": 0.0,
+          "imag": -0.7302967433402214
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=1>,\n1: <Qubit register=(2, \"q\"), index=0>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  },
+  {
+    "case": "multiple_save_frames",
+    "ops": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "save_statevector",
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "original_aer": {
+      "before": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ],
+      "middle": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ],
+      "after": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "compiled_aer": {
+      "before": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ],
+      "middle": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ],
+      "after": [
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 1.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        },
+        {
+          "real": 0.0,
+          "imag": 0.0
+        }
+      ]
+    },
+    "layout": "TranspileLayout(initial_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), input_qubit_mapping={<Qubit register=(2, \"q\"), index=0>: 0, <Qubit register=(2, \"q\"), index=1>: 1}, final_layout=Layout({\n0: <Qubit register=(2, \"q\"), index=0>,\n1: <Qubit register=(2, \"q\"), index=1>\n}), _input_qubit_count=2, _output_qubit_list=[<Qubit register=(2, \"q\"), index=0>, <Qubit register=(2, \"q\"), index=1>])"
+  }
+]

@@ -1,0 +1,186 @@
+"""Public QASMBench inputs, with FQ and Aer in isolated numerical processes.
+
+Only terminal measurements and barriers are removed, on in-memory copies.
+The orchestrator does not import Torch, FlagQuantum or Aer.
+"""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+from importlib.metadata import version
+import json
+from pathlib import Path
+import platform
+import subprocess
+import sys
+import tempfile
+import time
+import numpy as np
+from qiskit import QuantumCircuit, qasm2, qpy, transpile
+from qiskit.quantum_info import Statevector
+
+ROOT = Path(__file__).resolve().parent
+COMMIT = "357b942396d5c2b7cbc1c229c585a6ef5ccaebac"
+BASIS = ["h", "x", "rx", "ry", "rz", "p", "cx"]
+INPUTS = {"qft_n4.qasm": "small/qft_n4/qft_n4.qasm", "qaoa_n6.qasm": "small/qaoa_n6/qaoa_n6.qasm",
+          "ising_n10.qasm": "small/ising_n10/ising_n10.qasm"}
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def compare(actual, reference):
+    overlap = np.vdot(reference, actual)
+    phase = overlap / abs(overlap) if abs(overlap) else 1.0
+    norms = float(np.vdot(actual, actual).real * np.vdot(reference, reference).real)
+    return {"max_abs_error": float(np.max(np.abs(actual - reference))),
+            "phase_aligned_max_abs_error": float(np.max(np.abs(actual / phase - reference))),
+            "infidelity": float(max(0.0, 1 - abs(overlap) ** 2 / norms)),
+            "probability_total_variation": float(np.sum(np.abs(abs(actual) ** 2 - abs(reference) ** 2)) / 2),
+            "norm_error": float(abs(np.vdot(actual, actual).real - 1))}
+
+
+def unitary_copy(original):
+    body = QuantumCircuit(original.num_qubits, name=original.name)
+    body.global_phase = original.global_phase
+    removed = []
+    reached_measurement = False
+    for index, item in enumerate(original.data):
+        op = item.operation
+        qubits = [original.find_bit(q).index for q in item.qubits]
+        if op.name == "barrier":
+            removed.append({"index": index, "kind": "barrier", "qubits": qubits})
+        elif op.name == "measure":
+            reached_measurement = True
+            removed.append({"index": index, "kind": "terminal_measure", "qubits": qubits,
+                            "clbits": [original.find_bit(c).index for c in item.clbits]})
+        else:
+            if reached_measurement:
+                raise ValueError("Non-measurement operation after measurement: reject dynamic input")
+            if op.name == "reset" or getattr(op, "blocks", ()) or item.clbits or getattr(op, "condition", None):
+                raise ValueError("Dynamic/nonunitary operation outside static benchmark")
+            body.append(op, qubits)
+    return body, removed
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--precision", choices=("double", "single"), default="double")
+    parser.add_argument("--aer-precision", choices=("double", "single"), default=None,
+                        help="Defaults to FQ precision; double can serve as an accuracy reference for FQ single")
+    parser.add_argument("--device", default="cpu", help="FQ device; Aer remains CPU")
+    parser.add_argument("--fq-python", default=sys.executable)
+    parser.add_argument("--aer-python", default=sys.executable)
+    parser.add_argument("--warmups", type=int, default=2)
+    parser.add_argument("--repeats", type=int, default=5)
+    parser.add_argument("--threads", type=int, default=1)
+    args = parser.parse_args()
+    aer_precision = args.aer_precision or args.precision
+    if args.output.exists():
+        parser.error("Refusing to overwrite evidence")
+    if args.warmups < 0 or args.repeats < 1 or args.threads < 1:
+        parser.error("warmups>=0, repeats>=1, threads>=1 required")
+    fixture_root = ROOT / "fixtures" / "qasmbench"
+    manifest = json.loads((fixture_root / "PROVENANCE.json").read_text(encoding="utf-8-sig"))
+    for item in manifest["files"]:
+        if sha(fixture_root / item["file"]) != item["sha256"]:
+            raise ValueError(f"Fixture hash mismatch: {item['file']}")
+    cache = ROOT / ".cache"
+    cache.mkdir(exist_ok=True)
+    work = Path(tempfile.mkdtemp(prefix="qasmbench-", dir=cache))
+    threshold = 1e-10 if args.precision == "double" else 5e-5
+    report = {"schema": "qasmbench_isolated_crosscheck_v3", "started_utc": datetime.now(timezone.utc).isoformat(),
+              "source_commit": COMMIT, "source_hashes_verified": True,
+              "script_sha256": sha(Path(__file__)), "worker_sha256": sha(ROOT / "qasmbench_worker.py"),
+              "orchestrator": {"python": platform.python_version(), "platform": platform.platform(),
+                               "qiskit": version("qiskit"), "numpy": version("numpy")},
+              "configuration": {"fq_device": args.device, "aer_device": "CPU", "precision": args.precision,
+                                "fq_precision": args.precision, "aer_precision": aer_precision,
+                                "comparison_purpose": "same_precision_crosscheck" if args.precision == aer_precision else "accuracy_reference_with_different_precision",
+                                "cross_framework_same_precision_timing": args.precision == aer_precision,
+                                "timing_caveat": "Do not form a same-precision speedup ratio between engines with different precision; FQ CPU/GPU comparisons require matched FQ precision/environment",
+                                "threads": args.threads, "warmups": args.warmups, "repeats": args.repeats,
+                                "common_basis": BASIS, "optimization_level": 0, "seed_transpiler": 7, "threshold": threshold,
+                                "same_output": "full statevector, Qiskit order, materialized CPU NumPy memory",
+                                "timing": "prepared representation to host statevector; construction/job overhead included, not kernel-only",
+                                "first_call": "after imports/QPY load/engine preparation in fresh numerical process",
+                                "fq_cache": "new Circuit every invocation, state(refresh=True)",
+                                "phase": "strip known phase before FQ strict import, restore explicitly after execution",
+                                "limitations": "three small unitary circuits; no shots, noise, dynamic, adapter timing, or same-hardware GPU comparison"},
+              "cases": [], "completed": False, "all_passed": False}
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    def checkpoint():
+        args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    checkpoint()
+    for name, relative in INPUTS.items():
+        source = fixture_root / name
+        start = time.perf_counter()
+        original = qasm2.load(source, custom_instructions=qasm2.LEGACY_CUSTOM_INSTRUCTIONS)
+        body, removed = unitary_copy(original)
+        prep_ms = (time.perf_counter() - start) * 1000
+        start = time.perf_counter()
+        circuit = transpile(body, basis_gates=BASIS, optimization_level=0, seed_transpiler=7)
+        compile_ms = (time.perf_counter() - start) * 1000
+        input_path = work / (source.stem + ".qpy")
+        with input_path.open("wb") as stream:
+            qpy.dump(circuit, stream)
+        original_reference = np.asarray(Statevector.from_instruction(body))
+        compiled_reference = np.asarray(Statevector.from_instruction(circuit))
+        row = {"file": name, "source_url": f"https://github.com/pnnl/QASMBench/blob/{COMMIT}/{relative}",
+               "source_sha256": sha(source), "compiled_qpy_sha256": sha(input_path), "n_qubits": circuit.num_qubits,
+               "original_ops": dict(original.count_ops()), "compiled_ops": dict(circuit.count_ops()),
+               "compiled_depth": circuit.depth(), "compiled_global_phase": float(circuit.global_phase),
+               "preprocessing": {"parse_and_copy_ms": prep_ms, "removed_operations": removed,
+                                 "source_bytes_modified": False, "original_clbits": original.num_clbits},
+               "common_transpile_ms": compile_ms, "engines": {},
+               "checks": {"compiled_vs_original_qiskit": compare(compiled_reference, original_reference)}}
+        arrays = {}
+        report["cases"].append(row)
+        checkpoint()
+        for engine, executable in (("flagquantum", args.fq_python), ("aer", args.aer_python)):
+            result_path = work / f"{source.stem}-{engine}.json"
+            vector_path = work / f"{source.stem}-{engine}.npy"
+            command = [str(executable), "-u", str(ROOT / "qasmbench_worker.py"), "--engine", engine,
+                       "--input", str(input_path), "--output", str(result_path), "--vector", str(vector_path),
+                       "--precision", args.precision if engine == "flagquantum" else aer_precision,
+                       "--device", args.device if engine == "flagquantum" else "cpu",
+                       "--warmups", str(args.warmups), "--repeats", str(args.repeats), "--threads", str(args.threads)]
+            started = time.perf_counter()
+            try:
+                process = subprocess.run(command, capture_output=True, text=True, timeout=120)
+                outcome = {"command": command, "returncode": process.returncode, "stdout": process.stdout,
+                           "stderr": process.stderr, "process_wall_ms": (time.perf_counter() - started) * 1000}
+            except subprocess.TimeoutExpired as exc:
+                outcome = {"command": command, "returncode": None, "failure": "120s subprocess timeout",
+                           "stdout": str(exc.stdout), "stderr": str(exc.stderr)}
+            if result_path.exists():
+                outcome["report"] = json.loads(result_path.read_text(encoding="utf-8"))
+            if outcome["returncode"] == 0 and vector_path.exists():
+                arrays[engine] = np.load(vector_path, allow_pickle=False)
+                outcome["vector_sha256"] = sha(vector_path)
+                row["checks"][f"{engine}_vs_original_qiskit"] = compare(arrays[engine], original_reference)
+            row["engines"][engine] = outcome
+            checkpoint()
+        if len(arrays) == 2:
+            row["checks"]["fq_vs_aer"] = compare(arrays["flagquantum"], arrays["aer"])
+        row["check_thresholds"] = {
+            key: (threshold if key in ("flagquantum_vs_original_qiskit", "fq_vs_aer")
+                  else (5e-5 if key == "aer_vs_original_qiskit" and aer_precision == "single" else 1e-10))
+            for key in row["checks"]
+        }
+        row["passed"] = len(arrays) == 2 and all(
+            v["max_abs_error"] <= row["check_thresholds"][key] and v["norm_error"] <= row["check_thresholds"][key]
+            for key, v in row["checks"].items())
+        print(name, "passed=" + str(row["passed"]), flush=True)
+        checkpoint()
+    report["completed"] = True
+    report["all_passed"] = all(row["passed"] for row in report["cases"])
+    report["finished_utc"] = datetime.now(timezone.utc).isoformat()
+    checkpoint()
+    if not report["all_passed"]:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

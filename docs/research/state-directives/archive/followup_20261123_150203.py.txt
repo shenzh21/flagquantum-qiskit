@@ -1,0 +1,30 @@
+from pathlib import Path
+import sys,json,numpy as np,hashlib
+root=Path.cwd();sys.path.insert(0,str(root/'src'))
+from qiskit import QuantumCircuit,transpile
+from qiskit_aer import AerSimulator
+from flagquantum_qiskit import FlagQuantumBackend
+import flagquantum_qiskit.program as program
+import flagquantum_qiskit.backend as backend_module
+rows=[]
+for options in [{},{'routing_method':'none'},{'routing_method':'none','initial_layout':[1,0]},{'optimization_level':0}]:
+ q=QuantumCircuit(2);q.x(0);q.swap(0,1);q.set_statevector([0,1,0,0]);q.measure_all()
+ b=FlagQuantumBackend(num_qubits=2);c=transpile(q,b,seed_transpiler=7,**options)
+ row={'case':'basis_set','options':options,'original_aer':AerSimulator(method='statevector').run(q,shots=8).result().get_counts(),'compiled_aer':AerSimulator(method='statevector').run(c,shots=8).result().get_counts()}
+ try:row['adapter']=b.run(c,shots=8).result().get_counts()
+ except Exception as e:row['adapter']=repr(e)
+ rows.append(row)
+q=QuantumCircuit(2);q.x(0);q.swap(0,1);q.barrier();q.set_statevector([0,1,0,0]);q.barrier();q.measure_all()
+c=transpile(q,FlagQuantumBackend(num_qubits=2),seed_transpiler=7)
+rows.append({'case':'barrier','operations':[(x.operation.name,[c.find_bit(w).index for w in x.qubits]) for x in c.data],'compiled_aer':AerSimulator(method='statevector').run(c,shots=8).result().get_counts()})
+# Research-only in-memory change to the save guard; no production file edited.
+source_path=Path(program.__file__);before=hashlib.sha256(source_path.read_bytes()).hexdigest()
+source=source_path.read_text(encoding="utf-8");old='if op.name == "save_statevector" and wires != tuple(range(n)):';new='if op.name == "save_statevector" and (len(wires) != n or set(wires) != set(range(n))):';assert source.count(old)==1
+exec(compile(source.replace(old,new),str(source_path), 'exec'),program.__dict__);backend_module.compile_program=program.compile_program
+q=QuantumCircuit(2);q.x(0);q.save_statevector(label='before');q.swap(0,1);q.save_statevector(label='middle');q.swap(0,1);q.save_statevector(label='after')
+c=transpile(q,FlagQuantumBackend(num_qubits=2),seed_transpiler=7)
+a=FlagQuantumBackend(num_qubits=2).run(c,shots=1).result().data();b=AerSimulator(method='statevector').run(c,shots=1).result().data()
+errors={key:float(np.max(abs(np.asarray(a[key])-np.asarray(b[key])))) for key in ['before','middle','after']};assert max(errors.values())<1e-12
+assert before==hashlib.sha256(source_path.read_bytes()).hexdigest()
+rows.append({'case':'research_only_save_guard','same_compiled_aer_errors':errors,'production_file_sha256':before,'production_file_unchanged':True,'set_guard_unchanged':True})
+(root/'.cache/state-directive-research/followup.json').write_text(json.dumps(rows,indent=2));print(json.dumps(rows,indent=2))

@@ -1,0 +1,49 @@
+from pathlib import Path
+import sys,json,numpy as np,hashlib
+root=Path.cwd();sys.path.insert(0,str(root/'src'))
+from qiskit import QuantumCircuit,transpile
+from qiskit.quantum_info import Statevector
+from qiskit.transpiler import Target
+from qiskit_aer import AerSimulator
+from qiskit_aer.library import SaveStatevector,SetStatevector
+from flagquantum_qiskit import FlagQuantumBackend
+v=np.array([1,2j,3,-4j],complex)/np.sqrt(30)
+def out(q):
+ assert q.num_qubits<=4, q.num_qubits
+ r=AerSimulator(method='statevector',enable_truncation=False).run(q,shots=8).result()
+ d=r.data();return {k:(np.asarray(val).tolist() if k not in ['counts'] else val) for k,val in d.items()}
+def ops(c):return [(x.operation.name,[c.find_bit(w).index for w in x.qubits]) for x in c.data]
+rows=[]
+for wires in [[0,1],[1,0]]:
+ q=QuantumCircuit(2);q.append(SetStatevector(v),wires);q.append(SaveStatevector(2),wires)
+ rows.append({'case':'manual_directives','wires':wires,'result':out(q)})
+for target_kind in ['adapter_generic','aer_specific_class','aer_backend']:
+ if target_kind=='aer_backend':
+  b=AerSimulator(method='statevector')
+ else:
+  b=FlagQuantumBackend(num_qubits=2)
+  if target_kind=='aer_specific_class':
+   old=b.target;t=Target(num_qubits=2)
+   for name in old.operation_names:
+    t.add_instruction({'save_statevector':SaveStatevector,'set_statevector':SetStatevector}.get(name,old.operation_from_name(name)),name=name)
+   b._target=t
+ for options in [{},{'routing_method':'none'},{'qubits_initially_zero':False},{'initial_layout':[0,1]}]:
+  if target_kind=='aer_backend' and 'initial_layout' in options:continue
+  for kind in ['save','set','initialize']:
+   q=QuantumCircuit(2);q.x(0);q.swap(0,1)
+   if kind=='set':q.set_statevector(v)
+   elif kind=='initialize':q.initialize(v)
+   q.save_statevector(label='state');q.measure_all()
+   passes=[]
+   c=transpile(q,b,seed_transpiler=7,callback=lambda **kw:passes.append(kw['pass_'].name()),**options)
+   rows.append({'case':'transpile','target':target_kind,'options':options,'kind':kind,'ops':ops(c),'elide_pass_present':'ElidePermutations' in passes,'original_aer':out(q),'compiled_aer':out(c),'layout':str(c.layout)})
+# Intermediate saved states need their own frame, not simply final_layout.
+q=QuantumCircuit(2);q.x(0);q.save_statevector(label='before');q.swap(0,1);q.save_statevector(label='middle');q.swap(0,1);q.save_statevector(label='after')
+c=transpile(q,FlagQuantumBackend(num_qubits=2),seed_transpiler=7)
+rows.append({'case':'multiple_save_frames','ops':ops(c),'original_aer':out(q),'compiled_aer':out(c),'layout':str(c.layout)})
+def encode(x):
+ if isinstance(x,complex):return {'real':x.real,'imag':x.imag}
+ raise TypeError(type(x))
+p=root/'.cache/state-directive-research/probes.json';p.write_text(json.dumps(rows,default=encode,indent=2));print('Cases:',len(rows));print(p)
+for r in rows:
+ if r['case']=='transpile' and r['target']=='adapter_generic':print(r['kind'],r['options'],r['ops'],r['elide_pass_present'])

@@ -1,0 +1,2028 @@
+{
+  "schema": "flagquantum_crosscheck_pilot_v1",
+  "started_utc": "2026-11-23T06:07:45.053023+00:00",
+  "script_sha256": "ba12af569c65e03dba75b09df3985ae8be559839437eaac30528e531d579e778",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "cpu": "Intel(R) Core(TM) i9-14900HX",
+    "versions": {
+      "flagquantum": "0.3.1",
+      "qiskit": "2.6.2",
+      "qiskit-aer": "0.18.4",
+      "torch": "2.14.1+cpu",
+      "numpy": "2.4.6"
+    },
+    "torch_threads": 1,
+    "fq_device": "cpu",
+    "aer_device": "CPU",
+    "aer_available_devices": [
+      "CPU"
+    ],
+    "gpu": null
+  },
+  "configuration": {
+    "widths": [
+      4,
+      8,
+      12
+    ],
+    "families": [
+      "ghz",
+      "qft",
+      "random_layers",
+      "qaoa_ring",
+      "trotter_ising"
+    ],
+    "seeds": [
+      7,
+      19
+    ],
+    "precisions": [
+      "double"
+    ],
+    "layers": 4,
+    "warmups": 2,
+    "repeats": 5,
+    "threads": 1,
+    "device": "cpu",
+    "output": "benchmarks\\results\\cpu_double_pilot_2026-11-23.json"
+  },
+  "method": {
+    "circuit_source": "local deterministic generators, not external benchmark suite artifacts",
+    "fq": "strict Qiskit import; fresh Circuit.from_ir + state(refresh=True) + host export + endian normalization",
+    "aer": "run(saved statevector circuit).result().get_statevector, CPU; fusion enabled",
+    "time_boundary": "prepared representation to complete host statevector; includes object/job overhead, not kernel-only",
+    "qiskit_reference": "Statevector.from_instruction only n<=8, outside timings",
+    "first_call": "per case in an already imported process; not fresh-process cold start",
+    "cache": "new FQ Circuit every sample; refresh=True; 2 warmups by default",
+    "raw_amplitude_thresholds": {
+      "double": 1e-10,
+      "single": 5e-05
+    },
+    "norm_error_thresholds": {
+      "double": 1e-10,
+      "single": 5e-05
+    },
+    "aer_options": {
+      "method": "statevector",
+      "enable_truncation": false,
+      "fusion_enable": true,
+      "max_parallel_threads": 1
+    },
+    "limitations": "single-process small-case pilot; GPU vs CPU is not equal-hardware backend ranking; no adapter timing, shots, noise, dynamic tests or peak-memory measurement"
+  },
+  "cases": [
+    {
+      "family": "ghz",
+      "n_qubits": 4,
+      "seed": 7,
+      "precision": "double",
+      "depth": 4,
+      "gate_counts": {
+        "cx": 3,
+        "h": 1
+      },
+      "qasm_sha256": "af4e6b9006927aa346bfdc77929be9e8ee35836cf7fb15382bf13df677e8289f",
+      "common_transpile_ms": 23.233799991430715,
+      "strict_fq_import_ms": 0.17030001617968082,
+      "first_case_call_ms": {
+        "flagquantum": 56.506099994294345,
+        "aer": 1.587799983099103
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.5268999957479537,
+            0.5280000041238964,
+            0.40079999598674476,
+            0.5253000126685947,
+            0.4425999941304326
+          ],
+          "median_ms": 0.5253000126685947,
+          "min_ms": 0.40079999598674476,
+          "max_ms": 0.5280000041238964
+        },
+        "aer": {
+          "samples_ms": [
+            0.5290000117383897,
+            0.662900012684986,
+            0.5270000256132334,
+            0.6575000006705523,
+            0.7335999980568886
+          ],
+          "median_ms": 0.6575000006705523,
+          "min_ms": 0.5270000256132334,
+          "max_ms": 0.7335999980568886
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 0.0,
+          "phase_aligned_max_abs_error": 0.0,
+          "infidelity": 0.0,
+          "probability_total_variation": 0.0,
+          "norm_error": 2.220446049250313e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "ghz",
+      "n_qubits": 4,
+      "seed": 19,
+      "precision": "double",
+      "depth": 4,
+      "gate_counts": {
+        "cx": 3,
+        "h": 1
+      },
+      "qasm_sha256": "af4e6b9006927aa346bfdc77929be9e8ee35836cf7fb15382bf13df677e8289f",
+      "common_transpile_ms": 1.7957999953068793,
+      "strict_fq_import_ms": 0.15249999705702066,
+      "first_case_call_ms": {
+        "flagquantum": 0.544299982720986,
+        "aer": 0.5328000115696341
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.4985000123269856,
+            0.46159999328665435,
+            0.37460000021383166,
+            0.48430002061650157,
+            0.37319998955354095
+          ],
+          "median_ms": 0.46159999328665435,
+          "min_ms": 0.37319998955354095,
+          "max_ms": 0.4985000123269856
+        },
+        "aer": {
+          "samples_ms": [
+            0.46889999066479504,
+            0.4002999921794981,
+            0.6514000124298036,
+            0.5014000053051859,
+            0.48909999895840883
+          ],
+          "median_ms": 0.48909999895840883,
+          "min_ms": 0.4002999921794981,
+          "max_ms": 0.6514000124298036
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 0.0,
+          "phase_aligned_max_abs_error": 0.0,
+          "infidelity": 0.0,
+          "probability_total_variation": 0.0,
+          "norm_error": 2.220446049250313e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "ghz",
+      "n_qubits": 8,
+      "seed": 7,
+      "precision": "double",
+      "depth": 8,
+      "gate_counts": {
+        "cx": 7,
+        "h": 1
+      },
+      "qasm_sha256": "6ee6a73cfbecc67baf093332c601563207095ebbe746021029baa8929aa97144",
+      "common_transpile_ms": 1.6694999940227717,
+      "strict_fq_import_ms": 0.1576000067871064,
+      "first_case_call_ms": {
+        "flagquantum": 0.7533000025432557,
+        "aer": 0.7850000110920519
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.6402000144589692,
+            0.6464000034611672,
+            0.5700000037904829,
+            0.6462000019382685,
+            0.5759000196121633
+          ],
+          "median_ms": 0.6402000144589692,
+          "min_ms": 0.5700000037904829,
+          "max_ms": 0.6464000034611672
+        },
+        "aer": {
+          "samples_ms": [
+            0.5478999810293317,
+            0.46560002374462783,
+            0.5428000004030764,
+            0.47289999201893806,
+            0.5397000059019774
+          ],
+          "median_ms": 0.5397000059019774,
+          "min_ms": 0.46560002374462783,
+          "max_ms": 0.5478999810293317
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 0.0,
+          "phase_aligned_max_abs_error": 0.0,
+          "infidelity": 0.0,
+          "probability_total_variation": 0.0,
+          "norm_error": 2.220446049250313e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "ghz",
+      "n_qubits": 8,
+      "seed": 19,
+      "precision": "double",
+      "depth": 8,
+      "gate_counts": {
+        "cx": 7,
+        "h": 1
+      },
+      "qasm_sha256": "6ee6a73cfbecc67baf093332c601563207095ebbe746021029baa8929aa97144",
+      "common_transpile_ms": 1.6829999804031104,
+      "strict_fq_import_ms": 0.1542000100016594,
+      "first_case_call_ms": {
+        "flagquantum": 0.6830999918747693,
+        "aer": 0.5812000017613173
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.6548000092152506,
+            0.6390000053215772,
+            0.5459000240080059,
+            0.6473000103142112,
+            0.5364000098779798
+          ],
+          "median_ms": 0.6390000053215772,
+          "min_ms": 0.5364000098779798,
+          "max_ms": 0.6548000092152506
+        },
+        "aer": {
+          "samples_ms": [
+            0.5497999954968691,
+            0.4675000091083348,
+            0.5705000075977296,
+            0.48180000158026814,
+            0.6466000049840659
+          ],
+          "median_ms": 0.5497999954968691,
+          "min_ms": 0.4675000091083348,
+          "max_ms": 0.6466000049840659
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 0.0,
+          "phase_aligned_max_abs_error": 0.0,
+          "infidelity": 0.0,
+          "probability_total_variation": 0.0,
+          "norm_error": 2.220446049250313e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "ghz",
+      "n_qubits": 12,
+      "seed": 7,
+      "precision": "double",
+      "depth": 12,
+      "gate_counts": {
+        "cx": 11,
+        "h": 1
+      },
+      "qasm_sha256": "f79ba7cdb768b04bec47a219345ad666ea1b9195939ec96137dd2ee48caf34be",
+      "common_transpile_ms": 1.6687999886926264,
+      "strict_fq_import_ms": 0.1905999961309135,
+      "first_case_call_ms": {
+        "flagquantum": 1.4137999969534576,
+        "aer": 0.8433999901171774
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.5225999921094626,
+            0.5552000075113028,
+            0.4416999872773886,
+            0.5432000034488738,
+            0.5294000147841871
+          ],
+          "median_ms": 0.5294000147841871,
+          "min_ms": 0.4416999872773886,
+          "max_ms": 0.5552000075113028
+        },
+        "aer": {
+          "samples_ms": [
+            0.8205999911297113,
+            0.7296999974641949,
+            0.7648000027984381,
+            0.6869000208098441,
+            0.7747000199742615
+          ],
+          "median_ms": 0.7648000027984381,
+          "min_ms": 0.6869000208098441,
+          "max_ms": 0.8205999911297113
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "ghz",
+      "n_qubits": 12,
+      "seed": 19,
+      "precision": "double",
+      "depth": 12,
+      "gate_counts": {
+        "cx": 11,
+        "h": 1
+      },
+      "qasm_sha256": "f79ba7cdb768b04bec47a219345ad666ea1b9195939ec96137dd2ee48caf34be",
+      "common_transpile_ms": 1.722100016195327,
+      "strict_fq_import_ms": 0.19230000907555223,
+      "first_case_call_ms": {
+        "flagquantum": 0.5862999823875725,
+        "aer": 0.7958999776747078
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            0.5280000041238964,
+            0.5813000025227666,
+            0.4734999965876341,
+            0.5358999769669026,
+            0.43149999692104757
+          ],
+          "median_ms": 0.5280000041238964,
+          "min_ms": 0.43149999692104757,
+          "max_ms": 0.5813000025227666
+        },
+        "aer": {
+          "samples_ms": [
+            0.7569000008516014,
+            0.7735000108368695,
+            0.7565999985672534,
+            0.6840999994892627,
+            0.7633000204805285
+          ],
+          "median_ms": 0.7569000008516014,
+          "min_ms": 0.6840999994892627,
+          "max_ms": 0.7735000108368695
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1102230246251565e-16,
+          "phase_aligned_max_abs_error": 1.1102230246251565e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.220446049250313e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 4,
+      "seed": 7,
+      "precision": "double",
+      "depth": 10,
+      "gate_counts": {
+        "cp": 6,
+        "ry": 4,
+        "rz": 4,
+        "h": 4,
+        "swap": 2
+      },
+      "qasm_sha256": "e0a327ab90a149d1947a35919ad834a64cc97535037041e6a9200d49f833d168",
+      "common_transpile_ms": 1.5606999804731458,
+      "strict_fq_import_ms": 0.46720000682398677,
+      "first_case_call_ms": {
+        "flagquantum": 3.104499977780506,
+        "aer": 1.0977000056300312
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            1.9104999955743551,
+            1.885599980596453,
+            1.8347000004723668,
+            1.8583000055514276,
+            1.7062000115402043
+          ],
+          "median_ms": 1.8583000055514276,
+          "min_ms": 1.7062000115402043,
+          "max_ms": 1.9104999955743551
+        },
+        "aer": {
+          "samples_ms": [
+            1.0634000063873827,
+            0.9665999969001859,
+            1.1394000030122697,
+            0.9785000002011657,
+            1.0802000178955495
+          ],
+          "median_ms": 1.0634000063873827,
+          "min_ms": 0.9665999969001859,
+          "max_ms": 1.1394000030122697
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 5.558049685633556e-16,
+          "phase_aligned_max_abs_error": 5.613217783960923e-16,
+          "infidelity": 1.1102230246251565e-16,
+          "probability_total_variation": 8.29631502385908e-16,
+          "norm_error": 7.771561172376096e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 1.3877787807814457e-16,
+          "phase_aligned_max_abs_error": 1.1443916996305594e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.979727989493313e-17,
+          "norm_error": 7.771561172376096e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 4.47545209131181e-16,
+          "phase_aligned_max_abs_error": 4.652682298944613e-16,
+          "infidelity": 3.3306690738754696e-16,
+          "probability_total_variation": 7.93202309390395e-16,
+          "norm_error": 6.661338147750939e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 4,
+      "seed": 19,
+      "precision": "double",
+      "depth": 10,
+      "gate_counts": {
+        "cp": 6,
+        "ry": 4,
+        "rz": 4,
+        "h": 4,
+        "swap": 2
+      },
+      "qasm_sha256": "f71d0cfb39112dafbbf5147fbaa2d60bf0431e9f5c63f22386679f9089f5c626",
+      "common_transpile_ms": 2.291599987074733,
+      "strict_fq_import_ms": 0.44830000842921436,
+      "first_case_call_ms": {
+        "flagquantum": 1.958100008778274,
+        "aer": 1.0862000053748488
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            1.866100006736815,
+            1.8444000161252916,
+            1.6927999968174845,
+            1.8389999750070274,
+            1.778400008333847
+          ],
+          "median_ms": 1.8389999750070274,
+          "min_ms": 1.6927999968174845,
+          "max_ms": 1.866100006736815
+        },
+        "aer": {
+          "samples_ms": [
+            1.0366000060457736,
+            0.969600019743666,
+            1.0491999855730683,
+            0.9308999869972467,
+            1.060100010363385
+          ],
+          "median_ms": 1.0366000060457736,
+          "min_ms": 0.9308999869972467,
+          "max_ms": 1.060100010363385
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 5.552849575635887e-16,
+          "phase_aligned_max_abs_error": 5.757191532588118e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.389922007661198e-16,
+          "norm_error": 1.1102230246251565e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.0874425738630802e-16,
+          "phase_aligned_max_abs_error": 1.5593224665824853e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.8079071226195786e-16,
+          "norm_error": 1.1102230246251565e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 4.577566798522237e-16,
+          "phase_aligned_max_abs_error": 4.460365043975677e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.720792763119764e-16,
+          "norm_error": 4.440892098500626e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 8,
+      "seed": 7,
+      "precision": "double",
+      "depth": 18,
+      "gate_counts": {
+        "cp": 28,
+        "ry": 8,
+        "rz": 8,
+        "h": 8,
+        "swap": 4
+      },
+      "qasm_sha256": "1231ffaab11f2e3add8ee9441cb03162e9e6f674a3aa736d19f4e88a8055e0dd",
+      "common_transpile_ms": 1.6287000034935772,
+      "strict_fq_import_ms": 1.1023000115528703,
+      "first_case_call_ms": {
+        "flagquantum": 5.365899996832013,
+        "aer": 2.5414999981876463
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.749799991259351,
+            4.936900018947199,
+            4.8328000120818615,
+            4.814000014448538,
+            4.542899987427518
+          ],
+          "median_ms": 4.814000014448538,
+          "min_ms": 4.542899987427518,
+          "max_ms": 4.936900018947199
+        },
+        "aer": {
+          "samples_ms": [
+            2.55279999691993,
+            2.4182999914046377,
+            2.445000020088628,
+            2.4336999922525138,
+            2.5430000096093863
+          ],
+          "median_ms": 2.445000020088628,
+          "min_ms": 2.4182999914046377,
+          "max_ms": 2.55279999691993
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 5.026748538604307e-16,
+          "phase_aligned_max_abs_error": 5.117875266520904e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 1.4585967438118748e-15,
+          "norm_error": 1.4432899320127035e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 1.0315407380583415e-16,
+          "phase_aligned_max_abs_error": 1.0315407380583415e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.448422320025848e-16,
+          "norm_error": 1.4432899320127035e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 4.449557262054371e-16,
+          "phase_aligned_max_abs_error": 4.545902364027965e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.3366446458353448e-15,
+          "norm_error": 1.7763568394002505e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 8,
+      "seed": 19,
+      "precision": "double",
+      "depth": 18,
+      "gate_counts": {
+        "cp": 28,
+        "ry": 8,
+        "rz": 8,
+        "h": 8,
+        "swap": 4
+      },
+      "qasm_sha256": "0d16e9778c980e4a18d0f7ffccb1b151f4e5eea810fd7f4282011a43f6f90703",
+      "common_transpile_ms": 1.7211000085808337,
+      "strict_fq_import_ms": 1.1484000133350492,
+      "first_case_call_ms": {
+        "flagquantum": 5.101799994008616,
+        "aer": 2.5508000107947737
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.934199998388067,
+            4.89809998543933,
+            5.777000013040379,
+            5.416300002252683,
+            4.987699998309836
+          ],
+          "median_ms": 4.987699998309836,
+          "min_ms": 4.89809998543933,
+          "max_ms": 5.777000013040379
+        },
+        "aer": {
+          "samples_ms": [
+            2.513600018573925,
+            2.314999990630895,
+            3.0014000076334924,
+            2.5249999889638275,
+            2.621999999973923
+          ],
+          "median_ms": 2.5249999889638275,
+          "min_ms": 2.314999990630895,
+          "max_ms": 3.0014000076334924
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 3.608224830031759e-16,
+          "phase_aligned_max_abs_error": 3.663841114510704e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.0511090187527525e-15,
+          "norm_error": 7.771561172376096e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 8.971325855612484e-17,
+          "phase_aligned_max_abs_error": 8.355534721610418e-17,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.313208862468868e-16,
+          "norm_error": 7.771561172376096e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 3.7238012298709097e-16,
+          "phase_aligned_max_abs_error": 3.55715613020066e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.2458414698100426e-15,
+          "norm_error": 1.3322676295501878e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 12,
+      "seed": 7,
+      "precision": "double",
+      "depth": 26,
+      "gate_counts": {
+        "cp": 66,
+        "ry": 12,
+        "rz": 12,
+        "h": 12,
+        "swap": 6
+      },
+      "qasm_sha256": "096738310030a14e465756b992c3b9d50830ba2ba9996689fc392df56e5e92ff",
+      "common_transpile_ms": 2.0152000070083886,
+      "strict_fq_import_ms": 2.576700004283339,
+      "first_case_call_ms": {
+        "flagquantum": 12.493799993535504,
+        "aer": 5.7410000008530915
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            11.741900001652539,
+            11.816699989140034,
+            11.389699997380376,
+            12.214999995194376,
+            14.94640001328662
+          ],
+          "median_ms": 11.816699989140034,
+          "min_ms": 11.389699997380376,
+          "max_ms": 14.94640001328662
+        },
+        "aer": {
+          "samples_ms": [
+            5.696299980627373,
+            5.331899999873713,
+            5.612699984339997,
+            5.549900000914931,
+            5.762199987657368
+          ],
+          "median_ms": 5.612699984339997,
+          "min_ms": 5.331899999873713,
+          "max_ms": 5.762199987657368
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 3.201681141057157e-16,
+          "phase_aligned_max_abs_error": 3.2256528834566253e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.9470618733096385e-15,
+          "norm_error": 1.2212453270876722e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qft",
+      "n_qubits": 12,
+      "seed": 19,
+      "precision": "double",
+      "depth": 26,
+      "gate_counts": {
+        "cp": 66,
+        "ry": 12,
+        "rz": 12,
+        "h": 12,
+        "swap": 6
+      },
+      "qasm_sha256": "8162ac371e266e818d3efb0efa4bb2bfb4641dd512c0415eafb0bab5b0414915",
+      "common_transpile_ms": 1.731399999698624,
+      "strict_fq_import_ms": 2.1275999897625297,
+      "first_case_call_ms": {
+        "flagquantum": 11.181999987456948,
+        "aer": 5.687600001692772
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            11.228699993807822,
+            11.592399998335168,
+            12.749999994412065,
+            11.64549999521114,
+            11.230900010559708
+          ],
+          "median_ms": 11.592399998335168,
+          "min_ms": 11.228699993807822,
+          "max_ms": 12.749999994412065
+        },
+        "aer": {
+          "samples_ms": [
+            5.592300003627315,
+            5.141599976923317,
+            6.119799974840134,
+            5.580400000326335,
+            5.396299995481968
+          ],
+          "median_ms": 5.580400000326335,
+          "min_ms": 5.141599976923317,
+          "max_ms": 6.119799974840134
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.221817818891996e-16,
+          "phase_aligned_max_abs_error": 2.2256280791963964e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.810354899752427e-15,
+          "norm_error": 1.5543122344752192e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 4,
+      "seed": 7,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 16,
+        "ry": 16,
+        "rz": 16,
+        "cx": 8
+      },
+      "qasm_sha256": "b74e1c865384aac5eedff0126b14fb1fb8206bcc1c90b6ec002cc4c5dc18dda0",
+      "common_transpile_ms": 1.8807000014930964,
+      "strict_fq_import_ms": 0.808700016932562,
+      "first_case_call_ms": {
+        "flagquantum": 4.590099997585639,
+        "aer": 1.6442000051029027
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.63740000850521,
+            4.350500006694347,
+            4.327200003899634,
+            4.3061000178568065,
+            4.625400004442781
+          ],
+          "median_ms": 4.350500006694347,
+          "min_ms": 4.3061000178568065,
+          "max_ms": 4.63740000850521
+        },
+        "aer": {
+          "samples_ms": [
+            1.4986000023782253,
+            1.4253999979700893,
+            1.5346000145655125,
+            1.6294000088237226,
+            1.64610001957044
+          ],
+          "median_ms": 1.5346000145655125,
+          "min_ms": 1.4253999979700893,
+          "max_ms": 1.64610001957044
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.482534153247273e-16,
+          "phase_aligned_max_abs_error": 2.582350176184633e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.5413698923060224e-16,
+          "norm_error": 1.1102230246251565e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.6558837364083264e-16,
+          "phase_aligned_max_abs_error": 2.7336071744532853e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.491496592371689e-16,
+          "norm_error": 1.1102230246251565e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.2412670766236366e-16,
+          "phase_aligned_max_abs_error": 1.2794688166302258e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.450662506785605e-16,
+          "norm_error": 2.220446049250313e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 4,
+      "seed": 19,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 16,
+        "ry": 16,
+        "rz": 16,
+        "cx": 8
+      },
+      "qasm_sha256": "86ab903175e84fcf431f7835db336a7fb36a1572bb5043cb00002e636724eb7a",
+      "common_transpile_ms": 1.7383999947924167,
+      "strict_fq_import_ms": 0.8113000076264143,
+      "first_case_call_ms": {
+        "flagquantum": 5.0202999846078455,
+        "aer": 1.7028999864123762
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.3215999903623015,
+            4.274000006262213,
+            4.109500005142763,
+            4.21359998290427,
+            4.134699993301183
+          ],
+          "median_ms": 4.21359998290427,
+          "min_ms": 4.109500005142763,
+          "max_ms": 4.3215999903623015
+        },
+        "aer": {
+          "samples_ms": [
+            1.5405000012833625,
+            1.4085999864619225,
+            1.5642000071238726,
+            1.4679000014439225,
+            1.5144000062718987
+          ],
+          "median_ms": 1.5144000062718987,
+          "min_ms": 1.4085999864619225,
+          "max_ms": 1.5642000071238726
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.558937633260452e-16,
+          "phase_aligned_max_abs_error": 2.558937633260452e-16,
+          "infidelity": 1.1102230246251565e-16,
+          "probability_total_variation": 5.143455106271233e-16,
+          "norm_error": 1.1102230246251565e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.633125101432526e-16,
+          "phase_aligned_max_abs_error": 2.633125101432526e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 3.4867941867133823e-16,
+          "norm_error": 1.1102230246251565e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 2.237726045655905e-16,
+          "phase_aligned_max_abs_error": 2.237726045655905e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 4.414871246360974e-16,
+          "norm_error": 0.0
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 8,
+      "seed": 7,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 32,
+        "ry": 32,
+        "rz": 32,
+        "cx": 16
+      },
+      "qasm_sha256": "770d5ac7ddd3dbd281f0ad71e9b48b5926ebf1544a97870d73a74dc1ea63f29e",
+      "common_transpile_ms": 40.303900022991,
+      "strict_fq_import_ms": 1.7630999791435897,
+      "first_case_call_ms": {
+        "flagquantum": 9.823400003369898,
+        "aer": 3.4357000258751214
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            8.519599999999627,
+            8.611500001279637,
+            8.233700005803257,
+            8.439700002782047,
+            8.334700018167496
+          ],
+          "median_ms": 8.439700002782047,
+          "min_ms": 8.233700005803257,
+          "max_ms": 8.611500001279637
+        },
+        "aer": {
+          "samples_ms": [
+            2.6526000001467764,
+            2.471899992087856,
+            2.74540000827983,
+            2.4831999908201396,
+            2.6224000030197203
+          ],
+          "median_ms": 2.6224000030197203,
+          "min_ms": 2.471899992087856,
+          "max_ms": 2.74540000827983
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.3472894910096233e-16,
+          "phase_aligned_max_abs_error": 1.3877787807814457e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 4.8821840879215e-16,
+          "norm_error": 0.0
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 1.235434935934258e-16,
+          "phase_aligned_max_abs_error": 1.193812447098184e-16,
+          "infidelity": 4.440892098500626e-16,
+          "probability_total_variation": 4.4455391330075e-16,
+          "norm_error": 0.0
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.1631705747361534e-16,
+          "phase_aligned_max_abs_error": 1.1631705747361534e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 3.760385299280929e-16,
+          "norm_error": 6.661338147750939e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 8,
+      "seed": 19,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 32,
+        "ry": 32,
+        "rz": 32,
+        "cx": 16
+      },
+      "qasm_sha256": "063d814004424455a388138699deb0a071a70f0d03976197b7dbdb79205efaad",
+      "common_transpile_ms": 1.8041000002995133,
+      "strict_fq_import_ms": 1.5669999993406236,
+      "first_case_call_ms": {
+        "flagquantum": 8.503299992298707,
+        "aer": 2.71869997959584
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            8.399999991524965,
+            8.336399972904474,
+            8.291899983305484,
+            8.401400002185255,
+            8.515299996361136
+          ],
+          "median_ms": 8.399999991524965,
+          "min_ms": 8.291899983305484,
+          "max_ms": 8.515299996361136
+        },
+        "aer": {
+          "samples_ms": [
+            2.5618000072427094,
+            2.542000001994893,
+            2.6866999978665262,
+            2.627200010465458,
+            2.5870999961625785
+          ],
+          "median_ms": 2.5870999961625785,
+          "min_ms": 2.542000001994893,
+          "max_ms": 2.6866999978665262
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.716587549445839e-16,
+          "phase_aligned_max_abs_error": 1.716587549445839e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 6.796202733612769e-16,
+          "norm_error": 1.1102230246251565e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.7336071744532853e-16,
+          "phase_aligned_max_abs_error": 2.618455766672135e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 7.629954204254122e-16,
+          "norm_error": 1.1102230246251565e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.498303070619016e-16,
+          "phase_aligned_max_abs_error": 1.545754455680272e-16,
+          "infidelity": 4.440892098500626e-16,
+          "probability_total_variation": 3.117436999733672e-16,
+          "norm_error": 0.0
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 12,
+      "seed": 7,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 48,
+        "ry": 48,
+        "rz": 48,
+        "cx": 24
+      },
+      "qasm_sha256": "9bedea3f62fd184968292582d5fced392ab82026d8457e347f823705a46090ed",
+      "common_transpile_ms": 1.8251000146847218,
+      "strict_fq_import_ms": 2.1733999892603606,
+      "first_case_call_ms": {
+        "flagquantum": 13.763499999186024,
+        "aer": 5.5148999963421375
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            13.812099990900606,
+            13.594200019724667,
+            13.600599981145933,
+            13.927300024079159,
+            13.471399986883625
+          ],
+          "median_ms": 13.600599981145933,
+          "min_ms": 13.471399986883625,
+          "max_ms": 13.927300024079159
+        },
+        "aer": {
+          "samples_ms": [
+            5.698900000425056,
+            5.383500014431775,
+            5.612099979771301,
+            5.371100007323548,
+            5.548299988731742
+          ],
+          "median_ms": 5.548299988731742,
+          "min_ms": 5.371100007323548,
+          "max_ms": 5.698900000425056
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1443916996305594e-16,
+          "phase_aligned_max_abs_error": 1.1107649934270853e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 6.269377150383003e-16,
+          "norm_error": 0.0
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "random_layers",
+      "n_qubits": 12,
+      "seed": 19,
+      "precision": "double",
+      "depth": 16,
+      "gate_counts": {
+        "rx": 48,
+        "ry": 48,
+        "rz": 48,
+        "cx": 24
+      },
+      "qasm_sha256": "91a5a2d0e61174363913f1a509202d2d19784e2be85106cef78f2cf62beca2d3",
+      "common_transpile_ms": 1.7662000027485192,
+      "strict_fq_import_ms": 2.2883000201545656,
+      "first_case_call_ms": {
+        "flagquantum": 13.484900002367795,
+        "aer": 5.730300006689504
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            13.672500004759058,
+            13.536600017687306,
+            13.234599988209084,
+            14.35089998994954,
+            13.704100012546405
+          ],
+          "median_ms": 13.672500004759058,
+          "min_ms": 13.234599988209084,
+          "max_ms": 14.35089998994954
+        },
+        "aer": {
+          "samples_ms": [
+            5.700699985027313,
+            5.416200001491234,
+            5.5995000002440065,
+            5.362399999285117,
+            5.5825000163167715
+          ],
+          "median_ms": 5.5825000163167715,
+          "min_ms": 5.362399999285117,
+          "max_ms": 5.700699985027313
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.0569008315563939e-16,
+          "phase_aligned_max_abs_error": 1.0460612703343198e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.394701688851101e-16,
+          "norm_error": 1.1102230246251565e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 4,
+      "seed": 7,
+      "precision": "double",
+      "depth": 21,
+      "gate_counts": {
+        "rzz": 16,
+        "rx": 16,
+        "h": 4
+      },
+      "qasm_sha256": "c165035bd6d1685bad63c3c9afe99132d38a6614312874f0ecd66c8a637f6c93",
+      "common_transpile_ms": 1.770899980328977,
+      "strict_fq_import_ms": 0.5719000182580203,
+      "first_case_call_ms": {
+        "flagquantum": 5.7960000121966,
+        "aer": 1.4310000115074217
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.425799997989088,
+            4.619299987098202,
+            4.6833000087644905,
+            4.722699988633394,
+            4.885300004389137
+          ],
+          "median_ms": 4.6833000087644905,
+          "min_ms": 4.425799997989088,
+          "max_ms": 4.885300004389137
+        },
+        "aer": {
+          "samples_ms": [
+            1.200700004119426,
+            1.0924999951384962,
+            1.2685000256169587,
+            1.06819998472929,
+            1.424000016413629
+          ],
+          "median_ms": 1.200700004119426,
+          "min_ms": 1.06819998472929,
+          "max_ms": 1.424000016413629
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 3.855927796350635e-16,
+          "phase_aligned_max_abs_error": 3.7238012298709097e-16,
+          "infidelity": 3.3306690738754696e-16,
+          "probability_total_variation": 8.413408858487514e-16,
+          "norm_error": 1.2212453270876722e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.558937633260452e-16,
+          "phase_aligned_max_abs_error": 2.5476231888929306e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 3.469446951953614e-16,
+          "norm_error": 1.2212453270876722e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 2.8305244335018383e-16,
+          "phase_aligned_max_abs_error": 2.8305244335018383e-16,
+          "infidelity": 3.3306690738754696e-16,
+          "probability_total_variation": 5.152128723651117e-16,
+          "norm_error": 4.440892098500626e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 4,
+      "seed": 19,
+      "precision": "double",
+      "depth": 21,
+      "gate_counts": {
+        "rzz": 16,
+        "rx": 16,
+        "h": 4
+      },
+      "qasm_sha256": "0e600ef334e5d4e24ea0b87c74fed11d5d0d1280885929f1b0226550dd73d8b7",
+      "common_transpile_ms": 1.6773999959696084,
+      "strict_fq_import_ms": 0.5532999930437654,
+      "first_case_call_ms": {
+        "flagquantum": 5.2143000066280365,
+        "aer": 1.3620999816339463
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.643899999791756,
+            4.512799991061911,
+            4.32629999704659,
+            4.860600020037964,
+            4.544800001895055
+          ],
+          "median_ms": 4.544800001895055,
+          "min_ms": 4.32629999704659,
+          "max_ms": 4.860600020037964
+        },
+        "aer": {
+          "samples_ms": [
+            1.2688999995589256,
+            1.226899999892339,
+            1.4675999991595745,
+            1.2018000124953687,
+            1.3313999806996435
+          ],
+          "median_ms": 1.2688999995589256,
+          "min_ms": 1.2018000124953687,
+          "max_ms": 1.4675999991595745
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 3.510833468576701e-16,
+          "phase_aligned_max_abs_error": 3.510833468576701e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.282232984349378e-16,
+          "norm_error": 7.771561172376096e-16
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.2887833992611187e-16,
+          "phase_aligned_max_abs_error": 2.2887833992611187e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 3.443426099813962e-16,
+          "norm_error": 7.771561172376096e-16
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 4.847302891456678e-16,
+          "phase_aligned_max_abs_error": 4.652682298944613e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.580741590018647e-16,
+          "norm_error": 0.0
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 8,
+      "seed": 7,
+      "precision": "double",
+      "depth": 37,
+      "gate_counts": {
+        "rzz": 32,
+        "rx": 32,
+        "h": 8
+      },
+      "qasm_sha256": "295cadaaf5bcc3e34bc26073928511c1e4c82104031acc71d7da9a408b81e74e",
+      "common_transpile_ms": 1.8136000144295394,
+      "strict_fq_import_ms": 1.077399996574968,
+      "first_case_call_ms": {
+        "flagquantum": 8.670600014738739,
+        "aer": 2.071900002192706
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            8.561099995858967,
+            8.517200010828674,
+            8.220399991841987,
+            8.425500011071563,
+            8.592099999077618
+          ],
+          "median_ms": 8.517200010828674,
+          "min_ms": 8.220399991841987,
+          "max_ms": 8.592099999077618
+        },
+        "aer": {
+          "samples_ms": [
+            2.0265000057406723,
+            1.917400019010529,
+            2.0493000047281384,
+            1.8386000010650605,
+            2.0597999973688275
+          ],
+          "median_ms": 2.0265000057406723,
+          "min_ms": 1.8386000010650605,
+          "max_ms": 2.0597999973688275
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 4.494775313252277e-16,
+          "phase_aligned_max_abs_error": 4.460365043975677e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.546993869810942e-15,
+          "norm_error": 2.4424906541753444e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 1.3472894910096233e-16,
+          "phase_aligned_max_abs_error": 1.4752290795525882e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.414505649392609e-16,
+          "norm_error": 2.4424906541753444e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 3.469446951953614e-16,
+          "phase_aligned_max_abs_error": 3.55715613020066e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.139279642847768e-15,
+          "norm_error": 6.661338147750939e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 8,
+      "seed": 19,
+      "precision": "double",
+      "depth": 37,
+      "gate_counts": {
+        "rzz": 32,
+        "rx": 32,
+        "h": 8
+      },
+      "qasm_sha256": "a1b3ee8554f72d10238321ab4aae42c953fc860f27c829fdaf4d00f9795f1916",
+      "common_transpile_ms": 1.7214999825228006,
+      "strict_fq_import_ms": 0.9632000001147389,
+      "first_case_call_ms": {
+        "flagquantum": 8.222100004786626,
+        "aer": 2.1691000147257
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            8.295699983136728,
+            8.912199991755188,
+            8.374700002605096,
+            8.4334000130184,
+            8.427499997196719
+          ],
+          "median_ms": 8.427499997196719,
+          "min_ms": 8.295699983136728,
+          "max_ms": 8.912199991755188
+        },
+        "aer": {
+          "samples_ms": [
+            2.1917000121902674,
+            1.892099971882999,
+            2.091300004394725,
+            1.801899983547628,
+            2.1535000123549253
+          ],
+          "median_ms": 2.091300004394725,
+          "min_ms": 1.801899983547628,
+          "max_ms": 2.1917000121902674
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.5700924586837752e-16,
+          "phase_aligned_max_abs_error": 1.5700924586837752e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 6.870589167040642e-16,
+          "norm_error": 1.5543122344752192e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.0206364052201328e-16,
+          "phase_aligned_max_abs_error": 2.0206364052201328e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.326820798692844e-16,
+          "norm_error": 1.5543122344752192e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 3.477763656540197e-16,
+          "phase_aligned_max_abs_error": 3.477763656540197e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.0262651188933103e-15,
+          "norm_error": 4.440892098500626e-16
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 12,
+      "seed": 7,
+      "precision": "double",
+      "depth": 53,
+      "gate_counts": {
+        "rzz": 48,
+        "rx": 48,
+        "h": 12
+      },
+      "qasm_sha256": "54b12ee76651e152985c02fd70932bd31728d13dda821e7a687ea34fe7b0af3d",
+      "common_transpile_ms": 1.8912999948952347,
+      "strict_fq_import_ms": 1.7725999932736158,
+      "first_case_call_ms": {
+        "flagquantum": 14.334400009829551,
+        "aer": 4.187500016996637
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            13.48709999001585,
+            13.983200013171881,
+            14.128900016658008,
+            13.780999986920506,
+            13.231299992185086
+          ],
+          "median_ms": 13.780999986920506,
+          "min_ms": 13.231299992185086,
+          "max_ms": 14.128900016658008
+        },
+        "aer": {
+          "samples_ms": [
+            4.122900019865483,
+            4.000199987785891,
+            4.036900005303323,
+            4.120999976294115,
+            4.040899977553636
+          ],
+          "median_ms": 4.040899977553636,
+          "min_ms": 4.000199987785891,
+          "max_ms": 4.122900019865483
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 3.650675994272796e-16,
+          "phase_aligned_max_abs_error": 3.624866486587046e-16,
+          "infidelity": 5.551115123125783e-16,
+          "probability_total_variation": 2.174704734851364e-15,
+          "norm_error": 4.107825191113079e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "qaoa_ring",
+      "n_qubits": 12,
+      "seed": 19,
+      "precision": "double",
+      "depth": 53,
+      "gate_counts": {
+        "rzz": 48,
+        "rx": 48,
+        "h": 12
+      },
+      "qasm_sha256": "1ff71872de6c6dce237612e017a1e41d1fff9b3c05a035816d3111150da0cabf",
+      "common_transpile_ms": 1.7886999994516373,
+      "strict_fq_import_ms": 1.4851000159978867,
+      "first_case_call_ms": {
+        "flagquantum": 13.411899999482557,
+        "aer": 4.037000006064773
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            16.780899983132258,
+            14.611999999033287,
+            13.193099992349744,
+            13.481200003298,
+            13.177099986933172
+          ],
+          "median_ms": 13.481200003298,
+          "min_ms": 13.177099986933172,
+          "max_ms": 16.780899983132258
+        },
+        "aer": {
+          "samples_ms": [
+            4.1809999966062605,
+            4.013400000985712,
+            4.039399995235726,
+            3.8835000013932586,
+            4.002799978479743
+          ],
+          "median_ms": 4.013400000985712,
+          "min_ms": 3.8835000013932586,
+          "max_ms": 4.1809999966062605
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.1211468303779313e-16,
+          "phase_aligned_max_abs_error": 1.1168440202394181e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 1.1437418124139037e-15,
+          "norm_error": 2.886579864025407e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 4,
+      "seed": 7,
+      "precision": "double",
+      "depth": 15,
+      "gate_counts": {
+        "rx": 16,
+        "rzz": 12,
+        "ry": 4,
+        "rz": 4
+      },
+      "qasm_sha256": "e6decc6a8bad12c5f51cc6e074ef3ef27b5d5e90c4fcc403029fbd8b026d0e27",
+      "common_transpile_ms": 1.7524000140838325,
+      "strict_fq_import_ms": 0.5905999860260636,
+      "first_case_call_ms": {
+        "flagquantum": 6.118699995568022,
+        "aer": 1.4599999994970858
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.701700003352016,
+            5.5373999930452555,
+            4.979499994078651,
+            6.811100000049919,
+            6.5042999922297895
+          ],
+          "median_ms": 5.5373999930452555,
+          "min_ms": 4.701700003352016,
+          "max_ms": 6.811100000049919
+        },
+        "aer": {
+          "samples_ms": [
+            1.2537000002339482,
+            1.1098999821115285,
+            1.3354999828152359,
+            1.2491999950725585,
+            1.3463000068441033
+          ],
+          "median_ms": 1.2537000002339482,
+          "min_ms": 1.1098999821115285,
+          "max_ms": 1.3463000068441033
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.7894008272968645e-16,
+          "phase_aligned_max_abs_error": 2.7894008272968645e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 1.6184427929777367e-16,
+          "norm_error": 1.5543122344752192e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 3.0813689532136643e-16,
+          "phase_aligned_max_abs_error": 3.1031676915590914e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 7.298035873543052e-17,
+          "norm_error": 1.5543122344752192e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.2412670766236366e-16,
+          "phase_aligned_max_abs_error": 1.2412670766236366e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 1.2008894312992568e-16,
+          "norm_error": 1.7763568394002505e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 4,
+      "seed": 19,
+      "precision": "double",
+      "depth": 15,
+      "gate_counts": {
+        "rx": 16,
+        "rzz": 12,
+        "ry": 4,
+        "rz": 4
+      },
+      "qasm_sha256": "304ed5058df67396b4db201400593caad22a772c08a483866622ff3fe30acc36",
+      "common_transpile_ms": 1.7410999862477183,
+      "strict_fq_import_ms": 0.5663000047206879,
+      "first_case_call_ms": {
+        "flagquantum": 4.830299993045628,
+        "aer": 1.4645000046584755
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            4.586700000800192,
+            4.619200015440583,
+            4.83300001360476,
+            4.634800017811358,
+            4.511400009505451
+          ],
+          "median_ms": 4.619200015440583,
+          "min_ms": 4.511400009505451,
+          "max_ms": 4.83300001360476
+        },
+        "aer": {
+          "samples_ms": [
+            1.1978000111412257,
+            1.1291000118944794,
+            1.2033999955747277,
+            1.1387999984435737,
+            1.181600004201755
+          ],
+          "median_ms": 1.181600004201755,
+          "min_ms": 1.1291000118944794,
+          "max_ms": 1.2033999955747277
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.618455766672135e-16,
+          "phase_aligned_max_abs_error": 1.8619006149354548e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 2.6443690986921453e-16,
+          "norm_error": 1.9984014443252818e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.482534153247273e-16,
+          "phase_aligned_max_abs_error": 2.3714374201337736e-16,
+          "infidelity": 2.220446049250313e-16,
+          "probability_total_variation": 2.890482991846355e-16,
+          "norm_error": 1.9984014443252818e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 8.886119947416683e-17,
+          "phase_aligned_max_abs_error": 7.850462293418876e-17,
+          "infidelity": 0.0,
+          "probability_total_variation": 3.5453411040275995e-17,
+          "norm_error": 1.7763568394002505e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 8,
+      "seed": 7,
+      "precision": "double",
+      "depth": 19,
+      "gate_counts": {
+        "rx": 32,
+        "rzz": 28,
+        "ry": 8,
+        "rz": 8
+      },
+      "qasm_sha256": "6dfdf463e130ddf1356a1f25b21b096bce0002b7cf5c15de1e610f9b1d4ac2b4",
+      "common_transpile_ms": 1.7346000240650028,
+      "strict_fq_import_ms": 1.0529000137466937,
+      "first_case_call_ms": {
+        "flagquantum": 10.007499979110435,
+        "aer": 2.12309998460114
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            12.596299988217652,
+            10.607600008370355,
+            9.672099986346439,
+            9.922600002028048,
+            9.941199998138472
+          ],
+          "median_ms": 9.941199998138472,
+          "min_ms": 9.672099986346439,
+          "max_ms": 12.596299988217652
+        },
+        "aer": {
+          "samples_ms": [
+            2.279300009831786,
+            2.120899996953085,
+            2.1217000030446798,
+            1.9299999985378236,
+            2.1246999967843294
+          ],
+          "median_ms": 2.1217000030446798,
+          "min_ms": 1.9299999985378236,
+          "max_ms": 2.279300009831786
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.8305244335018383e-16,
+          "phase_aligned_max_abs_error": 2.220446049250313e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 4.3392271509861635e-16,
+          "norm_error": 3.552713678800501e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 2.355138688025663e-16,
+          "phase_aligned_max_abs_error": 2.1138016631127878e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 4.3544837198349283e-16,
+          "norm_error": 3.552713678800501e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.5700924586837752e-16,
+          "phase_aligned_max_abs_error": 1.5700924586837752e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.5381668669944823e-16,
+          "norm_error": 3.9968028886505635e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 8,
+      "seed": 19,
+      "precision": "double",
+      "depth": 19,
+      "gate_counts": {
+        "rx": 32,
+        "rzz": 28,
+        "ry": 8,
+        "rz": 8
+      },
+      "qasm_sha256": "982d2b7985938ed80e52317eb45922999339a6c3eae0944eb9caf8516ce7f539",
+      "common_transpile_ms": 1.861199998529628,
+      "strict_fq_import_ms": 1.180999999633059,
+      "first_case_call_ms": {
+        "flagquantum": 10.010700003476813,
+        "aer": 2.238099987152964
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            10.414599993964657,
+            9.807599999476224,
+            9.864200023002923,
+            10.009500023443252,
+            9.465299983276054
+          ],
+          "median_ms": 9.864200023002923,
+          "min_ms": 9.465299983276054,
+          "max_ms": 10.414599993964657
+        },
+        "aer": {
+          "samples_ms": [
+            2.315899997483939,
+            1.9922000064980239,
+            2.1994000126142055,
+            2.0247999927960336,
+            2.1284999966155738
+          ],
+          "median_ms": 2.1284999966155738,
+          "min_ms": 1.9922000064980239,
+          "max_ms": 2.315899997483939
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 4.0053709487069576e-16,
+          "phase_aligned_max_abs_error": 3.908020529499657e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 4.56998468422251e-16,
+          "norm_error": 3.1086244689504383e-15
+        },
+        "fq_vs_qiskit": {
+          "max_abs_error": 3.2368285245694683e-16,
+          "phase_aligned_max_abs_error": 2.9893669801409083e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 3.931581775228456e-16,
+          "norm_error": 3.1086244689504383e-15
+        },
+        "aer_vs_qiskit": {
+          "max_abs_error": 1.3877787807814457e-16,
+          "phase_aligned_max_abs_error": 1.3877787807814457e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 2.2537603844614167e-16,
+          "norm_error": 3.1086244689504383e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 12,
+      "seed": 7,
+      "precision": "double",
+      "depth": 23,
+      "gate_counts": {
+        "rx": 48,
+        "rzz": 44,
+        "ry": 12,
+        "rz": 12
+      },
+      "qasm_sha256": "2e24de7082b7aef0a1d3e11f539b67db1b71c739e42a4ade8c52b3ba2179757f",
+      "common_transpile_ms": 1.7274999991059303,
+      "strict_fq_import_ms": 1.6979000065475702,
+      "first_case_call_ms": {
+        "flagquantum": 17.286699992837384,
+        "aer": 4.432000016095117
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            17.526999989058822,
+            17.411399981938303,
+            16.330600017681718,
+            16.630199999781325,
+            16.544099984457716
+          ],
+          "median_ms": 16.630199999781325,
+          "min_ms": 16.330600017681718,
+          "max_ms": 17.526999989058822
+        },
+        "aer": {
+          "samples_ms": [
+            4.5618999865837395,
+            4.214399988995865,
+            4.459099989617243,
+            4.2575999977998435,
+            4.603199980920181
+          ],
+          "median_ms": 4.459099989617243,
+          "min_ms": 4.214399988995865,
+          "max_ms": 4.603199980920181
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 1.4752290795525882e-16,
+          "phase_aligned_max_abs_error": 1.5700924586837752e-16,
+          "infidelity": 0.0,
+          "probability_total_variation": 5.476759198127278e-16,
+          "norm_error": 5.773159728050814e-15
+        }
+      },
+      "passed": true
+    },
+    {
+      "family": "trotter_ising",
+      "n_qubits": 12,
+      "seed": 19,
+      "precision": "double",
+      "depth": 23,
+      "gate_counts": {
+        "rx": 48,
+        "rzz": 44,
+        "ry": 12,
+        "rz": 12
+      },
+      "qasm_sha256": "abf05e62bbf6e54cb474a5092c4a3cec791c7c053e9cbab428f53c08b0c58086",
+      "common_transpile_ms": 1.802499988116324,
+      "strict_fq_import_ms": 1.5978000010363758,
+      "first_case_call_ms": {
+        "flagquantum": 16.718700004275888,
+        "aer": 4.583500005537644
+      },
+      "warm_timing": {
+        "flagquantum": {
+          "samples_ms": [
+            16.581100004259497,
+            16.5837999957148,
+            16.334200015990064,
+            17.46189998812042,
+            16.4130000048317
+          ],
+          "median_ms": 16.581100004259497,
+          "min_ms": 16.334200015990064,
+          "max_ms": 17.46189998812042
+        },
+        "aer": {
+          "samples_ms": [
+            4.46259998716414,
+            4.211700026644394,
+            4.5455000072252005,
+            4.398400022182614,
+            4.487400001380593
+          ],
+          "median_ms": 4.46259998716414,
+          "min_ms": 4.211700026644394,
+          "max_ms": 4.5455000072252005
+        }
+      },
+      "checks": {
+        "fq_vs_aer": {
+          "max_abs_error": 2.0490308144984482e-16,
+          "phase_aligned_max_abs_error": 2.1138016631127878e-16,
+          "infidelity": 4.440892098500626e-16,
+          "probability_total_variation": 5.500018565701633e-16,
+          "norm_error": 4.440892098500626e-15
+        }
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "completed": true,
+  "finished_utc": "2026-11-23T06:07:47.826642+00:00"
+}

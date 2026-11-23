@@ -1,0 +1,112 @@
+{
+  "started_utc": "2026-11-23T06:58:35.304251+00:00",
+  "runs": [
+    {
+      "name": "user_full",
+      "returncode": 0,
+      "stdout": ".................                                                        [100%]\n17 passed in 40.20s\n",
+      "xml": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_full_20261123T065835.304251Z.xml"
+    },
+    {
+      "name": "user_partial",
+      "returncode": 0,
+      "stdout": ".                                                                        [100%]\n1 passed, 16 deselected in 2.60s\n",
+      "xml": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_partial_20261123T065835.304251Z.xml"
+    },
+    {
+      "name": "qft_double_double",
+      "returncode": 0,
+      "report": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\results\\qasmbench_precision_fix_double_double_20261123T065835.304251Z.json",
+      "thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 1e-10,
+        "aer_vs_original_qiskit": 1e-10,
+        "fq_vs_aer": 1e-10
+      },
+      "fq_vs_aer": {
+        "max_abs_error": 3.2368285245694683e-16,
+        "phase_aligned_max_abs_error": 3.1646225226420963e-16,
+        "infidelity": 0.0,
+        "probability_total_variation": 7.91033905045424e-16,
+        "norm_error": 7.771561172376096e-16
+      }
+    },
+    {
+      "name": "qft_double_single",
+      "returncode": 0,
+      "report": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\results\\qasmbench_precision_fix_double_single_20261123T065835.304251Z.json",
+      "thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 1e-10,
+        "aer_vs_original_qiskit": 5e-05,
+        "fq_vs_aer": 5e-05
+      },
+      "fq_vs_aer": {
+        "max_abs_error": 7.874369662175718e-08,
+        "phase_aligned_max_abs_error": 7.806055699674613e-08,
+        "infidelity": 5.773159728050814e-15,
+        "probability_total_variation": 1.9896675110264717e-07,
+        "norm_error": 7.771561172376096e-16
+      }
+    },
+    {
+      "name": "qft_single_double",
+      "returncode": 0,
+      "report": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\results\\qasmbench_precision_fix_single_double_20261123T065835.304251Z.json",
+      "thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 5e-05,
+        "aer_vs_original_qiskit": 1e-10,
+        "fq_vs_aer": 5e-05
+      },
+      "fq_vs_aer": {
+        "max_abs_error": 8.940696721859709e-08,
+        "phase_aligned_max_abs_error": 8.960320279702683e-08,
+        "infidelity": 8.215650382226158e-15,
+        "probability_total_variation": 2.5947528898423444e-07,
+        "norm_error": 5.18950577177435e-07
+      }
+    },
+    {
+      "name": "qft_single_single",
+      "returncode": 0,
+      "report": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\results\\qasmbench_precision_fix_single_single_20261123T065835.304251Z.json",
+      "thresholds": {
+        "compiled_vs_original_qiskit": 1e-10,
+        "flagquantum_vs_original_qiskit": 5e-05,
+        "aer_vs_original_qiskit": 5e-05,
+        "fq_vs_aer": 5e-05
+      },
+      "fq_vs_aer": {
+        "max_abs_error": 4.712160915387242e-08,
+        "phase_aligned_max_abs_error": 4.699258414159017e-08,
+        "infidelity": 8.548717289613705e-15,
+        "probability_total_variation": 6.050853709055337e-08,
+        "norm_error": 5.18950577177435e-07
+      }
+    }
+  ],
+  "adapter_import": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\src\\flagquantum_qiskit\\__init__.py",
+  "timestamped_regression_reports": [
+    {
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_circuits_20261123T065841.231722Z.json",
+      "all_passed": true,
+      "cases": 17
+    },
+    {
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_circuits_20261123T065922.559167Z.json",
+      "all_passed": false,
+      "cases": 1
+    }
+  ],
+  "protected_files_unchanged": 88,
+  "finished_utc": "2026-11-23T06:59:43.927853+00:00",
+  "all_passed": true,
+  "modified_file_sha256": {
+    "benchmarks/run_qasmbench.py": "d09ea1aff0ca8ff28112208dafc2d0804f59f6988843d324cf37906a2ebec8fe",
+    "tests/test_user_circuits.py": "a15f5835845c5fee0676e726d6b502cd2aeeca9fd56473fd0b5678ce6f04a96e",
+    "VALIDATION.md": "e461e5ce1e7f679770e4f569c5c018d4a5d0277817061ddecd1d02329c17df9c",
+    "tests/README.md": "6895ecd1aeef9909c3ac107fcc69500859641ddac63691676acb1875fa9ac36a",
+    "benchmarks/README.md": "990869f77260e7a40cbc5c43d47ae94e235a4998e6f3503d92406c61ef4577f2"
+  }
+}

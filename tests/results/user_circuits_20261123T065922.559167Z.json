@@ -1,0 +1,72 @@
+{
+  "schema": "flagquantum_qiskit_user_regression_v1",
+  "started_at_utc": "2026-11-23T06:59:22.559167+00:00",
+  "source_zip_sha256": "907a493c68b88c8085b9002483a0f5867b8bd1e16571cd05f652e652173aefc6",
+  "versions": {
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "torch": "2.14.1+cpu",
+    "flagquantum-qiskit": "0.2.0"
+  },
+  "device": "cpu",
+  "precision": "complex128",
+  "torch_threads": 1,
+  "shots_per_circuit": 8192,
+  "seed_simulator": 20261118,
+  "seed_transpiler": 20261118,
+  "optimization_level": 1,
+  "independent_reference": "Qiskit Statevector of original unmeasured QASM circuit",
+  "input_preparation": "measure_all on a separate copy, then transpile to the tested backend",
+  "tolerances": {
+    "max_probability_absolute_error": 2e-09,
+    "probability_l1_error": 2e-08,
+    "family_alpha": 1e-08,
+    "sampling_max_bin_formula": "sqrt(log(2 * 2**n * 17 / alpha) / (2 * shots))",
+    "sampling_cdf_formula": "sqrt(log(2 * 17 / alpha) / (2 * shots))",
+    "description": "Hoeffding union bound over bins/circuits and DKW union bound over circuits; fixed before execution"
+  },
+  "circuits": [
+    {
+      "name": "4_49_16",
+      "passed": true,
+      "qasm_sha256": "b428ee8fd4e0dc1149f63da8b6d2d4d778639dcad048e75900258f797d5fe952",
+      "num_qubits": 4,
+      "original_instruction_count": 146,
+      "original_operations": {
+        "u3": 80,
+        "cx": 66
+      },
+      "manifest_source_gate_count": 16,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.004422700003487989,
+      "compile_seconds": 0.015113000001292676,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 141,
+      "compiled_operations": {
+        "u": 70,
+        "cx": 66,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.0455198000126984,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500627e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.04741100000683218,
+      "shots_observed": 8192,
+      "counts": {
+        "1111": 8192
+      },
+      "sampling_max_bin_error": 2.536778223045393e-32,
+      "sampling_cdf_error": 6.056309127498333e-32,
+      "sampling_total_variation": 3.0281545637491664e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.11875150000560097
+    }
+  ],
+  "finished_at_utc": "2026-11-23T06:59:22.687830+00:00",
+  "all_passed": false
+}

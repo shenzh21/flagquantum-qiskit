@@ -1,0 +1,23 @@
+{
+  "script_sha256": "315411389a78131b0d09ba21045500906d97fdaa78ef82a1dfd0d4a2d2104c0d",
+  "cases": {
+    "aer_only": {
+      "code": "\nfrom qiskit import QuantumCircuit\nfrom qiskit_aer import AerSimulator\nimport numpy as np\nimport math\nc = QuantumCircuit(4)\nrng = np.random.default_rng(7)\nfor q in range(4):\n    c.ry(float(rng.uniform(-2,2)),q)\n    c.rz(float(rng.uniform(-2,2)),q)\nfor t in reversed(range(4)):\n    c.h(t)\n    for control in reversed(range(t)):\n        c.cp(math.pi/2**(t-control),control,t)\nfor q in range(2):\n    c.swap(q,3-q)\n\naer_c=c.copy()\naer_c.save_statevector()\nprint('before_aer_run',flush=True)\nresult=AerSimulator(method='statevector',precision='single',max_parallel_threads=1,enable_truncation=False).run(aer_c).result()\nprint('aer_result_ready',result.success,flush=True)\nprint('aer_state_ready',len(result.get_statevector()),flush=True)\n",
+      "returncode": 0,
+      "stdout": "before_aer_run\naer_result_ready True\naer_state_ready 16\n",
+      "stderr": "<string>:23: DeprecationWarning: The return type of saved statevectors has been changed from a `numpy.ndarray` to a `qiskit.quantum_info.Statevector` as of qiskit-aer 0.10. Accessing numpy array attributes is deprecated and will result in an error in a future release. To continue using saved result objects as arrays you can explicitly cast them using  `np.asarray(object)`.\n"
+    },
+    "fq_then_aer": {
+      "code": "\nfrom qiskit import QuantumCircuit\nfrom qiskit_aer import AerSimulator\nimport numpy as np\nimport math\nc = QuantumCircuit(4)\nrng = np.random.default_rng(7)\nfor q in range(4):\n    c.ry(float(rng.uniform(-2,2)),q)\n    c.rz(float(rng.uniform(-2,2)),q)\nfor t in reversed(range(4)):\n    c.h(t)\n    for control in reversed(range(t)):\n        c.cp(math.pi/2**(t-control),control,t)\nfor q in range(2):\n    c.swap(q,3-q)\n\nimport torch\nimport flagquantum as fq\nfrom flagquantum.ecosystem.qiskit import import_qiskit\nf=fq.Circuit.from_ir(import_qiskit(c,allow_lossy=False).ir,device='cpu',dtype=torch.complex64)\nprint('before_fq_state',flush=True)\ns=f.state(refresh=True)\nprint('fq_state_ready',tuple(s.shape),flush=True)\n\naer_c=c.copy()\naer_c.save_statevector()\nprint('before_aer_run',flush=True)\nresult=AerSimulator(method='statevector',precision='single',max_parallel_threads=1,enable_truncation=False).run(aer_c).result()\nprint('aer_result_ready',result.success,flush=True)\nprint('aer_state_ready',len(result.get_statevector()),flush=True)\n",
+      "returncode": 3221226356,
+      "stdout": "before_fq_state\nfq_state_ready (1, 16)\nbefore_aer_run\n",
+      "stderr": ""
+    },
+    "aer_then_fq": {
+      "code": "\nfrom qiskit import QuantumCircuit\nfrom qiskit_aer import AerSimulator\nimport numpy as np\nimport math\nc = QuantumCircuit(4)\nrng = np.random.default_rng(7)\nfor q in range(4):\n    c.ry(float(rng.uniform(-2,2)),q)\n    c.rz(float(rng.uniform(-2,2)),q)\nfor t in reversed(range(4)):\n    c.h(t)\n    for control in reversed(range(t)):\n        c.cp(math.pi/2**(t-control),control,t)\nfor q in range(2):\n    c.swap(q,3-q)\n\naer_c=c.copy()\naer_c.save_statevector()\nprint('before_aer_run',flush=True)\nresult=AerSimulator(method='statevector',precision='single',max_parallel_threads=1,enable_truncation=False).run(aer_c).result()\nprint('aer_result_ready',result.success,flush=True)\nprint('aer_state_ready',len(result.get_statevector()),flush=True)\n\nimport torch\nimport flagquantum as fq\nfrom flagquantum.ecosystem.qiskit import import_qiskit\nf=fq.Circuit.from_ir(import_qiskit(c,allow_lossy=False).ir,device='cpu',dtype=torch.complex64)\nprint('before_fq_state',flush=True)\ns=f.state(refresh=True)\nprint('fq_state_ready',tuple(s.shape),flush=True)\n",
+      "returncode": 3221226356,
+      "stdout": "before_aer_run\n",
+      "stderr": ""
+    }
+  }
+}

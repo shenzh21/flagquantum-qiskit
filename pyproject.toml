@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "flagquantum-qiskit"
 version = "0.2.0"
-description = "A Qiskit BackendV2 adapter for real FlagQuantum CPU simulation"
+description = "A Qiskit BackendV2 adapter for real FlagQuantum CPU and CUDA simulation"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
-dependencies = ["qiskit==2.6.2", "flagquantum==0.3.1", "torch==2.14.1"]
+dependencies = ["qiskit==2.6.2", "flagquantum==0.3.1", "torch>=2.11,<2.15"]
 
 [project.urls]
 Repository = "https://github.com/shenzh21/flagquantum-qiskit"

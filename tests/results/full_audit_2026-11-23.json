@@ -1,0 +1,353 @@
+{
+  "schema": "flagquantum_qiskit_independent_full_audit_v1",
+  "date": "2026-11-23",
+  "completed_utc": "2026-11-23T06:52:27.318025+00:00",
+  "status": "completed_with_findings",
+  "production_code_changed": false,
+  "formal_tests_changed": false,
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "P2",
+      "title": "Default transpilation can produce full-state instructions rejected by the advertised backend",
+      "file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\src\\flagquantum_qiskit\\program.py",
+      "line": 155,
+      "related_lines": [
+        165
+      ],
+      "trigger": "QuantumCircuit(2): x(0); swap(0,1); save_statevector(); transpile(circuit, FlagQuantumBackend(num_qubits=2)); backend.run(...). Default optimization level 2 elides SWAP and permutes save qargs to [1,0]. set_statevector has the same rejection.",
+      "actual": "QiskitError for full-state instructions with complete but permuted qargs; levels 2 and 3 fail, levels 0 and 1 succeed.",
+      "expected": "The standard transpile(..., backend); backend.run(...) workflow should execute supported full-width instructions emitted for that backend; explicit submitted-bit state semantics must be maintained without a second layout reversal.",
+      "impact": "save_statevector/set_statevector after an elidable permutation; CPU and CUDA share compiler. No incorrect computed amplitude is established: execution is rejected.",
+      "test_gap": "Existing transpile-save regression has no SWAP/permutation. GPU state-input test uses optimization_level=0.",
+      "recommendation": "Define full-state qarg semantics consistently with the submitted-circuit contract, then accept complete permutations or prevent unsupported output through the backend compilation contract. Add default/2/3 transpile regression for save and set; do not blindly apply final_layout.",
+      "evidence": [
+        ".cache/full-audit/save-transpile-probe.json",
+        ".cache/full-audit/state-input-transpile-probe.json"
+      ],
+      "layout_caveat": "For set_statevector, original Aer counts are 01:8 while the transpiled circuit executed by Aer gives 10:8. Aer accepting the compiled circuit is not proof of original logical equivalence. Full-state semantics or preservation of legitimate instruction ordering must be resolved before accepting permutations."
+    },
+    {
+      "id": "F2",
+      "priority": "P3",
+      "title": "Benchmark double-FQ/single-Aer comparison uses an incorrectly strict tolerance",
+      "file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\benchmarks\\run_qasmbench.py",
+      "line": 167,
+      "trigger": "--precision double --aer-precision single; isolated qft_n4 only, warmups=0 repeats=1",
+      "actual": "Both workers exit 0 and independently pass precision-appropriate accuracy checks; fq_vs_aer error 7.874369662175718e-8 exceeds threshold 1e-10, so runner exits 1.",
+      "expected": "Cross-engine tolerance should reflect both precisions, or the unsupported precision combination should be rejected at argument validation.",
+      "impact": "Reverse mixed-precision CLI combination only; saved double/double and single/double results unaffected.",
+      "test_gap": "Formal tests do not execute benchmark CLI precision combinations.",
+      "recommendation": "Use the larger applicable precision tolerance for cross-engine checks, or reject this combination explicitly.",
+      "evidence": [
+        ".cache/full-audit/benchmark-reverse-precision.json",
+        ".cache/full-audit/benchmark-reverse-precision.log"
+      ]
+    },
+    {
+      "id": "F3",
+      "priority": "P3",
+      "title": "Normal test reruns overwrite retained historical validation evidence",
+      "file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\test_user_circuits.py",
+      "line": 65,
+      "related_files": [
+        {
+          "file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+          "line": 47
+        }
+      ],
+      "trigger": "Run pytest in the repository root; additionally copying the VALIDATION command targets tests/results/phase2_pytest.xml.",
+      "actual": "regression_report fixture teardown unconditionally overwrites tests/results/user_circuits.json, including on partial/failed module runs; documented --junitxml overwrites the cited historical XML.",
+      "expected": "Routine verification should write a new run-specific artifact or pytest temporary directory and preserve provenance-linked historical records.",
+      "impact": "Any whole-suite/test_user_circuits run in the real checkout, even with a fresh JUnit filename; XML overwrite is an additional documentation hazard. This audit used a snapshot and changed neither historical output.",
+      "test_gap": "No assertion protects history against test side effects; tests/README acknowledges mutation but does not isolate it.",
+      "recommendation": "Make regression output explicit via pytest option/environment variable with a temporary or unique run-specific default; retain historic JSON as immutable evidence. Update reproduction commands to specify independent artifact locations or a disposable clean snapshot for both JSON and XML. Merely renaming --junitxml is insufficient.",
+      "evidence": [
+        "tests/test_user_circuits.py:65",
+        "VALIDATION.md:47",
+        ".cache/full-audit/audit-evidence-summary.json"
+      ]
+    }
+  ],
+  "git_head": "5a0c7f22a5e5be3c561f3dbcd798b883547ae9cd",
+  "audited_source_files": [
+    "src/flagquantum_qiskit/__init__.py",
+    "src/flagquantum_qiskit/backend.py",
+    "src/flagquantum_qiskit/contracts.py",
+    "src/flagquantum_qiskit/conversion.py",
+    "src/flagquantum_qiskit/engine.py",
+    "src/flagquantum_qiskit/fq_ops.py",
+    "src/flagquantum_qiskit/job.py",
+    "src/flagquantum_qiskit/noise.py",
+    "src/flagquantum_qiskit/program.py",
+    "src/flagquantum_qiskit/results.py",
+    "src/flagquantum_qiskit/target.py",
+    "src/flagquantum_qiskit/trajectory.py",
+    "src/flagquantum_qiskit/validation.py"
+  ],
+  "audited_test_files": [
+    "tests/test_aer_compatibility.py",
+    "tests/test_backend.py",
+    "tests/test_conversion.py",
+    "tests/test_dynamic.py",
+    "tests/test_gate_semantics.py",
+    "tests/test_gpu.py",
+    "tests/test_noise.py",
+    "tests/test_primitives.py",
+    "tests/test_user_circuits.py"
+  ],
+  "unchanged_against_snapshot": true,
+  "changed_files": [],
+  "suites": {
+    "cpu": {
+      "tests": 226,
+      "skipped": 11,
+      "failures": 0,
+      "errors": 0,
+      "case_counts_by_module": {
+        "tests.test_aer_compatibility": 43,
+        "tests.test_backend": 47,
+        "tests.test_conversion": 4,
+        "tests.test_dynamic": 21,
+        "tests.test_gate_semantics": 35,
+        "tests.test_gpu": 36,
+        "tests.test_noise": 18,
+        "tests.test_primitives": 5,
+        "tests.test_user_circuits": 17
+      },
+      "environment": {
+        "python": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "source": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\full-audit\\snapshot\\src\\flagquantum_qiskit\\__init__.py",
+        "versions": {
+          "flagquantum-qiskit": "0.2.0",
+          "flagquantum": "0.3.1",
+          "qiskit": "2.6.2",
+          "qiskit-aer": "0.18.4",
+          "torch": "2.14.1+cpu",
+          "pytest": "9.2.0"
+        },
+        "cuda_available": false,
+        "start": 1795416210.6659935,
+        "exit_code": 0,
+        "elapsed_seconds": 30.90341091156006
+      }
+    },
+    "gpu": {
+      "tests": 226,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "case_counts_by_module": {
+        "tests.test_aer_compatibility": 43,
+        "tests.test_backend": 47,
+        "tests.test_conversion": 4,
+        "tests.test_dynamic": 21,
+        "tests.test_gate_semantics": 35,
+        "tests.test_gpu": 36,
+        "tests.test_noise": 18,
+        "tests.test_primitives": 5,
+        "tests.test_user_circuits": 17
+      },
+      "environment": {
+        "python": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\gpu-research\\venv\\Scripts\\python.exe",
+        "source": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\full-audit\\snapshot\\src\\flagquantum_qiskit\\__init__.py",
+        "versions": {
+          "flagquantum-qiskit": "0.2.0",
+          "flagquantum": "0.3.1",
+          "qiskit": "2.6.2",
+          "qiskit-aer": "0.18.4",
+          "torch": "2.11.0+cu128",
+          "pytest": "9.2.0"
+        },
+        "cuda_available": true,
+        "start": 1795416253.3343694,
+        "exit_code": 0,
+        "elapsed_seconds": 71.20584177970886
+      }
+    }
+  },
+  "source_test_sha256": {
+    "src/flagquantum_qiskit/backend.py": "382d711c782a0ea4faf3b60858708590183602fc73f631742e3cdc067f1b0bae",
+    "src/flagquantum_qiskit/contracts.py": "97edea25687917e0f9fb2aa73155df34d65002e3ada3c9e8114f5946297ca280",
+    "src/flagquantum_qiskit/conversion.py": "8d7fedfbdf611c5508c1cebd2d1898425edc0550f2a4f98023bc1278358d5936",
+    "src/flagquantum_qiskit/engine.py": "6deea9522be64b788a226fed5d7e297423eac5608ed816809264384f1db8810c",
+    "src/flagquantum_qiskit/fq_ops.py": "f6df7c213dee49b899b1589569120cb59d07129218a30e5d6284abadd8af8f03",
+    "src/flagquantum_qiskit/job.py": "d9fbb5e1d34464af4381ca4b1230c8a0eaa5791e8433fbc5b26af18b960a9e51",
+    "src/flagquantum_qiskit/noise.py": "8571093c936d10d5cc83c56a5d655a7057f7d8b0ca0e100160fb9f43a85fb206",
+    "src/flagquantum_qiskit/program.py": "fd8b5cc34a00143c4920d54b263d98abf6624ffb664eb744de94e5011d6c769e",
+    "src/flagquantum_qiskit/results.py": "bb641cdb1dcb94042cc9b77fb1aa79ba25ff5fb63d0b3486c3da7763d4ae42d4",
+    "src/flagquantum_qiskit/target.py": "671baacae781728b74e6f6e2c4d51f3e713fdcfbaab8e1b3905b4fd748623f33",
+    "src/flagquantum_qiskit/trajectory.py": "7e873ebaff03ef2f60d653317bef521b3420451cc61dc62f81871d752626af01",
+    "src/flagquantum_qiskit/validation.py": "159aab3ed9047324dfca6f6888f152875ecb31630b0ceca5348254b0fc91657c",
+    "src/flagquantum_qiskit/__init__.py": "5e0f8b343ec8c6dbeeb0b3e9541336fab6974fff6a9ef90794af9b9c327db334",
+    "tests/test_aer_compatibility.py": "6b8746b5a6bfe0c7149a6ada73e5f7b5eead4733d2a0ff6aec8cef1dbb1c13b4",
+    "tests/test_backend.py": "dac913e89362f9c50d836d8f1301fb0b0fc7b373e5d544ec31460a02ffa50636",
+    "tests/test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+    "tests/test_dynamic.py": "34965145c572567a0998d645f146868dd52fdd479d6ab4d4c2bef48076e25c0a",
+    "tests/test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+    "tests/test_gpu.py": "d6735d1ce5ebd83c9948ee435bbe17f404a5a45a42b32d22f8579fc8b6031f25",
+    "tests/test_noise.py": "7f96a5a7a8d3e925c5cad3cc46c55602892980a61df0a0bb00ce1d80ae378f97",
+    "tests/test_primitives.py": "1a9a19e8dae0a908aacfe610d81d0118ae088e70d971d0cb66e64df1c2f7a463",
+    "tests/test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+  },
+  "extra_probes": [
+    {
+      "name": "nested_scope_phase",
+      "passed": true,
+      "detail": {
+        "max_amplitude_error": 5.551115123125783e-17
+      }
+    },
+    {
+      "name": "loop_save_aggregation",
+      "passed": true,
+      "detail": {
+        "visits": 6,
+        "counts": {
+          "1": 2
+        }
+      }
+    },
+    {
+      "name": "uint_expressions",
+      "passed": true,
+      "detail": {
+        "cases": 48,
+        "operations": [
+          "add",
+          "bit_not",
+          "mul",
+          "shift_left",
+          "shift_right",
+          "sub"
+        ]
+      }
+    },
+    {
+      "name": "random_cpu_double",
+      "passed": true,
+      "detail": {
+        "circuits": 20,
+        "max_amplitude_error": 6.597425008528064e-16,
+        "precision": "double",
+        "device": "cpu"
+      }
+    },
+    {
+      "name": "random_cpu_single",
+      "passed": true,
+      "detail": {
+        "circuits": 20,
+        "max_amplitude_error": 2.777605459238227e-07,
+        "precision": "single",
+        "device": "cpu"
+      }
+    },
+    {
+      "name": "random_cuda_double",
+      "passed": true,
+      "detail": {
+        "circuits": 20,
+        "max_amplitude_error": 6.707437923744492e-16,
+        "precision": "double",
+        "device": "cuda:0"
+      }
+    },
+    {
+      "name": "random_cuda_single",
+      "passed": true,
+      "detail": {
+        "circuits": 20,
+        "max_amplitude_error": 3.884918367965306e-07,
+        "precision": "single",
+        "device": "cuda:0"
+      }
+    }
+  ],
+  "wheel_smoke": {
+    "import": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\full-audit\\wheel-target\\flagquantum_qiskit\\__init__.py",
+    "counts": {
+      "00": 49,
+      "11": 51
+    },
+    "wheel_sha256": "480a1c40df72be80db86b68d6be8f83937ff5a6d623420c63b91e0bd36165484",
+    "wheel_members": [
+      "flagquantum_qiskit/__init__.py",
+      "flagquantum_qiskit/backend.py",
+      "flagquantum_qiskit/contracts.py",
+      "flagquantum_qiskit/conversion.py",
+      "flagquantum_qiskit/engine.py",
+      "flagquantum_qiskit/fq_ops.py",
+      "flagquantum_qiskit/job.py",
+      "flagquantum_qiskit/noise.py",
+      "flagquantum_qiskit/program.py",
+      "flagquantum_qiskit/results.py",
+      "flagquantum_qiskit/target.py",
+      "flagquantum_qiskit/trajectory.py",
+      "flagquantum_qiskit/validation.py",
+      "flagquantum_qiskit-0.2.0.dist-info/METADATA",
+      "flagquantum_qiskit-0.2.0.dist-info/WHEEL",
+      "flagquantum_qiskit-0.2.0.dist-info/top_level.txt",
+      "flagquantum_qiskit-0.2.0.dist-info/RECORD"
+    ],
+    "example_executed": true
+  },
+  "source_provenance_checks": {
+    "qasmbench_files_verified": 5,
+    "user_fixture_files_verified": 18,
+    "phase1_archive_files_verified": 7,
+    "benchmark_reports_script_hashes_verified": 10,
+    "remote_download_repeated": false
+  },
+  "known_differences_not_new_findings": [
+    "Aer correlated readout grouping",
+    "partial/reversed initialize global phase",
+    "Aer terminal while truncation",
+    "historical missing-Triton CUDA single failure",
+    "Aer single native crash on two QASMBench cases"
+  ],
+  "unverified": [
+    "Fresh dependency installation on an empty machine",
+    "Other operating systems, Python/Torch versions, CUDA devices and multi-GPU",
+    "Performance rerun of the full benchmark matrix; only one QFT reverse-precision diagnostic was executed",
+    "Exhaustive control-flow/expression fuzzing, large states, long loops, concurrent run thread safety",
+    "Remote provenance re-download; local bytes and manifest hashes were checked"
+  ],
+  "artifact_directory": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\full-audit",
+  "raw_evidence_sha256": {
+    ".cache/full-audit/audit-evidence-summary.json": "30f91522eaf90456cd4b7898f1854e4948e91139159fea686687496a7d2d27cc",
+    ".cache/full-audit/benchmark-reverse-precision.json": "2fa7e76298d87a279445e5a2d7ca4550382d53b1f6d09c5e686379cb1f355c78",
+    ".cache/full-audit/benchmark-reverse-precision.log": "2444dc9d49786e083ae11f776b2a42c92477ce00a02583907e3fd853ea632ead",
+    ".cache/full-audit/build.log": "5df28ca191558dfe6e1dcccebd081a4d2bcbe671951e931d9ebc594c30bfa336",
+    ".cache/full-audit/cpu-environment.json": "e3553feee609cb90db9a2cf1f65ae3472ff986f1f9e296bf37ce1d55372501bb",
+    ".cache/full-audit/cpu.log": "f3f13d44bbda174e3ee1d8293cb088a3f6eab8ae793ad527cb311754a0d18977",
+    ".cache/full-audit/cpu.xml": "b5e967eb6eb0ed416db8b2ccc00a26ba26d2382c8329ea64d5708aea21b4ca11",
+    ".cache/full-audit/create_snapshot.py": "1fd0c8a1b55aa50d70648a085d85c29077e57b015b21d1463d8d9916fdf86b95",
+    ".cache/full-audit/evidence_summary.py": "6d1bf75fe49e1d7f224c1539f3c21703ef2d198ceb2e5c16881597195a5f7017",
+    ".cache/full-audit/final-hash-check.log": "4b71e98bff0cc1d8f558ef70563b8df8ca9c90940eb844906f2e3c26123f965d",
+    ".cache/full-audit/gpu-environment.json": "612c8c0ebe441ded9d771a6dddb3bcc0861674ddb1496aa67571d16e6c8fa114",
+    ".cache/full-audit/gpu-probe-results.json": "01eebdcb11e24ec821863f91c31bf468c53dc07bb9271daa302e7e3a574fafd2",
+    ".cache/full-audit/gpu-probes.log": "f358d255c040930176ac6db0fd610b97e21dccd1d9e5dc22e156af2b089f4c0e",
+    ".cache/full-audit/gpu.log": "54da789e3f866ca2f49c31817969ca1318b84e913e64a385e291fdb023992b3c",
+    ".cache/full-audit/gpu.xml": "e5788164080ff55c1f3226d542eb811e5d21b88a6643e436267dfc5302e95d8f",
+    ".cache/full-audit/gpu_probes.py": "332807e8376a30924f101019c24fea99a4e395f5233bdfd2c29b442f5ff72d81",
+    ".cache/full-audit/probe-results.json": "0b6b0c5d9b616a58b586d0b4963b33a8c51cd5c351870d1667ae7ca4c5cfcd4a",
+    ".cache/full-audit/probes-corrected.log": "1126aab8a7887aeeaffba853d28be22991358aaa882c522400df56cea3a0315f",
+    ".cache/full-audit/probes.log": "63f0183f050c056d3f141615c9b12a457083ac97a88452bd01881b94ae07ca53",
+    ".cache/full-audit/probes.py": "e810ec7c7bcc8bd1084efc6ec391b01ac9b7350004e54265e56d605461017719",
+    ".cache/full-audit/probe_benchmark_precision.py": "0f8ce77ff6c5c6cafd8be66196cb50fec3f7c75807b7a580d1bcc37353e21ab1",
+    ".cache/full-audit/run_suite.py": "6629b3f195d6363133d079c96aa01f0af07c368c224ca5d7e5085dca0a5d1511",
+    ".cache/full-audit/save-transpile-probe.json": "26ad43a5ffc698de3afcd5a52a90b367df073ecc70ec21e2adfd2a5ad7adab95",
+    ".cache/full-audit/save_transpile_probe.py": "dbaaec76c116a4a3edc541c1bdc838b9aaf7898404e47e45ebed2b6efeb59cc6",
+    ".cache/full-audit/snapshot-sha256.json": "02b07b3a461cdae3d01206a20468fd0fa37e5b22de771469b526b80a683bfd2c",
+    ".cache/full-audit/state-input-transpile-probe.json": "2cba068359e9529040b89b47274bb3b342c8cad7ed9ab2d15edba4277d60d049",
+    ".cache/full-audit/state-input-transpile.log": "2f91d2f10abb57a7a442a12d010015cec8da6daf2ff3c708330a39f5280d22e9",
+    ".cache/full-audit/state_input_transpile_probe.py": "ad628c1955cde60ab34d3fcbd08a7a7636ab34a9c9dc58a561144e566b69eb45",
+    ".cache/full-audit/trace_probes.py": "9c9c92c044fbf76a9cfece5ea48727fd5b30ec9974e4d9fa3e758932150174ed",
+    ".cache/full-audit/wheel-install.log": "28a8b70e9f47bdb8a6832009f48e179e5ca5eb7888617cdd22ad3fe9358c4dac",
+    ".cache/full-audit/wheel-smoke.json": "5f93d34aa678df1f5a7814001ed39762cf72d789ef4bbdf81edcdb6a71f2d53e",
+    ".cache/full-audit/wheel-smoke.log": "27160a8c473dfaf4aad7b4c8cef65f56b4ec98965f213c6e4454883b7b0a8c80",
+    ".cache/full-audit/wheel_smoke.py": "a1579407cd781625ca29bf52a3baaf638ab206d3db8e52978266c5755a94bc6e",
+    ".cache/full-audit/write_report.py": "fc1c6b116c66b2bed737c8b78214b046e318f857fabd8585115ac0ca0c4d68d9"
+  }
+}

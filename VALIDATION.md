@@ -1,6 +1,30 @@
 # 0.2 验证记录
 
+当前源码更新、独立审查后已修复和未修复事项见 [交付整理](docs/delivery-2026-11-23.md)。下方“尚未推送”等状态保留其验收阶段的历史语境；本次提交已纳入相应实现，不重写历史结果。
+
 历史产品验收日期：2026-11-19。Windows / Python 3.11 / Qiskit 2.6.2 / 官方FlagQuantum 0.3.1 Windows ABI3 wheel / Torch 2.14.1+cpu / 测试参考Aer0.18.4。研究源码0.4.0未修改、未注入运行环境。测试时适配器为editable0.2.0；交付wheel另做安装验证。下述190项是历史累计用例，不代表2026-11-23独立仓库整理时重新跑过同一套测试；仓库验证应单列新记录。
+
+## 2026-11-23 阶段二：Windows Triton 默认路线
+
+[原生 Triton 验证报告](tests/results/gpu_triton_validation_2026-11-23.json) 的 `all_passed=true`。独立环境新增 triton-windows 3.6.0.post26，Torch 仍为 2.11.0+cu128；所有 FQ_* 环境覆盖为空，701 个 FQ Python 源文件未改，未使用 fallback。实际执行 Triton JIT、3/8/12 位 single 随机矩阵/CX、20 位 RY/RZ pair 及 RX/RZ loop；最大原始振幅误差 3.18e-7，低于事前 2e-5 阈值。single Bell 4096 shots 为 00=2037、11=2059，pip check 通过。
+
+Windows 移植包来自 triton-lang/triton-windows，不把主线 Linux wheel 描述为支持 Windows，也不通过 FQ[cuda] 自动引入主线包。适配器已恢复 CUDA single/double；默认 CPU/double 不变，缺 Triton 时给出明确依赖诊断。最新两精度适配器回归与 wheel 安装验收已通过，下方 double-only 阶段报告保持原样、单独标识。安装详见 [GPU.md](GPU.md)。
+
+[默认 Triton 适配器验收报告](tests/results/gpu_triton_adapter_validation_2026-11-23.json) 的 `all_passed=true`：CPU 全量 **215 passed、11 CUDA skipped（33.94s）** 的结果经源码/测试哈希匹配后复用；Torch 2.11.0+cu128 / triton-windows 3.6.0.post26 环境另行实际执行全套 **226 passed、0 skipped（41.47s）**，其中 **11 个实际 CUDA 用例**，其余多数默认 CPU。
+
+冻结快照构建 wheel、安装到独立目标目录并从包目录外通过 CUDA single Bell（256 shots：00=132、11=124）和动态反馈（17 shots：10=17）smoke；设备为 cuda:0，pip check 通过。该 wheel SHA256 为 `d4af017575407fc3dcd8257663b19b4c1d1cce2d660e83619046e42a5e4ef254`。这段结果文档补充晚于验证 wheel 快照，没有重测或重建；METADATA 保留构建时 README，当前版本仍为 0.2.0，改动尚未推送。
+
+[公开 benchmark 实例](benchmarks/README.md)的同环境 FQ CPU/GPU single 三例数值也通过，小线路 GPU 仍更慢；它们是独立性能探索，不混入上面的适配器用例数。旧无 Triton 单精度失败及 double-only 验收证据继续保留。
+
+## 2026-11-23 阶段一：double-only 接入验收（历史）
+
+新增设备接入未提交/推送，版本仍为 0.2.0；历史 CPU 报告保持原样。当时冻结源码的 CPU 完整检查为 **214 passed、6 CUDA skipped（33.89s）**；CUDA 环境完整检查为 **220 passed、0 skipped（38.89s）**。其中实际 CUDA 用例为 **6 个**，其余多数默认 CPU；跳过项不能算 GPU 通过。目标环境为 NVIDIA GeForce RTX 5070 Laptop GPU（8 GB）、驱动 573.24；独立环境已安装 Torch 2.11.0+cu128，不替换已有 CPU 环境、不安装 Toolkit 或更新驱动。
+
+[真实 FQ 原生 CUDA probe](tests/results/gpu_native_validation_2026-11-23.json) 已归档：双精度 Bell 2048 shots 与 3/8/12 位随机线路通过，对 Qiskit 最大原始振幅误差 5.93e-16；但单精度因 Triton 路径失败，因此总体 all_passed=false。关闭部分可选优化仍不足以避开单精度 CX 分支，当时适配器暂限 double 并拒绝 CUDA single。适配器双精度范围的独立验收成功，不能据此声称单精度通过或性能提升。安装及限制见 [GPU.md](GPU.md)，公开实例结果见 [benchmarks/README.md](benchmarks/README.md)：同环境 3 例 double 数值通过，小线路 GPU 更慢；NVIDIA 等候选框架未安装/运行。
+
+[适配器 GPU 验收报告](tests/results/gpu_adapter_validation_2026-11-23.json)的 `all_passed=true`：CPU 结果经源码/测试哈希匹配后复用，GPU 环境全量另行实际执行；从冻结快照构建 wheel，安装到独立目标目录并在包目录外完成 CUDA Bell（256 shots：00=132、11=124）与动态反馈（17 shots：10=17）smoke，确认设备 cuda:0；pip check 通过。19 份历史结果保持原样。新验证 wheel SHA256 为 `1672321ec9d6733fec3761557cca533cb33613b82d86983caf5662b4e432a186`。
+
+本段结果说明在验证 wheel 构建后补入；未重跑测试或重建 wheel，METADATA 的 README 是构建时快照。该结论仅对应当时的 double-only 源码/测试快照；恢复两精度后的新验收见上方阶段二。版本仍为 0.2.0，GPU 改动尚未推送。
 
 ## 2026-11-23 独立仓库验证
 
@@ -22,11 +46,14 @@
 以下为项目根目录中的复现命令，不表示本次文档维护再次执行了测试。测试源码修改前先按README切换为editable；`--no-isolation`构建需要当前环境具备 `setuptools>=77` 与 `wheel`。
 
 ```powershell
-.venv\Scripts\python.exe -m pytest -q --junitxml=tests/results/phase2_pytest.xml
+$reportStamp = [DateTime]::UtcNow.ToString("yyyyMMdd'T'HHmmss.fffffff'Z'")
+.venv\Scripts\python.exe -m pytest -q --junitxml="tests/results/pytest_$reportStamp.xml"
 .venv\Scripts\python.exe -m pytest tests/test_aer_compatibility.py -q
 .venv\Scripts\python.exe -m pip check
 .venv\Scripts\python.exe -m build --wheel --no-isolation
 ```
+
+每次重跑的 JUnit 文件带 UTC 时间戳；用户线路模块另自动生成 `tests/results/user_circuits_<UTC时间戳>.json`（含微秒）。历史 `phase2_pytest.xml` 和 `user_circuits.json` 保留原样。
 
 ## 验证覆盖与来源
 

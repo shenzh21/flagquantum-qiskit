@@ -1,4 +1,4 @@
-"""包的公开入口：用 Qiskit 描述线路，由 FlagQuantum 的 CPU 引擎执行。
+"""包的公开入口：用 Qiskit 描述线路，由 FlagQuantum 的 CPU/CUDA 引擎执行。
 
 用户可直接 ``from flagquantum_qiskit import FlagQuantumBackend``。
 本模块只导出后端类和包版本；创建后端、转译和运行由调用者明确发起。

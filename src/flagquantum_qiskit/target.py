@@ -34,7 +34,7 @@ def make_target(num_qubits: int) -> Target:
     这也不代表提供了真实硬件误差率、门时长或完整 Aer 内部指令兼容性。
     """
 
-    target = Target(description="FlagQuantum ideal CPU statevector", num_qubits=num_qubits)
+    target = Target(description="FlagQuantum CPU/CUDA statevector", num_qubits=num_qubits)
     # 固定门实例携带位数和参数签名；测量/reset 也明确属于目标能力。
     for gate in (*GATES.values(), Measure(), Reset()):
         target.add_instruction(gate)

@@ -35,11 +35,12 @@ PROBABILITY_L1_TOLERANCE = 2e-8
 
 @pytest.fixture(scope="module")
 def regression_report():
+    started_at = datetime.now(timezone.utc)
     previous_threads = torch.get_num_threads()
     torch.set_num_threads(1)
     report = {
         "schema": "flagquantum_qiskit_user_regression_v1",
-        "started_at_utc": datetime.now(timezone.utc).isoformat(),
+        "started_at_utc": started_at.isoformat(),
         "source_zip_sha256": PROVENANCE["source_zip_sha256"],
         "versions": {name: version(name) for name in ("flagquantum", "qiskit", "torch", "flagquantum-qiskit")},
         "device": "cpu", "precision": "complex128", "torch_threads": 1,
@@ -62,10 +63,15 @@ def regression_report():
     report["all_passed"] = len(report["circuits"]) == len(MANIFEST) and all(
         row.get("passed", False) for row in report["circuits"]
     )
-    output = Path(__file__).parent / "results" / "user_circuits.json"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    torch.set_num_threads(previous_threads)
+    # Each run retains its own evidence; even a name collision must not overwrite it.
+    stamp = started_at.strftime("%Y%m%dT%H%M%S.%fZ")
+    output = Path(__file__).parent / "results" / f"user_circuits_{stamp}.json"
+    try:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        with output.open("x", encoding="utf-8") as stream:
+            stream.write(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+    finally:
+        torch.set_num_threads(previous_threads)
 
 
 @pytest.mark.parametrize("entry", MANIFEST, ids=lambda entry: entry["name"])

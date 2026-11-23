@@ -1,0 +1,125 @@
+[
+  {
+    "case": "basis_set",
+    "options": {},
+    "original_aer": {
+      "01": 8
+    },
+    "compiled_aer": {
+      "10": 8
+    },
+    "adapter": "QiskitError('set_statevector requires all qubits in circuit order')"
+  },
+  {
+    "case": "basis_set",
+    "options": {
+      "routing_method": "none"
+    },
+    "original_aer": {
+      "01": 8
+    },
+    "compiled_aer": {
+      "01": 8
+    },
+    "adapter": {
+      "01": 8
+    }
+  },
+  {
+    "case": "basis_set",
+    "options": {
+      "routing_method": "none",
+      "initial_layout": [
+        1,
+        0
+      ]
+    },
+    "original_aer": {
+      "01": 8
+    },
+    "compiled_aer": {
+      "10": 8
+    },
+    "adapter": "QiskitError('set_statevector requires all qubits in circuit order')"
+  },
+  {
+    "case": "basis_set",
+    "options": {
+      "optimization_level": 0
+    },
+    "original_aer": {
+      "01": 8
+    },
+    "compiled_aer": {
+      "01": 8
+    },
+    "adapter": {
+      "01": 8
+    }
+  },
+  {
+    "case": "barrier",
+    "operations": [
+      [
+        "x",
+        [
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "set_statevector",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "barrier",
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        "measure",
+        [
+          1
+        ]
+      ],
+      [
+        "measure",
+        [
+          0
+        ]
+      ]
+    ],
+    "compiled_aer": {
+      "10": 8
+    }
+  },
+  {
+    "case": "research_only_save_guard",
+    "same_compiled_aer_errors": {
+      "before": 0.0,
+      "middle": 0.0,
+      "after": 0.0
+    },
+    "production_file_sha256": "fd8b5cc34a00143c4920d54b263d98abf6624ffb664eb744de94e5011d6c769e",
+    "production_file_unchanged": true,
+    "set_guard_unchanged": true
+  }
+]

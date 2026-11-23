@@ -16,7 +16,7 @@
 | 噪声顺序 | gate/reset后，measure前，真实坍缩后读出；local覆盖default；gate/matrix按label匹配，measure/reset等按name | 典型转译会分解门，NoiseModel须匹配提交线路的实际门；不自动改写噪声模型 |
 | V2 primitives | Qiskit BackendSamplerV2 / BackendEstimatorV2通用包装器，多PUB、多寄存器与metadata | Estimator是采样估计，非默认精确值；按Qiskit wrapper契约准备线路 |
 | 空输出 | 无测量/save可成功返回空data；不偷偷补测量；零classical Sampler PUB为空DataBin | get_counts在无counts时按Qiskit报错 |
-| 设备/精度 | CPU、complex64/complex128、局部RNG、固定版本seed复现 | 无GPU/方法选择/多机/自动微分/性能承诺 |
+| 设备/精度 | CPU 已有验收；本地新增 cpu/cuda/cuda:N；CPU/CUDA complex64/complex128，同设备局部 RNG | 原生默认 single/double 路线通过；最新两精度适配器验收通过，CUDA single 缺 Triton 明确诊断，见 GPU.md；无方法选择/多机/自动微分/性能承诺；不保证 CPU/GPU 逐 shot 相同 |
 
 ## 不能混同的细节
 
@@ -28,3 +28,17 @@
 6. 经典寄存器必须是不重叠、连续的标准布局；loose classical bits/别名寄存器拒绝，防Result显示错误。用户metadata可包含Qiskit对象，保留但不整包传给FQ。
 7. Aer是可选的指令/NoiseModel对象来源，核心Bell、动态与V2线路可以不导入Aer。生产不得调用Aer.run/BasicSimulator/Statevector演化；Statevector容器和局部Kraus表示转换不是替代计算引擎。
 8. canonical顺序全幅 initialize 清除旧态和旧分支相位，再乘顶层 circuit.global_phase；set_statevector 则清除此前全部相位且不重加顶层 phase。Aer0.18.4 在 initialize 中先给准备向量乘顶层相位：全幅顺序分支直接替换旧态，而逆序全幅/部分分支 reset 后作用准备态，可能同时保留旧态相位，形成额外相位因子。本工具后者采用 reset+prepare，没有额外重乘顶层相位，因此保存振幅存在真实 API 兼容差异；所诊断组合的密度/观测等价不能代替逐振幅一致。目前尚未更改实现。[相位探针](tests/results/diagnostics/statevector-differences/phase_probe.json) 和 [Aer initialize 源码](https://github.com/Qiskit/qiskit-aer/blob/0.18.4/src/simulators/statevector/statevector_state.hpp#L984) 提供机制依据，不以这些特例放宽一般理想相位验收。
+
+## 全局状态指令的转译限制（未修复）
+
+[Issue #1](https://github.com/shenzh21/flagquantum-qiskit/issues/1) 跟踪此项。默认优化级别 2/3 消去 SWAP 后，完整 `save_statevector` / `set_statevector` 的 qargs 可能被排列；当前后端仍要求标准顺序并拒绝。save 与 set 需要分别修复，不能盲目删掉检查。全连接后端可临时使用 `routing_method="none"`，且不主动重排 initial_layout。详见 [研究](docs/state-directive-research-20261123_150203.md)与 [可运行复现](docs/research/state-directives/README.md)。
+
+## CUDA 接入状态（2026-11-23）
+
+本次源码更新纳入 GPU 接入，版本仍为 0.2.0；不发布新 wheel。设备默认 CPU；CUDA 不可用、编号错误或与 CPU 专用采样开关冲突时明确拒绝，不静默转回 CPU。Torch 包约束扩为 `>=2.11,<2.15` 以容纳独立 CUDA 环境；这不是对区间内每个版本完成验收的声明。Qiskit 2.6.2 与 FQ 0.3.1 继续精确固定。此前 double-only 阶段 CPU 完整检查为 214 passed、6 CUDA skipped（33.89s）；CUDA 环境全套为 220 passed、0 skipped（38.89s），其中实际 CUDA 用例为 6 个，其余多数默认 CPU，不能把 skip 或全部 220 项算成 CUDA 数值验证。旧原生 probe 因当时缺 Triton 导致 single 失败，报告总体 all_passed=false 保留；新环境安装 triton-windows 3.6.0.post26 后，保持全部 FQ 默认优化的 single probe 已通过。当前适配器恢复 CUDA single/double，缺 Triton 时明确诊断，最新完整验收已通过。详细安装和边界见 [GPU.md](GPU.md)。
+
+[double-only 阶段适配器报告](tests/results/gpu_adapter_validation_2026-11-23.json)另确认独立安装 wheel 的目录外 CUDA Bell/动态反馈 smoke 与 pip check 通过。此结果在验证 wheel 构建后补入文档，没有重测或重建；文档变化不代表 wheel 内嵌说明同步更新。
+
+最新 [Windows Triton 原生报告](tests/results/gpu_triton_validation_2026-11-23.json) 全通过；安装 Windows 分发包不改变 FQ 源码或默认优化，也不意味着主线 Linux wheel 支持 Windows。安装方法见 GPU.md。
+
+最新 [默认 Triton 适配器验收报告](tests/results/gpu_triton_adapter_validation_2026-11-23.json)记录 CPU 215 passed、11 CUDA skipped（33.94s），CUDA 环境 226 passed、0 skipped（41.47s），其中 11 个实际 CUDA 用例。冻结快照 wheel 的隔离安装、目录外 CUDA single Bell/动态反馈及 pip check 通过；本段为构建后文档补充，不重测或重建该 wheel。
