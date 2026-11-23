@@ -1,0 +1,172 @@
+{
+  "recorded_utc": "2026-11-20T07:40:06.543325+00:00",
+  "versions": {
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "flagquantum": "0.3.1",
+    "flagquantum-qiskit": "0.2.0"
+  },
+  "note": "Fresh targeted verification, not a full-suite rerun",
+  "cases": {
+    "correlated_readout": {
+      "adapter": {
+        "success": true,
+        "status": "None",
+        "method": null,
+        "experiment_status": "not supplied",
+        "counts": {
+          "10": 13
+        }
+      },
+      "aer_automatic": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "stabilizer",
+        "experiment_status": "DONE",
+        "counts": {
+          "01": 13
+        }
+      },
+      "aer_statevector": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "statevector",
+        "experiment_status": "DONE",
+        "counts": {
+          "01": 13
+        }
+      }
+    },
+    "reversed_initialize": {
+      "adapter": {
+        "success": true,
+        "status": "None",
+        "method": null,
+        "experiment_status": "not supplied",
+        "vector": [
+          [
+            -0.38213459565024255,
+            -0.11820808266453561
+          ],
+          [
+            -0.7642691913004849,
+            -0.23641616532907125
+          ],
+          [
+            0.11820808266453564,
+            -0.3821345956502423
+          ],
+          [
+            -0.059104041332267876,
+            0.19106729782512125
+          ]
+        ]
+      },
+      "aer_automatic": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "statevector",
+        "experiment_status": "DONE",
+        "vector": [
+          [
+            -0.3301342459638713,
+            -0.22585698935801413
+          ],
+          [
+            -0.6602684919277426,
+            -0.45171397871602825
+          ],
+          [
+            0.22585698935801413,
+            -0.3301342459638713
+          ],
+          [
+            -0.11292849467900706,
+            0.16506712298193565
+          ]
+        ]
+      },
+      "aer_statevector": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "statevector",
+        "experiment_status": "DONE",
+        "vector": [
+          [
+            -0.3301342459638713,
+            -0.22585698935801413
+          ],
+          [
+            -0.6602684919277426,
+            -0.45171397871602825
+          ],
+          [
+            0.22585698935801413,
+            -0.3301342459638713
+          ],
+          [
+            -0.11292849467900706,
+            0.16506712298193565
+          ]
+        ]
+      },
+      "comparison": {
+        "max_raw_amplitude_error": 0.2391010119577591,
+        "max_density_error": 1.1289299361815178e-16,
+        "overlap_real_imag": [
+          0.9553364891256058,
+          0.29552020666134
+        ],
+        "max_phase_aligned_error": 1.1443916996305594e-16
+      }
+    },
+    "terminal_while": {
+      "adapter": {
+        "success": true,
+        "status": "None",
+        "method": null,
+        "experiment_status": "not supplied",
+        "counts": {
+          "1": 13
+        }
+      },
+      "aer_automatic": {
+        "success": false,
+        "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n"
+      },
+      "aer_statevector": {
+        "success": false,
+        "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n"
+      }
+    },
+    "while_with_final_measure": {
+      "adapter": {
+        "success": true,
+        "status": "None",
+        "method": null,
+        "experiment_status": "not supplied",
+        "counts": {
+          "1": 13
+        }
+      },
+      "aer_automatic": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "stabilizer",
+        "experiment_status": "DONE",
+        "counts": {
+          "1": 13
+        }
+      },
+      "aer_statevector": {
+        "success": true,
+        "status": "COMPLETED",
+        "method": "statevector",
+        "experiment_status": "DONE",
+        "counts": {
+          "1": 13
+        }
+      }
+    }
+  }
+}

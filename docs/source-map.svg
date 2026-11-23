@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1420" viewBox="0 0 1600 1420" role="img" aria-labelledby="title desc">
+<title id="title">谁在指挥？backend.py 直接调用这 9 个文件。</title><desc id="desc">蓝色箭头从调用者指向被调用者。下方三列只是分组，不是执行先后顺序。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#3154E8"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, PingFang SC, Arial, sans-serif"><rect width="1600" height="1420" fill="#F5F7FC"/>
+<text x="70" y="58" font-size="19" fill="#3154E8" font-weight="650" text-anchor="start">源码关系  1 / 2</text>
+<text x="1530" y="58" font-size="19" fill="#78849A" font-weight="400" text-anchor="end">FlagQuantum Qiskit · 0.2.0</text>
+<text x="70" y="117" font-size="43" fill="#1C263A" font-weight="700" text-anchor="start">谁在指挥？backend.py 直接调用这 9 个文件。</text>
+<text x="70" y="159" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">蓝色箭头从调用者指向被调用者。下方三列只是分组，不是执行先后顺序。</text>
+<rect x="70" y="228" width="360" height="113" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="93" y="265" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">__init__.py</text>
+<text x="93" y="302" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">把后端类提供给用户。</text>
+<path d="M430 285H568" fill="none" stroke="#95A1B6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 7"/>
+<text x="500" y="267" font-size="18" fill="#738096" font-weight="400" text-anchor="middle">公开导出</text>
+<rect x="570" y="218" width="500" height="133" rx="16" fill="#EAF0FF" stroke="#B9C8FC" stroke-width="1.5"/>
+<text x="593" y="255" font-size="28" fill="#294BDD" font-weight="650" text-anchor="start">backend.py</text>
+<text x="593" y="292" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">总控：准备、选路、运行、汇总。</text>
+<text x="1120" y="267" font-size="24" fill="#1C263A" font-weight="600" text-anchor="start">先读这个文件，</text>
+<text x="1120" y="305" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">再按需要看它调用谁。</text>
+<path d="M820 351V402" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 402H1095" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M95 402V1007" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="95" cy="402" r="5" fill="#3154E8"/>
+<path d="M595 402V867" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="595" cy="402" r="5" fill="#3154E8"/>
+<path d="M1095 402V727" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1095" cy="402" r="5" fill="#3154E8"/>
+<text x="120" y="462" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">准备与检查</text>
+<text x="120" y="495" font-size="20" fill="#78849A" font-weight="400" text-anchor="start">为运行准备好输入</text>
+<text x="620" y="462" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">安排执行</text>
+<text x="620" y="495" font-size="20" fill="#78849A" font-weight="400" text-anchor="start">按线路类型选择执行方式</text>
+<text x="1120" y="462" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">整理与返回</text>
+<text x="1120" y="495" font-size="20" fill="#78849A" font-weight="400" text-anchor="start">由总控决定怎样交回结果</text>
+<path d="M95 587H117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="95" cy="587" r="5" fill="#3154E8"/>
+<rect x="120" y="537" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="143" y="574" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">target.py</text>
+<text x="143" y="611" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">声明转译器可用的门。</text>
+<path d="M95 727H117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="95" cy="727" r="5" fill="#3154E8"/>
+<rect x="120" y="677" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="143" y="714" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">validation.py</text>
+<text x="143" y="751" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">检查输入、展开参数与批次。</text>
+<path d="M95 867H117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="95" cy="867" r="5" fill="#3154E8"/>
+<rect x="120" y="817" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="143" y="854" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">noise.py</text>
+<text x="143" y="891" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">提前转换噪声规则。</text>
+<path d="M95 1007H117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="95" cy="1007" r="5" fill="#3154E8"/>
+<rect x="120" y="957" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="143" y="994" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">conversion.py</text>
+<text x="143" y="1031" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">转换线路，保留附带信息。</text>
+<path d="M595 587H617" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="595" cy="587" r="5" fill="#3154E8"/>
+<rect x="620" y="537" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="643" y="574" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">program.py</text>
+<text x="643" y="611" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">把通用线路整理成步骤。</text>
+<path d="M595 727H617" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="595" cy="727" r="5" fill="#3154E8"/>
+<rect x="620" y="677" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="643" y="714" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">engine.py</text>
+<text x="643" y="751" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">运行标准门的末尾采样。</text>
+<path d="M595 867H617" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="595" cy="867" r="5" fill="#3154E8"/>
+<rect x="620" y="817" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="643" y="854" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">trajectory.py</text>
+<text x="643" y="891" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">执行动态、保存和噪声等。</text>
+<path d="M1095 587H1117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="1095" cy="587" r="5" fill="#3154E8"/>
+<rect x="1120" y="537" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="1143" y="574" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">results.py</text>
+<text x="1143" y="611" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">只整理末尾采样路径的结果。</text>
+<path d="M1095 727H1117" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="1095" cy="727" r="5" fill="#3154E8"/>
+<rect x="1120" y="677" width="410" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="1143" y="714" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">job.py</text>
+<text x="1143" y="751" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">包装已完成结果，供用户读取。</text>
+<text x="620" y="1001" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">另一条路径的结果，</text>
+<text x="620" y="1034" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">由 trajectory 收集、backend 组装。</text>
+<text x="1120" y="863" font-size="21" fill="#3154E8" font-weight="600" text-anchor="start">这些箭头都来自 backend。</text>
+<text x="1120" y="899" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">例如：engine 不调用 results，</text>
+<text x="1120" y="931" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">是 backend 分别调用它们。</text>
+<rect x="70" y="1130" width="940" height="141" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="93" y="1167" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">contracts.py · 共享数据格式</text>
+<text x="93" y="1204" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">validation、conversion、engine、results 使用这里的数据类型。</text>
+<text x="93" y="1234" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">它是大家共用的“表格格式”，不是一个执行步骤。</text>
+<rect x="1050" y="1130" width="480" height="141" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="1073" y="1167" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">fq_ops.py · 二级协作</text>
+<text x="1073" y="1204" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">由 program 和 trajectory 使用。</text>
+<text x="1073" y="1234" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">具体调用关系见第二张图。</text>
+<rect x="70" y="1310" width="1460" height="66" rx="16" fill="#E7F2ED" stroke="#C8E2D5" stroke-width="1.5"/>
+<text x="95" y="1353" font-size="25" fill="#216B55" font-weight="600" text-anchor="start">真正的量子计算来自外部 FlagQuantum；本包负责转换、调度和整理结果。</text>
+</g></svg>

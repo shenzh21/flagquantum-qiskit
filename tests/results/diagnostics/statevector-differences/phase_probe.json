@@ -1,0 +1,5503 @@
+{
+  "recorded_utc": "2026-11-20T07:53:12.501821+00:00",
+  "versions": {
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "flagquantum": "0.3.1",
+    "flagquantum-qiskit": "0.2.0",
+    "numpy": "2.4.6"
+  },
+  "adapter_import_path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Lib\\site-packages\\flagquantum_qiskit\\__init__.py",
+  "execution": {
+    "shots": 1,
+    "seed_simulator": 71,
+    "transpile": false,
+    "aer_method": "statevector",
+    "aer_fusion_enable": false,
+    "note": "Fusion disabled does not disable all Aer circuit optimizations."
+  },
+  "inputs": {
+    "full": [
+      [
+        0.4,
+        0.0
+      ],
+      [
+        0.0,
+        0.4
+      ],
+      [
+        0.8,
+        0.0
+      ],
+      [
+        -0.0,
+        -0.2
+      ]
+    ],
+    "partial": [
+      [
+        0.7071067811865475,
+        0.0
+      ],
+      [
+        0.0,
+        0.7071067811865475
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "prefix": "none",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001677,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "none",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.1102230246251565e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.38213459565024244,
+              0.11820808266453582
+            ],
+            [
+              -0.11820808266453582,
+              0.38213459565024244
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907164
+            ],
+            [
+              0.05910404133226791,
+              -0.19106729782512122
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 8.61e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775874,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 5.565233189396398e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999999,
+            5.966080686516423e-16
+          ],
+          [
+            1.0000000000000004,
+            3.645938197315593e-16
+          ],
+          [
+            1.0000000000000002,
+            4.640284978401662e-16
+          ],
+          [
+            1.0,
+            1.9886935621721404e-16
+          ]
+        ],
+        "overlap": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_angle_radians": 4.163336342344337e-16,
+        "max_raw_error": 3.885780586188048e-16,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 2.23885392979665e-16
+      }
+    },
+    {
+      "prefix": "none",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001024,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "none",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613395
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133944
+            ],
+            "phase_angle_radians": 0.2999999999999999,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.3877787807814457e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.3301342459638713,
+              0.22585698935801413
+            ],
+            [
+              0.6602684919277426,
+              0.45171397871602825
+            ],
+            [
+              -0.22585698935801413,
+              0.3301342459638713
+            ],
+            [
+              0.11292849467900706,
+              -0.16506712298193565
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 7.56e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ]
+            ],
+            "overlap": [
+              0.8253356149096782,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096784,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.47283233065814334,
+            "max_phase_aligned_error": 2.2887833992611187e-16,
+            "max_density_error": 2.2336940183797233e-16
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256056,
+            0.29552020666134016
+          ],
+          [
+            0.955336489125606,
+            0.29552020666134005
+          ],
+          [
+            0.9553364891256062,
+            0.29552020666134
+          ],
+          [
+            0.9553364891256058,
+            0.2955202066613397
+          ]
+        ],
+        "overlap": [
+          0.9553364891256058,
+          0.29552020666134
+        ],
+        "phase_factor": [
+          0.955336489125606,
+          0.29552020666134005
+        ],
+        "phase_angle_radians": 0.3000000000000005,
+        "max_raw_error": 0.2391010119577591,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 1.1289299361815178e-16
+      }
+    },
+    {
+      "prefix": "none",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.7071067811865476,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              4.329780281177466e-17,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              1.0,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.7071067811865475,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 8.52e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              0.9999999999999998,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999998,
+            0.0
+          ],
+          [
+            1.0,
+            6.123233995736766e-17
+          ]
+        ],
+        "overlap": [
+          0.9999999999999999,
+          3.0616169978683824e-17
+        ],
+        "phase_factor": [
+          1.0,
+          3.061616997868383e-17
+        ],
+        "phase_angle_radians": 3.061616997868383e-17,
+        "max_raw_error": 1.1102230246251565e-16,
+        "max_phase_aligned_error": 1.1311333509432094e-16,
+        "max_density_error": 2.220446049250313e-16
+      }
+    },
+    {
+      "prefix": "none",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.6755249097756645,
+              0.20896434210788314
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.2089643421078831,
+              0.6755249097756644
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_angle_radians": 0.30000000000000004,
+            "max_raw_error": 0.21133743367987126,
+            "max_phase_aligned_error": 2.7755575615628914e-17,
+            "max_density_error": 6.120327743108026e-17
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.5836004100574025,
+              0.3992625218835742
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.3992625218835742,
+              0.5836004100574025
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 7.6e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ],
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ]
+            ],
+            "overlap": [
+              0.8253356149096781,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096783,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.41792868421576623,
+            "max_phase_aligned_error": 5.551115123125783e-17,
+            "max_density_error": 1.0659112268709991e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256059,
+            0.2955202066613395
+          ],
+          [
+            0.9553364891256062,
+            0.2955202066613396
+          ]
+        ],
+        "overlap": [
+          0.9553364891256059,
+          0.29552020666133955
+        ],
+        "phase_factor": [
+          0.9553364891256061,
+          0.2955202066613396
+        ],
+        "phase_angle_radians": 0.3,
+        "max_raw_error": 0.21133743367987126,
+        "max_phase_aligned_error": 1.5700924586837752e-16,
+        "max_density_error": 2.22589239288175e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 8.82e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.1102230246251565e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.38213459565024244,
+              0.11820808266453582
+            ],
+            [
+              -0.11820808266453582,
+              0.38213459565024244
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907164
+            ],
+            [
+              0.05910404133226791,
+              -0.19106729782512122
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 7.6e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775874,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 5.565233189396398e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999999,
+            5.966080686516423e-16
+          ],
+          [
+            1.0000000000000004,
+            3.645938197315593e-16
+          ],
+          [
+            1.0000000000000002,
+            4.640284978401662e-16
+          ],
+          [
+            1.0,
+            1.9886935621721404e-16
+          ]
+        ],
+        "overlap": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_angle_radians": 4.163336342344337e-16,
+        "max_raw_error": 3.885780586188048e-16,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 2.23885392979665e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001108,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613395
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133944
+            ],
+            "phase_angle_radians": 0.2999999999999999,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.3877787807814457e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.3301342459638713,
+              0.22585698935801413
+            ],
+            [
+              0.6602684919277426,
+              0.45171397871602825
+            ],
+            [
+              -0.22585698935801413,
+              0.3301342459638713
+            ],
+            [
+              0.11292849467900706,
+              -0.16506712298193565
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 9.5e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ]
+            ],
+            "overlap": [
+              0.8253356149096782,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096784,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.47283233065814334,
+            "max_phase_aligned_error": 2.2887833992611187e-16,
+            "max_density_error": 2.2336940183797233e-16
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256056,
+            0.29552020666134016
+          ],
+          [
+            0.955336489125606,
+            0.29552020666134005
+          ],
+          [
+            0.9553364891256062,
+            0.29552020666134
+          ],
+          [
+            0.9553364891256058,
+            0.2955202066613397
+          ]
+        ],
+        "overlap": [
+          0.9553364891256058,
+          0.29552020666134
+        ],
+        "phase_factor": [
+          0.955336489125606,
+          0.29552020666134005
+        ],
+        "phase_angle_radians": 0.3000000000000005,
+        "max_raw_error": 0.2391010119577591,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 1.1289299361815178e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.7071067811865476,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              4.329780281177466e-17,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              1.0,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.7071067811865475,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001446,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "psi": "single"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              0.9999999999999998,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999998,
+            0.0
+          ],
+          [
+            1.0,
+            6.123233995736766e-17
+          ]
+        ],
+        "overlap": [
+          0.9999999999999999,
+          3.0616169978683824e-17
+        ],
+        "phase_factor": [
+          1.0,
+          3.061616997868383e-17
+        ],
+        "phase_angle_radians": 3.061616997868383e-17,
+        "max_raw_error": 1.1102230246251565e-16,
+        "max_phase_aligned_error": 1.1311333509432094e-16,
+        "max_density_error": 2.220446049250313e-16
+      }
+    },
+    {
+      "prefix": "id",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "id",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.6755249097756645,
+              0.20896434210788314
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.2089643421078831,
+              0.6755249097756644
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_angle_radians": 0.30000000000000004,
+            "max_raw_error": 0.21133743367987126,
+            "max_phase_aligned_error": 2.7755575615628914e-17,
+            "max_density_error": 6.120327743108026e-17
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.5836004100574025,
+              0.3992625218835742
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.3992625218835742,
+              0.5836004100574025
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001205,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "psi": "single"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ],
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ]
+            ],
+            "overlap": [
+              0.8253356149096781,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096783,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.41792868421576623,
+            "max_phase_aligned_error": 5.551115123125783e-17,
+            "max_density_error": 1.0659112268709991e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256059,
+            0.2955202066613395
+          ],
+          [
+            0.9553364891256062,
+            0.2955202066613396
+          ]
+        ],
+        "overlap": [
+          0.9553364891256059,
+          0.29552020666133955
+        ],
+        "phase_factor": [
+          0.9553364891256061,
+          0.2955202066613396
+        ],
+        "phase_angle_radians": 0.3,
+        "max_raw_error": 0.21133743367987126,
+        "max_phase_aligned_error": 1.5700924586837752e-16,
+        "max_density_error": 2.22589239288175e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 7.85e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.1102230246251565e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.38213459565024244,
+              0.11820808266453582
+            ],
+            [
+              -0.11820808266453582,
+              0.38213459565024244
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907164
+            ],
+            [
+              0.05910404133226791,
+              -0.19106729782512122
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 8.16e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775874,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 5.565233189396398e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999999,
+            5.966080686516423e-16
+          ],
+          [
+            1.0000000000000004,
+            3.645938197315593e-16
+          ],
+          [
+            1.0000000000000002,
+            4.640284978401662e-16
+          ],
+          [
+            1.0,
+            1.9886935621721404e-16
+          ]
+        ],
+        "overlap": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_angle_radians": 4.163336342344337e-16,
+        "max_raw_error": 3.885780586188048e-16,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 2.23885392979665e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 7.66e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613395
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133944
+            ],
+            "phase_angle_radians": 0.2999999999999999,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.3877787807814457e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.3301342459638713,
+              0.22585698935801413
+            ],
+            [
+              0.6602684919277426,
+              0.45171397871602825
+            ],
+            [
+              -0.22585698935801413,
+              0.3301342459638713
+            ],
+            [
+              0.11292849467900706,
+              -0.16506712298193565
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 8.91e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ]
+            ],
+            "overlap": [
+              0.8253356149096782,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096784,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.47283233065814334,
+            "max_phase_aligned_error": 2.2887833992611187e-16,
+            "max_density_error": 2.2336940183797233e-16
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256056,
+            0.29552020666134016
+          ],
+          [
+            0.955336489125606,
+            0.29552020666134005
+          ],
+          [
+            0.9553364891256062,
+            0.29552020666134
+          ],
+          [
+            0.9553364891256058,
+            0.2955202066613397
+          ]
+        ],
+        "overlap": [
+          0.9553364891256058,
+          0.29552020666134
+        ],
+        "phase_factor": [
+          0.955336489125606,
+          0.29552020666134005
+        ],
+        "phase_angle_radians": 0.3000000000000005,
+        "max_raw_error": 0.2391010119577591,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 1.1289299361815178e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.7071067811865476,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              4.329780281177466e-17,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              1.0,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.7071067811865475,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7071067811865475
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001195,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            }
+          },
+          "before_vector": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              0.9999999999999998,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999998,
+            0.0
+          ],
+          [
+            1.0,
+            6.123233995736766e-17
+          ]
+        ],
+        "overlap": [
+          0.9999999999999999,
+          3.0616169978683824e-17
+        ],
+        "phase_factor": [
+          1.0,
+          3.061616997868383e-17
+        ],
+        "phase_angle_radians": 3.061616997868383e-17,
+        "max_raw_error": 1.1102230246251565e-16,
+        "max_phase_aligned_error": 1.1311333509432094e-16,
+        "max_density_error": 2.220446049250313e-16
+      }
+    },
+    {
+      "prefix": "save_before",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "save_statevector",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.6755249097756645,
+              0.20896434210788314
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.2089643421078831,
+              0.6755249097756644
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_angle_radians": 0.30000000000000004,
+            "max_raw_error": 0.21133743367987126,
+            "max_phase_aligned_error": 2.7755575615628914e-17,
+            "max_density_error": 6.120327743108026e-17
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.5836004100574025,
+              0.3992625218835742
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.3992625218835742,
+              0.5836004100574025
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001749,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "before": "save_statevector",
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "before": "single",
+              "psi": "single"
+            }
+          },
+          "before_vector": [
+            [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              2
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ],
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ]
+            ],
+            "overlap": [
+              0.8253356149096781,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096783,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.41792868421576623,
+            "max_phase_aligned_error": 5.551115123125783e-17,
+            "max_density_error": 1.0659112268709991e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          2
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256059,
+            0.2955202066613395
+          ],
+          [
+            0.9553364891256062,
+            0.2955202066613396
+          ]
+        ],
+        "overlap": [
+          0.9553364891256059,
+          0.29552020666133955
+        ],
+        "phase_factor": [
+          0.9553364891256061,
+          0.2955202066613396
+        ],
+        "phase_angle_radians": 0.3,
+        "max_raw_error": 0.21133743367987126,
+        "max_phase_aligned_error": 1.5700924586837752e-16,
+        "max_density_error": 2.22589239288175e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.40000000000000013,
+              -1.942890293094024e-16
+            ],
+            [
+              1.6653345369377348e-16,
+              0.3999999999999999
+            ],
+            [
+              0.8,
+              -4.0245584642661925e-16
+            ],
+            [
+              0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.4,
+              0.0
+            ],
+            [
+              0.0,
+              0.4
+            ],
+            [
+              0.8,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 9.07e-05,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0,
+            -0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "canonical_full",
+      "qargs": [
+        0,
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.38213459565024255,
+              0.11820808266453561
+            ],
+            [
+              -0.11820808266453564,
+              0.3821345956502423
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907125
+            ],
+            [
+              0.059104041332267876,
+              -0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.1102230246251565e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.38213459565024244,
+              0.11820808266453582
+            ],
+            [
+              -0.11820808266453582,
+              0.38213459565024244
+            ],
+            [
+              0.7642691913004849,
+              0.23641616532907164
+            ],
+            [
+              0.05910404133226791,
+              -0.19106729782512122
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001371,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256061,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133955
+            ],
+            "phase_angle_radians": 0.3,
+            "max_raw_error": 0.23910101195775874,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 5.565233189396398e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999999,
+            5.966080686516423e-16
+          ],
+          [
+            1.0000000000000004,
+            3.645938197315593e-16
+          ],
+          [
+            1.0000000000000002,
+            4.640284978401662e-16
+          ],
+          [
+            1.0,
+            1.9886935621721404e-16
+          ]
+        ],
+        "overlap": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.163336342344337e-16
+        ],
+        "phase_angle_radians": 4.163336342344337e-16,
+        "max_raw_error": 3.885780586188048e-16,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 2.23885392979665e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              -0.40000000000000013,
+              1.942890293094024e-16
+            ],
+            [
+              -0.8,
+              4.0245584642661925e-16
+            ],
+            [
+              -1.6653345369377348e-16,
+              -0.3999999999999999
+            ],
+            [
+              0.0,
+              0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -6.162975822039153e-32
+              ],
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              -0.4,
+              0.0
+            ],
+            [
+              -0.8,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.4
+            ],
+            [
+              0.0,
+              0.2
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001817,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                0.0
+              ]
+            ],
+            "overlap": [
+              1.0000000000000002,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999997,
+            4.857225732735056e-16
+          ],
+          [
+            1.0,
+            5.030698080332741e-16
+          ],
+          [
+            1.0000000000000002,
+            4.163336342344339e-16
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "overlap": [
+          1.0000000000000002,
+          4.662936703425659e-16
+        ],
+        "phase_factor": [
+          1.0,
+          4.662936703425658e-16
+        ],
+        "phase_angle_radians": 4.662936703425658e-16,
+        "max_raw_error": 4.0245584642661925e-16,
+        "max_phase_aligned_error": 1.1280652674976943e-16,
+        "max_density_error": 1.144391699630559e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "reversed_full",
+      "qargs": [
+        1,
+        0
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              -0.38213459565024255,
+              -0.11820808266453561
+            ],
+            [
+              -0.7642691913004849,
+              -0.23641616532907125
+            ],
+            [
+              0.11820808266453564,
+              -0.3821345956502423
+            ],
+            [
+              -0.059104041332267876,
+              0.19106729782512125
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.9553364891256059,
+                0.2955202066613394
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256059,
+                0.29552020666133955
+              ],
+              [
+                0.9553364891256062,
+                0.2955202066613394
+              ]
+            ],
+            "overlap": [
+              0.9553364891256062,
+              0.2955202066613395
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.29552020666133944
+            ],
+            "phase_angle_radians": 0.2999999999999999,
+            "max_raw_error": 0.23910101195775876,
+            "max_phase_aligned_error": 1.3877787807814457e-16,
+            "max_density_error": 2.223421707373368e-16
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              -0.3301342459638713,
+              -0.22585698935801413
+            ],
+            [
+              -0.6602684919277426,
+              -0.45171397871602825
+            ],
+            [
+              0.22585698935801413,
+              -0.3301342459638713
+            ],
+            [
+              -0.11292849467900706,
+              0.16506712298193565
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001702,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": true,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_subtypes": {
+              "psi": "single"
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ],
+              [
+                0.8253356149096782,
+                0.5646424733950353
+              ]
+            ],
+            "overlap": [
+              0.8253356149096782,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096784,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.47283233065814334,
+            "max_phase_aligned_error": 2.2887833992611187e-16,
+            "max_density_error": 2.2336940183797233e-16
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256056,
+            0.29552020666134016
+          ],
+          [
+            0.955336489125606,
+            0.29552020666134005
+          ],
+          [
+            0.9553364891256062,
+            0.29552020666134
+          ],
+          [
+            0.9553364891256058,
+            0.2955202066613397
+          ]
+        ],
+        "overlap": [
+          0.9553364891256058,
+          0.29552020666134
+        ],
+        "phase_factor": [
+          0.955336489125606,
+          0.29552020666134005
+        ],
+        "phase_angle_radians": 0.3000000000000005,
+        "max_raw_error": 0.2391010119577591,
+        "max_phase_aligned_error": 1.6883057536160646e-16,
+        "max_density_error": 1.1289299361815178e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.0,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.7071067811865476,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -4.329780281177466e-17,
+              -0.7071067811865475
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              1,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              1.0,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.7071067811865475,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.7071067811865475
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0001836,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "psi": "single"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              1,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                1.0,
+                -0.0
+              ],
+              [
+                1.0,
+                -0.0
+              ]
+            ],
+            "overlap": [
+              0.9999999999999998,
+              0.0
+            ],
+            "phase_factor": [
+              1.0,
+              0.0
+            ],
+            "phase_angle_radians": 0.0,
+            "max_raw_error": 0.0,
+            "max_phase_aligned_error": 0.0,
+            "max_density_error": 0.0
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          1,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9999999999999998,
+            -0.0
+          ],
+          [
+            1.0,
+            6.123233995736766e-17
+          ]
+        ],
+        "overlap": [
+          0.9999999999999999,
+          3.0616169978683824e-17
+        ],
+        "phase_factor": [
+          1.0,
+          3.061616997868383e-17
+        ],
+        "phase_angle_radians": 3.061616997868383e-17,
+        "max_raw_error": 1.1102230246251565e-16,
+        "max_phase_aligned_error": 1.1311333509432094e-16,
+        "max_density_error": 2.220446049250313e-16
+      }
+    },
+    {
+      "prefix": "xz",
+      "kind": "partial",
+      "qargs": [
+        1
+      ],
+      "global_phase": 0.3,
+      "instructions": [
+        "x",
+        "z",
+        "initialize",
+        "save_statevector"
+      ],
+      "backends": {
+        "flagquantum": {
+          "vector": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.6755249097756645,
+              -0.20896434210788314
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.2089643421078831,
+              -0.6755249097756644
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "flagquantum_qiskit": {
+              "engine": "flagquantum",
+              "method": "FQ statevector trajectories",
+              "flagquantum_version": "0.3.1",
+              "torch_version": "2.14.1+cpu",
+              "qiskit_version": "2.6.2",
+              "adapter_version": "0.2.0",
+              "device": "cpu",
+              "precision": "torch.complex128",
+              "seed_simulator": 71
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              1,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ],
+              [
+                0.955336489125606,
+                0.29552020666133955
+              ]
+            ],
+            "overlap": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_factor": [
+              0.955336489125606,
+              0.2955202066613396
+            ],
+            "phase_angle_radians": 0.30000000000000004,
+            "max_raw_error": 0.21133743367987126,
+            "max_phase_aligned_error": 2.7755575615628914e-17,
+            "max_density_error": 6.120327743108026e-17
+          }
+        },
+        "aer": {
+          "vector": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.5836004100574025,
+              -0.3992625218835742
+            ],
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              0.3992625218835742,
+              -0.5836004100574025
+            ]
+          ],
+          "success": true,
+          "metadata": {
+            "batched_shots_optimization": false,
+            "required_memory_mb": 1,
+            "method": "statevector",
+            "active_input_qubits": [
+              0,
+              1
+            ],
+            "device": "CPU",
+            "remapped_qubits": false,
+            "num_qubits": 2,
+            "num_clbits": 0,
+            "time_taken": 0.0002523,
+            "input_qubit_map": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "max_memory_mb": 32491,
+            "measure_sampling": false,
+            "noise": "ideal",
+            "parallel_shots": 1,
+            "parallel_state_update": 32,
+            "runtime_parameter_bind": false,
+            "num_bind_params": 1,
+            "fusion": {
+              "enabled": false
+            },
+            "result_types": {
+              "psi": "save_statevector"
+            },
+            "result_subtypes": {
+              "psi": "single"
+            }
+          },
+          "relative_to_same_case_phase_zero": {
+            "ratio_direction": "actual / reference",
+            "nonzero_reference_indices": [
+              1,
+              3
+            ],
+            "elementwise_ratios": [
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ],
+              [
+                0.8253356149096783,
+                0.5646424733950354
+              ]
+            ],
+            "overlap": [
+              0.8253356149096781,
+              0.5646424733950353
+            ],
+            "phase_factor": [
+              0.8253356149096783,
+              0.5646424733950354
+            ],
+            "phase_angle_radians": 0.6,
+            "max_raw_error": 0.41792868421576623,
+            "max_phase_aligned_error": 5.551115123125783e-17,
+            "max_density_error": 1.0659112268709991e-17
+          }
+        }
+      },
+      "aer_relative_to_flagquantum": {
+        "ratio_direction": "actual / reference",
+        "nonzero_reference_indices": [
+          1,
+          3
+        ],
+        "elementwise_ratios": [
+          [
+            0.9553364891256059,
+            0.2955202066613395
+          ],
+          [
+            0.9553364891256062,
+            0.2955202066613396
+          ]
+        ],
+        "overlap": [
+          0.9553364891256059,
+          0.29552020666133955
+        ],
+        "phase_factor": [
+          0.9553364891256061,
+          0.2955202066613396
+        ],
+        "phase_angle_radians": 0.3,
+        "max_raw_error": 0.21133743367987126,
+        "max_phase_aligned_error": 1.5700924586837752e-16,
+        "max_density_error": 2.22589239288175e-16
+      }
+    }
+  ]
+}

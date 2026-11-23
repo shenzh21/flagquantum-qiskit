@@ -1,0 +1,2093 @@
+{
+  "generated_at_utc": "2026-11-20T07:28:36+00:00",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "qiskit": "2.6.2",
+    "flagquantum": "0.3.1",
+    "torch": "2.14.1+cpu",
+    "qiskit_aer": "0.18.4",
+    "flagquantum_qiskit": "0.2.0"
+  },
+  "seed": 20261120,
+  "example_fast": {
+    "original": {
+      "draw": "        ┌───┐      ░ ┌─┐   \n   q_0: ┤ H ├──■───░─┤M├───\n        └───┘┌─┴─┐ ░ └╥┘┌─┐\n   q_1: ─────┤ Y ├─░──╫─┤M├\n             └───┘ ░  ║ └╥┘\nmeas: 2/══════════════╩══╩═\n                      0  1 ",
+      "ops": [
+        {
+          "name": "h",
+          "qubits": [
+            0
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "cy",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "barrier",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ],
+          "params": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ],
+          "params": []
+        }
+      ]
+    },
+    "transpiled": {
+      "draw": "         ┌───┐            ░ ┌─┐   \n   q_0: ─┤ H ├───■────────░─┤M├───\n        ┌┴───┴┐┌─┴─┐┌───┐ ░ └╥┘┌─┐\n   q_1: ┤ Sdg ├┤ X ├┤ S ├─░──╫─┤M├\n        └─────┘└───┘└───┘ ░  ║ └╥┘\nmeas: 2/═════════════════════╩══╩═\n                             0  1 ",
+      "ops": [
+        {
+          "name": "h",
+          "qubits": [
+            0
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "sdg",
+          "qubits": [
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "cx",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "s",
+          "qubits": [
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "barrier",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": [],
+          "params": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ],
+          "params": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ],
+          "params": []
+        }
+      ]
+    },
+    "route": {
+      "is_fast": true
+    },
+    "prepared": {
+      "ir_instructions": [
+        {
+          "opcode": "h",
+          "wires": [
+            0
+          ],
+          "params": {},
+          "matrix": null,
+          "metadata": {}
+        },
+        {
+          "opcode": "sdg",
+          "wires": [
+            1
+          ],
+          "params": {},
+          "matrix": null,
+          "metadata": {}
+        },
+        {
+          "opcode": "cx",
+          "wires": [
+            0,
+            1
+          ],
+          "params": {},
+          "matrix": null,
+          "metadata": {}
+        },
+        {
+          "opcode": "s",
+          "wires": [
+            1
+          ],
+          "params": {},
+          "matrix": null,
+          "metadata": {}
+        }
+      ],
+      "ir_n_wires": 2,
+      "ir_keys": [
+        "dtype",
+        "instructions",
+        "kind",
+        "measurements",
+        "metadata",
+        "n_wires",
+        "observables",
+        "shape",
+        "version"
+      ],
+      "sidecar": {
+        "name": "h_cy_demo",
+        "num_qubits": 2,
+        "memory_slots": 2,
+        "creg_sizes": [
+          [
+            "meas",
+            2
+          ]
+        ],
+        "measurement_writes": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "global_phase": 0.0,
+        "annotations": [
+          {
+            "index": 4,
+            "kind": "barrier",
+            "qubits": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "report": {
+        "schema": "flagquantum_qiskit_conversion_report_v1",
+        "direction": "from_qiskit",
+        "framework_version": "2.6.2",
+        "lossless": true,
+        "issues": []
+      }
+    },
+    "fq_states": [
+      {
+        "after": "初态",
+        "vector": [
+          {
+            "index": 0,
+            "re": 1.0,
+            "im": 0.0,
+            "prob": 1.0
+          },
+          {
+            "index": 1,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 2,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 3,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          }
+        ]
+      },
+      {
+        "after": "h [0]",
+        "vector": [
+          {
+            "index": 0,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 1,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 2,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 3,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          }
+        ]
+      },
+      {
+        "after": "sdg [1]",
+        "vector": [
+          {
+            "index": 0,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 1,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 2,
+            "re": 0.0,
+            "im": -0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 3,
+            "re": 0.0,
+            "im": -0.0,
+            "prob": 0.0
+          }
+        ]
+      },
+      {
+        "after": "cx [0, 1]",
+        "vector": [
+          {
+            "index": 0,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 1,
+            "re": 0.0,
+            "im": -0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 2,
+            "re": 0.0,
+            "im": -0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 3,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          }
+        ]
+      },
+      {
+        "after": "s [1]",
+        "vector": [
+          {
+            "index": 0,
+            "re": 0.7071,
+            "im": 0.0,
+            "prob": 0.5
+          },
+          {
+            "index": 1,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 2,
+            "re": 0.0,
+            "im": 0.0,
+            "prob": 0.0
+          },
+          {
+            "index": 3,
+            "re": 0.0,
+            "im": 0.7071,
+            "prob": 0.5
+          }
+        ]
+      }
+    ],
+    "samples": {
+      "shape": [
+        1000,
+        2
+      ],
+      "first_rows": [
+        {
+          "bits_per_qubit": [
+            0,
+            0
+          ],
+          "hex": "0x0",
+          "bitstring": "00"
+        },
+        {
+          "bits_per_qubit": [
+            1,
+            1
+          ],
+          "hex": "0x3",
+          "bitstring": "11"
+        },
+        {
+          "bits_per_qubit": [
+            1,
+            1
+          ],
+          "hex": "0x3",
+          "bitstring": "11"
+        },
+        {
+          "bits_per_qubit": [
+            1,
+            1
+          ],
+          "hex": "0x3",
+          "bitstring": "11"
+        },
+        {
+          "bits_per_qubit": [
+            1,
+            1
+          ],
+          "hex": "0x3",
+          "bitstring": "11"
+        },
+        {
+          "bits_per_qubit": [
+            0,
+            0
+          ],
+          "hex": "0x0",
+          "bitstring": "00"
+        },
+        {
+          "bits_per_qubit": [
+            0,
+            0
+          ],
+          "hex": "0x0",
+          "bitstring": "00"
+        },
+        {
+          "bits_per_qubit": [
+            1,
+            1
+          ],
+          "hex": "0x3",
+          "bitstring": "11"
+        }
+      ],
+      "execution_info": {
+        "engine": "flagquantum",
+        "flagquantum_version": "0.3.1",
+        "torch_version": "2.14.1+cpu",
+        "qiskit_version": "2.6.2",
+        "adapter_version": "0.2.0",
+        "method": "Circuit.sample/statevector",
+        "device": "cpu",
+        "precision": "torch.complex128",
+        "seed_simulator": 20261120
+      }
+    },
+    "result": {
+      "raw_counts": {
+        "0x0": 503,
+        "0x3": 497
+      },
+      "counts": {
+        "00": 503,
+        "11": 497
+      },
+      "memory_head": [
+        "00",
+        "11",
+        "11",
+        "11",
+        "11",
+        "00",
+        "00",
+        "11",
+        "11",
+        "00",
+        "11",
+        "00"
+      ],
+      "job_id": "a87d149f-9ea8-4551-9f59-a73abe4d88e7",
+      "status": "JobStatus.DONE",
+      "metadata": {
+        "engine": "flagquantum",
+        "flagquantum_version": "0.3.1",
+        "method": "Circuit.sample/statevector",
+        "device": "cpu",
+        "precision": "torch.complex128",
+        "seed_simulator": 20261120
+      },
+      "elapsed_s": 0.0046
+    }
+  },
+  "example_dynamic": {
+    "theta": 2.0943951023931953,
+    "original": {
+      "draw": "     ┌──────────┐┌─┐                             \nq_0: ┤ Ry(2π/3) ├┤M├─────────────────────────────\n     └──────────┘└╥┘  ┌──────  ┌───┐ ───────┐ ┌─┐\nq_1: ─────────────╫───┤ If-0  ─┤ X ├  End-0 ├─┤M├\n                  ║   └──╥───  └───┘ ───────┘ └╥┘\n                  ║ ┌────╨────┐                ║ \nc: 2/═════════════╩═╡ c_0=0x1 ╞════════════════╩═\n                  0 └─────────┘                1 "
+    },
+    "transpiled": {
+      "draw": "     ┌──────────┐┌─┐                             \nq_0: ┤ Ry(2π/3) ├┤M├─────────────────────────────\n     └──────────┘└╥┘  ┌──────  ┌───┐ ───────┐ ┌─┐\nq_1: ─────────────╫───┤ If-0  ─┤ X ├  End-0 ├─┤M├\n                  ║   └──╥───  └───┘ ───────┘ └╥┘\n                  ║ ┌────╨────┐                ║ \nc: 2/═════════════╩═╡ c_0=0x1 ╞════════════════╩═\n                  0 └─────────┘                1 ",
+      "ops": [
+        {
+          "name": "ry",
+          "qubits": [
+            0
+          ],
+          "clbits": [],
+          "params": [
+            2.094395
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ],
+          "params": []
+        },
+        {
+          "name": "if_else",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            0
+          ],
+          "params": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ],
+          "params": []
+        }
+      ]
+    },
+    "route": {
+      "is_fast": false
+    },
+    "program": {
+      "phase": 0.0,
+      "nodes": [
+        {
+          "kind": "gate",
+          "name": "ry",
+          "wires": [
+            0
+          ],
+          "bits": [],
+          "depth": 0,
+          "fq_instruction": {
+            "name": "ry",
+            "wires": [
+              0
+            ],
+            "params": {
+              "theta": 2.094395
+            }
+          }
+        },
+        {
+          "kind": "measure",
+          "name": "measure",
+          "wires": [
+            0
+          ],
+          "bits": [
+            0
+          ],
+          "depth": 0
+        },
+        {
+          "kind": "if_else",
+          "name": "if_else",
+          "wires": [
+            1
+          ],
+          "bits": [
+            0
+          ],
+          "depth": 0
+        },
+        {
+          "kind": "branch",
+          "name": "true 分支",
+          "depth": 1
+        },
+        {
+          "kind": "gate",
+          "name": "x",
+          "wires": [
+            1
+          ],
+          "bits": [],
+          "depth": 2,
+          "fq_instruction": {
+            "name": "x",
+            "wires": [
+              1
+            ],
+            "params": {}
+          }
+        },
+        {
+          "kind": "measure",
+          "name": "measure",
+          "wires": [
+            1
+          ],
+          "bits": [
+            1
+          ],
+          "depth": 0
+        }
+      ]
+    },
+    "shots": [
+      {
+        "shot": 0,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 1,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 2,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 3,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 4,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 5,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 0",
+            "bit": 0,
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 0",
+            "bit": 0,
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          0,
+          0
+        ],
+        "hex": "0x0",
+        "bitstring": "00"
+      },
+      {
+        "shot": 6,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      },
+      {
+        "shot": 7,
+        "events": [
+          {
+            "call": "fq_ops.zero",
+            "detail": "新 shot：FQ 创建 |00> 初态",
+            "state": [
+              {
+                "index": 0,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 ry 于 wire [0]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.5,
+                "im": 0.0,
+                "prob": 0.25
+              },
+              {
+                "index": 1,
+                "re": 0.866,
+                "im": 0.0,
+                "prob": 0.75
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 0，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.gate",
+            "detail": "FQ 执行 x 于 wire [1]",
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          },
+          {
+            "call": "fq_ops.measure",
+            "detail": "FQ 测量 wire 1，坍缩得到 1",
+            "bit": 1,
+            "state": [
+              {
+                "index": 0,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 1,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 2,
+                "re": 0.0,
+                "im": 0.0,
+                "prob": 0.0
+              },
+              {
+                "index": 3,
+                "re": 1.0,
+                "im": 0.0,
+                "prob": 1.0
+              }
+            ]
+          }
+        ],
+        "classical": [
+          1,
+          1
+        ],
+        "hex": "0x3",
+        "bitstring": "11"
+      }
+    ],
+    "result": {
+      "counts": {
+        "11": 3015,
+        "00": 985
+      },
+      "expected": {
+        "11": 0.75,
+        "00": 0.25
+      },
+      "metadata": {
+        "engine": "flagquantum",
+        "method": "FQ statevector trajectories",
+        "flagquantum_version": "0.3.1",
+        "precision": "torch.complex128"
+      },
+      "elapsed_s": 1.4913
+    }
+  },
+  "showcase": {
+    "bell_ideal": {
+      "00": 996,
+      "11": 1004
+    },
+    "bell_depolarizing": {
+      "00": 909,
+      "10": 71,
+      "01": 85,
+      "11": 935
+    },
+    "bell_readout": {
+      "00": 833,
+      "11": 836,
+      "10": 172,
+      "01": 159
+    },
+    "parameter_binds": [
+      {
+        "theta": 0.0,
+        "counts": {
+          "0": 1000
+        }
+      },
+      {
+        "theta": 1.5708,
+        "counts": {
+          "1": 514,
+          "0": 486
+        }
+      },
+      {
+        "theta": 3.1416,
+        "counts": {
+          "1": 1000
+        }
+      }
+    ],
+    "saves": {
+      "statevector": [
+        {
+          "index": 0,
+          "re": 0.7071,
+          "im": 0.0,
+          "prob": 0.5
+        },
+        {
+          "index": 1,
+          "re": 0.0,
+          "im": 0.0,
+          "prob": 0.0
+        },
+        {
+          "index": 2,
+          "re": 0.0,
+          "im": 0.0,
+          "prob": 0.0
+        },
+        {
+          "index": 3,
+          "re": 0.0,
+          "im": 0.7071,
+          "prob": 0.5
+        }
+      ],
+      "probabilities": [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "expval_zz": 1.0
+    },
+    "sampler_v2": {
+      "00": 503,
+      "11": 497
+    },
+    "estimator_v2": [
+      {
+        "observable": "ZZ",
+        "ev": 1.0,
+        "std": 0.0
+      },
+      {
+        "observable": "XX",
+        "ev": 1.0,
+        "std": 0.0
+      },
+      {
+        "observable": "ZI",
+        "ev": -0.0008,
+        "std": 0.02
+      }
+    ],
+    "rejects": [
+      {
+        "case": "未转译直接提交非 Target 门 cy",
+        "error": "QiskitError: 'Unsupported instruction 1: cy'"
+      },
+      {
+        "case": "请求 GPU 设备",
+        "error": "QiskitError: \"Only device='cpu' is supported\""
+      },
+      {
+        "case": "shots 为 0",
+        "error": "QiskitError: 'shots must be between 1 and 1000000'"
+      }
+    ]
+  },
+  "stats": {
+    "source_files": [
+      {
+        "file": "__init__.py",
+        "lines": 13
+      },
+      {
+        "file": "backend.py",
+        "lines": 252
+      },
+      {
+        "file": "contracts.py",
+        "lines": 86
+      },
+      {
+        "file": "conversion.py",
+        "lines": 118
+      },
+      {
+        "file": "engine.py",
+        "lines": 61
+      },
+      {
+        "file": "fq_ops.py",
+        "lines": 123
+      },
+      {
+        "file": "job.py",
+        "lines": 57
+      },
+      {
+        "file": "noise.py",
+        "lines": 299
+      },
+      {
+        "file": "program.py",
+        "lines": 307
+      },
+      {
+        "file": "results.py",
+        "lines": 61
+      },
+      {
+        "file": "target.py",
+        "lines": 65
+      },
+      {
+        "file": "trajectory.py",
+        "lines": 281
+      },
+      {
+        "file": "validation.py",
+        "lines": 181
+      }
+    ],
+    "tests_per_file": {
+      "test_aer_compatibility.py": 43,
+      "test_backend.py": 47,
+      "test_conversion.py": 4,
+      "test_dynamic.py": 21,
+      "test_gate_semantics.py": 35,
+      "test_noise.py": 18,
+      "test_primitives.py": 5,
+      "test_user_circuits.py": 17
+    },
+    "tests_total": 190
+  }
+}

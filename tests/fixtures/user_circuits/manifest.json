@@ -1,0 +1,241 @@
+[
+  {
+    "name": "4_49_16",
+    "num_qubits": 4,
+    "source_gate_count": 16,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "source_sha256": "da27ec13a68d4c8bbe8bd72ee458daa3c5436f9765d782fdc5f1ce213c60b011"
+  },
+  {
+    "name": "aj-e11_165",
+    "num_qubits": 4,
+    "source_gate_count": 13,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "source_sha256": "7341db1a73c2ab6e6ff911f2547182e209494b8053e392ead9d4af3226a3b239"
+  },
+  {
+    "name": "aj-e11_168",
+    "num_qubits": 4,
+    "source_gate_count": 10,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "source_sha256": "b261f419798f98c7fbefb866386b7edd6ffa66fce2935fc6e994bcdf55d79b0e"
+  },
+  {
+    "name": "cycle10_2_110",
+    "num_qubits": 12,
+    "source_gate_count": 19,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l"
+    ],
+    "source_sha256": "8de016f08624b91431115e774d448e384ea81ac181fb011b1efce4c370b37d8d"
+  },
+  {
+    "name": "ham15_108",
+    "num_qubits": 15,
+    "source_gate_count": 70,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o"
+    ],
+    "source_sha256": "a84a9dde49c216120e32f89c71c9c3642241a93eb1b98488ff282ed0b6b116dc"
+  },
+  {
+    "name": "ham7_104",
+    "num_qubits": 7,
+    "source_gate_count": 23,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g"
+    ],
+    "source_sha256": "cc76c9ebfcbee0bdfa59d95b8a2b50e918ac7d577edfd37f7b779bfb61ac01b0"
+  },
+  {
+    "name": "ham7_105",
+    "num_qubits": 7,
+    "source_gate_count": 21,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g"
+    ],
+    "source_sha256": "84545cd958d1d4f7caca00afa42bdc87eabd7f198e6fe38129c5253dc95e1f1a"
+  },
+  {
+    "name": "hwb4_49",
+    "num_qubits": 4,
+    "source_gate_count": 17,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "source_sha256": "111a28345bb3a03e70a4d95690d55fba10a09d10e0661e58913583a46f8aecf5"
+  },
+  {
+    "name": "hwb4_50",
+    "num_qubits": 4,
+    "source_gate_count": 16,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "source_sha256": "4652862b8fe9595723d5b33a5aa56c36a245c24a944b9d120ca9150ab97b920f"
+  },
+  {
+    "name": "hwb5_53",
+    "num_qubits": 5,
+    "source_gate_count": 55,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "source_sha256": "8db5c412ba8e99d4cfd6e0a8d7392c89dfb3ca6822904f3f5ca0417ee93b846c"
+  },
+  {
+    "name": "hwb5_55",
+    "num_qubits": 5,
+    "source_gate_count": 24,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "source_sha256": "73fefda15fdb3656c4a9347db9ca0cb3dad505c537bfe7d30e95b60bbfa98713"
+  },
+  {
+    "name": "hwb6_58",
+    "num_qubits": 6,
+    "source_gate_count": 42,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "source_sha256": "8c3b4484b3e1d773cdb7a616f56b36fe4b58e3dceb89a3d71edad4e6cbf2abc9"
+  },
+  {
+    "name": "mod10_171",
+    "num_qubits": 4,
+    "source_gate_count": 10,
+    "variables": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ],
+    "source_sha256": "e8453c444084f2512b46fdcae482c602149a44a525b630d9c1935c7d7e120cf0"
+  },
+  {
+    "name": "mod10_176",
+    "num_qubits": 4,
+    "source_gate_count": 7,
+    "variables": [
+      "d",
+      "c",
+      "b",
+      "a"
+    ],
+    "source_sha256": "cf0a49a07c44602a97eda30e90e4a199f5cb29ee2132311323b356d2bb5106aa"
+  },
+  {
+    "name": "mod5adder_127",
+    "num_qubits": 6,
+    "source_gate_count": 21,
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "source_sha256": "706ff3380c6f8d6d73395718eca3ad6a9f056fa58ce6b28c08dd2f4f7a68fbe3"
+  },
+  {
+    "name": "mod5adder_128",
+    "num_qubits": 6,
+    "source_gate_count": 15,
+    "variables": [
+      "f",
+      "e",
+      "d",
+      "c",
+      "b",
+      "a"
+    ],
+    "source_sha256": "0539e319c44804a39ddb0d57245669411857e10092ca2a8c4d1066180bf54eec"
+  },
+  {
+    "name": "mod5adder_129",
+    "num_qubits": 6,
+    "source_gate_count": 17,
+    "variables": [
+      "f",
+      "e",
+      "d",
+      "c",
+      "b",
+      "a"
+    ],
+    "source_sha256": "a67f0ca22315248c6bfd2bafa822263aae2df1f4d95d21401edd9e3512328334"
+  }
+]

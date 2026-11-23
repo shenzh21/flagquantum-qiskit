@@ -1,0 +1,77 @@
+{
+  "recorded_at_utc": "2026-11-19T06:13:03.719141+00:00",
+  "description": "Noncanonical full-register initialize: explicit reversed qargs [1,0] with prior X/Z phase and circuit global phase .3",
+  "reproduction": {
+    "num_qubits": 2,
+    "global_phase": 0.3,
+    "operations": [
+      "x(0)",
+      "z(0)",
+      "initialize(normalized_state, [1,0])",
+      "save_statevector(label=psi)"
+    ],
+    "normalized_state_real_imag": [
+      [
+        0.4,
+        0.0
+      ],
+      [
+        0.0,
+        0.4
+      ],
+      [
+        0.8,
+        0.0
+      ],
+      [
+        -0.0,
+        -0.2
+      ]
+    ],
+    "shots": 1,
+    "seed_simulator": 71
+  },
+  "flagquantum_vector_real_imag": [
+    [
+      -0.38213459565024255,
+      -0.11820808266453561
+    ],
+    [
+      -0.7642691913004849,
+      -0.23641616532907125
+    ],
+    [
+      0.11820808266453564,
+      -0.3821345956502423
+    ],
+    [
+      -0.059104041332267876,
+      0.19106729782512125
+    ]
+  ],
+  "aer_0184_vector_real_imag": [
+    [
+      -0.3301342459638713,
+      -0.22585698935801413
+    ],
+    [
+      -0.6602684919277426,
+      -0.45171397871602825
+    ],
+    [
+      0.22585698935801413,
+      -0.3301342459638713
+    ],
+    [
+      -0.11292849467900706,
+      0.16506712298193565
+    ]
+  ],
+  "overlap_real_imag": [
+    0.9553364891256058,
+    0.29552020666134
+  ],
+  "max_raw_amplitude_difference": 0.2391010119577591,
+  "max_density_difference": 1.1289299361815178e-16,
+  "interpretation": "Physical states agree to fixed 2e-12 tolerance. Global amplitude phase differs between the FQ reset/preparation convention and Aer 0.18.4 noncanonical initialize. Exact amplitude parity is separately tested for canonical full-register initialize and set_statevector."
+}

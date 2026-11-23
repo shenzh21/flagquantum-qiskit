@@ -1,0 +1,190 @@
+{
+  "schema": "flagquantum_qiskit_repository_validation_v1",
+  "started_utc": "2026-11-23T04:48:55.724330+00:00",
+  "git_source": "c289a6d7eb5da9a3baf9de84b47043092120fc40",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "python_executable": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "versions": {
+    "flagquantum-qiskit": "0.2.0",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.4.6",
+    "pytest": "9.2.0",
+    "build": "1.6.1",
+    "setuptools": "84.2.1",
+    "wheel": "0.48.0",
+    "pip": "26.3"
+  },
+  "commands": [
+    {
+      "name": "git_archive",
+      "argv": [
+        "git",
+        "archive",
+        "--format=tar",
+        "--output=D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\source.tar",
+        "c289a6d7eb5da9a3baf9de84b47043092120fc40"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit",
+      "pythonpath": null,
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\git_archive.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "source_import",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import flagquantum_qiskit,json,pathlib; p=pathlib.Path(flagquantum_qiskit.__file__).resolve(); assert p.is_relative_to(pathlib.Path('D:\\\\vscodeprojs\\\\zhiyuan\\\\flagquantum-qiskit\\\\.cache\\\\repo-validation\\\\c289a6d7eb5d\\\\clean\\\\src').resolve()),p; print(json.dumps({'module':str(p)}))"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean\\src",
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\source_import.log",
+      "log_sha256": "0e3e47ee955c8ffbf01bb9dad8e321e0c8d80212625332fd5674257d36586408"
+    },
+    {
+      "name": "pytest",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "--import-mode=importlib",
+        "-q",
+        "--junitxml=D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\pytest.xml"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean\\src",
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\pytest.log",
+      "log_sha256": "7affcceb64c14c3456dfdb153f5ae63d088931b54a0b0c9136a45a406f377eba"
+    },
+    {
+      "name": "wheel_build",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--wheel",
+        "--no-isolation",
+        "--outdir",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean\\src",
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel_build.log",
+      "log_sha256": "9a5a6f264376403b4bd8beeb493c2030702fa920fe5bba8c0ecc939a7d0c55c8"
+    },
+    {
+      "name": "wheel_target_install",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-compile",
+        "--target",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel-target",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel\\flagquantum_qiskit-0.2.0-py3-none-any.whl"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d",
+      "pythonpath": null,
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel_target_install.log",
+      "log_sha256": "227113ca9160311f1f7d1b65a8060426a1428b2c613ee78c411bfeed30a6ca86"
+    },
+    {
+      "name": "wheel_smoke",
+      "argv": [
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\wheel_smoke.py",
+        "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel-target"
+      ],
+      "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\outside-package",
+      "pythonpath": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel-target",
+      "exit_code": 0,
+      "log": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel_smoke.log",
+      "log_sha256": "fcb308898e659464492a6f13cf8d93ee2676ddb0b65e1b7015406b1d9a920f64"
+    }
+  ],
+  "scope": "New full-suite run from an archived Git tree plus clean wheel validation; historical evidence retained unchanged.",
+  "archive_sha256": "19a2cc569d2b6d1cb0930ebb38cc213bab1b8f286750676cc7646978994fa40d",
+  "source_files_sha256": {
+    "src/flagquantum_qiskit/__init__.py": "57b552622927a701801cdf6370599d3019a0f0e285fa2b4f35be0102bef3e71f",
+    "src/flagquantum_qiskit/backend.py": "cb96852dcbfdac7c652fd1c338ad20becf50a9faa117ef6d89e6bb4b852b76cd",
+    "src/flagquantum_qiskit/contracts.py": "7e648e5f54074dd943924c556aae9ed76dbc605f4c20aa9daa141abbb2d52b33",
+    "src/flagquantum_qiskit/conversion.py": "8d7fedfbdf611c5508c1cebd2d1898425edc0550f2a4f98023bc1278358d5936",
+    "src/flagquantum_qiskit/engine.py": "95fb489638e319c522dd3072210db6186f4e5b2391c17debb221c6d08feb5d96",
+    "src/flagquantum_qiskit/fq_ops.py": "084c30e5f4cd73c5f8d588db8d10527ffb145f3f544ec65da81d4c9198859e91",
+    "src/flagquantum_qiskit/job.py": "d9fbb5e1d34464af4381ca4b1230c8a0eaa5791e8433fbc5b26af18b960a9e51",
+    "src/flagquantum_qiskit/noise.py": "67bf5312ede0e34af813c4b2dd6729529988da5d703a1460498223d0072270e1",
+    "src/flagquantum_qiskit/program.py": "48cdad61685360c2311da553587b88d9e23d4643eed8ab44d543e25d3bd85de9",
+    "src/flagquantum_qiskit/results.py": "bb641cdb1dcb94042cc9b77fb1aa79ba25ff5fb63d0b3486c3da7763d4ae42d4",
+    "src/flagquantum_qiskit/target.py": "2fc6dfc8a89f4cfb2554effdad9d7ae5fdf2716ca15529185b64d36bcaf21681",
+    "src/flagquantum_qiskit/trajectory.py": "a0f0a6196b99998babd7c5079575c77bdef69e5bcf55716890beccf55215d0bf",
+    "src/flagquantum_qiskit/validation.py": "9754af465c036011b3e7d4667e838f26281195aa3b5ed5e067ae28f7cdee1218"
+  },
+  "source_import": {
+    "module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\clean\\src\\flagquantum_qiskit\\__init__.py"
+  },
+  "pytest": {
+    "tests": 190,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 190,
+    "junit": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\pytest.xml",
+    "junit_sha256": "220b2fddde32e5c575f16b9173f69ba60ad4ebd854d01d1b81df8d8775af6a8a",
+    "summary": "190 passed in 42.29s"
+  },
+  "wheel": {
+    "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel\\flagquantum_qiskit-0.2.0-py3-none-any.whl",
+    "sha256": "9a873756738e8a9bdc5c79125ab312b905c0d44aa44b6e077936653c5002f387",
+    "members": [
+      "flagquantum_qiskit/__init__.py",
+      "flagquantum_qiskit/backend.py",
+      "flagquantum_qiskit/contracts.py",
+      "flagquantum_qiskit/conversion.py",
+      "flagquantum_qiskit/engine.py",
+      "flagquantum_qiskit/fq_ops.py",
+      "flagquantum_qiskit/job.py",
+      "flagquantum_qiskit/noise.py",
+      "flagquantum_qiskit/program.py",
+      "flagquantum_qiskit/results.py",
+      "flagquantum_qiskit/target.py",
+      "flagquantum_qiskit/trajectory.py",
+      "flagquantum_qiskit/validation.py",
+      "flagquantum_qiskit-0.2.0.dist-info/METADATA",
+      "flagquantum_qiskit-0.2.0.dist-info/WHEEL",
+      "flagquantum_qiskit-0.2.0.dist-info/top_level.txt",
+      "flagquantum_qiskit-0.2.0.dist-info/RECORD"
+    ],
+    "only_package_and_dist_info": true,
+    "excluded_tests_upstream_cache": true
+  },
+  "wheel_smoke": {
+    "module": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\wheel-target\\flagquantum_qiskit\\__init__.py",
+    "cwd": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\repo-validation\\c289a6d7eb5d\\outside-package",
+    "bell_counts": {
+      "00": 484,
+      "11": 516
+    },
+    "dynamic_counts": {
+      "10": 31
+    },
+    "dynamic_memory_passed": true,
+    "all_passed": true
+  },
+  "historical_results_unchanged": {
+    "verified": true,
+    "files_checked": 17
+  },
+  "finished_utc": "2026-11-23T04:49:51.432858+00:00",
+  "all_passed": true
+}

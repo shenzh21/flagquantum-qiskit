@@ -1,0 +1,32 @@
+{
+  "verified_on": "2026-11-18",
+  "interpreter": "D:/vscodeprojs/zhiyuan/flagquantum-qiskit/.venv/Scripts/python.exe",
+  "installation_at_test_time": "editable adapter 0.1.0 with official FlagQuantum 0.3.1 / Torch 2.14.1+cpu / Qiskit 2.6.2",
+  "runs": [
+    {
+      "command": "python -m pytest tests/test_backend.py tests/test_conversion.py tests/test_gate_semantics.py -q",
+      "exit_code": 0,
+      "passed": 86,
+      "duration_seconds": 12.73
+    },
+    {
+      "command": "python -m pytest tests/test_user_circuits.py -q",
+      "exit_code": 0,
+      "passed": 17,
+      "duration_seconds": 39.2,
+      "detailed_report": "user_circuits.json"
+    }
+  ],
+  "total_passed": 103,
+  "test_file_sha256": {
+    "test_backend.py": "21a653cf2463e80cf7a6ab9714ed388be771ad4287437a1ff8bb2209bfd5c231",
+    "test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+    "test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+    "test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+  },
+  "limitations": [
+    "All 17 supplied circuits produce one computational-basis outcome from the zero input at probability support threshold 1e-12.",
+    "The uploaded circuit tests do not prove full-unitary equivalence on arbitrary inputs; gate-level complex-amplitude and Bell/partial-measurement tests provide separate coverage.",
+    "Observed runtimes are correctness-test timings, not performance benchmarks."
+  ]
+}

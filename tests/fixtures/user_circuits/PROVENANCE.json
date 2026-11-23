@@ -1,0 +1,116 @@
+{
+  "source_zip": "D:\\vscodeprojs\\BONADOCKERTEST\\output\\standalone_random_circuits.zip",
+  "source_zip_sha256": "907a493c68b88c8085b9002483a0f5867b8bd1e16571cd05f652e652173aefc6",
+  "copied_on": "2026-11-18",
+  "contents_used": "QASM2 and manifest data only; no Python, QPY, README instructions, or supplied verification reports executed",
+  "files": [
+    {
+      "path": "manifest.json",
+      "zip_member": "standalone_random_circuits/manifest.json",
+      "bytes": 4731,
+      "sha256": "03efd16fbbb4a189460f8128a8bc6daea15ebc98cc0ba372184818005dbe2458"
+    },
+    {
+      "path": "qasm/4_49_16.qasm",
+      "zip_member": "standalone_random_circuits/qasm/4_49_16.qasm",
+      "bytes": 2684,
+      "sha256": "b428ee8fd4e0dc1149f63da8b6d2d4d778639dcad048e75900258f797d5fe952"
+    },
+    {
+      "path": "qasm/aj-e11_165.qasm",
+      "zip_member": "standalone_random_circuits/qasm/aj-e11_165.qasm",
+      "bytes": 2095,
+      "sha256": "1634e1026882b0c4bf4e87894f0964b42c2da26b082ef29812c3789585c4478d"
+    },
+    {
+      "path": "qasm/aj-e11_168.qasm",
+      "zip_member": "standalone_random_circuits/qasm/aj-e11_168.qasm",
+      "bytes": 1270,
+      "sha256": "5ccc204a3be13964fad20c6a460bc11e035ebeff30f06fe2310f289fbb3c50d4"
+    },
+    {
+      "path": "qasm/cycle10_2_110.qasm",
+      "zip_member": "standalone_random_circuits/qasm/cycle10_2_110.qasm",
+      "bytes": 347377,
+      "sha256": "ae4fce9e02fe5982d3bfabe539d0a01e8474bd70ca06911ff95c0ae1e0fa5b99"
+    },
+    {
+      "path": "qasm/ham15_108.qasm",
+      "zip_member": "standalone_random_circuits/qasm/ham15_108.qasm",
+      "bytes": 30267,
+      "sha256": "c8d09fd1e8b82567b7f7b9a9eed61ac4520a634dd570bb69e796fbd43d93c500"
+    },
+    {
+      "path": "qasm/ham7_104.qasm",
+      "zip_member": "standalone_random_circuits/qasm/ham7_104.qasm",
+      "bytes": 3353,
+      "sha256": "9ff568b97bf3a43da06688e855fc54c7c735556e20444caff2755b5895467dc3"
+    },
+    {
+      "path": "qasm/ham7_105.qasm",
+      "zip_member": "standalone_random_circuits/qasm/ham7_105.qasm",
+      "bytes": 2755,
+      "sha256": "9d5241eb2b0b5a1fdd6cd85d6d7a0181cbfdf748649fed5fc1dc32887670ec4c"
+    },
+    {
+      "path": "qasm/hwb4_49.qasm",
+      "zip_member": "standalone_random_circuits/qasm/hwb4_49.qasm",
+      "bytes": 2955,
+      "sha256": "0642d8d9fe6c55dfa490e5820e188d07ab63bfd22170cbff8c40fd5c3efd8ade"
+    },
+    {
+      "path": "qasm/hwb4_50.qasm",
+      "zip_member": "standalone_random_circuits/qasm/hwb4_50.qasm",
+      "bytes": 2955,
+      "sha256": "a26b555e921a6c6d3bba96bfd47004ba7043c7a758fe6c10b6f13457d8d1ce85"
+    },
+    {
+      "path": "qasm/hwb5_53.qasm",
+      "zip_member": "standalone_random_circuits/qasm/hwb5_53.qasm",
+      "bytes": 15519,
+      "sha256": "9fe4ec5a001a9e0137785cf82e7114eb0e9944cbd2c089d8abf640e11d574a71"
+    },
+    {
+      "path": "qasm/hwb5_55.qasm",
+      "zip_member": "standalone_random_circuits/qasm/hwb5_55.qasm",
+      "bytes": 4444,
+      "sha256": "47e45147819f083086f0a5ff0060eeb0b574f62d37e50ed7d526254a92115c97"
+    },
+    {
+      "path": "qasm/hwb6_58.qasm",
+      "zip_member": "standalone_random_circuits/qasm/hwb6_58.qasm",
+      "bytes": 6238,
+      "sha256": "c713a5a78155f93ba514b291730af3440d07a646141488b9569ba73f9b29d4d3"
+    },
+    {
+      "path": "qasm/mod10_171.qasm",
+      "zip_member": "standalone_random_circuits/qasm/mod10_171.qasm",
+      "bytes": 2618,
+      "sha256": "39f5d6529fcc2dbd1a356e734e59cae237490481fb1368cc1e4faa5f86fc1cb1"
+    },
+    {
+      "path": "qasm/mod10_176.qasm",
+      "zip_member": "standalone_random_circuits/qasm/mod10_176.qasm",
+      "bytes": 2029,
+      "sha256": "c52c010260c0e7eb84cd37a4d232e7255196bcbfc5449e1974a90a2aec9625d9"
+    },
+    {
+      "path": "qasm/mod5adder_127.qasm",
+      "zip_member": "standalone_random_circuits/qasm/mod5adder_127.qasm",
+      "bytes": 7033,
+      "sha256": "3f6a95578ae5e0d72a340c70292d7c592c421294e7a7f697e92c4bf3b241dbde"
+    },
+    {
+      "path": "qasm/mod5adder_128.qasm",
+      "zip_member": "standalone_random_circuits/qasm/mod5adder_128.qasm",
+      "bytes": 3777,
+      "sha256": "87d9f1e2aeecae8647d2ce0d888905fcfe1ab6e66cbea72ac8e032e08044cb19"
+    },
+    {
+      "path": "qasm/mod5adder_129.qasm",
+      "zip_member": "standalone_random_circuits/qasm/mod5adder_129.qasm",
+      "bytes": 3759,
+      "sha256": "2aa7915185078286cd566b7250cbdd4eb8650f9ef2fc7823dff1ba85110cb918"
+    }
+  ]
+}

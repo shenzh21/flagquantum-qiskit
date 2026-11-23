@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlagQuantum Qiskit 后端 · 项目汇报</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<aside class="rail" aria-label="章节导航">
+  <div class="brand">FlagQuantum<br>Qiskit 后端<small>flagquantum_qiskit 0.2.0 · 汇报</small></div>
+  <nav id="toc">
+    <a href="#cover"><span class="n">00</span><span>封面</span></a>
+    <a href="#goal"><span class="n">01</span><span>我们想做什么</span></a>
+    <a href="#what"><span class="n">02</span><span>做出了什么 · 什么形式</span></a>
+    <a href="#use"><span class="n">03</span><span>如何使用</span></a>
+    <a href="#effect"><span class="n">04</span><span>能实现什么效果</span></a>
+    <a href="#how"><span class="n">05</span><span>如何实现</span></a>
+    <a href="#structure"><span class="n">06</span><span>结构</span></a>
+    <a href="#relations"><span class="n">07</span><span>关系与组织</span></a>
+    <a href="#walk"><span class="n">08</span><span>真实例子：按顺序走一遍</span></a>
+    <a href="#change"><span class="n">09</span><span>中间如何变动</span></a>
+    <a href="#done"><span class="n">10</span><span>已实现的功能</span></a>
+    <a href="#todo"><span class="n">11</span><span>未完成与下一步</span></a>
+    <a href="#verify"><span class="n">12</span><span>验证与证据</span></a>
+  </nav>
+  <div class="progress"><i id="prog"></i></div>
+  <div class="hint">汇报时按 <kbd>J</kbd> / <kbd>K</kbd> 切换章节，在第 08 章按 <kbd>&larr;</kbd> <kbd>&rarr;</kbd> 逐步讲解。</div>
+</aside>
+
+<div id="tip" role="tooltip"></div>
+
+<main>
+
+<!-- 00 封面 -->
+<header class="hero wrap" id="cover">
+  <div class="kicker reveal d1"><span>项目汇报</span><span>2026-11-20</span><b>flagquantum-qiskit 0.2.0</b></div>
+  <h1 class="reveal d2">让 <span class="q">Qiskit</span> 线路<br>跑在 <span class="f">FlagQuantum</span> 上</h1>
+  <p class="lede reveal d3">我们做了一个 <strong>Qiskit 后端插件</strong>：用户照常用 Qiskit 写线路、转译、取结果，
+    但每一个量子数值都由 <strong>FlagQuantum</strong> 的 CPU 引擎真实计算。中间的适配层负责“翻译”两边不同的约定，
+    并对不支持的内容明确拒绝，而不是悄悄换用别的模拟器。</p>
+
+  <div class="facts reveal d4" id="facts"></div>
+
+  <div class="hero-flow reveal d5" aria-hidden="true">
+    <svg viewBox="0 0 1100 150">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1b1a17"/></marker>
+      </defs>
+      <rect x="0" y="20" width="300" height="110" rx="3" fill="#dce6f2" stroke="#1d63b0"/>
+      <text x="20" y="50" font-family="Source Han Serif SC, Noto Serif SC, serif" font-weight="900" font-size="20" fill="#1d63b0">Qiskit</text>
+      <text x="20" y="78" font-family="Cascadia Mono, Consolas, monospace" font-size="13" fill="#1b1a17">QuantumCircuit</text>
+      <text x="20" y="98" font-family="Cascadia Mono, Consolas, monospace" font-size="13" fill="#1b1a17">transpile(c, backend)</text>
+      <text x="20" y="118" font-family="Cascadia Mono, Consolas, monospace" font-size="13" fill="#1b1a17">result().get_counts()</text>
+
+      <rect x="400" y="10" width="300" height="130" rx="3" fill="#efe5c6" stroke="#9a7400" stroke-width="1.5"/>
+      <text x="420" y="42" font-family="Source Han Serif SC, Noto Serif SC, serif" font-weight="900" font-size="20" fill="#7a5c00">适配器 flagquantum_qiskit</text>
+      <text x="420" y="70" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">校验 · 转换 · 经典控制调度</text>
+      <text x="420" y="92" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">位序 / 经典位 / 噪声表示转换</text>
+      <text x="420" y="114" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">结果映射成 Qiskit Result</text>
+
+      <rect x="800" y="20" width="300" height="110" rx="3" fill="#f6ddd4" stroke="#c4432b"/>
+      <text x="820" y="50" font-family="Source Han Serif SC, Noto Serif SC, serif" font-weight="900" font-size="20" fill="#c4432b">FlagQuantum 0.3.1</text>
+      <text x="820" y="78" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">PyTorch 状态向量</text>
+      <text x="820" y="98" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">门演化 · 测量坍缩 · reset</text>
+      <text x="820" y="118" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#1b1a17">Kraus 噪声 · 采样 · 期望值</text>
+
+      <path class="flowdash" d="M304,60 H396" stroke="#1d63b0" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+      <path class="flowdash" d="M704,60 H796" stroke="#c4432b" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+      <path class="flowdash" d="M796,100 H704" stroke="#c4432b" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+      <path class="flowdash" d="M396,100 H304" stroke="#1d63b0" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+      <text x="350" y="50" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#776f61">线路</text>
+      <text x="350" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#776f61">Result</text>
+      <text x="750" y="50" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#776f61">FQ 指令</text>
+      <text x="750" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#776f61">状态 / 样本</text>
+    </svg>
+  </div>
+</header>
+
+<!-- 01 目标 -->
+<section class="chap" id="goal">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">01</div>
+    <div><div class="chap-q">Q · 我们想要做什么？</div><h2>把两个世界接起来</h2></div>
+    <p class="summary">用户的线路和工具链都在 Qiskit 里；我们希望这些线路不用改写，就能交给 FlagQuantum 计算，并且结果可信、可复现、可追溯。</p>
+  </div>
+
+  <div class="grid2 reveal">
+    <div class="card edge-qk">
+      <span class="who qk">Qiskit</span>
+      <h4 style="margin-top:10px">用户这一侧</h4>
+      <p>最常用的量子编程框架。用户用 <code>QuantumCircuit</code> 描述线路，用 <code>transpile</code> 把线路改写成后端支持的门，
+        再通过 <code>backend.run()</code> 拿到 <code>Job</code> / <code>Result</code>；也可以用 Sampler / Estimator 原语。
+        常用的本地模拟器是 Aer。</p>
+    </div>
+    <div class="card edge-fq">
+      <span class="who fq">FlagQuantum</span>
+      <h4 style="margin-top:10px">计算这一侧</h4>
+      <p>flagos-ai 开源的量子模拟框架，基于 PyTorch。它有自己的 <code>fq.Circuit</code>、中间表示 <code>CircuitIR</code>、
+        状态向量内核、测量与噪声通道。它自带的 Qiskit 导入器只负责把标准门组成的纯量子部分转成 IR。</p>
+    </div>
+  </div>
+
+  <h3 class="reveal">两边“说的话”不一样 <span class="tag">直接对接会出错的地方</span></h3>
+  <div class="reveal">
+  <table class="t gap">
+    <thead><tr><th>方面</th><th>Qiskit 的约定</th><th>FlagQuantum 的约定</th><th>不处理会怎样</th></tr></thead>
+    <tbody>
+      <tr><td>振幅位序</td><td>bit0 是最低位（LSB）</td><td>wire0 是张量第一个轴（MSB）</td><td>状态向量、矩阵门、概率全部错位</td></tr>
+      <tr><td>未写经典位</td><td>初始为 0</td><td>完整动态线路默认 -1</td><td>条件分支判断与 counts 出错</td></tr>
+      <tr><td>对外接口</td><td>BackendV2 / Job / Result，counts 用十六进制键</td><td><code>Circuit.sample()</code> 返回整数张量</td><td>无法接入 Qiskit 工具链与原语</td></tr>
+      <tr><td>经典控制</td><td><code>IfElseOp</code>、<code>ForLoopOp</code>、<code>WhileLoopOp</code>、<code>SwitchCaseOp</code></td><td>自有 DynamicCircuit 语义</td><td>动态线路无法执行或语义不一致</td></tr>
+      <tr><td>噪声</td><td>Aer <code>NoiseModel</code>：按门名、标签、量子位匹配</td><td>Kraus 算符批量作用</td><td>噪声模型无法使用，或悄悄被忽略</td></tr>
+      <tr><td>保存结果</td><td>Aer 扩展：<code>save_statevector</code> 等</td><td>直接读状态张量</td><td>拿不到中间状态、概率、期望值</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="reveal">三条目标</h3>
+  <div class="goals reveal">
+    <div class="goal"><h4>用户不改习惯</h4><p>标准写法 <code>transpile(c, backend)</code> → <code>backend.run()</code> → <code>result()</code> 照常可用，Sampler / Estimator 也能直接包装。</p></div>
+    <div class="goal"><h4>计算只来自 FlagQuantum</h4><p>不允许在背后偷偷调用 Aer、BasicSimulator 或自己写的矩阵乘法；测试会拦截这些入口来证明这一点。</p></div>
+    <div class="goal"><h4>对标 Aer 的基础功能</h4><p>批次、参数绑定、动态控制、噪声、保存状态等常用功能语义一致；有差异的地方给出可复现证据并写明。</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 02 形态 -->
+<section class="chap" id="what">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">02</div>
+    <div><div class="chap-q">Q · 现在做了个什么东西？以什么形式存在？</div><h2>一个可安装的 Python 包</h2></div>
+    <p class="summary">名字叫 <code>flagquantum_qiskit</code>，对外只暴露一个类 <code>FlagQuantumBackend</code>。它实现了 Qiskit 的 BackendV2 接口，
+      所以在 Qiskit 看来，它就是和 Aer 同类的一个“后端”。</p>
+  </div>
+
+  <div class="grid2 reveal" style="align-items:start">
+    <div>
+      <p class="prose"><b>它是：</b>一个 Qiskit 后端；一层薄的“翻译 + 调度”代码（13 个源文件，约 1900 行，含大量中文注释）；
+        可从源码构建 <code>py3-none-any</code> wheel 安装包。</p>
+      <p class="prose"><b>它不是：</b>一个新写的量子模拟器（不做矩阵演化）；不是 Aer 的一个方法（不注册 <code>AerSimulator(method="flagquantum")</code>）；
+        不是云服务或异步队列（Job 同步完成）。</p>
+      <p class="prose"><b>依赖锁定：</b>Python 3.10–3.12（实测 3.11）、<code>qiskit==2.6.2</code>、<code>flagquantum==0.3.1</code>、<code>torch==2.14.1</code>（CPU）。
+        可选 <code>qiskit-aer==0.18.4</code>，只用于提供保存指令和 NoiseModel 对象，不用来计算。</p>
+    </div>
+    <pre class="tree"><span class="c"># 独立源码仓库</span>
+<span class="h">flagquantum-qiskit/</span>
+├─ src/flagquantum_qiskit/  <span class="c">13 个源码文件</span>
+├─ tests/                   <span class="c">测试、夹具与历史证据</span>
+├─ docs/ examples/          <span class="c">图示 · 可运行示例</span>
+├─ site/presentation/      <span class="c">本汇报及历史数据快照</span>
+├─ pyproject.toml           <span class="c">依赖与打包配置</span>
+└─ README · ARCHITECTURE · COMPATIBILITY · VALIDATION · ADR-002
+<span class="c">研究目录不属于运行依赖；dist/ 由本地构建生成。</span></pre>
+  </div>
+
+  <h3 class="reveal">交付物</h3>
+  <div class="deliver reveal">
+    <div><div class="path">dist/flagquantum_qiskit-0.2.0-py3-none-any.whl</div><h4>可构建安装包</h4><p>按 README 在本地构建；dist 不随源码仓库提交。历史 wheel 只含 13 个模块和元数据，不带研究源码、测试或缓存；其历史 SHA256 为 <code>6d1576f0…78a2</code>，新构建不承诺同一哈希。</p></div>
+    <div><div class="path">src/flagquantum_qiskit/</div><h4>源代码</h4><p>后端、准入校验、转换、执行、噪声、结果六类职责，FQ 私有接口全部集中在 <code>fq_ops.py</code>。</p></div>
+    <div><div class="path">tests/ · tests/results/</div><h4>测试与证据</h4><p>190 个用例；运行结果 JSON / JUnit XML；17 条用户 QASM 线路回归；与 Aer 差异的复现证据。</p></div>
+    <div><div class="path">README · ARCHITECTURE · ADR-002</div><h4>设计文档</h4><p>模块职责、数据流、端序与相位契约、为什么这样设计。</p></div>
+    <div><div class="path">COMPATIBILITY · VALIDATION</div><h4>兼容矩阵与验证记录</h4><p>已实现什么、边界在哪、实际跑了什么、在什么环境跑的。</p></div>
+    <div><div class="path">examples/bell.py · site/index.html</div><h4>示例与产品主页</h4><p>最小可运行示例，以及一个本地可打开的产品介绍页。</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 03 使用 -->
+<section class="chap" id="use">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">03</div>
+    <div><div class="chap-q">Q · 如何使用？</div><h2>和用 Aer 的写法一样</h2></div>
+    <p class="summary">在仓库根目录从源码安装，导入 <code>FlagQuantumBackend</code>，其余都是标准 Qiskit 写法。下面每段代码右侧的输出，都是原汇报准备时真实运行得到的历史快照；本次迁入未重新计算。</p>
+  </div>
+
+  <div class="grid2 reveal" style="align-items:start">
+    <div>
+      <h3 style="margin-top:0">安装 <span class="tag">Windows · PowerShell</span></h3>
+      <ol class="steps-install">
+        <li><div>在仓库根目录建立隔离环境（已有环境可跳过）<br><code>py -3.11 -m venv .venv</code></div></li>
+        <li><div>安装 CPU 版 Torch<br><code> .venv\Scripts\python.exe -m pip install torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu</code></div></li>
+        <li><div>安装本工具（会带上 Qiskit 2.6.2 与 FlagQuantum 0.3.1）<br><code>.venv\Scripts\python.exe -m pip install .</code></div></li>
+        <li><div>需要噪声模型或保存指令时，再装可选依赖<br><code>.venv\Scripts\python.exe -m pip install qiskit-aer==0.18.4</code></div></li>
+        <li><div>运行示例<br><code>.venv\Scripts\python.exe examples\bell.py</code></div></li>
+      </ol>
+    </div>
+    <div>
+      <h3 style="margin-top:0">可调选项</h3>
+      <table class="t">
+        <thead><tr><th>选项</th><th>默认</th><th>含义</th></tr></thead>
+        <tbody>
+          <tr><td><code>num_qubits</code></td><td>20</td><td>容量上限（1–24），不预先分配</td></tr>
+          <tr><td><code>max_memory_mb</code></td><td>256</td><td>内存预检和保存结果预算</td></tr>
+          <tr><td><code>shots</code></td><td>1024</td><td>1 – 1,000,000</td></tr>
+          <tr><td><code>seed_simulator</code></td><td>None</td><td>局部随机数种子，可复现</td></tr>
+          <tr><td><code>precision</code></td><td>double</td><td>double / single（complex128 / 64）</td></tr>
+          <tr><td><code>memory</code></td><td>False</td><td>是否返回每个 shot 的结果</td></tr>
+          <tr><td><code>noise_model</code></td><td>None</td><td>Aer NoiseModel 对象</td></tr>
+          <tr><td><code>max_loop_iterations</code></td><td>10000</td><td>防止无限循环</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="reveal">五种典型用法</h3>
+  <div class="reveal">
+    <div class="tabs" role="tablist" id="usetabs"></div>
+    <div class="tabpanel" id="usepanel"></div>
+  </div>
+</div>
+</section>
+
+<!-- 04 效果 -->
+<section class="chap" id="effect">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">04</div>
+    <div><div class="chap-q">Q · 能够实现什么效果？</div><h2>真实运行结果</h2></div>
+    <p class="summary">同一条 Bell 线路（H + CX，2000 shots），在理想、门噪声、读出噪声三种条件下由 FlagQuantum 计算。噪声的效果清楚可见，理想情况下只出现 00 和 11。</p>
+  </div>
+
+  <div class="fig reveal">
+    <div class="ttl">Bell 态测量结果：三种条件对比</div>
+    <div class="sub">纵轴为 shots 数（共 2000）；悬停柱子查看比例</div>
+    <div class="multiples" id="bellmult"></div>
+    <div class="src" id="bellsrc"></div>
+  </div>
+
+  <div class="effects reveal">
+    <div class="fig">
+      <div class="ttl">保存状态向量</div>
+      <div class="sub">H · CX · S(q1) 之后保存，含复相位</div>
+      <div class="phasors" id="phasors"></div>
+      <div class="note" style="margin-top:10px" id="savesnote"></div>
+    </div>
+    <div class="fig">
+      <div class="ttl">Estimator V2 期望值</div>
+      <div class="sub">Bell 态上的三个可观测量，范围 -1 到 +1</div>
+      <div id="evs"></div>
+      <div class="note" style="margin-top:8px">ZZ、XX 为 +1（完全关联），ZI 接近 0。Estimator 是采样估计，std 为统计误差。</div>
+    </div>
+    <div class="fig">
+      <div class="ttl">不支持的输入：明确拒绝</div>
+      <div class="sub">宁可报错，也不悄悄给出错误结果</div>
+      <div id="rejects"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 05 实现 -->
+<section class="chap" id="how">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">05</div>
+    <div><div class="chap-q">Q · 这个东西是如何实现的？</div><h2>三方分工，适配器只做“翻译与调度”</h2></div>
+    <p class="summary">核心思路：Qiskit 管“描述与转译”，FlagQuantum 管“量子数值”，适配器夹在中间，只做格式转换、经典逻辑和结果整理，自己不碰量子态的演化。</p>
+  </div>
+
+  <div class="lanes reveal">
+    <div class="lane qk">
+      <div class="hd"><b>Qiskit</b><span class="who qk">描述与转译</span></div>
+      <ul>
+        <li>用户构建 <code>QuantumCircuit</code></li>
+        <li><code>transpile</code> 读取后端的 Target，把不支持的门分解成 17 种原生门</li>
+        <li>提供 <code>Result</code>、<code>Job</code> 接口和结果格式化</li>
+        <li>提供 Sampler / Estimator V2 通用包装器</li>
+      </ul>
+      <div class="not">不负责：任何数值计算</div>
+    </div>
+    <div class="lane ad">
+      <div class="hd"><b>适配器</b><span class="who ad">翻译与调度</span></div>
+      <ul>
+        <li>校验选项、线路、参数、资源预算</li>
+        <li>选择执行路径（快路径 / 通用路径）</li>
+        <li>把线路转成 FQ 指令，保留用户附带信息（sidecar）</li>
+        <li>解释 if / for / while / switch、经典位读写</li>
+        <li>把 NoiseModel 转成 Kraus 算符和读出矩阵</li>
+        <li>位序转换、结果映射、保存聚合</li>
+      </ul>
+      <div class="not">不负责：矩阵乘态、测量坍缩、通道演化</div>
+    </div>
+    <div class="lane fq">
+      <div class="hd"><b>FlagQuantum</b><span class="who fq">量子数值</span></div>
+      <ul>
+        <li>创建初态、执行门</li>
+        <li>测量坍缩、reset</li>
+        <li>按 Kraus 算符抽取噪声分支</li>
+        <li>整体采样 <code>Circuit.sample</code></li>
+        <li>期望值 <code>expectation_ps</code></li>
+      </ul>
+      <div class="not">不负责：Qiskit 的经典语义和结果格式</div>
+    </div>
+  </div>
+
+  <h3 class="reveal">关键决定：按线路特征分两条路走</h3>
+  <div class="fork reveal">
+    <div class="side" style="border-top:3px solid var(--fq)">
+      <h5>快路径（True）</h5>
+      <p style="font-size:14px;margin:0">满足全部条件时，把整条线路一次性交给 FQ：</p>
+      <ul>
+        <li>只有 17 种标准门 + barrier</li>
+        <li>测量全部在末尾</li>
+        <li>没有噪声模型、没有经典条件</li>
+      </ul>
+      <p style="font-size:14px;margin:8px 0 0">执行：<code>Circuit.from_ir(ir).sample(shots)</code>，一次得到全部样本。速度快。</p>
+    </div>
+    <div class="mid"><div class="dia"><span>is_fast<br>(circuit)?</span></div></div>
+    <div class="side" style="border-top:3px solid var(--ad)">
+      <h5>通用路径（False）</h5>
+      <p style="font-size:14px;margin:0">只要出现以下任意一项：</p>
+      <ul>
+        <li>中途测量、reset、if / for / while / switch</li>
+        <li>噪声模型、Kraus 通道</li>
+        <li>initialize、矩阵门、set_statevector</li>
+        <li>save_statevector / probabilities / expval</li>
+      </ul>
+      <p style="font-size:14px;margin:8px 0 0">执行：先编译成 Program，再逐 shot 解释；每个量子操作仍调用 FQ 内核。</p>
+    </div>
+  </div>
+
+  <h3 class="reveal">六条设计原则 <span class="tag">摘自 AGENTS.md / ARCHITECTURE.md</span></h3>
+  <div class="principles reveal">
+    <div><h5><span>1</span>唯一计算引擎</h5><p>禁止回退到 Aer、BasicSimulator、Qiskit Statevector 演化或自写 NumPy 演化器；Statevector 只用来“装”FQ 算出的结果。</p></div>
+    <div><h5><span>2</span>版本锁定，私有接口集中</h5><p>用到的 FQ 内部函数只出现在 <code>fq_ops.py</code>，导入时检查版本必须是 0.3.1，升级要另写设计记录并重新验证。</p></div>
+    <div><h5><span>3</span>位序只在边界转换一次</h5><p>LSB 与 MSB 的转换集中在 <code>fq_ops</code> / <code>noise</code>，不交换 CX 的控制与目标，不重复应用 layout。</p></div>
+    <div><h5><span>4</span>不支持就明确拒绝</h5><p>未知自定义门、未支持的表达式和选项，都在执行前报错，而不是丢掉语义继续算。</p></div>
+    <div><h5><span>5</span>用户信息不丢</h5><p>名称、metadata、寄存器、相位、layout、标签存入 sidecar，结果里原样带回，但不塞给 FQ。</p></div>
+    <div><h5><span>6</span>随机性可复现、不串扰</h5><p>每个实验用局部随机数生成器，不改全局 RNG；批次第 i 个实验用种子 seed+i。</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 06 结构 -->
+<section class="chap" id="structure">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">06</div>
+    <div><div class="chap-q">Q · 它的结构是什么？</div><h2>13 个文件，分成五层</h2></div>
+    <p class="summary">从“接收请求”到“返回结果”自上而下分层，每个文件只负责一件事。点击任意文件查看它的职责、输入输出和关键函数。</p>
+  </div>
+
+  <div class="legend reveal">
+    <span><i style="background:var(--qk)"></i>面向 Qiskit 的接口</span>
+    <span><i style="background:var(--ad)"></i>适配器内部逻辑</span>
+    <span><i style="background:var(--fq)"></i>与 FlagQuantum 交界</span>
+  </div>
+  <div class="modmap reveal" id="modmap"></div>
+  <div class="moddetail reveal" id="moddetail"></div>
+
+  <div class="fig reveal" style="margin-top:28px">
+    <div class="ttl">各文件代码行数</div>
+    <div class="sub">含注释与文档字符串；颜色按上面的三类职责</div>
+    <div id="linechart"></div>
+    <div class="src" id="linesrc"></div>
+  </div>
+</div>
+</section>
+
+<!-- 07 关系 -->
+<section class="chap" id="relations">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">07</div>
+    <div><div class="chap-q">Q · 其中的关系和组织是什么样子的？</div><h2>调用关系与数据契约</h2></div>
+    <p class="summary">箭头表示“调用”或“交出数据”。悬停任意方框，只显示与它相连的关系；也可以单独点亮一条执行路径。</p>
+  </div>
+
+  <div class="graph-tools reveal">
+    <button class="chip" data-path="all">全部</button>
+    <button class="chip" data-path="fast">只看快路径</button>
+    <button class="chip" data-path="general">只看通用路径</button>
+  </div>
+
+  <div class="fig reveal" style="padding:18px">
+  <svg id="callgraph" viewBox="0 0 1100 790" role="img" aria-label="模块调用关系图">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#45413a"/></marker>
+    </defs>
+    <text class="lane-lbl" x="204" y="350" fill="#c4432b">快路径 · 标准门 + 末端测量 + 无噪声</text>
+    <text class="lane-lbl" x="886" y="350" text-anchor="end" fill="#7a5c00">通用路径 · 控制流 / 噪声 / 保存 / 初始化</text>
+    <g id="edges" fill="none" stroke="#45413a" stroke-width="1.4"></g>
+    <g id="nodes"></g>
+  </svg>
+  </div>
+
+  <h3 class="reveal">模块之间传递什么：四个数据契约 <span class="tag">contracts.py · 不可变 dataclass</span></h3>
+  <div class="contracts reveal">
+    <div class="contract"><div class="nm">RunRequest</div><div class="fl">validation → 两条执行路径</div>
+      <div class="fields">shots · seed_simulator<br>precision · max_memory_bytes<br>memory · noise_model<br>max_loop_iterations</div></div>
+    <div class="contract"><div class="nm">CircuitSidecar</div><div class="fl">conversion → results / job</div>
+      <div class="fields">name · num_qubits · memory_slots<br>creg_sizes · measurement_writes<br>metadata · global_phase<br>layout · annotations</div></div>
+    <div class="contract"><div class="nm">PreparedCircuit</div><div class="fl">conversion → engine（快路径）</div>
+      <div class="fields">ir（FQ CircuitIR）<br>sidecar<br>conversion_report</div></div>
+    <div class="contract"><div class="nm">EngineSamples</div><div class="fl">engine → results（快路径）</div>
+      <div class="fields">bits：(shots, num_qubits) 0/1 张量<br>execution_info：版本、精度、种子</div></div>
+  </div>
+  <p class="note reveal" style="margin-top:12px">关键分离：<b>量子部分</b>（FQ IR）只包含 FQ 能执行的门；<b>Qiskit 附带信息</b>（测量写到哪个经典位、寄存器名、metadata、layout）放在 sidecar，
+    两者在结果层重新汇合。这样 FQ 不需要理解 Qiskit 的经典寄存器，用户信息也不会在转换中丢失。</p>
+</div>
+</section>
+
+<!-- 08 走查 -->
+<section class="chap" id="walk">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">08</div>
+    <div><div class="chap-q">Q · 一个真实的例子是按什么顺序怎么走的？</div><h2>一条线路的完整旅程</h2></div>
+    <p class="summary">例子：两个量子位，<code>H(0)</code> 后接 <code>CY(0,1)</code>，再全部测量，1000 shots。
+      CY 不是后端的原生门，正好展示转译的作用。每一步右侧显示的都是这次运行中真实的中间数据。</p>
+  </div>
+  <div class="stepper reveal" id="stepper">
+    <div class="list" id="steplist"></div>
+    <div class="body">
+      <div class="where" id="stepwhere"></div>
+      <h4 id="steptitle"></h4>
+      <div class="exp" id="stepexp"></div>
+      <div class="view" id="stepview"></div>
+      <div class="nav"><button id="prev">上一步</button><span class="cnt" id="stepcnt"></span><button id="next">下一步</button></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 09 变动 -->
+<section class="chap" id="change">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">09</div>
+    <div><div class="chap-q">Q · 中间是如何变动的？</div><h2>量子态与经典位的变化</h2></div>
+    <p class="summary">两个视角：快路径中每个门之后 FQ 状态向量怎样变化；通用路径中每个 shot 如何边测量、边分支、边改写经典位。</p>
+  </div>
+
+  <h3 class="reveal">视角一：状态向量逐门变化 <span class="tag">上一章的例子 · 振幅用指针表示：长度 = 模，方向 = 相位</span></h3>
+  <div class="fig reveal">
+    <div class="evo" id="evo"></div>
+    <div class="why" style="margin-top:14px"><b>看点：</b>最后一个 S 门之后，测量概率（指针长度）完全没变，但 |11⟩ 的相位转了 90°（0.7071 → 0.7071i）。
+      这类“只改相位”的错误，只看 counts 是发现不了的，所以测试里专门逐振幅比较相位。原始的 CY 门本来就会让 |11⟩ 带上 i，转译后的三门组合与它完全等价。</div>
+    <div class="src">逐门状态：用同一组 FQ IR 指令依次调用 fq_ops.gate 观察得到；正式执行时 FQ 一次性完成这些步骤再采样。</div>
+  </div>
+
+  <h3 class="reveal">视角二：动态线路逐 shot 执行 <span class="tag">通用路径 · 中途测量 + 条件分支</span></h3>
+  <div class="grid2 reveal" style="align-items:start">
+    <div>
+      <p class="prose" style="font-size:15px">线路：<code>RY(2π/3)</code> 作用在 q0，测量 q0 写入 c0；<b>如果 c0 = 1</b>，就对 q1 执行 X；最后测量 q1 写入 c1。
+        理论上 q0 有 75% 概率测得 1，于是结果应当约 75% 为 <code>11</code>、25% 为 <code>00</code>。</p>
+      <pre class="circ" id="dyncirc"></pre>
+    </div>
+    <div>
+      <div class="mini-h">compile_program 编译出的 Program</div>
+      <div class="prog-tree" id="progtree"></div>
+      <div class="note" style="margin-top:8px">普通门在编译时已转成 FQ 指令（红色）；if 节点保留分支子程序，执行时按经典位选择。</div>
+    </div>
+  </div>
+  <div class="fig reveal" style="margin-top:18px">
+    <div class="ttl">选择一个 shot，查看它真实发生的每一次 FQ 调用</div>
+    <div class="sub">右侧小柱为调用之后 |00⟩ |01⟩ |10⟩ |11⟩ 的概率（位串按 q1q0 读）</div>
+    <div class="shotpick" id="shotpick"></div>
+    <ul class="timeline" id="timeline"></ul>
+    <div class="why" id="dynsum"></div>
+  </div>
+</div>
+</section>
+
+<!-- 10 功能 -->
+<section class="chap" id="done">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">10</div>
+    <div><div class="chap-q">Q · 我们实现了什么功能？</div><h2>已接通的功能</h2></div>
+    <p class="summary">对照 Qiskit 2.6.2 / Aer 0.18.4 的常用功能。“已实现”指本项目有真实 FQ 阳性测试的接口子集，不代表复刻了 Aer 的所有选项。</p>
+  </div>
+  <div class="reveal">
+  <table class="feat">
+    <thead><tr><th>类别</th><th>状态</th><th>已接通的接口与语义</th><th>边界</th></tr></thead>
+    <tbody>
+      <tr><td>后端 / Job / Result</td><td><span class="st ok">已实现</span></td><td>transpile → run → counts；批次；memory；metadata；同步 Job，重复 result() 不重算</td><td>无取消、无异步队列、无云服务</td></tr>
+      <tr><td>参数绑定</td><td><span class="st ok">已实现</span></td><td>assign_parameters；Aer 风格 parameter_binds（按索引配对，含 global_phase）</td><td>不做笛卡尔积；执行前不能有未绑定参数</td></tr>
+      <tr><td>标准门</td><td><span class="st ok">已实现</span></td><td>id h x y z s sdg t tdg rx ry rz p u cx cz swap，measure，reset（17 门 × 单/双精度逐振幅验证）</td><td>其他门需先 transpile；未知自定义门不能冒名</td></tr>
+      <tr><td>初态与矩阵门</td><td><span class="st ok">已实现</span></td><td>initialize（字符串 / 整数 / 复向量，子集先 reset 再制备）；UnitaryGate；全寄存器 set_statevector</td><td>不支持 set_density_matrix</td></tr>
+      <tr><td>状态保存</td><td><span class="st ok">已实现</span></td><td>save_statevector / save_probabilities(_dict) / save_expval；single、average、accum、pershot、conditional</td><td>不支持密度矩阵、幺正、stabilizer 保存，以及 save_expval_var</td></tr>
+      <tr><td>中途测量与 reset</td><td><span class="st ok">已实现</span></td><td>真 FQ 坍缩；经典位初始 0；同一位多次写入后者覆盖</td><td>不返回逐步轨迹日志</td></tr>
+      <tr><td>经典控制流</td><td><span class="st ok">已实现</span></td><td>if/else、for（含循环变量）、while、switch（含 default）、嵌套 break/continue；Bool/Uint 表达式</td><td>不支持 Store、独立 Var、Float/Duration；循环有次数预算</td></tr>
+      <tr><td>噪声</td><td><span class="st ok">已实现</span></td><td>Aer NoiseModel 全局 / 局部误差；Pauli、depolarizing、振幅 / 相位阻尼、reset 类通道；Kraus 指令；读出误差</td><td>局部通道最多 5 位；nonlocal 噪声、自定义 pass、重叠的关联读出组拒绝</td></tr>
+      <tr><td>V2 原语</td><td><span class="st ok">已实现</span></td><td>Qiskit BackendSamplerV2 / BackendEstimatorV2，多 PUB、多寄存器</td><td>Estimator 是采样估计，不是精确值</td></tr>
+      <tr><td>精度与随机数</td><td><span class="st ok">已实现</span></td><td>complex128 / complex64；局部 RNG；固定版本下同种子可复现</td><td>不承诺与 Aer 的随机序列相同</td></tr>
+      <tr><td>无输出线路</td><td><span class="st ok">已实现</span></td><td>没有测量也没有保存时，成功返回空数据，不偷偷补测量</td><td>此时 get_counts 按 Qiskit 规则报错</td></tr>
+      <tr><td>设备</td><td><span class="st part">仅 CPU</span></td><td>device="cpu"</td><td>无 GPU、多机分布式</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<!-- 11 未完成 -->
+<section class="chap" id="todo">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">11</div>
+    <div><div class="chap-q">Q · 还有什么功能没有完成？</div><h2>未完成、已知差异与下一步</h2></div>
+    <p class="summary">分三类说：本轮明确不做的、已做但与 Aer 有差异的、以及现有实现的风险和改进方向。</p>
+  </div>
+
+  <div class="todo reveal">
+    <div class="card edge-fq">
+      <h4>本轮范围之外（未开始）</h4>
+      <ul>
+        <li><b>GPU 执行</b>：只支持 CPU，请求 GPU 直接报错</li>
+        <li><b>多种模拟方法</b>：只用状态向量；未接入 FQ 的 MPS、张量网络、密度矩阵方法</li>
+        <li><b>梯度 / 自动微分</b>：执行时关闭 Torch 梯度</li>
+        <li><b>分布式多机</b>与<b>性能调优</b>：未做，也不作性能承诺</li>
+        <li><b>FQ 完整编译流程</b>：未接入 <code>fq.plan</code> / <code>fq.run</code></li>
+      </ul>
+    </div>
+    <div class="card edge-ad">
+      <h4>已识别但未支持的细节（会明确报错）</h4>
+      <ul>
+        <li>set_density_matrix、save_density_matrix / unitary / stabilizer、save_expval_var</li>
+        <li>经典 Store、独立 Var、Float / Duration 表达式、stretch</li>
+        <li>nonlocal 噪声、自定义噪声 pass、重叠的关联读出组</li>
+        <li>非连续 / 别名经典寄存器布局</li>
+        <li>超过 5 个量子位的局部噪声通道</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="reveal">与 Aer 0.18.4 已确认的三处差异 <span class="tag">都有复现证据；第 1 处的处理方式待定</span></h3>
+  <div class="diffs reveal">
+    <div class="diff"><h5>两个量子位共用的读出误差</h5>
+      <p>2 位联合读出矩阵规定“01 必读成 10”。本工具 13 shots 全部得到 10，与矩阵预期一致；Aer 在两条单独测量指令下返回 01，相当于忽略了这条规则（Qiskit 的 measure 只作用于单个量子位，Aer 找不到可匹配的 2 位测量）。Qiskit 本身没有能运行噪声的参考实现，因此这里没有“标准答案”。
+        当前做法是按联合矩阵执行；备选做法是遇到多量子位读出误差直接报错，避免与 Aer 结果不同。（tests/results/aer_correlated_readout_difference.json）</p></div>
+    <div class="diff"><h5>倒序全量子位 initialize 的整体相位</h5>
+      <p>线路带全局相位 0.3 时，Aer 把这个相位多乘了一次；本工具按“先 reset 再制备”执行，保存的振幅与 Qiskit 自己的 <code>Statevector</code> 逐位一致（2026-11-20 复核，最大误差 1.3e-15）。
+        所以偏离 Qiskit 的是 Aer，不是本工具。两者物理上是同一个态（密度矩阵差 1.13e-16）。（aer_initialize_phase_difference.json）</p></div>
+    <div class="diff"><h5>线路末尾的 while 循环</h5>
+      <p>Aer 0.18.4 编译这类线路时报 “Invalid jump destination”，是 Aer 自身缺陷，与本工具无关。对照测试在循环后加一次测量来绕开；本工具的循环终止与超预算另有测试。</p></div>
+  </div>
+
+  <h3 class="reveal">一个值得注意的现象：两条路径的速度差 <span class="tag">本次运行观察，不是正式基准</span></h3>
+  <div class="perf reveal" id="perf"></div>
+
+  <h3 class="reveal">风险与建议的下一步</h3>
+  <div class="roadmap reveal">
+    <div><div class="p">风险 · 依赖</div><h5>绑定 FQ 0.3.1 私有函数</h5><p><code>_apply_instruction</code> 等四个内部函数随时可能在新版变化；研究快照已是 0.4.0。升级需要新的设计记录和全量数值验证。</p></div>
+    <div><div class="p">风险 · 平台</div><h5>只在一个环境验证过</h5><p>Windows + Python 3.11 + CPU。Linux、macOS、其他 Python 版本都没有实测。</p></div>
+    <div><div class="p">建议 · 性能</div><h5>通用路径批量化</h5><p>把逐 shot 的 Python 循环改成按批次在 FQ 张量上并行，可大幅缩小与快路径的差距。改动必须先补等价性测试。</p></div>
+    <div><div class="p">建议 · 功能</div><h5>GPU 与更多方法</h5><p>FQ 本身支持 GPU、MPS、张量网络；接入时需要扩展 Target 声明和验证矩阵，并单独立项。</p></div>
+  </div>
+  <p class="note reveal" style="margin-top:14px">此外：工作区中的 <code>qiskit/</code> 研究示例目前没有运行过（其虚拟环境未安装 qiskit），不能当作验证证据。</p>
+</div>
+</section>
+
+<!-- 12 验证 -->
+<section class="chap" id="verify">
+<div class="wrap">
+  <div class="chap-head reveal">
+    <div class="chap-no">12</div>
+    <div><div class="chap-q">Q · 怎么知道它是对的？</div><h2>验证与证据</h2></div>
+    <p class="summary">精确数值和统计采样分开验收：振幅、概率按数值容差严格比；随机分布用事先定好的统计阈值，不根据结果放宽。</p>
+  </div>
+  <div class="evidence reveal">
+    <div><div class="v">190</div><div class="k">不同测试用例全部通过<br>（2026-11-19：完整 186 项 + 后续 4 项回归）</div></div>
+    <div><div class="v">173 / 173</div><div class="k">本次汇报前复跑（除用户线路外全部）<br>2026-11-20，47.4 秒</div></div>
+    <div><div class="v">9.8e-15</div><div class="k">17 条用户线路最大概率误差<br>（阈值 2e-9）</div></div>
+    <div><div class="v">0</div><div class="k">替代模拟器调用<br>测试拦截 Aer.run / BasicSimulator / Statevector 演化</div></div>
+  </div>
+  <div class="grid2 reveal" style="align-items:start">
+    <div class="fig">
+      <div class="ttl">各测试文件的用例数</div>
+      <div class="sub">共 <span id="ttotal"></span> 个，pytest 收集结果</div>
+      <div id="testchart"></div>
+      <div class="src" id="testsrc"></div>
+    </div>
+    <div>
+      <table class="t">
+        <thead><tr><th>验证内容</th><th>怎么验</th></tr></thead>
+        <tbody>
+          <tr><td>真的用了 FQ</td><td>包装 FQ 的 sample 和内部内核观察调用；禁止其他模拟器入口</td></tr>
+          <tr><td>门语义</td><td>17 种门在非对称复振幅初态上逐振幅对比，单 / 双精度各一次</td></tr>
+          <tr><td>位序与经典位</td><td>非对称线路、多寄存器、重复写同一经典位</td></tr>
+          <tr><td>用户线路</td><td>17 条 QASM 精确概率 + 8192 shots 统计检验（Hoeffding / DKW）</td></tr>
+          <tr><td>噪声</td><td>2048 shots，预定容差 0.0675；比较通道与分布，不比单个轨迹</td></tr>
+          <tr><td>安装包</td><td>wheel 装好后在包目录外跑 Bell、动态、噪声、V2 原语；另起子进程完全屏蔽 Aer 导入</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="wrap cols">
+  <div>
+    <b style="color:var(--ink)">关于本页数据</b><br>
+    第 03、04、08、09、11、12 章的运行结果全部来自 <code>site/presentation/data/trace.json</code>，由
+    <code>site/presentation/scripts/collect_trace.py</code> 在工具自己的环境中真实执行生成，没有手写数值。
+    <div id="envline" style="margin-top:8px"></div>
+  </div>
+  <div>
+    <b style="color:var(--ink)">重新生成</b><br>
+    <code>.venv\Scripts\python.exe site\presentation\scripts\collect_trace.py</code><br>
+    需先安装测试依赖；重跑会覆盖两份数据快照。本次迁入未重跑。然后刷新本页。详细文档见 <a href="../../README.md">README</a>、<a href="../../ARCHITECTURE.md">ARCHITECTURE</a>、
+    <a href="../../COMPATIBILITY.md">COMPATIBILITY</a>、<a href="../../VALIDATION.md">VALIDATION</a>。
+  </div>
+</div>
+</footer>
+
+</main>
+
+<script src="data/trace.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

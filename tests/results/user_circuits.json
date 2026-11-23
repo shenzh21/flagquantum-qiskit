@@ -1,0 +1,712 @@
+{
+  "schema": "flagquantum_qiskit_user_regression_v1",
+  "started_at_utc": "2026-11-19T06:09:43.700149+00:00",
+  "source_zip_sha256": "907a493c68b88c8085b9002483a0f5867b8bd1e16571cd05f652e652173aefc6",
+  "versions": {
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "torch": "2.14.1+cpu",
+    "flagquantum-qiskit": "0.2.0"
+  },
+  "device": "cpu",
+  "precision": "complex128",
+  "torch_threads": 1,
+  "shots_per_circuit": 8192,
+  "seed_simulator": 20261118,
+  "seed_transpiler": 20261118,
+  "optimization_level": 1,
+  "independent_reference": "Qiskit Statevector of original unmeasured QASM circuit",
+  "input_preparation": "measure_all on a separate copy, then transpile to the tested backend",
+  "tolerances": {
+    "max_probability_absolute_error": 2e-09,
+    "probability_l1_error": 2e-08,
+    "family_alpha": 1e-08,
+    "sampling_max_bin_formula": "sqrt(log(2 * 2**n * 17 / alpha) / (2 * shots))",
+    "sampling_cdf_formula": "sqrt(log(2 * 17 / alpha) / (2 * shots))",
+    "description": "Hoeffding union bound over bins/circuits and DKW union bound over circuits; fixed before execution"
+  },
+  "circuits": [
+    {
+      "name": "4_49_16",
+      "passed": true,
+      "qasm_sha256": "b428ee8fd4e0dc1149f63da8b6d2d4d778639dcad048e75900258f797d5fe952",
+      "num_qubits": 4,
+      "original_instruction_count": 146,
+      "original_operations": {
+        "u3": 80,
+        "cx": 66
+      },
+      "manifest_source_gate_count": 16,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.0042711999849416316,
+      "compile_seconds": 0.006051099975593388,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 141,
+      "compiled_operations": {
+        "u": 70,
+        "cx": 66,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.033705600013490766,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500627e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.04378710000310093,
+      "shots_observed": 8192,
+      "counts": {
+        "1111": 8192
+      },
+      "sampling_max_bin_error": 2.536778223045393e-32,
+      "sampling_cdf_error": 6.056309127498333e-32,
+      "sampling_total_variation": 3.0281545637491664e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.10543469997355714
+    },
+    {
+      "name": "aj-e11_165",
+      "passed": true,
+      "qasm_sha256": "1634e1026882b0c4bf4e87894f0964b42c2da26b082ef29812c3789585c4478d",
+      "num_qubits": 4,
+      "original_instruction_count": 113,
+      "original_operations": {
+        "u3": 63,
+        "cx": 50
+      },
+      "manifest_source_gate_count": 13,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.0036705000093206763,
+      "compile_seconds": 0.0035757000441662967,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 110,
+      "compiled_operations": {
+        "u": 55,
+        "cx": 50,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.02524039999116212,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500626e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.03505010000662878,
+      "shots_observed": 8192,
+      "counts": {
+        "1000": 8192
+      },
+      "sampling_max_bin_error": 2.329911288073592e-32,
+      "sampling_cdf_error": 6.719342119893971e-32,
+      "sampling_total_variation": 3.3596710599469856e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.07380559999728575
+    },
+    {
+      "name": "aj-e11_168",
+      "passed": true,
+      "qasm_sha256": "5ccc204a3be13964fad20c6a460bc11e035ebeff30f06fe2310f289fbb3c50d4",
+      "num_qubits": 4,
+      "original_instruction_count": 68,
+      "original_operations": {
+        "u3": 36,
+        "cx": 32
+      },
+      "manifest_source_gate_count": 10,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.002124899998307228,
+      "compile_seconds": 0.003620400035288185,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 69,
+      "compiled_operations": {
+        "cx": 32,
+        "u": 32,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.014121699961833656,
+      "max_probability_absolute_error": 2.631843152117647e-32,
+      "probability_l1_error": 3.6938071787887715e-32,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 1.0,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.026010099973063916,
+      "shots_observed": 8192,
+      "counts": {
+        "1000": 8192
+      },
+      "sampling_max_bin_error": 4.239378262190942e-32,
+      "sampling_cdf_error": 7.183494080285345e-32,
+      "sampling_total_variation": 3.5917470401426724e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.05097620002925396
+    },
+    {
+      "name": "cycle10_2_110",
+      "passed": true,
+      "qasm_sha256": "ae4fce9e02fe5982d3bfabe539d0a01e8474bd70ca06911ff95c0ae1e0fa5b99",
+      "num_qubits": 12,
+      "original_instruction_count": 18297,
+      "original_operations": {
+        "u3": 9203,
+        "cx": 9094
+      },
+      "manifest_source_gate_count": 19,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.9738754000281915,
+      "compile_seconds": 0.04093789996113628,
+      "compiled_num_qubits": 12,
+      "compiled_instruction_count": 18236,
+      "compiled_operations": {
+        "u": 9129,
+        "cx": 9094,
+        "measure": 12,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 4.444029799953569,
+      "max_probability_absolute_error": 9.769962616701378e-15,
+      "probability_l1_error": 9.769962616702498e-15,
+      "reference_probability_sum": 0.999999999999988,
+      "flagquantum_probability_sum": 0.9999999999999782,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 5.31090540002333,
+      "shots_observed": 8192,
+      "counts": {
+        "000000000000": 8192
+      },
+      "sampling_max_bin_error": 1.199040866595169e-14,
+      "sampling_cdf_error": 1.199040866595169e-14,
+      "sampling_total_variation": 5.9952043329762366e-15,
+      "sampling_max_bin_tolerance": 0.04297926535771589,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 11.436279800022021
+    },
+    {
+      "name": "ham15_108",
+      "passed": true,
+      "qasm_sha256": "c8d09fd1e8b82567b7f7b9a9eed61ac4520a634dd570bb69e796fbd43d93c500",
+      "num_qubits": 15,
+      "original_instruction_count": 1532,
+      "original_operations": {
+        "u3": 952,
+        "cx": 580
+      },
+      "manifest_source_gate_count": 70,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.27503739995881915,
+      "compile_seconds": 0.007384500000625849,
+      "compiled_num_qubits": 15,
+      "compiled_instruction_count": 1210,
+      "compiled_operations": {
+        "u": 614,
+        "cx": 580,
+        "measure": 15,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.5042596000130288,
+      "max_probability_absolute_error": 1.9984014443252818e-15,
+      "probability_l1_error": 1.998401444325299e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.999999999999998,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.5642920999671333,
+      "shots_observed": 8192,
+      "counts": {
+        "000000000000000": 8192
+      },
+      "sampling_max_bin_error": 1.5037986769252132e-30,
+      "sampling_cdf_error": 1.0769117315485308e-29,
+      "sampling_total_variation": 5.384558657742655e-30,
+      "sampling_max_bin_tolerance": 0.04443125352832313,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 1.392176199995447
+    },
+    {
+      "name": "ham7_104",
+      "passed": true,
+      "qasm_sha256": "9ff568b97bf3a43da06688e855fc54c7c735556e20444caff2755b5895467dc3",
+      "num_qubits": 7,
+      "original_instruction_count": 185,
+      "original_operations": {
+        "u3": 95,
+        "cx": 90
+      },
+      "manifest_source_gate_count": 23,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.006697000004351139,
+      "compile_seconds": 0.004440499993506819,
+      "compiled_num_qubits": 7,
+      "compiled_instruction_count": 183,
+      "compiled_operations": {
+        "cx": 90,
+        "u": 85,
+        "measure": 7,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.038310999982059,
+      "max_probability_absolute_error": 8.881784197001252e-16,
+      "probability_l1_error": 8.881784197001254e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999991,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.054768200032413006,
+      "shots_observed": 8192,
+      "counts": {
+        "0000000": 8192
+      },
+      "sampling_max_bin_error": 2.380646652314007e-31,
+      "sampling_cdf_error": 4.220022957216379e-31,
+      "sampling_total_variation": 2.11001147860819e-31,
+      "sampling_max_bin_tolerance": 0.04044360911615506,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.11139020003611222
+    },
+    {
+      "name": "ham7_105",
+      "passed": true,
+      "qasm_sha256": "9d5241eb2b0b5a1fdd6cd85d6d7a0181cbfdf748649fed5fc1dc32887670ec4c",
+      "num_qubits": 7,
+      "original_instruction_count": 151,
+      "original_operations": {
+        "u3": 79,
+        "cx": 72
+      },
+      "manifest_source_gate_count": 21,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.0046091999975033104,
+      "compile_seconds": 0.004358200007118285,
+      "compiled_num_qubits": 7,
+      "compiled_instruction_count": 152,
+      "compiled_operations": {
+        "cx": 72,
+        "u": 72,
+        "measure": 7,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.03233859996544197,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500627e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.0480231000110507,
+      "shots_observed": 8192,
+      "counts": {
+        "0000000": 8192
+      },
+      "sampling_max_bin_error": 6.115933472303742e-32,
+      "sampling_cdf_error": 1.6121757202215955e-31,
+      "sampling_total_variation": 8.060878601107977e-32,
+      "sampling_max_bin_tolerance": 0.04044360911615506,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.09546390001196414
+    },
+    {
+      "name": "hwb4_49",
+      "passed": true,
+      "qasm_sha256": "0642d8d9fe6c55dfa490e5820e188d07ab63bfd22170cbff8c40fd5c3efd8ade",
+      "num_qubits": 4,
+      "original_instruction_count": 161,
+      "original_operations": {
+        "u3": 88,
+        "cx": 73
+      },
+      "manifest_source_gate_count": 17,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.004347799986135215,
+      "compile_seconds": 0.004260499961674213,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 153,
+      "compiled_operations": {
+        "u": 75,
+        "cx": 73,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.03225319995544851,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500628e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.047088899998925626,
+      "shots_observed": 8192,
+      "counts": {
+        "0000": 8192
+      },
+      "sampling_max_bin_error": 1.0875317707780211e-31,
+      "sampling_cdf_error": 1.8170521405720313e-31,
+      "sampling_total_variation": 9.085260702860157e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.09417070000199601
+    },
+    {
+      "name": "hwb4_50",
+      "passed": true,
+      "qasm_sha256": "a26b555e921a6c6d3bba96bfd47004ba7043c7a758fe6c10b6f13457d8d1ce85",
+      "num_qubits": 4,
+      "original_instruction_count": 161,
+      "original_operations": {
+        "u3": 88,
+        "cx": 73
+      },
+      "manifest_source_gate_count": 16,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.004492200037930161,
+      "compile_seconds": 0.004285600036382675,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 150,
+      "compiled_operations": {
+        "u": 74,
+        "cx": 71,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.032795500010252,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500628e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.044251699990127236,
+      "shots_observed": 8192,
+      "counts": {
+        "0000": 8192
+      },
+      "sampling_max_bin_error": 1.0875317707780211e-31,
+      "sampling_cdf_error": 1.7790717322044778e-31,
+      "sampling_total_variation": 8.895358661022389e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.09205390000715852
+    },
+    {
+      "name": "hwb5_53",
+      "passed": true,
+      "qasm_sha256": "9fe4ec5a001a9e0137785cf82e7114eb0e9944cbd2c089d8abf640e11d574a71",
+      "num_qubits": 5,
+      "original_instruction_count": 845,
+      "original_operations": {
+        "u3": 487,
+        "cx": 358
+      },
+      "manifest_source_gate_count": 55,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.021598199964500964,
+      "compile_seconds": 0.006011699966620654,
+      "compiled_num_qubits": 5,
+      "compiled_instruction_count": 752,
+      "compiled_operations": {
+        "u": 388,
+        "cx": 358,
+        "measure": 5,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.17784149997169152,
+      "max_probability_absolute_error": 1.7763568394002505e-15,
+      "probability_l1_error": 1.776356839400255e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999982,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.2036408000276424,
+      "shots_observed": 8192,
+      "counts": {
+        "00000": 8192
+      },
+      "sampling_max_bin_error": 3.9866273100258995e-31,
+      "sampling_cdf_error": 2.050286730823091e-30,
+      "sampling_total_variation": 1.0251433654115451e-30,
+      "sampling_max_bin_tolerance": 0.03938366190948849,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.5171540000010282
+    },
+    {
+      "name": "hwb5_55",
+      "passed": true,
+      "qasm_sha256": "47e45147819f083086f0a5ff0060eeb0b574f62d37e50ed7d526254a92115c97",
+      "num_qubits": 5,
+      "original_instruction_count": 244,
+      "original_operations": {
+        "u3": 133,
+        "cx": 111
+      },
+      "manifest_source_gate_count": 24,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.006812800012994558,
+      "compile_seconds": 0.004299200023524463,
+      "compiled_num_qubits": 5,
+      "compiled_instruction_count": 233,
+      "compiled_operations": {
+        "u": 116,
+        "cx": 111,
+        "measure": 5,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.04957700002705678,
+      "max_probability_absolute_error": 1.3322676295501878e-15,
+      "probability_l1_error": 1.332267629550188e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999987,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.06866359995910898,
+      "shots_observed": 8192,
+      "counts": {
+        "00000": 8192
+      },
+      "sampling_max_bin_error": 2.1780884116749986e-31,
+      "sampling_cdf_error": 3.611992723435819e-31,
+      "sampling_total_variation": 1.8059963617179097e-31,
+      "sampling_max_bin_tolerance": 0.03938366190948849,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.13919379998696968
+    },
+    {
+      "name": "hwb6_58",
+      "passed": true,
+      "qasm_sha256": "c713a5a78155f93ba514b291730af3440d07a646141488b9569ba73f9b29d4d3",
+      "num_qubits": 6,
+      "original_instruction_count": 344,
+      "original_operations": {
+        "u3": 185,
+        "cx": 159
+      },
+      "manifest_source_gate_count": 42,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.009564600011799484,
+      "compile_seconds": 0.004438099975232035,
+      "compiled_num_qubits": 6,
+      "compiled_instruction_count": 330,
+      "compiled_operations": {
+        "u": 164,
+        "cx": 159,
+        "measure": 6,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.07415969995781779,
+      "max_probability_absolute_error": 1.7763568394002505e-15,
+      "probability_l1_error": 1.776356839400251e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999982,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.09669910004595295,
+      "shots_observed": 8192,
+      "counts": {
+        "000000": 8192
+      },
+      "sampling_max_bin_error": 1.6788802355097392e-31,
+      "sampling_cdf_error": 5.779673493513259e-31,
+      "sampling_total_variation": 2.88983674675663e-31,
+      "sampling_max_bin_tolerance": 0.03991715385483561,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.1974177000229247
+    },
+    {
+      "name": "mod10_171",
+      "passed": true,
+      "qasm_sha256": "39f5d6529fcc2dbd1a356e734e59cae237490481fb1368cc1e4faa5f86fc1cb1",
+      "num_qubits": 4,
+      "original_instruction_count": 142,
+      "original_operations": {
+        "u3": 79,
+        "cx": 63
+      },
+      "manifest_source_gate_count": 10,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.003919899987522513,
+      "compile_seconds": 0.003990400000475347,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 135,
+      "compiled_operations": {
+        "u": 69,
+        "cx": 61,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.029143799969460815,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500627e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.0453669999842532,
+      "shots_observed": 8192,
+      "counts": {
+        "1000": 8192
+      },
+      "sampling_max_bin_error": 5.800160657493819e-32,
+      "sampling_cdf_error": 1.5015102168095726e-31,
+      "sampling_total_variation": 7.507551084047862e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.08816420001676306
+    },
+    {
+      "name": "mod10_176",
+      "passed": true,
+      "qasm_sha256": "c52c010260c0e7eb84cd37a4d232e7255196bcbfc5449e1974a90a2aec9625d9",
+      "num_qubits": 4,
+      "original_instruction_count": 109,
+      "original_operations": {
+        "u3": 62,
+        "cx": 47
+      },
+      "manifest_source_gate_count": 7,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.0031365000177174807,
+      "compile_seconds": 0.004261900030542165,
+      "compiled_num_qubits": 4,
+      "compiled_instruction_count": 100,
+      "compiled_operations": {
+        "u": 50,
+        "cx": 45,
+        "measure": 4,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.021053900010883808,
+      "max_probability_absolute_error": 4.440892098500626e-16,
+      "probability_l1_error": 4.440892098500626e-16,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999996,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.03359669999917969,
+      "shots_observed": 8192,
+      "counts": {
+        "1000": 8192
+      },
+      "sampling_max_bin_error": 2.4599129738187918e-32,
+      "sampling_cdf_error": 5.668157630962038e-32,
+      "sampling_total_variation": 2.834078815481019e-32,
+      "sampling_max_bin_tolerance": 0.03884284334251512,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.0672659000265412
+    },
+    {
+      "name": "mod5adder_127",
+      "passed": true,
+      "qasm_sha256": "3f6a95578ae5e0d72a340c70292d7c592c421294e7a7f697e92c4bf3b241dbde",
+      "num_qubits": 6,
+      "original_instruction_count": 373,
+      "original_operations": {
+        "u3": 236,
+        "cx": 137
+      },
+      "manifest_source_gate_count": 21,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.010119200043845922,
+      "compile_seconds": 0.00459889997728169,
+      "compiled_num_qubits": 6,
+      "compiled_instruction_count": 305,
+      "compiled_operations": {
+        "u": 161,
+        "cx": 137,
+        "measure": 6,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.07137110002804548,
+      "max_probability_absolute_error": 1.3322676295501878e-15,
+      "probability_l1_error": 1.3322676295501908e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999987,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.09283859998686239,
+      "shots_observed": 8192,
+      "counts": {
+        "000000": 8192
+      },
+      "sampling_max_bin_error": 7.810630086899351e-31,
+      "sampling_cdf_error": 1.4118484270757837e-30,
+      "sampling_total_variation": 7.059242135378918e-31,
+      "sampling_max_bin_tolerance": 0.03991715385483561,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.19012260000454262
+    },
+    {
+      "name": "mod5adder_128",
+      "passed": true,
+      "qasm_sha256": "87d9f1e2aeecae8647d2ce0d888905fcfe1ab6e66cbea72ac8e032e08044cb19",
+      "num_qubits": 6,
+      "original_instruction_count": 205,
+      "original_operations": {
+        "u3": 119,
+        "cx": 86
+      },
+      "manifest_source_gate_count": 15,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.005743400019127876,
+      "compile_seconds": 0.0037330000195652246,
+      "compiled_num_qubits": 6,
+      "compiled_instruction_count": 192,
+      "compiled_operations": {
+        "u": 99,
+        "cx": 86,
+        "measure": 6,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.04575900000054389,
+      "max_probability_absolute_error": 1.1102230246251565e-15,
+      "probability_l1_error": 1.110223024625157e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999989,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.06221670005470514,
+      "shots_observed": 8192,
+      "counts": {
+        "000000": 8192
+      },
+      "sampling_max_bin_error": 4.681727153214532e-31,
+      "sampling_cdf_error": 5.247993975335357e-31,
+      "sampling_total_variation": 2.6239969876676784e-31,
+      "sampling_max_bin_tolerance": 0.03991715385483561,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.12567779998062178
+    },
+    {
+      "name": "mod5adder_129",
+      "passed": true,
+      "qasm_sha256": "2aa7915185078286cd566b7250cbdd4eb8650f9ef2fc7823dff1ba85110cb918",
+      "num_qubits": 6,
+      "original_instruction_count": 203,
+      "original_operations": {
+        "u3": 121,
+        "cx": 82
+      },
+      "manifest_source_gate_count": 17,
+      "note": "Manifest source gate count describes pre-export source, not parsed QASM instruction count",
+      "reference_seconds": 0.006117300014011562,
+      "compile_seconds": 0.0036417999654076993,
+      "compiled_num_qubits": 6,
+      "compiled_instruction_count": 191,
+      "compiled_operations": {
+        "u": 102,
+        "cx": 82,
+        "measure": 6,
+        "barrier": 1
+      },
+      "exact_flagquantum_seconds": 0.0442802999750711,
+      "max_probability_absolute_error": 1.3322676295501878e-15,
+      "probability_l1_error": 1.332267629550188e-15,
+      "reference_probability_sum": 1.0,
+      "flagquantum_probability_sum": 0.9999999999999987,
+      "reference_support_above_1e_minus12": 1,
+      "backend_run_seconds": 0.06508769997162744,
+      "shots_observed": 8192,
+      "counts": {
+        "000000": 8192
+      },
+      "sampling_max_bin_error": 1.7755684108169896e-31,
+      "sampling_cdf_error": 3.8814384504173485e-31,
+      "sampling_total_variation": 1.9407192252086738e-31,
+      "sampling_max_bin_tolerance": 0.03991715385483561,
+      "sampling_cdf_tolerance": 0.036599741707453046,
+      "total_seconds": 0.12745720002567396
+    }
+  ],
+  "finished_at_utc": "2026-11-19T06:09:58.640240+00:00",
+  "all_passed": true
+}

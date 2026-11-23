@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-19",
+  "cwd": "D:\\vscodeprojs\\zhiyuan",
+  "adapter_file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Lib\\site-packages\\flagquantum_qiskit\\__init__.py",
+  "versions": {
+    "flagquantum-qiskit": "0.2.0",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "torch": "2.14.1+cpu"
+  },
+  "wheel": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist\\flagquantum_qiskit-0.2.0-py3-none-any.whl",
+  "wheel_sha256": "6d1576f07571d0aa4700df285b6b8ec78a74186166a95eb7e4ca2421948478a2",
+  "wheel_members": [
+    "flagquantum_qiskit/__init__.py",
+    "flagquantum_qiskit/backend.py",
+    "flagquantum_qiskit/contracts.py",
+    "flagquantum_qiskit/conversion.py",
+    "flagquantum_qiskit/engine.py",
+    "flagquantum_qiskit/fq_ops.py",
+    "flagquantum_qiskit/job.py",
+    "flagquantum_qiskit/noise.py",
+    "flagquantum_qiskit/program.py",
+    "flagquantum_qiskit/results.py",
+    "flagquantum_qiskit/target.py",
+    "flagquantum_qiskit/trajectory.py",
+    "flagquantum_qiskit/validation.py",
+    "flagquantum_qiskit-0.2.0.dist-info/METADATA",
+    "flagquantum_qiskit-0.2.0.dist-info/WHEEL",
+    "flagquantum_qiskit-0.2.0.dist-info/top_level.txt",
+    "flagquantum_qiskit-0.2.0.dist-info/RECORD"
+  ],
+  "bell_counts": {
+    "00": 484,
+    "11": 516
+  },
+  "compiled_qubits": 2,
+  "dynamic_counts": {
+    "10": 5
+  },
+  "dynamic_memory": [
+    "10",
+    "10",
+    "10",
+    "10",
+    "10"
+  ],
+  "saved_statevector_type": "Statevector",
+  "noisy_counts": {
+    "0": 5
+  },
+  "parameter_binds_counts": [
+    {
+      "0": 5
+    },
+    {
+      "1": 5
+    }
+  ],
+  "sampler_counts": {
+    "00": 4,
+    "11": 4
+  },
+  "estimator_z": -1.0,
+  "aer_run_blocked": true,
+  "separate_core_subprocess": {
+    "aer_imports_blocked": true,
+    "bell_counts": {
+      "00": 484,
+      "11": 516
+    }
+  },
+  "installation": "Final environment retains wheel installation, not editable",
+  "all_passed": true
+}

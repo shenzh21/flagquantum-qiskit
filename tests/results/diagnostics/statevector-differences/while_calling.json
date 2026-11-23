@@ -1,0 +1,3749 @@
+{
+  "timestamp_utc": "2026-11-20T07:53:05.227183+00:00",
+  "versions": {
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4"
+  },
+  "method": "statevector",
+  "shots": 13,
+  "seed_simulator": 97,
+  "meaning": "c0 initially 0; loop executes X then measurement once and exits at c0=1",
+  "records": [
+    {
+      "suffix": "none",
+      "transpile_optimization_level": null,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "none",
+      "transpile_optimization_level": 0,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "none",
+      "transpile_optimization_level": 1,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "none",
+      "transpile_optimization_level": 2,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "none",
+      "transpile_optimization_level": 3,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_measure",
+      "transpile_optimization_level": null,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0336537,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_measure",
+      "transpile_optimization_level": 0,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0007201,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_measure",
+      "transpile_optimization_level": 1,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0005974,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_measure",
+      "transpile_optimization_level": 2,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0004913,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_measure",
+      "transpile_optimization_level": 3,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0004252,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_id",
+      "transpile_optimization_level": null,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "id",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "id",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_id",
+      "transpile_optimization_level": 0,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "id",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "id",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_id",
+      "transpile_optimization_level": 1,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_id",
+      "transpile_optimization_level": 2,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_id",
+      "transpile_optimization_level": 3,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_barrier",
+      "transpile_optimization_level": null,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_barrier",
+      "transpile_optimization_level": 0,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_barrier",
+      "transpile_optimization_level": 1,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_barrier",
+      "transpile_optimization_level": 2,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_barrier",
+      "transpile_optimization_level": 3,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "experiment_status": [],
+      "metadata": []
+    },
+    {
+      "suffix": "final_save",
+      "transpile_optimization_level": null,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0005693,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          },
+          "result_types": {
+            "statevector": "save_statevector"
+          },
+          "result_subtypes": {
+            "statevector": "single"
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_save",
+      "transpile_optimization_level": 0,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0006297,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          },
+          "result_types": {
+            "statevector": "save_statevector"
+          },
+          "result_subtypes": {
+            "statevector": "single"
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_save",
+      "transpile_optimization_level": 1,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0004837,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          },
+          "result_types": {
+            "statevector": "save_statevector"
+          },
+          "result_subtypes": {
+            "statevector": "single"
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_save",
+      "transpile_optimization_level": 2,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0005863,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          },
+          "result_types": {
+            "statevector": "save_statevector"
+          },
+          "result_subtypes": {
+            "statevector": "single"
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "suffix": "final_save",
+      "transpile_optimization_level": 3,
+      "submitted_operations": [
+        {
+          "name": "while_loop",
+          "params": [
+            "   \u250c\u2500\u2500\u2500\u2510\u250c\u2500\u2510\n0: \u2524 X \u251c\u2524M\u251c\n   \u2514\u2500\u2500\u2500\u2518\u2514\u2565\u2518\n0: \u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\n           "
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "aer_lowered_operations": [
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_start"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "jump",
+          "params": [
+            "while_0_continue"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mark",
+          "params": [
+            "while_0_end"
+          ],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "barrier",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "save_statevector",
+          "params": [],
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        }
+      ],
+      "end_mark_in_python_lowering": true,
+      "success": true,
+      "status": "COMPLETED",
+      "experiment_status": [
+        "DONE"
+      ],
+      "metadata": [
+        {
+          "batched_shots_optimization": false,
+          "required_memory_mb": 1,
+          "method": "statevector",
+          "active_input_qubits": [
+            0
+          ],
+          "device": "CPU",
+          "remapped_qubits": false,
+          "num_qubits": 1,
+          "num_clbits": 1,
+          "time_taken": 0.0004415,
+          "input_qubit_map": [
+            [
+              0,
+              0
+            ]
+          ],
+          "max_memory_mb": 32491,
+          "measure_sampling": false,
+          "noise": "ideal",
+          "parallel_shots": 13,
+          "parallel_state_update": 2,
+          "runtime_parameter_bind": false,
+          "num_bind_params": 1,
+          "fusion": {
+            "enabled": true,
+            "threshold": 14,
+            "max_fused_qubits": 5,
+            "applied": false
+          },
+          "result_types": {
+            "statevector": "save_statevector"
+          },
+          "result_subtypes": {
+            "statevector": "single"
+          }
+        }
+      ],
+      "counts": {
+        "1": 13
+      }
+    }
+  ],
+  "option_diagnostics": [
+    {
+      "options": {
+        "enable_truncation": false
+      },
+      "success": true,
+      "status": "COMPLETED",
+      "counts": {
+        "1": 13
+      }
+    },
+    {
+      "options": {
+        "fusion_enable": false
+      },
+      "success": false,
+      "status": "ERROR: Failed to load circuits: Invalid jump destination:\"while_0_end\".\n",
+      "counts": null
+    }
+  ],
+  "source_analysis": {
+    "url": "https://github.com/Qiskit/qiskit-aer/blob/0.18.4/src/framework/circuit.hpp",
+    "lines": "408-451, 481-550, 573-625, 659-700",
+    "interpretation": "Python lowering retains the end mark. In C++ set_params, truncation ancestor filtering can skip the loop-back jump/end mark during measurement-tail analysis; jump-target validation precedes tail reinsertion. This source-based explanation is consistent with the enable_truncation=False diagnostic; no native debugger was used."
+  },
+  "readout_assembly": {
+    "qiskit_operations": [
+      {
+        "name": "x",
+        "params": [],
+        "qubits": [
+          0
+        ],
+        "clbits": []
+      },
+      {
+        "name": "measure",
+        "params": [],
+        "qubits": [
+          0
+        ],
+        "clbits": [
+          0
+        ]
+      },
+      {
+        "name": "measure",
+        "params": [],
+        "qubits": [
+          1
+        ],
+        "clbits": [
+          1
+        ]
+      }
+    ],
+    "aer_circuit_repr": "Circuit(qubit=2, num_memory=2, num_registers=0, ops={x[0],[],measure[0],[],measure[1],[]}, shots=1, seed=3756449811, global_phase_angle=0)",
+    "interpretation": "Two separate one-qubit measure operations, not one measure over [0,1]."
+  }
+}

@@ -1,0 +1,768 @@
+{
+  "audit_date": "2026-11-20",
+  "recorded_at_utc": "2026-11-20T05:43:14.380860+00:00",
+  "scope": {
+    "active_documents": [
+      "README.md",
+      "flagquantum/README.md",
+      "flagquantum-qiskit/ADR-002-basic-aer-compatibility.md",
+      "flagquantum-qiskit/AGENTS.md",
+      "flagquantum-qiskit/ARCHITECTURE.md",
+      "flagquantum-qiskit/COMPATIBILITY.md",
+      "flagquantum-qiskit/README.md",
+      "flagquantum-qiskit/VALIDATION.md",
+      "flagquantum-qiskit/tests/README.md",
+      "flagquantum-qiskit/site/index.html",
+      "flagquantum-qiskit/docs/architecture.svg"
+    ],
+    "research_docstrings_reviewed": [
+      "qiskit/run_all.py",
+      "qiskit/examples/basic_bell.py",
+      "qiskit/examples/aer_noise.py",
+      "qiskit/examples/primitives_bell.py"
+    ],
+    "excluded_from_document_mutation": [
+      "flagquantum/upstream",
+      ".venv",
+      ".cache",
+      "build",
+      "dist wheel contents",
+      "tests/drafts",
+      "existing tests/results JSON/XML",
+      "site/preview historical evidence"
+    ],
+    "simulation_tests_executed": false,
+    "network_links_verified": false
+  },
+  "local_links": [
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "qiskit/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\qiskit",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum\\README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/site/index.html",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/docs/architecture.svg",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\docs\\architecture.svg",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/examples/bell.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\examples\\bell.py",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/ARCHITECTURE.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/ADR-002-basic-aer-compatibility.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\ADR-002-basic-aer-compatibility.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/tests/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "flagquantum-qiskit/dist/flagquantum_qiskit-0.2.0-py3-none-any.whl",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist\\flagquantum_qiskit-0.2.0-py3-none-any.whl",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "qiskit/examples/basic_bell.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\qiskit\\examples\\basic_bell.py",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "qiskit/examples/aer_noise.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\qiskit\\examples\\aer_noise.py",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "qiskit/examples/primitives_bell.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\qiskit\\examples\\primitives_bell.py",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "qiskit/run_all.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\qiskit\\run_all.py",
+      "exists": true
+    },
+    {
+      "source": "flagquantum/README.md",
+      "target": "upstream/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum\\upstream",
+      "exists": true
+    },
+    {
+      "source": "flagquantum/README.md",
+      "target": "upstream/flagquantum/simulation/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum\\upstream\\flagquantum\\simulation",
+      "exists": true
+    },
+    {
+      "source": "flagquantum/README.md",
+      "target": "../flagquantum-qiskit/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit",
+      "exists": true
+    },
+    {
+      "source": "flagquantum/README.md",
+      "target": "../flagquantum-qiskit/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/ARCHITECTURE.md",
+      "target": "COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/ARCHITECTURE.md",
+      "target": "VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/COMPATIBILITY.md",
+      "target": "VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "site/index.html",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "docs/architecture.svg",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\docs\\architecture.svg",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "examples/bell.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\examples\\bell.py",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "ARCHITECTURE.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "ADR-002-basic-aer-compatibility.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\ADR-002-basic-aer-compatibility.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "AGENTS.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\AGENTS.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "pyproject.toml",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\pyproject.toml",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "src/flagquantum_qiskit/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\src\\flagquantum_qiskit",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "docs/architecture.svg",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\docs\\architecture.svg",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "src/flagquantum_qiskit/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\src\\flagquantum_qiskit",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "examples/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\examples",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "site/index.html",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "docs/architecture.svg",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\docs\\architecture.svg",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/fixtures/user_circuits/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\fixtures\\user_circuits",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/results/phase2_verification.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_verification.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/results/phase2_wheel_smoke.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_wheel_smoke.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/results/user_circuits.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_circuits.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "tests/drafts/phase1/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\drafts\\phase1",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "dist/",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/phase2_verification.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_verification.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/phase2_pytest.xml",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_pytest.xml",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/phase2_phase_regression.xml",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_phase_regression.xml",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/phase2_reverse_initialize.xml",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_reverse_initialize.xml",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/user_circuits.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\user_circuits.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/aer_correlated_readout_difference.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\aer_correlated_readout_difference.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/aer_initialize_phase_difference.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\aer_initialize_phase_difference.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/fixtures/user_circuits/PROVENANCE.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\fixtures\\user_circuits\\PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/VALIDATION.md",
+      "target": "tests/results/phase2_wheel_smoke.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_wheel_smoke.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/tests/README.md",
+      "target": "../VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#main",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#examples",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#capabilities",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#workflow",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#start",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#examples",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#start",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true,
+      "fragment_exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../examples/bell.py",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\examples\\bell.py",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../docs/architecture.svg",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\docs\\architecture.svg",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../tests/results/phase2_verification.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_verification.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../tests/results/phase2_wheel_smoke.json",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_wheel_smoke.json",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../dist/flagquantum_qiskit-0.2.0-py3-none-any.whl",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist\\flagquantum_qiskit-0.2.0-py3-none-any.whl",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "#",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\site\\index.html",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\README.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../COMPATIBILITY.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\COMPATIBILITY.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../ARCHITECTURE.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../VALIDATION.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\VALIDATION.md",
+      "exists": true
+    },
+    {
+      "source": "flagquantum-qiskit/site/index.html",
+      "target": "../../README.md",
+      "resolved": "D:\\vscodeprojs\\zhiyuan\\README.md",
+      "exists": true
+    }
+  ],
+  "external_references": [
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "https://github.com/flagos-ai/FlagQuantum/tree/f0e74cf92f1784c5839c647a0781ad5db8cb6b85/flagquantum/simulation",
+      "status": "not_requested_network_validation"
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "target": "https://quantum.cloud.ibm.com/docs/en/api/qiskit/providers",
+      "status": "not_requested_network_validation"
+    }
+  ],
+  "parse_checks": [
+    {
+      "file": "flagquantum-qiskit/site/index.html",
+      "duplicate_ids": []
+    },
+    {
+      "file": "flagquantum-qiskit/docs/architecture.svg",
+      "xml_valid": true,
+      "missing_svg_ids": []
+    }
+  ],
+  "command_path_checks": [
+    {
+      "purpose": "package cwd",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit",
+      "exists": true
+    },
+    {
+      "purpose": "documented Python interpreter",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Scripts\\python.exe",
+      "exists": true
+    },
+    {
+      "purpose": "wheel install command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist\\flagquantum_qiskit-0.2.0-py3-none-any.whl",
+      "exists": true
+    },
+    {
+      "purpose": "example command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\examples\\bell.py",
+      "exists": true
+    },
+    {
+      "purpose": "offline dependency cache",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.cache\\wheels",
+      "exists": true
+    },
+    {
+      "purpose": "editable build config",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\pyproject.toml",
+      "exists": true
+    },
+    {
+      "purpose": "all-test discovery",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests",
+      "exists": true
+    },
+    {
+      "purpose": "historical JUnit target",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\results\\phase2_pytest.xml",
+      "exists": true
+    },
+    {
+      "purpose": "compatibility regression command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\test_aer_compatibility.py",
+      "exists": true
+    },
+    {
+      "purpose": "dynamic regression command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\test_dynamic.py",
+      "exists": true
+    },
+    {
+      "purpose": "noise regression command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\test_noise.py",
+      "exists": true
+    },
+    {
+      "purpose": "primitive regression command",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\test_primitives.py",
+      "exists": true
+    },
+    {
+      "purpose": "user QASM fixture",
+      "path": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\tests\\fixtures\\user_circuits\\PROVENANCE.json",
+      "exists": true
+    },
+    {
+      "purpose": "original user archive",
+      "path": "D:\\vscodeprojs\\BONADOCKERTEST\\output\\standalone_random_circuits.zip",
+      "exists": true
+    },
+    {
+      "purpose": "research driver",
+      "path": "D:\\vscodeprojs\\zhiyuan\\qiskit\\run_all.py",
+      "exists": true
+    }
+  ],
+  "python_snippet_syntax": [
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "block_index": 0,
+      "syntax_valid": true,
+      "executed": false
+    },
+    {
+      "source": "flagquantum-qiskit/README.md",
+      "block_index": 1,
+      "syntax_valid": true,
+      "executed": false
+    }
+  ],
+  "generated_not_missing_evidence": [
+    {
+      "path": "qiskit/results/validation.json",
+      "currently_exists": false,
+      "meaning": "generated only when research run_all.py executes; root README explicitly says no existing evidence"
+    }
+  ],
+  "version_and_installation": {
+    "project_version": "0.2.0",
+    "dependencies": [
+      "qiskit==2.6.2",
+      "flagquantum==0.3.1",
+      "torch==2.14.1"
+    ],
+    "build_requirements": [
+      "setuptools>=77",
+      "wheel"
+    ],
+    "test_extra": [
+      "pytest>=8,<10",
+      "build>=1.2,<2",
+      "qiskit-aer==0.18.4"
+    ],
+    "installed_direct_url": {
+      "archive_info": {
+        "hash": "sha256=6d1576f07571d0aa4700df285b6b8ec78a74186166a95eb7e4ca2421948478a2",
+        "hashes": {
+          "sha256": "6d1576f07571d0aa4700df285b6b8ec78a74186166a95eb7e4ca2421948478a2"
+        }
+      },
+      "url": "file:///D:/vscodeprojs/zhiyuan/flagquantum-qiskit/dist/flagquantum_qiskit-0.2.0-py3-none-any.whl"
+    },
+    "wheel_sha256": "6d1576f07571d0aa4700df285b6b8ec78a74186166a95eb7e4ca2421948478a2",
+    "wheel_python_modules": 13,
+    "wheel_source_matches": true,
+    "wheel_readme_is_build_snapshot": true,
+    "current_document_readme_differs_from_snapshot": true
+  },
+  "fixes": [
+    {
+      "files": [
+        "README.md"
+      ],
+      "before": "bare tests/, dist/, docs/ in workspace overview; Qiskit research completion unclear",
+      "after": "explicit flagquantum-qiskit/ prefixes; links to actual research examples; generated research result identified as absent"
+    },
+    {
+      "files": [
+        "flagquantum-qiskit/README.md"
+      ],
+      "before": "new-user instructions defaulted to editable test install although delivered environment uses wheel; --no-isolation build lacked explicit build-tool install",
+      "after": "separate wheel usage and editable development commands; explicitly install setuptools>=77 and wheel; offline commands use isolated interpreter"
+    },
+    {
+      "files": [
+        "flagquantum-qiskit/ARCHITECTURE.md",
+        "flagquantum-qiskit/ADR-002-basic-aer-compatibility.md"
+      ],
+      "before": "generic ideal/unitary terminal-measurement fast path",
+      "after": "restrict description to supported standard gates, terminal measurement, no active noise; matrix/initialize/save use general execution"
+    },
+    {
+      "files": [
+        "flagquantum-qiskit/tests/README.md"
+      ],
+      "before": "future batch/memory wording and old subset-only test commands",
+      "after": "label historical planning, show full-suite command, explain wheel/editable and generated result report"
+    },
+    {
+      "files": [
+        "flagquantum-qiskit/VALIDATION.md",
+        "flagquantum-qiskit/README.md"
+      ],
+      "before": "wheel metadata described as final README without build-snapshot qualification",
+      "after": "clarify embedded build snapshot and that documentation audit does not rebuild wheel or rerun historical tests"
+    }
+  ],
+  "changed_documents": [
+    "README.md",
+    "flagquantum-qiskit/ADR-002-basic-aer-compatibility.md",
+    "flagquantum-qiskit/ARCHITECTURE.md",
+    "flagquantum-qiskit/README.md",
+    "flagquantum-qiskit/VALIDATION.md",
+    "flagquantum-qiskit/tests/README.md"
+  ],
+  "unchanged_evidence": {
+    "protected_files_checked": 47,
+    "changed_protected_files": [],
+    "upstream_git_status_porcelain": ""
+  },
+  "historical_validation_retained": {
+    "distinct_cases": 190,
+    "full_suite": 186,
+    "followup_compatibility": 42,
+    "followup_characterization": 1,
+    "new_simulation_claims": false
+  },
+  "all_passed": true
+}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1510" viewBox="0 0 1600 1510" role="img" aria-labelledby="title desc">
+<title id="title">执行文件之间，具体怎样互相帮忙？</title><desc id="desc">同样的蓝色箭头：调用者 → 被调用者。每一行独立阅读，不是从上到下执行。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9Z" fill="#3154E8"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, PingFang SC, Arial, sans-serif"><rect width="1600" height="1510" fill="#F5F7FC"/>
+<text x="70" y="58" font-size="19" fill="#3154E8" font-weight="650" text-anchor="start">源码关系  2 / 2</text>
+<text x="1530" y="58" font-size="19" fill="#78849A" font-weight="400" text-anchor="end">FlagQuantum Qiskit · 0.2.0</text>
+<text x="70" y="117" font-size="43" fill="#1C263A" font-weight="700" text-anchor="start">执行文件之间，具体怎样互相帮忙？</text>
+<text x="70" y="159" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">同样的蓝色箭头：调用者 → 被调用者。每一行独立阅读，不是从上到下执行。</text>
+<rect x="70" y="224" width="500" height="116" rx="16" fill="#EAF0FF" stroke="#B9C8FC" stroke-width="1.5"/>
+<text x="93" y="261" font-size="28" fill="#294BDD" font-weight="650" text-anchor="start">validation.py</text>
+<text x="93" y="298" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">检查线路时，需要知道哪些门受支持。</text>
+<rect x="950" y="224" width="580" height="116" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="261" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">target.py</text>
+<text x="973" y="298" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">提供标准门的定义与身份判断。</text>
+<path d="M570 282H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="760" y="266" font-size="22" fill="#3154E8" font-weight="400" text-anchor="middle">判断标准门</text>
+<path d="M70 382H1530" fill="none" stroke="#DCE2ED" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="539" width="500" height="146" rx="16" fill="#EAF0FF" stroke="#B9C8FC" stroke-width="1.5"/>
+<text x="93" y="576" font-size="28" fill="#294BDD" font-weight="650" text-anchor="start">program.py</text>
+<text x="93" y="613" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">整理线路步骤时，</text>
+<text x="93" y="643" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">借用门定义、矩阵转换和噪声转换。</text>
+<path d="M570 612H750" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M750 466V758" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="750" cy="466" r="5" fill="#3154E8"/>
+<path d="M750 466H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="450" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">判断门</text>
+<rect x="950" y="416" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="453" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">target.py</text>
+<text x="973" y="490" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">提供可接受的标准门。</text>
+<circle cx="750" cy="612" r="5" fill="#3154E8"/>
+<path d="M750 612H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="596" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">转换矩阵</text>
+<rect x="950" y="562" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="599" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">fq_ops.py</text>
+<text x="973" y="636" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">转换矩阵的位顺序；此处不演化量子态。</text>
+<circle cx="750" cy="758" r="5" fill="#3154E8"/>
+<path d="M750 758H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="742" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">转换噪声</text>
+<rect x="950" y="708" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="745" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">noise.py</text>
+<text x="973" y="782" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">把显式噪声指令转换为可用的数据。</text>
+<path d="M70 856H1530" fill="none" stroke="#DCE2ED" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="1015" width="500" height="146" rx="16" fill="#EAF0FF" stroke="#B9C8FC" stroke-width="1.5"/>
+<text x="93" y="1052" font-size="28" fill="#294BDD" font-weight="650" text-anchor="start">trajectory.py</text>
+<text x="93" y="1089" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">真正执行各个步骤时，</text>
+<text x="93" y="1119" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">处理经典条件，并调用量子计算。</text>
+<path d="M570 1088H750" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M750 940V1236" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="750" cy="940" r="5" fill="#3154E8"/>
+<path d="M750 940H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="924" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">求条件值</text>
+<rect x="950" y="890" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="927" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">program.py</text>
+<text x="973" y="964" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">提供经典条件与表达式的求值方法。</text>
+<circle cx="750" cy="1088" r="5" fill="#3154E8"/>
+<path d="M750 1088H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="1072" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">量子操作</text>
+<rect x="950" y="1038" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="1075" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">fq_ops.py</text>
+<text x="973" y="1112" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">施加量子操作，并读取状态信息。</text>
+<circle cx="750" cy="1236" r="5" fill="#3154E8"/>
+<path d="M750 1236H947" fill="none" stroke="#3154E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="847" y="1220" font-size="21" fill="#3154E8" font-weight="400" text-anchor="middle">使用规则</text>
+<rect x="950" y="1186" width="580" height="100" rx="16" fill="#FFFFFF" stroke="#D7DEEC" stroke-width="1.5"/>
+<text x="973" y="1223" font-size="28" fill="#1C263A" font-weight="650" text-anchor="start">noise.py 的规则对象</text>
+<text x="973" y="1260" font-size="22" fill="#58677E" font-weight="400" text-anchor="start">查找量子噪声规则，处理读出误差。</text>
+<rect x="70" y="1340" width="1460" height="115" rx="16" fill="#E7F2ED" stroke="#C8E2D5" stroke-width="1.5"/>
+<text x="95" y="1384" font-size="29" fill="#216B55" font-weight="650" text-anchor="start">engine.py 和 fq_ops.py 各自连接外部 FlagQuantum。</text>
+<text x="95" y="1425" font-size="23" fill="#347865" font-weight="400" text-anchor="start">engine 不调用 fq_ops。这里的矩阵转换、经典条件和规则查找，也不等于量子态演化。</text>
+<text x="70" y="1487" font-size="18" fill="#78849A" font-weight="400" text-anchor="start">仅展示主要源码调用；共享数据格式见第一张图的 contracts.py。</text>
+</g></svg>

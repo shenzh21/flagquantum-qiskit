@@ -1,0 +1,66 @@
+{
+  "recorded_at_utc": "2026-11-19T06:10:53.560457+00:00",
+  "versions": {
+    "flagquantum-qiskit": "0.2.0",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "torch": "2.14.1+cpu"
+  },
+  "case": "correlated two-qubit readout on separate measure instructions",
+  "qasm2": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\ncreg c[2];\nx q[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];",
+  "noise_model": {
+    "errors": [
+      {
+        "type": "roerror",
+        "operations": [
+          "measure"
+        ],
+        "probabilities": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "gate_qubits": [
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "shots": 13,
+  "seed_simulator": 97,
+  "analytic_expected_counts": {
+    "10": 13
+  },
+  "flagquantum_counts": {
+    "10": 13
+  },
+  "aer_counts": {
+    "01": 13
+  },
+  "interpretation": "The adapter applies the declared matrix row 01 -> column 10. Aer 0.18.4 accepts this model but ignores that correlated readout rule for this fixture. This is an explicitly documented difference, not a parity claim."
+}

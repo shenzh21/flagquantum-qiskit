@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="FlagQuantum Qiskit 项目汇报：目标、使用、执行追踪、源码调用、已实现能力与验证边界。">
+<title>FlagQuantum Qiskit · 从目标到执行的项目汇报</title>
+<link rel="stylesheet" href="report-assets/report.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><span>FlagQuantum <span class="brand-light">Qiskit</span></span></a><span class="top-label">项目汇报 / 0.2.0</span><a class="top-link" href="../README.md">项目文档</a></div></header>
+<main id="main">
+<section class="hero wrap" id="overview">
+ <div class="hero-copy"><div class="eyebrow">连接既有工作流与真实计算引擎</div><h1>写的是 Qiskit。<br><span>算的是 FlagQuantum。</span></h1><p class="lead">我们完成了一个独立的 Python 后端适配包：保留线路、转译、任务和结果接口，把量子数值计算交给真实 FlagQuantum。</p><div class="hero-actions"><a class="button" href="#bell">看一次真实执行</a><a class="button secondary" href="#usage">查看完整用法</a></div><p class="caption">本地 CPU · 不需要 IBM 凭证 · 网页用于讲解，不在浏览器运行 Python</p></div>
+ <div class="hero-art" aria-label="从Qiskit代码到真实结果"><div class="art-window"><div class="window-head"><span>用户的工作流</span><span>Python</span></div><pre><code>compiled = transpile(circuit, backend)
+job = backend.run(compiled, shots=1000)
+counts = job.result().get_counts()</code></pre><div class="art-engine"><span class="engine-icon" aria-hidden="true">FQ</span><div><strong>FlagQuantumBackend</strong><span>转换与调度，由外部 FQ 执行</span></div></div><div class="art-result"><div><span class="caption">2026-11-19 · 已安装 wheel 实测</span><strong>{'00': 484, '11': 516}</strong></div><div class="mini-bars" aria-hidden="true"><i style="height:75px"></i><i style="height:80px"></i></div></div></div><div class="art-caption">1,000 shots · seed 7 · <a href="../tests/results/phase2_wheel_smoke.json">运行证据</a></div></div>
+</section>
+<nav class="chapters" aria-label="汇报章节"><div class="wrap chapter-inner"><a href="#overview">目标与交付</a><a href="#usage">安装使用</a><a href="#roles">三方职责</a><a href="#bell">一次执行</a><a href="#source">源码关系</a><a href="#capabilities">能力与边界</a><a href="#evidence">验证效果</a></div></nav>
+
+<section class="section wrap" id="goal"><div class="section-heading"><div class="eyebrow">先说清楚，我们交付了什么</div><h2>一个后端接口。<br>一条可以验证的计算链。</h2></div><div class="goal-layout"><p class="statement">用户继续用 <strong>QuantumCircuit</strong> 描述实验；换成 <strong>FlagQuantumBackend</strong> 后，仍然用 <strong>transpile → run → result</strong> 完成计算。</p><div class="goal-notes"><article><h3>目标</h3><p>让 Qiskit 线路能够进入 FlagQuantum，并正确保留测量映射、参数、控制流和结果语义。</p></article><article><h3>交付形态</h3><p><code>flagquantum_qiskit</code> 独立安装包、13 个源码模块、测试证据与文档；wheel 可从 0.2.0 源码构建。任务同步完成，<code>job.result()</code> 重复读取不会重新采样。</p></article><article><h3>产品定位</h3><p>一个连接两套框架的适配器。没有重写量子模拟器，也不是 <code>AerSimulator(method="flagquantum")</code> 插件，更不是完整 Aer 平替。</p></article></div></div></section>
+
+<section class="section wrap" id="usage"><div class="section-heading horizontal"><div><div class="eyebrow">把汇报落到可以使用的交付物</div><h2>安装这个包，<br>运行第一条线路。</h2></div><p>以下命令用于在本地 PowerShell 创建新环境。已完成安装的现有环境无需重建，可直接运行右侧示例。</p></div><div class="usage-layout"><div><h3>新环境安装 · Windows / Python 3.11</h3><div class="code-box light"><div class="code-head"><span>项目根目录执行</span><button data-copy="install-code">复制命令</button></div><pre><code id="install-code"># 克隆仓库后，在含 pyproject.toml 的仓库根目录执行
+py -3.11 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip
+.venv\Scripts\python.exe -m pip install `
+  torch==2.14.1+cpu `
+  --index-url https://download.pytorch.org/whl/cpu
+.venv\Scripts\python.exe -m pip install `
+  .
+
+# 保存指令 / NoiseModel 对象需要时再安装
+.venv\Scripts\python.exe -m pip install qiskit-aer==0.18.4</code></pre></div><p class="caption">已验证：Qiskit 2.6.2 · FlagQuantum 0.3.1 · Torch 2.14.1+cpu。不是 PyPI 发布声明。源码开发与重新构建请按 README 切换 editable 安装。</p></div><div><h3>使用 · 完整 Bell 示例</h3><div class="code-box"><div class="code-head"><span>保存为 bell_demo.py</span><button data-copy="bell-code">复制代码</button></div><pre><code id="bell-code">from qiskit import QuantumCircuit, transpile
+from flagquantum_qiskit import FlagQuantumBackend
+
+backend = FlagQuantumBackend()
+circuit = QuantumCircuit(2)
+circuit.h(0)
+circuit.cx(0, 1)
+circuit.measure_all()
+
+compiled = transpile(circuit, backend, seed_transpiler=7)
+job = backend.run(
+    compiled, shots=1000, seed_simulator=7, memory=True
+)
+result = job.result()
+print(result.get_counts())</code></pre></div><p class="caption">运行：<code>.venv\Scripts\python.exe bell_demo.py</code>。网页的复制按钮只复制文本，不调用后端。</p></div></div><details class="wide-detail"><summary>扩展到批次、memory 和 Qiskit V2 包装器</summary><div class="code-box"><div class="code-head"><span>接在上面的示例之后</span><button data-copy="advanced-code">复制代码</button></div><pre><code id="advanced-code">from qiskit.primitives import BackendSamplerV2, BackendEstimatorV2
+
+batch = backend.run(
+    [compiled, compiled], shots=100, memory=True,
+    seed_simulator=7,
+).result()
+print(batch.get_counts(0))
+print(batch.get_memory(0))
+
+sampler = BackendSamplerV2(backend=backend)
+estimator = BackendEstimatorV2(backend=backend)
+# 根据包装器契约提交线路和观测量；Estimator 是采样估计。</code></pre></div></details><div class="delivery"><div><h3>可以交付、可以阅读，也可以追溯。</h3><p>源码、测试与解释放在同一个独立仓库中，安装包按需构建。接下来扩展任何能力，都应先明确语义范围，再补独立验证。</p></div><div class="hero-actions"><a class="button" href="../README.md#安装与验证">安装 0.2.0 源码</a><a class="button secondary" href="../README.md">阅读项目 README</a></div></div></section>
+<section class="section tinted" id="roles"><div class="wrap"><div class="section-heading horizontal"><div><div class="eyebrow">从使用方式到执行责任</div><h2>三方各做自己擅长的事。</h2></div><p>把“编写、转译”和“数值执行”分开，才能看清适配器真正解决的问题。</p></div>
+<div class="swimlane" role="table" aria-label="Qiskit、适配器与FlagQuantum职责泳道">
+ <div class="lane-head" role="row"><div role="columnheader">阶段</div><div role="columnheader"><span class="lane-number">Q</span>Qiskit</div><div role="columnheader"><span class="lane-number adapter">A</span>适配器</div><div role="columnheader"><span class="lane-number fq">FQ</span>FlagQuantum</div></div>
+ <div class="lane-row" role="row"><h3 role="rowheader">描述实验</h3><div role="cell"><strong>QuantumCircuit</strong><p>门、量子位、经典位、参数与控制流。</p></div><div role="cell"><span class="quiet">尚未执行</span></div><div role="cell"><span class="quiet">尚未计算</span></div></div>
+ <div class="lane-row" role="row"><h3 role="rowheader">转译线路</h3><div role="cell"><strong>transpile</strong><p>依据目标能力分解、优化和处理线路。</p></div><div role="cell"><strong>Target 声明能力</strong><p>告诉转译器哪些指令已接通，参数限制仍在运行时检查。</p></div><div role="cell"><span class="quiet">不在这里模拟</span></div></div>
+ <div class="lane-row" role="row"><h3 role="rowheader">准备执行</h3><div role="cell"><strong>仍是 QuantumCircuit</strong><p>提交转译后的线路。</p></div><div role="cell"><strong>校验、转换、选路</strong><p>保存附带信息，形成适合对应执行路径的数据。</p></div><div role="cell"><span class="quiet">等待计算输入</span></div></div>
+ <div class="lane-row" role="row"><h3 role="rowheader">数值计算</h3><div role="cell"><span class="quiet">不代替 FQ 演化</span></div><div role="cell"><strong>调度与经典反馈</strong><p>处理分支、循环、噪声时机与输出收集。</p></div><div role="cell"><strong>真正更新量子态</strong><p>演化、采样、坍缩、reset 与噪声通道。</p></div></div>
+ <div class="lane-row" role="row"><h3 role="rowheader">交回结果</h3><div role="cell"><strong>Result / V2 包装器</strong><p>按熟悉的方式读取结果。</p></div><div role="cell"><strong>映射与封装</strong><p>把量子样本写到经典位，返回缓存 Job。</p></div><div role="cell"><strong>提供数值输出</strong><p>不负责 Qiskit 寄存器排版。</p></div></div>
+</div>
+<div class="explain-grid"><details><summary>transpile 到底改变了什么对象？</summary><p>输入和输出都是 <code>QuantumCircuit</code>。转译过程中的 passes 常使用 <code>DAGCircuit</code> 分析和改写线路，但这并不意味着交给后端的对象变成了 FQ 程序。后端收到线路后，再做自己的校验与必要表示转换。</p></details><details><summary>Target 是照抄 FlagQuantum 的原生门表吗？</summary><p>不是。Target 表达的是本适配器已经接通的能力，既包含标准门，也包含由一般执行路径处理的初始化、矩阵、控制与保存指令。Target 允许转译器保留这些指令，实际类型、参数和资源限制仍由运行时检查。</p></details><details><summary>backend.run 会再做一次完整转译吗？</summary><p>不会自动替用户重复整套 Qiskit transpile 或 FQ plan/run。它做必要的校验和转换；初始化准备态会局部合成门序列。用户应先按目标能力准备线路，未知指令不会被静默跳过。</p></details></div></div></section>
+
+<section class="section wrap" id="bell"><div class="section-heading horizontal"><div><div class="eyebrow">从代码到结果，逐步讲清楚</div><h2>跟着一条 Bell 线路走一遍。</h2></div><p>点击步骤查看当前对象、数据变化和责任模块。这里回放本地记录，不在网页里执行模拟。<a href="report-assets/trace_bell.py">追踪脚本</a>可用于复核来源。</p></div>
+<div class="trace-evidence"><span class="evidence-tag">真实记录</span><p id="trace-source-note">转换、样本和结果来自本次真实后端追踪；中间量子态另以数学图解展示，不混作同一次采样的逐门日志。</p><a id="trace-source-link" href="report-assets/bell_trace.json">查看原始记录</a></div>
+<div class="trace-shell"><div class="trace-steps" role="tablist" aria-label="Bell执行步骤" aria-orientation="vertical"></div><div class="trace-panel" role="tabpanel" id="trace-panel" tabindex="0"><div class="trace-topline"><span id="trace-stage">步骤</span><span id="trace-owner" class="owner">责任模块</span></div><h3 id="trace-title"></h3><p id="trace-description"></p><div class="trace-object"><div class="field-label">当前对象 / 数据</div><code id="trace-object"></code></div><div class="trace-data"><div><div class="field-label">这一刻看得见的数据</div><pre id="trace-data"></pre></div><div class="trace-explanation"><div class="field-label">为什么需要这一步</div><p id="trace-why"></p></div></div><div class="trace-controls"><button type="button" id="trace-prev" class="text-button">上一步</button><span id="trace-position"></span><button type="button" id="trace-next" class="button small-button">下一步</button></div></div></div>
+<div class="state-lesson"><div><div class="eyebrow">辅助图解 · 理想数学状态</div><h3>H 产生叠加，CX 建立关联。</h3><p>下面是理想线路的振幅推导，已用三个独立 FQ 前缀计算核对；它们不是本次 1,000 次抽样内部的逐门日志。测量前，00 与 11 的概率各为 1/2；有限次抽样的计数可以略有不同。</p><div class="state-tabs" role="tablist" aria-label="理想Bell状态"><button role="tab" aria-selected="true" data-state="0">全零初态</button><button role="tab" aria-selected="false" tabindex="-1" data-state="1">H(q0) 后</button><button role="tab" aria-selected="false" tabindex="-1" data-state="2">CX 后</button></div></div><div class="state-plot" role="tabpanel" aria-label="量子态概率图"><div class="state-formula" id="state-formula"></div><div class="prob-bars" id="prob-bars"></div><div class="caption">横轴按 Qiskit 显示顺序：|q1 q0⟩；条高为概率。</div></div></div>
+<details class="wide-detail"><summary>为什么 Bell 还不足以说明位序正确？看一个不对称例子。</summary><div class="endian"><div><span class="field-label">实际位身份</span><strong>q0 = 1，q1 = 0</strong><p>Qiskit 字符串高位在左，所以显示 <code>01</code>。若按 q0→c0、q1→c1 测量，经典结果也是 <code>01</code>。</p></div><div><span class="field-label">状态数组的同一物理态</span><strong>Qiskit [0, 1, 0, 0]</strong><strong>FQ [0, 0, 1, 0]</strong><p>两边数组采用不同位序，因此在表示边界转换索引；量子位身份不反转，也不交换 CX 的控制位与目标位。</p></div></div></details>
+<div class="callout"><h3>附带信息不是“可有可无”。</h3><p>线路名称、metadata、经典寄存器、测量写入顺序、相位和 layout 会单独保留。数值样本需要按明确的 q→c 关系写回，未写经典位保持 0，重复写入以后一次为准。结果依据提交线路的真实位索引，不再把 layout 反转一次。</p></div>
+</section>
+
+<section class="section tinted" id="source"><div class="wrap"><div class="section-heading horizontal"><div><div class="eyebrow">从运行步骤回到文件组织</div><h2>总控集中，计算有边界。</h2></div><p>点击一个文件，看它为什么存在、调用谁、由谁使用。蓝色连线连接总控与直接协作者；右侧箭头从调用者指向被调用者，不表示执行先后顺序。</p></div>
+<div class="module-explorer"><div class="module-map"><div class="map-controller"><button class="module-button selected" data-module="backend">backend.py<span>总调度</span></button></div><div class="map-trunk" aria-hidden="true"></div><div class="module-groups"><div><h3>准备</h3><button class="module-button" data-module="target">target.py</button><button class="module-button" data-module="validation">validation.py</button><button class="module-button" data-module="noise">noise.py</button><button class="module-button" data-module="conversion">conversion.py</button></div><div><h3>执行</h3><button class="module-button" data-module="program">program.py</button><button class="module-button" data-module="engine">engine.py</button><button class="module-button" data-module="trajectory">trajectory.py</button></div><div><h3>结果</h3><button class="module-button" data-module="results">results.py</button><button class="module-button" data-module="job">job.py</button></div></div><div class="support-modules"><button class="module-button" data-module="init">__init__.py<span>对外入口</span></button><button class="module-button" data-module="contracts">contracts.py<span>共享格式</span></button><button class="module-button" data-module="fq_ops">fq_ops.py<span>底层连接</span></button></div><p class="caption">backend 直接调用上方九个协作文件。底部三个是入口或共享支持，不接在执行流水线上。</p></div><aside class="module-detail" aria-live="polite"><div class="eyebrow">当前选择</div><h3 id="module-name"></h3><p id="module-purpose"></p><div class="relation-label">它使用谁</div><div id="module-calls" class="relation-list"></div><div class="relation-label">谁使用它</div><p id="module-callers"></p><div class="module-note" id="module-note"></div><a id="module-source" class="text-link" href="../src/flagquantum_qiskit/backend.py">打开源码</a></aside></div>
+<div class="paths"><article><span class="path-label">标准门 · 无活动噪声 · 仅末尾测量</span><h3>严格导入，再一次性采样。</h3><p>backend 分别调用 conversion、engine、results。conversion 剥离终端测量并保留写位信息，严格转换为 FQ 内部格式；engine 调用 <code>Circuit.from_ir().sample()</code>；results 把采样列映射成经典结果。</p></article><article><span class="path-label">初始化 / 矩阵 / 动态 / 保存 / 噪声等</span><h3>解释经典程序，调用数值内核。</h3><p>program 建立适配器内部 Program；trajectory 解释条件与循环、控制噪声时机、聚合输出，经 fq_ops 调用 FQ。此路径由 backend 直接组装结果，不经过 results.py，也不声称全部变成同一种 FQ 内部格式。</p></article></div>
+<div class="source-links"><a href="../docs/source-map.svg">打开主控调用图</a><a href="../docs/source-execution.svg">打开执行协作图</a><a href="../ARCHITECTURE.md">完整架构契约</a><a href="../ADR-002-basic-aer-compatibility.md">设计决定</a></div>
+<details class="wide-detail"><summary>仓库实现、研究来源和运行依赖有什么区别？</summary><div class="folder-grid"><div><code>src / tests / docs / site</code><p>本仓库包含正式适配器、测试、文档与演示。dist 是构建后生成的目录，不要求克隆时存在。</p></div><div><a href="https://github.com/flagos-ai/FlagQuantum/tree/f0e74cf92f1784c5839c647a0781ad5db8cb6b85">官方 0.4.0 研究快照</a><p>固定提交仅供研究参考，不随仓库分发，也不要求相邻研究目录。</p></div><div><code>FlagQuantum 0.3.1</code><p>实际计算依赖官方发布包。源码安装会解析固定依赖，不把研究快照注入运行环境。</p></div></div></details>
+</div></section>
+
+<section class="section wrap" id="capabilities"><div class="section-heading"><div class="eyebrow">实现了什么，仍缺什么</div><h2>覆盖基础模拟实验，<br>把边界说在明处。</h2></div><div class="capability-table"><div class="cap-row"><h3>提交与读取</h3><p>单线路、批次、参数绑定、counts、逐 shot memory，标准同步 Job / Result。</p><span>已实现</span></div><div class="cap-row"><h3>状态与算符</h3><p>初始化、矩阵门、全幅 set_statevector；状态向量、概率与 Pauli 期望保存，含逐次与按经典值分组。</p><span>已实现</span></div><div class="cap-row"><h3>动态与反馈</h3><p>中途测量、reset、if / for / while / switch、break / continue，Bool / Uint 表达式与循环预算。</p><span>已实现</span></div><div class="cap-row"><h3>噪声与生态</h3><p>常见量子通道和读出误差；通用 BackendSamplerV2 / BackendEstimatorV2，多 PUB 与元数据。</p><span>已实现</span></div></div>
+<div class="limits"><div><h3>本轮未实现</h3><p>GPU、多算法选择、分布式、自动微分、性能调优；density matrix 等其他保存类型；Store、独立经典变量、Float / Duration 表达式。不提供云任务队列。</p></div><div><h3>支持也有范围</h3><p>只验收 Windows / Python 3.11 与固定依赖组合。局部噪声最多 5 位并受预算限制；经典寄存器需标准连续布局。最大准入量子位数不是运行规模或速度保证。</p></div><div><h3>已确认的差异</h3><p>随机序列和噪声轨迹不保证与 Aer 相同。连续测量合并是本工具的规则扩展；逆序或部分初始化仍有相位 API 差异。Aer 末尾 while 诊断可关闭裁剪后正常执行。整体相位差异不能用来放宽其他理想振幅测试。</p></div></div><a class="text-link" href="../COMPATIBILITY.md">逐项查看兼容矩阵与拒绝边界</a>
+<details class="wide-detail"><summary>Aer 为什么仍然是可选依赖？</summary><p>Aer 提供保存指令、NoiseModel 等对象，以及独立测试参考。生产可以使用它转换小规模局部通道的表示，但不调用 Aer 模拟器执行线路。基础 Bell、动态控制和通用 V2 包装器不需要 Aer。保存结果中的 Qiskit Statevector 只是容器，不是替代演化引擎。</p></details></section>
+
+<section class="section evidence-section" id="evidence"><div class="wrap"><div class="section-heading horizontal"><div><div class="eyebrow">效果用证据说明</div><h2>验证的是语义与来源，<br>没有用速度口号代替正确性。</h2></div><p>运行结果、测试范围、误差阈值和已知差异均保留在本地记录中，可逐项查看。</p></div><div class="evidence-numbers"><div><strong>190</strong><span>累计不同测试用例通过</span></div><div><strong>17</strong><span>用户 QASM 线路回归</span></div><div><strong>13</strong><span>源码模块已补齐中文说明</span></div></div><div class="evidence-story"><article><h3>这 190 项怎么算？</h3><p>一次完整运行通过 186 项；随后针对初始化相位修复进行相关回归，累计覆盖 190 个不同用例。不是最终版本一次 190 项全量重跑；本页演示也不替代全套验收。</p></article><article><h3>如何知道真在用 FQ？</h3><p>测试追踪真实 FQ 采样与底层数值入口，并阻断替代模拟器的执行。wheel 安装后在包目录外验证；独立进程禁止 Aer 导入，基础 Bell 仍然成功。</p></article><article><h3>17 条线路说明了什么？</h3><p>原 QASM 没有测量，回归在副本中添加测量。它们在全零初态下都输出单一基态，不能证明任意输入的完整幺正等价。复振幅、相位、动态与噪声另有测试覆盖。</p></article></div><div class="evidence-foot"><p>精确概率误差与有限 shots 的统计误差分开验收。原 17 条线路最大精确概率误差约 9.77 × 10⁻¹⁵；这是该组测试的结果，不是对任意线路的误差保证。</p><div class="source-links"><a href="../VALIDATION.md">验证说明</a><a href="../tests/results/phase2_verification.json">完整与回归记录</a><a href="../tests/results/phase2_wheel_smoke.json">wheel 安装验证</a><a href="../tests/results/user_circuits.json">17 条线路明细</a></div></div></div></section>
+
+
+</main>
+<footer class="wrap footer"><span>FlagQuantum Qiskit · 项目汇报</span><div><a href="index.html">产品首页</a><a href="../ARCHITECTURE.md">架构</a><a href="../COMPATIBILITY.md">兼容性</a><a href="../tests/README.md">测试</a></div><p>图解帮助理解，原始记录界定结论。静态本地页面，无外部 CDN。</p></footer>
+<div class="toast" role="status" aria-live="polite" hidden></div>
+<script src="report-assets/trace-data.js"></script><script src="report-assets/report.js"></script>
+</body></html>

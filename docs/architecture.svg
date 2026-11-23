@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1800" viewBox="0 0 1600 1800" role="img" aria-labelledby="title description">
+<title id="title">FlagQuantum Qiskit 后端：目录、执行流程与已实现能力</title>
+<desc id="description">0.2.0 版本架构图。三个独立目录分别保存 Qiskit 研究、FlagQuantum 上游研究与可发布适配器。Qiskit 转译后仍是 QuantumCircuit，经 Backend 校验后进入理想末端采样或动态噪声保存路径，两者均调用外部 FlagQuantum 数值引擎。适配器负责经典调度、表示转换与结果映射，不重写量子模拟器。Aer 仅为可选对象来源与测试参考。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 z" fill="#8D9BAD"/></marker></defs>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, PingFang SC, Arial, sans-serif">
+<rect width="1600" height="1800" fill="#F5F7FB"/>
+
+<rect x="70" y="39" width="186" height="30" rx="15" fill="#EDE9F8" stroke="#EDE9F8"/>
+<text x="163.0" y="60" font-size="16" fill="#6350A8" font-weight="600" text-anchor="middle">架构与能力 · 0.2.0</text>
+<text x="70" y="114" font-size="40" fill="#17243A" font-weight="700" text-anchor="start">一条 Qiskit 线路，怎样交给 FlagQuantum 计算？</text>
+<text x="70" y="151" font-size="23" fill="#58677E" font-weight="400" text-anchor="start">Qiskit 表达和转译线路  ·  适配器连接接口  ·  FlagQuantum 执行量子数值</text>
+<text x="1530" y="60" font-size="18" fill="#738198" font-weight="400" text-anchor="end">2026-11-19</text>
+<rect x="70" y="186" width="440" height="148" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<rect x="535" y="186" width="440" height="148" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<rect x="1000" y="186" width="530" height="148" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<rect x="91" y="204" width="82" height="30" rx="15" fill="#EEF2F6" stroke="#EEF2F6"/>
+<text x="132.0" y="225" font-size="16" fill="#66748A" font-weight="600" text-anchor="middle">研究</text>
+<text x="91" y="263" font-size="27" fill="#17243A" font-weight="650" text-anchor="start">qiskit/</text>
+<text x="91" y="303" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">Qiskit 接口资料与实验草稿</text>
+<rect x="556" y="204" width="82" height="30" rx="15" fill="#EEF2F6" stroke="#EEF2F6"/>
+<text x="597.0" y="225" font-size="16" fill="#66748A" font-weight="600" text-anchor="middle">研究</text>
+<text x="556" y="263" font-size="27" fill="#17243A" font-weight="650" text-anchor="start">flagquantum/</text>
+<text x="556" y="303" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">upstream/：上游源码研究基准</text>
+<rect x="1021" y="204" width="110" height="30" rx="15" fill="#EDE9F8" stroke="#EDE9F8"/>
+<text x="1076.0" y="225" font-size="16" fill="#6350A8" font-weight="600" text-anchor="middle">当前产品</text>
+<text x="1021" y="263" font-size="27" fill="#493583" font-weight="650" text-anchor="start">flagquantum-qiskit/</text>
+<text x="1021" y="303" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">src/ 适配包 → 独立 wheel</text>
+<text x="70" y="390" font-size="27" fill="#17243A" font-weight="700" text-anchor="start">01  执行流程</text>
+<rect x="1030" y="371" width="12" height="12" rx="3" fill="#3C78C4" stroke="#3C78C4"/>
+<text x="1052" y="384" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">Qiskit</text>
+<rect x="1185" y="371" width="12" height="12" rx="3" fill="#8466C4" stroke="#8466C4"/>
+<text x="1207" y="384" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">适配器</text>
+<rect x="1355" y="371" width="12" height="12" rx="3" fill="#29866E" stroke="#29866E"/>
+<text x="1377" y="384" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">FlagQuantum</text>
+<rect x="70" y="425" width="400" height="108" rx="18" fill="#EDF4FF" stroke="#BCD2EF"/>
+<text x="270" y="467" font-size="26" fill="#285F9F" font-weight="650" text-anchor="middle">用户 QuantumCircuit</text>
+<text x="270" y="504" font-size="21" fill="#58677E" font-weight="400" text-anchor="middle">编写门、测量或控制流</text>
+<path d="M 470 479 H 540" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="540" y="425" width="520" height="108" rx="18" fill="#EDF4FF" stroke="#BCD2EF"/>
+<text x="800" y="467" font-size="25" fill="#285F9F" font-weight="650" text-anchor="middle">Qiskit transpile(线路, backend)</text>
+<text x="800" y="504" font-size="21" fill="#58677E" font-weight="400" text-anchor="middle">读取 Target 能力，分解并优化线路</text>
+<path d="M 1060 479 H 1130" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1130" y="425" width="400" height="108" rx="18" fill="#EDF4FF" stroke="#BCD2EF"/>
+<text x="1330" y="467" font-size="26" fill="#285F9F" font-weight="650" text-anchor="middle">仍是 QuantumCircuit</text>
+<text x="1330" y="504" font-size="21" fill="#58677E" font-weight="400" text-anchor="middle">此处尚未变成 FQ IR</text>
+<path d="M 1330 533 V 564 H 800 V 608" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="833" y="594" font-size="20" fill="#6350A8" font-weight="400" text-anchor="start">backend.run(...)</text>
+<rect x="470" y="610" width="660" height="111" rx="18" fill="#F2EDFC" stroke="#CFC0E9"/>
+<text x="800" y="652" font-size="29" fill="#5B3F93" font-weight="700" text-anchor="middle">FlagQuantumBackend</text>
+<text x="800" y="690" font-size="21" fill="#58677E" font-weight="400" text-anchor="middle">展开参数与批次 · 校验输入、容量及选项</text>
+<rect x="70" y="610" width="350" height="111" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<text x="92" y="650" font-size="21" fill="#17243A" font-weight="650" text-anchor="start">Sidecar · 线路附带信息</text>
+<text x="92" y="683" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">映射 / metadata / phase / layout</text>
+<path d="M 470 666 H 420" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<rect x="1180" y="610" width="350" height="111" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<text x="1202" y="650" font-size="22" fill="#17243A" font-weight="650" text-anchor="start">Aer · 可选对象来源</text>
+<text x="1202" y="683" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">save 指令 / NoiseModel / 局部转换</text>
+<path d="M 1180 666 H 1130" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<text x="800" y="756" font-size="20" fill="#6350A8" font-weight="400" text-anchor="middle">根据实际提交线路，选择两条执行路径</text>
+<path d="M 800 721 V 732" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M 800 765 V 773 H 410 V 799" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 800 773 H 1190 V 799" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="70" y="801" width="680" height="242" rx="18" fill="#FFFFFF" stroke="#D5C8EA"/>
+<rect x="850" y="801" width="680" height="242" rx="18" fill="#FFFFFF" stroke="#D5C8EA"/>
+<rect x="94" y="820" width="40" height="30" rx="15" fill="#EDE9F8" stroke="#EDE9F8"/>
+<text x="114.0" y="841" font-size="16" fill="#6350A8" font-weight="600" text-anchor="middle">A</text>
+<text x="151" y="843" font-size="26" fill="#493583" font-weight="650" text-anchor="start">标准门线路 · 末尾测量</text>
+<text x="95" y="887" font-size="22" fill="#6350A8" font-weight="400" text-anchor="start">适配器：规范化线路 → 严格 import_qiskit</text>
+<text x="95" y="919" font-size="19" fill="#738198" font-weight="400" text-anchor="start">FQ IR 是这条路径的内部表示</text>
+<rect x="95" y="940" width="630" height="68" rx="12" fill="#E6F4EE" stroke="#B6DCCF"/>
+<text x="410" y="968" font-size="22" fill="#216D59" font-weight="650" text-anchor="middle">FlagQuantum  ·  Circuit.from_ir(...).sample()</text>
+<text x="410" y="994" font-size="18" fill="#377B68" font-weight="400" text-anchor="middle">量子态演化与末端抽样</text>
+<text x="95" y="1030" font-size="17" fill="#738198" font-weight="400" text-anchor="start">conversion.py / engine.py</text>
+<rect x="874" y="820" width="40" height="30" rx="15" fill="#EDE9F8" stroke="#EDE9F8"/>
+<text x="894.0" y="841" font-size="16" fill="#6350A8" font-weight="600" text-anchor="middle">B</text>
+<text x="931" y="843" font-size="26" fill="#493583" font-weight="650" text-anchor="start">通用路径 · 动态 / 噪声 / 保存</text>
+<text x="875" y="887" font-size="22" fill="#6350A8" font-weight="400" text-anchor="start">适配器：program 编译 → trajectory 经典调度</text>
+<text x="875" y="919" font-size="19" fill="#738198" font-weight="400" text-anchor="start">初始化 / 矩阵门也走此路径；fq_ops 连接数值入口</text>
+<rect x="875" y="940" width="630" height="68" rx="12" fill="#E6F4EE" stroke="#B6DCCF"/>
+<text x="1190" y="968" font-size="22" fill="#216D59" font-weight="650" text-anchor="middle">FlagQuantum  ·  固定版本数值内核</text>
+<text x="1190" y="994" font-size="18" fill="#377B68" font-weight="400" text-anchor="middle">施加量子门 / 测量坍缩 / reset / Kraus 通道</text>
+<text x="875" y="1030" font-size="17" fill="#738198" font-weight="400" text-anchor="start">program.py / trajectory.py / fq_ops.py / noise.py</text>
+<path d="M 410 1043 V 1081 H 800 V 1110" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1190 1043 V 1081 H 800" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="340" y="1112" width="920" height="106" rx="18" fill="#F2EDFC" stroke="#CFC0E9"/>
+<text x="800" y="1154" font-size="28" fill="#5B3F93" font-weight="650" text-anchor="middle">位序与结果转换 → Qiskit Job / Result</text>
+<text x="800" y="1192" font-size="21" fill="#58677E" font-weight="400" text-anchor="middle">经典位写入 · 保存聚合 · counts / memory · 同步缓存结果</text>
+<path d="M 800 1218 V 1257" fill="none" stroke="#8D9BAD" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="340" y="1260" width="920" height="83" rx="18" fill="#EDF4FF" stroke="#BCD2EF"/>
+<text x="800" y="1296" font-size="24" fill="#285F9F" font-weight="650" text-anchor="middle">用户读取结果，或通过 Qiskit 通用 V2 包装器使用后端</text>
+<text x="800" y="1327" font-size="20" fill="#58677E" font-weight="400" text-anchor="middle">BackendSamplerV2 / BackendEstimatorV2：复用上述执行链</text>
+<text x="70" y="1175" font-size="18" fill="#738198" font-weight="400" text-anchor="start">Qiskit bit 0：LSB</text>
+<text x="70" y="1204" font-size="18" fill="#738198" font-weight="400" text-anchor="start">FQ 振幅顺序：MSB</text>
+<text x="1292" y="1175" font-size="18" fill="#738198" font-weight="400" text-anchor="start">Aer 还用于独立测试</text>
+<text x="1292" y="1204" font-size="18" fill="#738198" font-weight="400" text-anchor="start">生产不调用 Aer.run</text>
+<text x="70" y="1406" font-size="27" fill="#17243A" font-weight="700" text-anchor="start">02  当前已实现</text>
+<rect x="70" y="1430" width="470" height="147" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<text x="93" y="1472" font-size="25" fill="#17243A" font-weight="650" text-anchor="start">提交与返回</text>
+<text x="93" y="1514" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">单线路 / 批次 / 参数绑定</text>
+<text x="93" y="1549" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">counts / memory / V2 包装器</text>
+<rect x="565" y="1430" width="470" height="147" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<text x="588" y="1472" font-size="25" fill="#17243A" font-weight="650" text-anchor="start">量子态与动态流程</text>
+<text x="588" y="1514" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">初始化 / 矩阵门 / 状态设置</text>
+<text x="588" y="1549" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">状态、概率、期望保存 / 经典控制</text>
+<rect x="1060" y="1430" width="470" height="147" rx="18" fill="#FFFFFF" stroke="#DCE3ED"/>
+<text x="1083" y="1472" font-size="25" fill="#17243A" font-weight="650" text-anchor="start">噪声与执行保护</text>
+<text x="1083" y="1514" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">常见量子通道 / 读出误差</text>
+<text x="1083" y="1549" font-size="21" fill="#58677E" font-weight="400" text-anchor="start">输入校验 / 循环与结果预算</text>
+<rect x="70" y="1612" width="1460" height="120" rx="18" fill="#EAF2EF" stroke="#C4DACF"/>
+<text x="94" y="1652" font-size="27" fill="#216D59" font-weight="700" text-anchor="start">适配器负责连接与调度；FlagQuantum 负责量子计算。</text>
+<text x="94" y="1690" font-size="22" fill="#377B68" font-weight="400" text-anchor="start">FlagQuantum 是外部安装依赖；产品 wheel 不复制、打包相邻 upstream 研究源码。</text>
+<text x="70" y="1762" font-size="18" fill="#58677E" font-weight="400" text-anchor="start">已验证：Windows / Python 3.11 · Qiskit 2.6.2 · FlagQuantum 0.3.1 · Torch 2.14.1+cpu</text>
+<text x="1530" y="1762" font-size="18" fill="#58677E" font-weight="400" text-anchor="end">CPU · 非完整 Aer 等价 · 无 GPU / 多算法 / 性能调优</text>
+</g></svg>

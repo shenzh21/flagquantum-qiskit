@@ -1,0 +1,38 @@
+{
+  "verified_at_utc": "2026-11-18T03:26:37.310225+00:00",
+  "working_directory": "D:\\vscodeprojs",
+  "adapter_file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Lib\\site-packages\\flagquantum_qiskit\\__init__.py",
+  "flagquantum_file": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\.venv\\Lib\\site-packages\\flagquantum\\__init__.py",
+  "versions": {
+    "qiskit": "2.6.2",
+    "flagquantum": "0.3.1",
+    "torch": "2.14.1+cpu"
+  },
+  "installation": "wheel, not editable",
+  "aer_installed": false,
+  "compiled_num_qubits": 2,
+  "shots": 1000,
+  "seed_simulator": 7,
+  "counts": {
+    "00": 484,
+    "11": 516
+  },
+  "wheel": "D:\\vscodeprojs\\zhiyuan\\flagquantum-qiskit\\dist\\flagquantum_qiskit-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "e214d8fedb9f11f9c7c38152bf7540709951537ad0e47890192647722bddc514",
+  "wheel_entries": [
+    "flagquantum_qiskit/__init__.py",
+    "flagquantum_qiskit/backend.py",
+    "flagquantum_qiskit/contracts.py",
+    "flagquantum_qiskit/conversion.py",
+    "flagquantum_qiskit/engine.py",
+    "flagquantum_qiskit/job.py",
+    "flagquantum_qiskit/results.py",
+    "flagquantum_qiskit/target.py",
+    "flagquantum_qiskit/validation.py",
+    "flagquantum_qiskit-0.1.0.dist-info/METADATA",
+    "flagquantum_qiskit-0.1.0.dist-info/WHEEL",
+    "flagquantum_qiskit-0.1.0.dist-info/top_level.txt",
+    "flagquantum_qiskit-0.1.0.dist-info/RECORD"
+  ],
+  "wheel_code_matches_tested_source": true
+}

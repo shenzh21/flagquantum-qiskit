@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flagquantum-qiskit"
+version = "0.2.0"
+description = "A Qiskit BackendV2 adapter for real FlagQuantum CPU simulation"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = ["qiskit==2.6.2", "flagquantum==0.3.1", "torch==2.14.1"]
+
+[project.urls]
+Repository = "https://github.com/shenzh21/flagquantum-qiskit"
+Issues = "https://github.com/shenzh21/flagquantum-qiskit/issues"
+
+[project.optional-dependencies]
+aer = ["qiskit-aer==0.18.4"]
+test = ["pytest>=8,<10", "build>=1.2,<2", "qiskit-aer==0.18.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,107 @@
+{
+  "verified_on": "2026-11-19",
+  "recorded_at_utc": "2026-11-19T06:10:53.573935+00:00",
+  "command": "python -m pytest -q --junitxml=tests/results/phase2_pytest.xml",
+  "exit_code": 0,
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "186",
+    "time": "33.711",
+    "timestamp": "2026-11-19T14:09:24.931846+08:00",
+    "hostname": "supermtbz"
+  },
+  "console_summary": "186 passed in 33.71s",
+  "installation_at_test_time": "editable adapter 0.2.0",
+  "versions": {
+    "flagquantum-qiskit": "0.2.0",
+    "flagquantum": "0.3.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.4",
+    "torch": "2.14.1+cpu"
+  },
+  "all_passed": true,
+  "full_user_regression": {
+    "all_passed": true,
+    "circuits": 17,
+    "report": "user_circuits.json",
+    "max_probability_absolute_error": 9.769962616701378e-15
+  },
+  "noise_population_tolerance": 0.06750929627442243,
+  "compatibility_notes": [
+    "aer_correlated_readout_difference.json records a measured 0.18.4 difference for a correlated readout fixture.",
+    "A terminal while block without a following instruction triggers Aer 0.18.4 Invalid jump destination; comparison fixture includes explicit final readout.",
+    "Noise trajectories may use Kraus decompositions with different global phases; physical density matrices are compared for that noisy state case. Ideal saved vectors retain exact phase tests.",
+    "All 17 uploaded circuits have deterministic zero-input output at probability support threshold 1e-12; this is not full-unitary equivalence on arbitrary inputs.",
+    "aer_initialize_phase_difference.json records exact raw phase difference but physical density equality for reversed-qarg full initialize; partial initialization uses physical-state semantics."
+  ],
+  "historical_evidence": "0.1 tests and result JSON archived byte-for-byte under tests/drafts/phase1 with SHA256.json.",
+  "full_run_source_file_sha256": {
+    "__init__.py": "5ba1ff2fccdcb6ee1ab143e2da5037064ac4e685751c6c8aa4626a78b2b23305",
+    "backend.py": "2dfe9ee617593a43835d369134303e35e727de71936f934b4b1df10d63e78887",
+    "contracts.py": "645ca2cfc27b57912a4956a7d216b91c12c87cc05eb4264e27083b12c340e90c",
+    "conversion.py": "e22fcebd80622acb02f6fb1da316bf729f6bfa531c9f19df4e47615283e6e662",
+    "engine.py": "3473008a622baf3bd7729bf1d6091a5620e83ea72e0a318ddd81788c29a5e76d",
+    "fq_ops.py": "35909f0995f05ae1541fec880240e1b14efebf3d307aa91064cde64cfc6e7915",
+    "job.py": "357b55a3f535c3f95c93507a803c9479dc8d9736830fe8b7008b968490bf2592",
+    "noise.py": "9c0142017322a24055a540c4d7852e83db215b8e29949106165416d4777ee366",
+    "program.py": "8ba5e6aeeac7453db27a1bc49b4a131c442f33ca115e28d498ebf214d1e7ca0b",
+    "results.py": "a0b30204a6c3f3705c5652735a6588401561c3def58af81ae2937e743c2a63f1",
+    "target.py": "f0d3fb519c277cb91786e96378c90c287c42f95c6e845055bbc1c78413dae466",
+    "trajectory.py": "cad156277de31b5aaec164bd8e36eeda6932c856d06d2c0d8392866b22f6b9b2",
+    "validation.py": "29c76433581117bf7f334051144cd648f59d07eda8bdb48d1ffa88ac4d5c2875"
+  },
+  "full_run_test_file_sha256": {
+    "test_aer_compatibility.py": "4d9a0bc7cba31c064bc4ff615abb79c259004c836f623ebb55b2a169e888804f",
+    "test_backend.py": "8c945847d4835ba362034533a1af33a3a845f89d91a1a8371cf0b0c70b4e2ba9",
+    "test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+    "test_dynamic.py": "34965145c572567a0998d645f146868dd52fdd479d6ab4d4c2bef48076e25c0a",
+    "test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+    "test_noise.py": "7f96a5a7a8d3e925c5cad3cc46c55602892980a61df0a0bb00ce1d80ae378f97",
+    "test_primitives.py": "1a9a19e8dae0a908aacfe610d81d0118ae088e70d971d0cb66e64df1c2f7a463",
+    "test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+  },
+  "additional_runs": [
+    {
+      "command": "python -m pytest tests/test_aer_compatibility.py -q --junitxml=tests/results/phase2_phase_regression.xml",
+      "passed": 42,
+      "duration_seconds": 16.35,
+      "scope": "Complete compatibility module after canonical initialize phase correction, including three new phase regressions"
+    },
+    {
+      "command": "python -m pytest tests/test_aer_compatibility.py::test_reversed_full_initialize_phase_is_a_documented_aer_difference -q --junitxml=tests/results/phase2_reverse_initialize.xml",
+      "passed": 1,
+      "duration_seconds": 3.58,
+      "scope": "New reversed-qarg initialize phase characterization"
+    }
+  ],
+  "distinct_test_cases_passed": 190,
+  "validation_scope": "Full 186-test run followed by targeted complete compatibility-module validation after the initialize phase correction, plus the additional reversed-qarg characterization; not represented as one 190-test invocation.",
+  "latest_test_file_sha256": {
+    "test_aer_compatibility.py": "6b8746b5a6bfe0c7149a6ada73e5f7b5eead4733d2a0ff6aec8cef1dbb1c13b4",
+    "test_backend.py": "8c945847d4835ba362034533a1af33a3a845f89d91a1a8371cf0b0c70b4e2ba9",
+    "test_conversion.py": "c890a5fd82370323dca0b49621218dc79f60f8b15b17e85e7346fa472926fc06",
+    "test_dynamic.py": "34965145c572567a0998d645f146868dd52fdd479d6ab4d4c2bef48076e25c0a",
+    "test_gate_semantics.py": "c05875b45d8d878b2b1d74500a67cc5824ef7eac67471335ae09cea6a77c2a72",
+    "test_noise.py": "7f96a5a7a8d3e925c5cad3cc46c55602892980a61df0a0bb00ce1d80ae378f97",
+    "test_primitives.py": "1a9a19e8dae0a908aacfe610d81d0118ae088e70d971d0cb66e64df1c2f7a463",
+    "test_user_circuits.py": "fb6b30fda4e7db40df47d767e218610d6b68e2f2a021374c4845587b62a41c22"
+  },
+  "latest_source_file_sha256": {
+    "__init__.py": "5ba1ff2fccdcb6ee1ab143e2da5037064ac4e685751c6c8aa4626a78b2b23305",
+    "backend.py": "ad1208ea0c3e7512b7b68ffd358236680e245183e372b8bf4f43c34d2c80ce9e",
+    "contracts.py": "645ca2cfc27b57912a4956a7d216b91c12c87cc05eb4264e27083b12c340e90c",
+    "conversion.py": "e22fcebd80622acb02f6fb1da316bf729f6bfa531c9f19df4e47615283e6e662",
+    "engine.py": "3473008a622baf3bd7729bf1d6091a5620e83ea72e0a318ddd81788c29a5e76d",
+    "fq_ops.py": "35909f0995f05ae1541fec880240e1b14efebf3d307aa91064cde64cfc6e7915",
+    "job.py": "357b55a3f535c3f95c93507a803c9479dc8d9736830fe8b7008b968490bf2592",
+    "noise.py": "9c0142017322a24055a540c4d7852e83db215b8e29949106165416d4777ee366",
+    "program.py": "8ba5e6aeeac7453db27a1bc49b4a131c442f33ca115e28d498ebf214d1e7ca0b",
+    "results.py": "a0b30204a6c3f3705c5652735a6588401561c3def58af81ae2937e743c2a63f1",
+    "target.py": "f0d3fb519c277cb91786e96378c90c287c42f95c6e845055bbc1c78413dae466",
+    "trajectory.py": "50641f98197124003db603e186fd7d7eb94b9d50f3577185c4478ea423eb55d6",
+    "validation.py": "29c76433581117bf7f334051144cd648f59d07eda8bdb48d1ffa88ac4d5c2875"
+  }
+}
